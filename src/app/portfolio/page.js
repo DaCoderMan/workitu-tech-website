@@ -100,26 +100,16 @@ export default function Portfolio() {
                           </div>
                         </div>
                       </div>
-                    ) : project.isWebsite && project.websiteUrl ? (
-                      <div className="relative w-full h-full">
-                        <img
-                          src={`https://api.screenshotmachine.com?key=demo&url=${encodeURIComponent(project.websiteUrl)}&dimension=1024x768&format=png&cacheLimit=0`}
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            // Fallback to a placeholder if screenshot fails
-                            e.target.src = `https://via.placeholder.com/1024x768/1a1a1a/gold?text=${encodeURIComponent(project.title)}`;
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                          <div className="bg-gold-400/90 rounded-full p-3 hover:bg-gold-400 transition-colors duration-300">
-                            <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                              <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
+                    ) : project.isWebsite ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback to a placeholder if screenshot fails
+                          e.target.src = `https://via.placeholder.com/1024x768/1a1a1a/gold?text=${encodeURIComponent(project.title)}`;
+                        }}
+                      />
                     ) : project.image ? (
                       <img
                         src={project.image}
