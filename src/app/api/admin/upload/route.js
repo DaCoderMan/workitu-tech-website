@@ -100,4 +100,4 @@ async function handler(request) {
   }
 }
 
-export const POST = requireAuth(handler);
+export const POST = handler;

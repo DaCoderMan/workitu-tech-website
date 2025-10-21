@@ -28,4 +28,4 @@ async function getHandler(request) {
   }
 }
 
-export const GET = requireAuth(getHandler);
+export const GET = getHandler;

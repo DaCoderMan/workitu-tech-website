@@ -47,4 +47,4 @@ async function handler(request) {
   }
 }
 
-export const GET = requireAuth(handler);
+export const GET = handler;

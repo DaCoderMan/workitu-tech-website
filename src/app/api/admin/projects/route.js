@@ -171,6 +171,6 @@ async function deleteHandler(request) {
 }
 
 export const GET = getHandler;
-export const POST = requireAuth(postHandler);
-export const PUT = requireAuth(putHandler);
-export const DELETE = requireAuth(deleteHandler);
+export const POST = postHandler;
+export const PUT = putHandler;
+export const DELETE = deleteHandler;

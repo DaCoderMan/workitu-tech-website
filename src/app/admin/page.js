@@ -1,13 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function Admin() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('login');
-  const [loginData, setLoginData] = useState({ email: '', password: '' });
+  const [activeTab, setActiveTab] = useState('dashboard');
   const [projects, setProjects] = useState([]);
   const [content, setContent] = useState(null);
   const [analytics, setAnalytics] = useState(null);
@@ -23,26 +20,10 @@ export default function Admin() {
   const [editingProject, setEditingProject] = useState(null);
   const [editingContent, setEditingContent] = useState(null);
   const [toast, setToast] = useState(null);
-  const router = useRouter();
 
   useEffect(() => {
-    checkAuth();
+    loadData();
   }, []);
-
-  const checkAuth = async () => {
-    try {
-      const response = await fetch('/api/auth/session');
-      const data = await response.json();
-      setIsAuthenticated(data.authenticated);
-      if (data.authenticated) {
-        loadData();
-      }
-    } catch (error) {
-      console.error('Auth check failed:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   const loadData = async () => {
     try {
@@ -59,40 +40,8 @@ export default function Admin() {
       if (submissionsRes.ok) setSubmissions(await submissionsRes.json());
     } catch (error) {
       console.error('Error loading data:', error);
-    }
-  };
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(loginData)
-      });
-
-      if (response.ok) {
-        setIsAuthenticated(true);
-        setActiveTab('dashboard');
-        loadData();
-        showToast('Login successful!', 'success');
-      } else {
-        const data = await response.json();
-        showToast(data.message || 'Login failed', 'error');
-      }
-    } catch (error) {
-      showToast('Login failed', 'error');
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      await fetch('/api/auth/logout', { method: 'POST' });
-      setIsAuthenticated(false);
-      setActiveTab('login');
-      showToast('Logged out successfully', 'success');
-    } catch (error) {
-      showToast('Logout failed', 'error');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -162,50 +111,15 @@ export default function Admin() {
     );
   }
 
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-black text-gold-400 flex items-center justify-center px-4">
-        <div className="glass rounded-2xl p-8 w-full max-w-md">
-          <h1 className="text-2xl font-bold text-center mb-6">Admin Login</h1>
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium mb-2">Email</label>
-              <input
-                type="email"
-                value={loginData.email}
-                onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
-                className="input-gold w-full px-4 py-3 rounded-lg"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-2">Password</label>
-              <input
-                type="password"
-                value={loginData.password}
-                onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
-                className="input-gold w-full px-4 py-3 rounded-lg"
-                required
-              />
-            </div>
-            <button type="submit" className="btn-gold w-full py-3 rounded-lg font-semibold">
-              Login
-            </button>
-          </form>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-black text-gold-400">
       {/* Header */}
       <div className="bg-black/90 border-b border-gold-500/20 p-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">Admin Panel</h1>
-          <button onClick={handleLogout} className="btn-gold px-4 py-2 rounded-lg">
-            Logout
-          </button>
+          <div className="text-gold-400/70 text-sm">
+            Full Access - No Authentication Required
+          </div>
         </div>
       </div>
 

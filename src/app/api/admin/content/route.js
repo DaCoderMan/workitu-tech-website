@@ -115,4 +115,4 @@ async function putHandler(request) {
 }
 
 export const GET = getHandler;
-export const PUT = requireAuth(putHandler);
+export const PUT = putHandler;
