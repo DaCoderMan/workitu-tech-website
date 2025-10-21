@@ -61,14 +61,14 @@
   },
   {
     "id": "6",
-    "title": "AI Demo Video 3",
-    "description": "Comprehensive AI showcase demonstrating the power of artificial intelligence in solving complex problems and enhancing user experiences.",
-    "image": "https://img.youtube.com/vi/WDxmACquFbs/maxresdefault.jpg",
-    "link": "https://youtu.be/WDxmACquFbs",
+    "title": "Clear Eight",
+    "description": "A cutting-edge AI platform that provides advanced solutions for data processing, analysis, and intelligent automation. Experience the future of AI-driven technology.",
+    "image": "/images/projects/cleareight-screenshot.png",
+    "link": "https://clear-eight.vercel.app/",
     "category": "AI Solutions",
     "dateAdded": "2024-01-01",
     "featured": false,
-    "videoId": "WDxmACquFbs",
-    "isVideo": true
+    "isWebsite": true,
+    "websiteUrl": "https://clear-eight.vercel.app/"
   }
 ]
