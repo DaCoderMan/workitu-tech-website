@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  workitu-tech:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./src/data:/app/src/data
+    restart: unless-stopped

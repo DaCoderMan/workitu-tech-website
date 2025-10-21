@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "title": "E-Commerce Platform",
+    "description": "A modern, responsive e-commerce platform with AI-powered product recommendations and seamless checkout experience.",
+    "image": "/images/projects/ecommerce-demo.jpg",
+    "link": "https://example-ecommerce.com",
+    "category": "E-Commerce",
+    "dateAdded": "2024-01-15",
+    "featured": true
+  },
+  {
+    "id": "2", 
+    "title": "AI Chat Assistant",
+    "description": "Intelligent chatbot powered by generative AI, providing 24/7 customer support and personalized interactions.",
+    "image": "/images/projects/ai-chat-demo.jpg",
+    "link": "https://example-ai-chat.com",
+    "category": "AI Solutions",
+    "dateAdded": "2024-01-10",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "title": "Portfolio Website",
+    "description": "Elegant portfolio website with smooth animations, mobile-first design, and integrated contact forms.",
+    "image": "/images/projects/portfolio-demo.jpg", 
+    "link": "https://example-portfolio.com",
+    "category": "Web Design",
+    "dateAdded": "2024-01-05",
+    "featured": false
+  }
+]

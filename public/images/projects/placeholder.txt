@@ -1,0 +1,4 @@
+# Placeholder Images Directory
+# Add your project images here
+# Supported formats: jpg, jpeg, png, gif, webp
+# Recommended size: 800x600px or similar aspect ratio
