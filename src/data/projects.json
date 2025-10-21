@@ -1,32 +1,70 @@
 [
   {
     "id": "1",
-    "title": "E-Commerce Platform",
-    "description": "A modern, responsive e-commerce platform with AI-powered product recommendations and seamless checkout experience.",
-    "image": "/images/projects/ecommerce-demo.jpg",
-    "link": "https://example-ecommerce.com",
-    "category": "E-Commerce",
+    "title": "Job Genie AI",
+    "description": "Job Genie AI is an autonomous job-search agent. You upload your resume once, and it continuously finds real openings across multiple sources, matches them to your profile, prevents duplicates, and sends tailored applications automatically. Every action is logged live in the Agent Activity panel, daily email summaries are sent, and all data is stored for tracking results.",
+    "image": "https://img.youtube.com/vi/ABz6YNAO9ss/maxresdefault.jpg",
+    "link": "https://www.youtube.com/watch?v=ABz6YNAO9ss",
+    "category": "AI Solutions",
     "dateAdded": "2024-01-15",
-    "featured": true
+    "featured": true,
+    "videoId": "ABz6YNAO9ss",
+    "isVideo": true
   },
   {
-    "id": "2", 
-    "title": "AI Chat Assistant",
-    "description": "Intelligent chatbot powered by generative AI, providing 24/7 customer support and personalized interactions.",
-    "image": "/images/projects/ai-chat-demo.jpg",
-    "link": "https://example-ai-chat.com",
-    "category": "AI Solutions",
+    "id": "2",
+    "title": "Hebrew Flow",
+    "description": "A revolutionary way to study Hebrew using AI-generated music. Learn Hebrew through personalized songs and melodies created by artificial intelligence, making language learning more engaging and effective.",
+    "image": "/images/projects/hebrewflow-demo.jpg",
+    "link": "https://www.hebrewflow.com",
+    "category": "AI Education",
     "dateAdded": "2024-01-10",
     "featured": true
   },
   {
     "id": "3",
-    "title": "Portfolio Website",
-    "description": "Elegant portfolio website with smooth animations, mobile-first design, and integrated contact forms.",
-    "image": "/images/projects/portfolio-demo.jpg", 
-    "link": "https://example-portfolio.com",
-    "category": "Web Design",
+    "title": "Adventures AI",
+    "description": "A fully AI-generated adventure game where every player choice creates new content. The game works in 5 languages and generates unique gameplay experiences based on player decisions, creating infinite replayability.",
+    "image": "/images/projects/adventuresai-demo.jpg",
+    "link": "https://adventuresai.app",
+    "category": "AI Gaming",
     "dateAdded": "2024-01-05",
-    "featured": false
+    "featured": true
+  },
+  {
+    "id": "4",
+    "title": "AI Demo Video 1",
+    "description": "Advanced AI demonstration showcasing cutting-edge artificial intelligence capabilities and real-world applications.",
+    "image": "https://img.youtube.com/vi/WDxmACquFbs/maxresdefault.jpg",
+    "link": "https://www.youtube.com/watch?v=WDxmACquFbs",
+    "category": "AI Solutions",
+    "dateAdded": "2024-01-01",
+    "featured": false,
+    "videoId": "WDxmACquFbs",
+    "isVideo": true
+  },
+  {
+    "id": "5",
+    "title": "AI Demo Video 2",
+    "description": "Innovative AI technology demonstration featuring advanced machine learning algorithms and intelligent automation systems.",
+    "image": "https://img.youtube.com/vi/QRX9QxaXzHs/maxresdefault.jpg",
+    "link": "https://youtu.be/QRX9QxaXzHs",
+    "category": "AI Solutions",
+    "dateAdded": "2024-01-01",
+    "featured": false,
+    "videoId": "QRX9QxaXzHs",
+    "isVideo": true
+  },
+  {
+    "id": "6",
+    "title": "AI Demo Video 3",
+    "description": "Comprehensive AI showcase demonstrating the power of artificial intelligence in solving complex problems and enhancing user experiences.",
+    "image": "https://img.youtube.com/vi/WDxmACquFbs/maxresdefault.jpg",
+    "link": "https://youtu.be/WDxmACquFbs",
+    "category": "AI Solutions",
+    "dateAdded": "2024-01-01",
+    "featured": false,
+    "videoId": "WDxmACquFbs",
+    "isVideo": true
   }
 ]

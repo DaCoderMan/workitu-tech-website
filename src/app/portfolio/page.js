@@ -82,7 +82,25 @@ export default function Portfolio() {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="aspect-video bg-gold-400/10 relative overflow-hidden">
-                    {project.image ? (
+                    {project.isVideo && project.videoId ? (
+                      <div className="relative w-full h-full">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${project.videoId}?rel=0&modestbranding=1`}
+                          title={project.title}
+                          className="w-full h-full"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                        <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                          <div className="bg-gold-400/90 rounded-full p-3 hover:bg-gold-400 transition-colors duration-300">
+                            <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M8 5v10l8-5-8-5z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    ) : project.image ? (
                       <img
                         src={project.image}
                         alt={project.title}
@@ -95,7 +113,7 @@ export default function Portfolio() {
                     ) : null}
                     <div 
                       className="w-full h-full flex items-center justify-center text-gold-400/50"
-                      style={{ display: project.image ? 'none' : 'flex' }}
+                      style={{ display: (project.image || project.isVideo) ? 'none' : 'flex' }}
                     >
                       <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
@@ -122,7 +140,7 @@ export default function Portfolio() {
                       onClick={() => handleProjectClick(project.id)}
                       className="btn-gold inline-block px-4 py-2 rounded-lg text-sm font-medium w-full text-center"
                     >
-                      View Project
+                      {project.isVideo ? 'Watch Video' : 'View Project'}
                     </a>
                   </div>
                 </div>
