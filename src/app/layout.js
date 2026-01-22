@@ -2,6 +2,7 @@ import './globals.css';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import MusicPlayer from '../components/audio/MusicPlayer';
+import LanguageProvider from '../components/LanguageProvider';
 
 export const metadata = {
   title: 'Workitu Tech - Where Imagination Meets Innovation',
@@ -27,19 +28,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
       </head>
       <body className="bg-black text-gold-400 min-h-screen">
-        <Header />
-        <main className="pt-16">
-          {children}
-        </main>
-        <Footer />
-        <MusicPlayer />
+        <LanguageProvider>
+          <Header />
+          <main className="pt-16">
+            {children}
+          </main>
+          <Footer />
+          <MusicPlayer />
+        </LanguageProvider>
       </body>
     </html>
   );

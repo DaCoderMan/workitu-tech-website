@@ -2,18 +2,20 @@
 
 import { useEffect, useState } from 'react';
 import VideoBackground from '../../components/animations/VideoBackground';
+import { useLanguage } from '../../lib/useLanguage';
 
 export default function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Track page view
     fetch('/api/analytics/track', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        event: 'page_view', 
+      body: JSON.stringify({
+        event: 'page_view',
         page: 'portfolio',
         timestamp: new Date().toISOString()
       })
@@ -37,26 +39,32 @@ export default function Portfolio() {
     fetch('/api/analytics/track', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        event: 'project_click', 
+      body: JSON.stringify({
+        event: 'project_click',
         projectId,
         timestamp: new Date().toISOString()
       })
     });
   };
 
+  const getButtonText = (project) => {
+    if (project.isVideo) return t('portfolio.watchVideo');
+    if (project.isWebsite) return t('portfolio.visitWebsite');
+    return t('portfolio.viewProject');
+  };
+
   return (
     <div className="relative min-h-screen">
       <VideoBackground />
-      
+
       {/* Header Section */}
       <section className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 fade-in">
-            <span className="gradient-text">Our Portfolio</span>
+            <span className="gradient-text">{t('portfolio.title')}</span>
           </h1>
           <p className="text-lg md:text-xl text-gold-300/80 max-w-3xl mx-auto fade-in" style={{ animationDelay: '0.2s' }}>
-            Discover the digital experiences we've crafted. Each project represents our commitment to innovation, creativity, and excellence.
+            {t('portfolio.description')}
           </p>
         </div>
       </section>
@@ -67,11 +75,11 @@ export default function Portfolio() {
           {loading ? (
             <div className="flex justify-center items-center py-20">
               <div className="loading-spinner"></div>
-              <span className="ml-3 text-gold-400">Loading projects...</span>
+              <span className="ml-3 rtl:mr-3 rtl:ml-0 text-gold-400">{t('portfolio.loading')}</span>
             </div>
           ) : projects.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-gold-300/60 text-lg">No projects available yet. Check back soon!</p>
+              <p className="text-gold-300/60 text-lg">{t('portfolio.noProjects')}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -121,7 +129,7 @@ export default function Portfolio() {
                         }}
                       />
                     ) : null}
-                    <div 
+                    <div
                       className="w-full h-full flex items-center justify-center text-gold-400/50"
                       style={{ display: (project.image || project.isVideo) ? 'none' : 'flex' }}
                     >
@@ -130,7 +138,7 @@ export default function Portfolio() {
                       </svg>
                     </div>
                   </div>
-                  
+
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-gold-300 mb-2">
                       {project.title}
@@ -150,7 +158,7 @@ export default function Portfolio() {
                       onClick={() => handleProjectClick(project.id)}
                       className="btn-gold inline-block px-4 py-2 rounded-lg text-sm font-medium w-full text-center"
                     >
-                      {project.isVideo ? 'Watch Video' : project.isWebsite ? 'Visit Website' : 'View Project'}
+                      {getButtonText(project)}
                     </a>
                   </div>
                 </div>
