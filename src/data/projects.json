@@ -1,5 +1,29 @@
 [
   {
+    "id": "7",
+    "title": "Workitu Tech Website",
+    "description": "The official Workitu Tech portfolio website showcasing our innovative AI solutions and digital experiences. Built with Next.js 14, featuring a stunning gold-themed design, video backgrounds, multilingual support, and a comprehensive admin dashboard for content management.",
+    "image": "/images/projects/workitu-screenshot.png",
+    "link": "https://github.com/DaCoderMan/workitu-tech-website",
+    "category": "Web Development",
+    "dateAdded": "2026-01-23",
+    "featured": true,
+    "isWebsite": true,
+    "websiteUrl": "https://github.com/DaCoderMan/workitu-tech-website"
+  },
+  {
+    "id": "8",
+    "title": "The Poly Player",
+    "description": "An AI-powered analytics platform for prediction market traders on Polymarket. Features probability estimates, Kelly Criterion bet sizing optimization, and value calculations to help traders make data-driven decisions. Rated 4.8/5 stars by 127+ users.",
+    "image": "/images/projects/polyplayer-screenshot.png",
+    "link": "https://thepolyplayer.com/",
+    "category": "AI Fintech",
+    "dateAdded": "2026-01-23",
+    "featured": true,
+    "isWebsite": true,
+    "websiteUrl": "https://thepolyplayer.com/"
+  },
+  {
     "id": "1",
     "title": "Job Genie AI",
     "description": "Job Genie AI is an autonomous job-search agent. You upload your resume once, and it continuously finds real openings across multiple sources, matches them to your profile, prevents duplicates, and sends tailored applications automatically. Every action is logged live in the Agent Activity panel, daily email summaries are sent, and all data is stored for tracking results.",
