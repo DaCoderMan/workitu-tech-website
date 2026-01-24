@@ -1,15 +1,15 @@
 [
   {
-    "id": "7",
-    "title": "Workitu Tech Website",
-    "description": "The official Workitu Tech portfolio website showcasing our innovative AI solutions and digital experiences. Built with Next.js 14, featuring a stunning gold-themed design, video backgrounds, multilingual support, and a comprehensive admin dashboard for content management.",
-    "image": "/images/projects/workitu-screenshot.png",
-    "link": "https://github.com/DaCoderMan/workitu-tech-website",
-    "category": "Web Development",
+    "id": "9",
+    "title": "Israeli Tax Helper",
+    "description": "A free web-based tool helping Israeli citizens understand the tax system with 5 calculators: net salary, self-employed income, exempt vs. authorized business comparison, military reserve duty credits, and child tax credits. Features educational content on tax brackets, credits, and official form guidance.",
+    "image": "/images/projects/helpmewithtaxes-screenshot.png",
+    "link": "https://helpmewithtaxes.com/",
+    "category": "Web Tools",
     "dateAdded": "2026-01-23",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://github.com/DaCoderMan/workitu-tech-website"
+    "websiteUrl": "https://helpmewithtaxes.com/"
   },
   {
     "id": "8",
@@ -61,8 +61,8 @@
   },
   {
     "id": "4",
-    "title": "AI Demo Video 1",
-    "description": "Advanced AI demonstration showcasing cutting-edge artificial intelligence capabilities and real-world applications.",
+    "title": "CISSP Rock Study Experience",
+    "description": "This isn't just background music — here, every lyric is a lesson. We transformed key CISSP concepts, domain facts, and core principles into heavy riffs and rock verses you can sing along to — so your brain locks them in.",
     "image": "https://img.youtube.com/vi/WDxmACquFbs/maxresdefault.jpg",
     "link": "https://www.youtube.com/watch?v=WDxmACquFbs",
     "category": "AI Solutions",
@@ -72,24 +72,12 @@
     "isVideo": true
   },
   {
-    "id": "5",
-    "title": "AI Demo Video 2",
-    "description": "Innovative AI technology demonstration featuring advanced machine learning algorithms and intelligent automation systems.",
-    "image": "https://img.youtube.com/vi/QRX9QxaXzHs/maxresdefault.jpg",
-    "link": "https://youtu.be/QRX9QxaXzHs",
-    "category": "AI Solutions",
-    "dateAdded": "2024-01-01",
-    "featured": false,
-    "videoId": "QRX9QxaXzHs",
-    "isVideo": true
-  },
-  {
     "id": "6",
-    "title": "Clear Eight",
-    "description": "A cutting-edge AI platform that provides advanced solutions for data processing, analysis, and intelligent automation. Experience the future of AI-driven technology.",
+    "title": "Yonatan Perlin Portfolio",
+    "description": "A clean, minimal professional portfolio website showcasing resume and credentials. Features direct access to downloadable resume and LinkedIn profile for professional networking.",
     "image": "/images/projects/cleareight-screenshot.png",
     "link": "https://clear-eight.vercel.app/",
-    "category": "AI Solutions",
+    "category": "Web Development",
     "dateAdded": "2024-01-01",
     "featured": false,
     "isWebsite": true,

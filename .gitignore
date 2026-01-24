@@ -99,3 +99,6 @@ playwright/.cache/
 # Analytics data (will be recreated)
 src/data/analytics.json
 src/data/submissions.json
+
+.vercel
+.env*.local
