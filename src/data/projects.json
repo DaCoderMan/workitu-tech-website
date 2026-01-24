@@ -1,5 +1,17 @@
 [
   {
+    "id": "10",
+    "title": "Spanish Flow",
+    "description": "Learn Spanish with music. 12 bilingual songs covering foundational topics like greetings, numbers, colors, family, food, and more. Streaming audio with synchronized English translations for vocabulary and pronunciation practice.",
+    "image": "/images/projects/spanishflow-screenshot.png",
+    "link": "https://spanishflow.org/",
+    "category": "AI Education",
+    "dateAdded": "2026-01-24",
+    "featured": true,
+    "isWebsite": true,
+    "websiteUrl": "https://spanishflow.org/"
+  },
+  {
     "id": "9",
     "title": "Israeli Tax Helper",
     "description": "A free web-based tool helping Israeli citizens understand the tax system with 5 calculators: net salary, self-employed income, exempt vs. authorized business comparison, military reserve duty credits, and child tax credits. Features educational content on tax brackets, credits, and official form guidance.",

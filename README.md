@@ -88,17 +88,17 @@ cp env.example .env.local
 Then edit `.env.local` with your actual values:
 
 ```env
-# Admin Credentials
-ADMIN_EMAIL=jonathanperlin@gmail.com
-ADMIN_PASSWORD_HASH=$2a$10$rQZ8K9mN2pL3sT4uV5wX6yA7bC8dE9fG0hI1jK2lM3nO4pQ5rS6tU7vW8xY9zA
+# Admin Credentials (REQUIRED)
+ADMIN_EMAIL=your_admin_email@example.com
+ADMIN_PASSWORD_HASH=your_bcrypt_hash_here
 
-# JWT Secret
-JWT_SECRET=workitu_tech_super_secret_key_2024
+# JWT Secret (REQUIRED - generate a secure random string)
+JWT_SECRET=your_secure_random_secret_here
 
 # Email Configuration (for contact form)
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
-SMTP_USER=contact@workitu.com
+SMTP_USER=your_email@example.com
 SMTP_PASS=your_email_password_here
 
 # Rate Limiting
@@ -108,8 +108,8 @@ RATE_LIMIT_WINDOW=900000
 # Site Configuration
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
-# Google AI API Key
-GOOGLE_AI_API_KEY=AIzaSyCe5BhA0HACaCaHOKMfWgluX1DR7KO1-kU
+# Google AI API Key (optional)
+GOOGLE_AI_API_KEY=your_google_ai_api_key_here
 ```
 
 ### 3. Add Your Media Files
@@ -128,8 +128,7 @@ The site will be available at `http://localhost:3000`
 ## Admin Access
 
 - **URL**: `/admin`
-- **Email**: `jonathanperlin@gmail.com`
-- **Password**: `Shandydog225`
+- **Credentials**: Set via environment variables (ADMIN_EMAIL, ADMIN_PASSWORD_HASH)
 
 ## Admin Features
 
@@ -237,13 +236,13 @@ Due to Windows 11 localhost issues, here are the best deployment options:
 ### **Environment Variables:**
 Set these in your deployment platform:
 ```env
-ADMIN_EMAIL=jonathanperlin@gmail.com
-ADMIN_PASSWORD_HASH=$2a$10$rQZ8K9mN2pL3sT4uV5wX6yA7bC8dE9fG0hI1jK2lM3nO4pQ5rS6tU7vW8xY9zA
-JWT_SECRET=workitu_tech_super_secret_key_2024
+ADMIN_EMAIL=your_admin_email@example.com
+ADMIN_PASSWORD_HASH=your_bcrypt_password_hash
+JWT_SECRET=your_secure_random_secret
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
-SMTP_USER=contact@workitu.com
-SMTP_PASS=your_email_password_here
+SMTP_USER=your_email@example.com
+SMTP_PASS=your_email_password
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 ```
 

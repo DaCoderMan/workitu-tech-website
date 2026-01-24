@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { validateContactForm, sanitizeInput } from '../../../utils/validation';
+import { rateLimit } from '../../../utils/rateLimit';
 import fs from 'fs';
 import path from 'path';
 import nodemailer from 'nodemailer';
@@ -9,6 +10,19 @@ const SUBMISSIONS_FILE = path.join(DATA_DIR, 'submissions.json');
 
 export async function POST(request) {
   try {
+    // Rate limiting
+    const clientIP = request.headers.get('x-forwarded-for') ||
+                     request.headers.get('x-real-ip') ||
+                     'unknown';
+    const rateLimitResult = rateLimit(`contact:${clientIP}`);
+
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json(
+        { message: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
     const formData = await request.json();
     
     // Sanitize input

@@ -3,6 +3,8 @@ export const translations = {
     // Navigation
     nav: {
       home: 'Home',
+      about: 'About',
+      services: 'Services',
       portfolio: 'Portfolio',
       pricing: 'Pricing',
       contact: 'Contact'
@@ -108,6 +110,8 @@ export const translations = {
     // Navigation
     nav: {
       home: 'בית',
+      about: 'אודות',
+      services: 'שירותים',
       portfolio: 'תיק עבודות',
       pricing: 'מחירים',
       contact: 'צור קשר'

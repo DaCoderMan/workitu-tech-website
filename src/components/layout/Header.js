@@ -13,6 +13,8 @@ export default function Header() {
 
   const navigation = [
     { key: 'home', href: '/' },
+    { key: 'about', href: '/about' },
+    { key: 'services', href: '/services' },
     { key: 'portfolio', href: '/portfolio' },
     { key: 'pricing', href: '/pricing' },
     { key: 'contact', href: '/contact' },

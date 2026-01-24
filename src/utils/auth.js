@@ -2,9 +2,14 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { NextResponse } from 'next/server';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'workitu_tech_super_secret_key_2024';
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'jonathanperlin@gmail.com';
-const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || '$2a$10$rQZ8K9mN2pL3sT4uV5wX6yA7bC8dE9fG0hI1jK2lM3nO4pQ5rS6tU7vW8xY9zA';
+// Security: These MUST be set via environment variables
+const JWT_SECRET = process.env.JWT_SECRET;
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH;
+
+if (!JWT_SECRET || !ADMIN_EMAIL || !ADMIN_PASSWORD_HASH) {
+  console.warn('Warning: Missing required auth environment variables. Set JWT_SECRET, ADMIN_EMAIL, and ADMIN_PASSWORD_HASH.');
+}
 
 export async function hashPassword(password) {
   const saltRounds = 10;

@@ -77,9 +77,36 @@ function isValidUrl(string) {
 
 export function sanitizeInput(input) {
   if (typeof input !== 'string') return input;
-  
+
+  // HTML entity encoding to prevent XSS
+  const htmlEntities = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    '/': '&#x2F;',
+    '`': '&#x60;',
+    '=': '&#x3D;'
+  };
+
   return input
     .trim()
-    .replace(/[<>]/g, '') // Remove potential HTML tags
+    .replace(/[&<>"'`=/]/g, char => htmlEntities[char])
     .substring(0, 1000); // Limit length
+}
+
+export function sanitizeUrl(url) {
+  if (typeof url !== 'string') return '';
+
+  const trimmed = url.trim();
+
+  // Only allow http, https, and relative URLs
+  if (trimmed.startsWith('http://') ||
+      trimmed.startsWith('https://') ||
+      trimmed.startsWith('/')) {
+    return trimmed.substring(0, 2000);
+  }
+
+  return '';
 }
