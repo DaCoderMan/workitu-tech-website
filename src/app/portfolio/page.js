@@ -24,11 +24,12 @@ export default function Portfolio() {
       })
     });
 
-    // Fetch projects
-    fetch('/api/admin/projects')
+    // Fetch projects from public endpoint
+    fetch('/api/projects')
       .then(res => res.json())
       .then(data => {
-        setProjects(data);
+        // Ensure data is an array
+        setProjects(Array.isArray(data) ? data : []);
         setLoading(false);
       })
       .catch(err => {
