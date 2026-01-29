@@ -4,6 +4,8 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 
+export const dynamic = 'force-dynamic';
+
 // Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -100,4 +102,4 @@ async function handler(request) {
   }
 }
 
-export const POST = handler;
+export const POST = requireAuth(handler);

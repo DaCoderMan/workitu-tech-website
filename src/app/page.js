@@ -1,8 +1,13 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 import VideoBackground from '../components/animations/VideoBackground';
 import { useLanguage } from '../lib/useLanguage';
+import StatsCounter from '../components/ui/StatsCounter';
+import TechStackShowcase from '../components/ui/TechStackShowcase';
+import FeaturedProjects from '../components/home/FeaturedProjects';
+import FAQ from '../components/ui/FAQ';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -20,12 +25,26 @@ export default function Home() {
     });
   }, []);
 
+  const stats = [
+    { value: 8, suffix: '+', label: t('home.stats.projects') },
+    { value: 6, suffix: '', label: t('home.stats.categories') },
+    { value: 100, suffix: '%', label: t('home.stats.worldwide') }
+  ];
+
+  const faqItems = [
+    { question: t('home.faq.q1'), answer: t('home.faq.a1') },
+    { question: t('home.faq.q2'), answer: t('home.faq.a2') },
+    { question: t('home.faq.q3'), answer: t('home.faq.a3') },
+    { question: t('home.faq.q4'), answer: t('home.faq.a4') },
+    { question: t('home.faq.q5'), answer: t('home.faq.a5') }
+  ];
+
   return (
     <div className="relative min-h-screen">
       <VideoBackground />
 
       {/* Hero Section */}
-      <section className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 pt-20 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 fade-in">
@@ -37,19 +56,46 @@ export default function Home() {
               {t('home.tagline')}
             </p>
             <p className="text-lg md:text-xl text-gold-400/80 mb-8 max-w-4xl mx-auto fade-in" style={{ animationDelay: '0.4s' }}>
-              {t('home.description')}
+              {t('home.description')} {t('home.subDescription')}
             </p>
-            <p className="text-base md:text-lg text-gold-300/70 mb-12 max-w-5xl mx-auto fade-in" style={{ animationDelay: '0.6s' }}>
-              {t('home.subDescription')}
-            </p>
+
+            {/* Dual CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in" style={{ animationDelay: '0.6s' }}>
+              <Link
+                href="/contact"
+                className="btn-gold px-8 py-4 rounded-full text-lg font-semibold inline-block"
+              >
+                {t('home.ctaPrimary')}
+              </Link>
+              <Link
+                href="/portfolio"
+                className="btn-outline-gold px-8 py-4 rounded-full text-lg font-semibold inline-block"
+              >
+                {t('home.ctaSecondary')}
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto fade-in" style={{ animationDelay: '0.8s' }}>
+          <StatsCounter stats={stats} />
+        </div>
+      </section>
+
+      {/* Tech Stack Showcase */}
+      <section className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto fade-in" style={{ animationDelay: '1s' }}>
+          <TechStackShowcase title={t('home.techStack')} />
+        </div>
+      </section>
+
       {/* Mission Section */}
-      <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="glass rounded-2xl p-8 md:p-12 fade-in" style={{ animationDelay: '0.8s' }}>
+          <div className="glass rounded-2xl p-8 md:p-12 fade-in" style={{ animationDelay: '1.2s' }}>
             <p className="text-lg md:text-xl text-gold-300 mb-6">
               {t('home.mission1')}
             </p>
@@ -63,10 +109,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tagline Section */}
+      {/* Featured Projects Section */}
       <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto fade-in" style={{ animationDelay: '1.4s' }}>
+          <FeaturedProjects
+            title={t('home.featuredWork')}
+            viewAllText={t('home.viewAllProjects')}
+            viewAllLink="/portfolio"
+          />
+        </div>
+      </section>
+
+      {/* Tagline Section */}
+      <section className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="fade-in" style={{ animationDelay: '1s' }}>
+          <div className="fade-in" style={{ animationDelay: '1.6s' }}>
             <p className="text-xl md:text-2xl text-gold-400 font-medium">
               {t('home.tagline1')}
             </p>
@@ -77,16 +134,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* FAQ Section */}
+      <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto fade-in" style={{ animationDelay: '1.8s' }}>
+          <FAQ items={faqItems} title={t('home.faq.title')} />
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
       <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="fade-in" style={{ animationDelay: '1.2s' }}>
-            <a
+          <div className="glass rounded-2xl p-8 fade-in" style={{ animationDelay: '2s' }}>
+            <h2 className="text-2xl md:text-3xl font-bold text-gold-300 mb-4">
+              Ready to bring your idea to life?
+            </h2>
+            <p className="text-gold-400/80 mb-6">
+              Let&apos;s discuss your project and create something amazing together.
+            </p>
+            <Link
               href="/contact"
               className="btn-gold inline-block px-8 py-4 rounded-full text-lg font-semibold"
             >
-              {t('home.cta')}
-            </a>
+              {t('home.ctaPrimary')}
+            </Link>
           </div>
         </div>
       </section>

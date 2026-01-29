@@ -56,6 +56,7 @@ export default function Header() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-md text-gold-400 hover:text-gold-300 hover:bg-gold-400/10"
+              aria-label="Toggle navigation menu"
             >
               <svg
                 className="h-6 w-6"

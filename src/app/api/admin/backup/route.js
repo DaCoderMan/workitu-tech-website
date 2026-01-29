@@ -3,6 +3,8 @@ import { requireAuth } from '../../../../utils/auth';
 import fs from 'fs';
 import path from 'path';
 
+export const dynamic = 'force-dynamic';
+
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 
 async function handler(request) {
@@ -47,4 +49,4 @@ async function handler(request) {
   }
 }
 
-export const GET = handler;
+export const GET = requireAuth(handler);

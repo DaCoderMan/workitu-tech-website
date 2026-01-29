@@ -1,14 +1,60 @@
-// In-memory analytics storage for Edge Runtime compatibility
-let analyticsData = {
-  totalViews: 0,
-  uniqueVisitors: 0,
-  pageViews: { home: 0, portfolio: 0, pricing: 0, contact: 0 },
-  projectClicks: {},
-  deviceTypes: { desktop: 0, mobile: 0, tablet: 0 },
-  referrers: {},
-  dailyStats: {},
-  lastUpdated: new Date().toISOString()
-};
+import fs from 'fs';
+import path from 'path';
+
+const DATA_DIR = path.join(process.cwd(), 'src', 'data');
+const ANALYTICS_FILE = path.join(DATA_DIR, 'analytics.json');
+
+function getDefaultAnalytics() {
+  return {
+    totalViews: 0,
+    uniqueVisitors: 0,
+    pageViews: { home: 0, portfolio: 0, pricing: 0, contact: 0 },
+    projectClicks: {},
+    deviceTypes: { desktop: 0, mobile: 0, tablet: 0 },
+    referrers: {},
+    dailyStats: {},
+    lastUpdated: new Date().toISOString()
+  };
+}
+
+function ensureAnalyticsFile() {
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+
+    if (!fs.existsSync(ANALYTICS_FILE)) {
+      fs.writeFileSync(
+        ANALYTICS_FILE,
+        JSON.stringify(getDefaultAnalytics(), null, 2)
+      );
+    }
+  } catch (error) {
+    console.error('Error ensuring analytics file:', error);
+  }
+}
+
+function readAnalytics() {
+  ensureAnalyticsFile();
+  try {
+    const data = fs.readFileSync(ANALYTICS_FILE, 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.error('Error reading analytics.json:', error);
+    return getDefaultAnalytics();
+  }
+}
+
+function writeAnalytics(data) {
+  try {
+    fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(data, null, 2));
+  } catch (error) {
+    console.error('Error writing analytics.json:', error);
+  }
+}
+
+// Persisted analytics storage (keeps in-memory copy for speed)
+let analyticsData = readAnalytics();
 
 export function getAnalytics() {
   return { ...analyticsData };
@@ -18,6 +64,7 @@ export function saveAnalytics(analytics) {
   try {
     analytics.lastUpdated = new Date().toISOString();
     analyticsData = { ...analytics };
+    writeAnalytics(analyticsData);
     return true;
   } catch (error) {
     console.error('Error saving analytics:', error);

@@ -4,6 +4,8 @@ import { validateProject, sanitizeInput } from '../../../../utils/validation';
 import fs from 'fs';
 import path from 'path';
 
+export const dynamic = 'force-dynamic';
+
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 const PROJECTS_FILE = path.join(DATA_DIR, 'projects.json');
 
@@ -170,7 +172,7 @@ async function deleteHandler(request) {
   }
 }
 
-export const GET = getHandler;
-export const POST = postHandler;
-export const PUT = putHandler;
-export const DELETE = deleteHandler;
+export const GET = requireAuth(getHandler);
+export const POST = requireAuth(postHandler);
+export const PUT = requireAuth(putHandler);
+export const DELETE = requireAuth(deleteHandler);

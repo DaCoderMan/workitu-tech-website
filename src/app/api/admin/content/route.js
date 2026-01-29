@@ -4,6 +4,8 @@ import { validateContent, sanitizeInput } from '../../../../utils/validation';
 import fs from 'fs';
 import path from 'path';
 
+export const dynamic = 'force-dynamic';
+
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 const CONTENT_FILE = path.join(DATA_DIR, 'content.json');
 
@@ -114,5 +116,6 @@ async function putHandler(request) {
   }
 }
 
+// Public GET for site content; mutations require authentication
 export const GET = getHandler;
-export const PUT = putHandler;
+export const PUT = requireAuth(putHandler);

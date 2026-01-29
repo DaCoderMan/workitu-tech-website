@@ -21,7 +21,30 @@ export const translations = {
       mission3: 'From sleek web design to smart automation, from marketing strategy to digital growth — Workitu Tech is your partner in building the future.',
       tagline1: 'Because the web isn\'t just where you exist —',
       tagline2: '🌍 It\'s where your story begins.',
-      cta: 'Start Your Story'
+      cta: 'Start Your Story',
+      ctaPrimary: 'Start Your Project',
+      ctaSecondary: 'View Our Work',
+      stats: {
+        projects: 'Projects Delivered',
+        categories: 'Categories',
+        worldwide: 'Worldwide Clients'
+      },
+      techStack: 'Built With Modern Technologies',
+      featuredWork: 'Featured Work',
+      viewAllProjects: 'View All Projects',
+      faq: {
+        title: 'Frequently Asked Questions',
+        q1: 'How long does a typical project take?',
+        a1: 'Most websites are delivered within 2-4 weeks. AI-powered applications typically take 4-8 weeks depending on complexity. We\'ll give you a clear timeline during our initial consultation.',
+        q2: 'What technologies do you use?',
+        a2: 'We use modern, industry-leading technologies including Next.js, React, Node.js, Python, and OpenAI APIs. Our stack is chosen to ensure fast, scalable, and maintainable solutions.',
+        q3: 'Do you provide ongoing support?',
+        a3: 'Yes! We offer ongoing maintenance and support packages to keep your website secure, updated, and running smoothly after launch.',
+        q4: 'How does pricing work?',
+        a4: 'We offer transparent, project-based pricing starting from $320 for websites. After understanding your needs, we provide a detailed quote with no hidden fees.',
+        q5: 'Can you integrate AI into existing websites?',
+        a5: 'Absolutely! We can add AI-powered features like chatbots, content generation, or automation to your existing website or application.'
+      }
     },
 
     // Portfolio page
@@ -30,6 +53,12 @@ export const translations = {
       description: 'Discover the digital experiences we\'ve crafted. Each project represents our commitment to innovation, creativity, and excellence.',
       loading: 'Loading projects...',
       noProjects: 'No projects available yet. Check back soon!',
+      searchPlaceholder: 'Search projects...',
+      allProjects: 'All Projects',
+      clearFilters: 'Clear filters',
+      sortLabel: 'Sort by',
+      sortNewest: 'Newest first',
+      sortFeatured: 'Featured first',
       watchVideo: 'Watch Video',
       visitWebsite: 'Visit Website',
       viewProject: 'View Project'
@@ -101,7 +130,7 @@ export const translations = {
       tagline: 'Where Imagination Meets Innovation. Creating digital experiences that inspire and perform.',
       quickLinks: 'Quick Links',
       connect: 'Connect',
-      copyright: '© 2024 Workitu Tech. All rights reserved.',
+      copyright: '© 2026 Workitu Tech. All rights reserved.',
       admin: 'Admin'
     }
   },
@@ -128,7 +157,30 @@ export const translations = {
       mission3: 'מעיצוב אתרים אלגנטי ועד אוטומציה חכמה, מאסטרטגיית שיווק ועד צמיחה דיגיטלית — וורקיטו טק היא השותפה שלכם בבניית העתיד.',
       tagline1: 'כי האינטרנט הוא לא רק המקום שבו אתם קיימים —',
       tagline2: '🌍 זה המקום שבו הסיפור שלכם מתחיל.',
-      cta: 'התחל את הסיפור שלך'
+      cta: 'התחל את הסיפור שלך',
+      ctaPrimary: 'התחל את הפרויקט שלך',
+      ctaSecondary: 'צפה בעבודות שלנו',
+      stats: {
+        projects: 'פרויקטים שסופקו',
+        categories: 'קטגוריות',
+        worldwide: 'לקוחות ברחבי העולם'
+      },
+      techStack: 'בנוי עם טכנולוגיות מודרניות',
+      featuredWork: 'עבודות נבחרות',
+      viewAllProjects: 'צפה בכל הפרויקטים',
+      faq: {
+        title: 'שאלות נפוצות',
+        q1: 'כמה זמן לוקח פרויקט טיפוסי?',
+        a1: 'רוב האתרים מסופקים תוך 2-4 שבועות. אפליקציות מונעות AI לוקחות בדרך כלל 4-8 שבועות בהתאם למורכבות. ניתן לכם לוח זמנים ברור בפגישת הייעוץ הראשונית.',
+        q2: 'באילו טכנולוגיות אתם משתמשים?',
+        a2: 'אנחנו משתמשים בטכנולוגיות מודרניות ומובילות בתעשייה כולל Next.js, React, Node.js, Python וממשקי API של OpenAI. הסטאק שלנו נבחר להבטיח פתרונות מהירים, ניתנים להרחבה וקלים לתחזוקה.',
+        q3: 'האם אתם מספקים תמיכה שוטפת?',
+        a3: 'כן! אנחנו מציעים חבילות תחזוקה ותמיכה שוטפת כדי לשמור על האתר שלכם מאובטח, מעודכן ופועל בצורה חלקה לאחר ההשקה.',
+        q4: 'איך התמחור עובד?',
+        a4: 'אנחנו מציעים תמחור שקוף מבוסס פרויקט החל מ-$320 לאתרים. לאחר הבנת הצרכים שלכם, נספק הצעת מחיר מפורטת ללא עלויות נסתרות.',
+        q5: 'האם אתם יכולים לשלב AI באתרים קיימים?',
+        a5: 'בהחלט! אנחנו יכולים להוסיף תכונות מונעות AI כמו צ\'אטבוטים, יצירת תוכן או אוטומציה לאתר או לאפליקציה הקיימים שלכם.'
+      }
     },
 
     // Portfolio page
@@ -137,6 +189,12 @@ export const translations = {
       description: 'גלו את החוויות הדיגיטליות שיצרנו. כל פרויקט מייצג את המחויבות שלנו לחדשנות, יצירתיות ומצוינות.',
       loading: 'טוען פרויקטים...',
       noProjects: 'אין עדיין פרויקטים זמינים. בדקו שוב בקרוב!',
+      searchPlaceholder: 'חיפוש פרויקטים...',
+      allProjects: 'כל הפרויקטים',
+      clearFilters: 'נקה סינונים',
+      sortLabel: 'מיון לפי',
+      sortNewest: 'חדשים קודם',
+      sortFeatured: 'מומלצים קודם',
       watchVideo: 'צפה בסרטון',
       visitWebsite: 'בקר באתר',
       viewProject: 'צפה בפרויקט'

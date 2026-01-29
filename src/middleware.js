@@ -8,24 +8,21 @@ const JWT_SECRET = new TextEncoder().encode(
 export async function middleware(request) {
   const { pathname } = request.nextUrl;
 
-  // Protect admin pages and admin API routes (except login)
-  if (pathname.startsWith('/admin') ||
-      (pathname.startsWith('/api/admin') && !pathname.includes('/auth'))) {
+  // Protect admin API routes (except auth endpoints)
+  if (pathname.startsWith('/api/admin') && !pathname.includes('/auth')) {
+    // Allow public reads of content for site pages
+    if (pathname.startsWith('/api/admin/content') && request.method === 'GET') {
+      return NextResponse.next();
+    }
+
 
     const token = request.cookies.get('auth-token')?.value;
 
     if (!token) {
-      // For API routes, return 401
-      if (pathname.startsWith('/api/')) {
-        return NextResponse.json(
-          { message: 'Authentication required' },
-          { status: 401 }
-        );
-      }
-      // For admin page, redirect to login
-      const loginUrl = new URL('/api/auth/login-page', request.url);
-      loginUrl.searchParams.set('redirect', pathname);
-      return NextResponse.redirect(loginUrl);
+      return NextResponse.json(
+        { message: 'Authentication required' },
+        { status: 401 }
+      );
     }
 
     try {
@@ -36,10 +33,7 @@ export async function middleware(request) {
       return NextResponse.next();
     } catch (error) {
       // Invalid token - clear it and redirect/return error
-      const response = pathname.startsWith('/api/')
-        ? NextResponse.json({ message: 'Invalid token' }, { status: 401 })
-        : NextResponse.redirect(new URL('/api/auth/login-page', request.url));
-
+      const response = NextResponse.json({ message: 'Invalid token' }, { status: 401 });
       response.cookies.delete('auth-token');
       return response;
     }
@@ -50,7 +44,6 @@ export async function middleware(request) {
 
 export const config = {
   matcher: [
-    '/admin/:path*',
     '/api/admin/:path*',
   ],
 }

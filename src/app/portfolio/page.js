@@ -2,14 +2,17 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import VideoBackground from '../../components/animations/VideoBackground';
 import { useLanguage } from '../../lib/useLanguage';
+import TechBadge from '../../components/ui/TechBadge';
 
 export default function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState('newest');
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -44,16 +47,31 @@ export default function Portfolio() {
     return ['all', ...Array.from(cats)];
   }, [projects]);
 
-  // Filter projects
+  // Filter and sort projects
   const filteredProjects = useMemo(() => {
-    return projects.filter(project => {
+    const filtered = projects.filter(project => {
       const matchesCategory = selectedCategory === 'all' || project.category === selectedCategory;
       const matchesSearch = !searchQuery ||
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [projects, selectedCategory, searchQuery]);
+
+    const sortByDate = (a, b) => {
+      const dateA = new Date(a.dateAdded || 0).getTime();
+      const dateB = new Date(b.dateAdded || 0).getTime();
+      return dateB - dateA;
+    };
+
+    if (sortBy === 'featured') {
+      return filtered.sort((a, b) => {
+        if (a.featured === b.featured) return sortByDate(a, b);
+        return b.featured ? 1 : -1;
+      });
+    }
+
+    return filtered.sort(sortByDate);
+  }, [projects, selectedCategory, searchQuery, sortBy]);
 
   const handleProjectClick = (projectId) => {
     fetch('/api/analytics/track', {
@@ -71,6 +89,19 @@ export default function Portfolio() {
     if (project.isVideo) return t('portfolio.watchVideo');
     if (project.isWebsite) return t('portfolio.visitWebsite');
     return t('portfolio.viewProject');
+  };
+
+  // Get a primary result metric for display
+  const getPrimaryMetric = (project) => {
+    if (!project.results) return null;
+    const entries = Object.entries(project.results);
+    if (entries.length === 0) return null;
+    // Prefer rating or users if available
+    if (project.results.rating) return { label: 'Rating', value: project.results.rating };
+    if (project.results.users) return { label: 'Users', value: project.results.users };
+    if (project.results.languages) return { label: 'Languages', value: project.results.languages };
+    // Return first entry
+    return { label: entries[0][0], value: entries[0][1] };
   };
 
   return (
@@ -97,7 +128,8 @@ export default function Portfolio() {
             <div className="w-full md:w-64">
               <input
                 type="text"
-                placeholder="Search projects..."
+                aria-label={t('portfolio.searchPlaceholder')}
+                placeholder={t('portfolio.searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-2 bg-black/50 border border-gold-400/30 rounded-lg text-gold-300 placeholder-gold-400/50 focus:outline-none focus:border-gold-400"
@@ -105,20 +137,51 @@ export default function Portfolio() {
             </div>
 
             {/* Category Filter */}
-            <div className="flex flex-wrap gap-2 justify-center">
-              {categories.map((category) => (
+            <div className="flex flex-wrap gap-2 justify-center items-center">
+              {categories.map((category) => {
+                const label = category === 'all' ? t('portfolio.allProjects') : category;
+                const isActive = selectedCategory === category;
+                return (
+                  <button
+                    key={category}
+                    type="button"
+                    aria-pressed={isActive}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                      isActive
+                        ? 'bg-gold-400 text-black'
+                        : 'bg-gold-400/10 text-gold-400 hover:bg-gold-400/20'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+              {(searchQuery || selectedCategory !== 'all') && (
                 <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    selectedCategory === category
-                      ? 'bg-gold-400 text-black'
-                      : 'bg-gold-400/10 text-gold-400 hover:bg-gold-400/20'
-                  }`}
+                  type="button"
+                  onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
+                  className="px-4 py-2 rounded-full text-sm font-medium text-gold-300 border border-gold-400/40 hover:border-gold-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                 >
-                  {category === 'all' ? 'All Projects' : category}
+                  {t('portfolio.clearFilters')}
                 </button>
-              ))}
+              )}
+            </div>
+
+            {/* Sort */}
+            <div className="flex items-center gap-2 w-full md:w-auto">
+              <label htmlFor="sort" className="text-gold-300/80 text-sm">
+                {t('portfolio.sortLabel')}
+              </label>
+              <select
+                id="sort"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="px-3 py-2 bg-black/50 border border-gold-400/30 rounded-lg text-gold-300 focus:outline-none focus:border-gold-400"
+              >
+                <option value="newest">{t('portfolio.sortNewest')}</option>
+                <option value="featured">{t('portfolio.sortFeatured')}</option>
+              </select>
             </div>
           </div>
 
@@ -159,9 +222,10 @@ export default function Portfolio() {
                 <div
                   key={project.id}
                   id={project.id}
-                  className="card-hover glass rounded-xl overflow-hidden fade-in"
+                  className="card-hover glass rounded-xl overflow-hidden fade-in group"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
+                  {/* Image/Video Container */}
                   <div className="aspect-video bg-gold-400/10 relative overflow-hidden">
                     {project.isVideo && project.videoId ? (
                       <div className="relative w-full h-full">
@@ -176,28 +240,22 @@ export default function Portfolio() {
                         ></iframe>
                       </div>
                     ) : project.image ? (
-                      <div className="relative w-full h-full">
-                        {project.image.startsWith('/') ? (
-                          <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            className="object-cover"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                            onError={(e) => {
-                              e.target.src = `https://via.placeholder.com/1024x768/1a1a1a/gold?text=${encodeURIComponent(project.title)}`;
-                            }}
-                          />
-                        )}
-                      </div>
+                      <Link href={`/portfolio/${project.slug}`} className="block relative w-full h-full">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                          onError={(e) => {
+                            const img = e?.currentTarget;
+                            if (img && img.src.indexOf('placeholder.com') === -1) {
+                              img.src = `https://via.placeholder.com/1024x768/1a1a1a/gold?text=${encodeURIComponent(project.title)}`;
+                            }
+                          }}
+                        />
+                      </Link>
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-gold-400/50">
                         <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 20 20">
@@ -205,29 +263,74 @@ export default function Portfolio() {
                         </svg>
                       </div>
                     )}
+
+                    {/* Featured Badge */}
+                    {project.featured && (
+                      <div className="absolute top-3 right-3 px-2 py-1 bg-gold-400 text-black text-xs font-bold rounded-full">
+                        Featured
+                      </div>
+                    )}
+
+                    {/* Metric Badge */}
+                    {getPrimaryMetric(project) && (
+                      <div className="absolute bottom-3 left-3 px-2 py-1 bg-black/70 backdrop-blur-sm text-gold-400 text-xs font-medium rounded-full border border-gold-400/20">
+                        {getPrimaryMetric(project).value}
+                      </div>
+                    )}
                   </div>
 
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gold-300 mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-gold-400/70 text-sm mb-4 line-clamp-3">
+                    {/* Title - Clickable */}
+                    <Link href={`/portfolio/${project.slug}`}>
+                      <h3 className="text-xl font-semibold text-gold-300 mb-2 hover:text-gold-400 transition-colors">
+                        {project.title}
+                      </h3>
+                    </Link>
+
+                    {/* Description */}
+                    <p className="text-gold-400/70 text-sm mb-4 line-clamp-2">
                       {project.description}
                     </p>
+
+                    {/* Tech Stack Badges */}
+                    {project.techStack && project.techStack.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {project.techStack.slice(0, 3).map((tech) => (
+                          <TechBadge key={tech} name={tech} size="sm" />
+                        ))}
+                        {project.techStack.length > 3 && (
+                          <span className="px-2 py-0.5 text-xs text-gold-400/60">
+                            +{project.techStack.length - 3} more
+                          </span>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Category Badge */}
                     {project.category && (
                       <span className="inline-block px-3 py-1 bg-gold-400/10 text-gold-400 text-xs rounded-full mb-4">
                         {project.category}
                       </span>
                     )}
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => handleProjectClick(project.id)}
-                      className="btn-gold inline-block px-4 py-2 rounded-lg text-sm font-medium w-full text-center"
-                    >
-                      {getButtonText(project)}
-                    </a>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-2">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => handleProjectClick(project.id)}
+                        className="btn-gold flex-1 px-4 py-2 rounded-lg text-sm font-medium text-center"
+                      >
+                        {getButtonText(project)}
+                      </a>
+                      <Link
+                        href={`/portfolio/${project.slug}`}
+                        className="px-4 py-2 rounded-lg text-sm font-medium text-gold-400 border border-gold-400/30 hover:border-gold-400 hover:bg-gold-400/10 transition-colors"
+                      >
+                        Details
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}

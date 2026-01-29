@@ -63,7 +63,7 @@ export async function POST(request) {
     // Send email (if configured)
     if (process.env.SMTP_USER && process.env.SMTP_PASS) {
       try {
-        const transporter = nodemailer.createTransporter({
+        const transporter = nodemailer.createTransport({
           host: process.env.SMTP_HOST || 'smtp.gmail.com',
           port: parseInt(process.env.SMTP_PORT) || 587,
           secure: false,

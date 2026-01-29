@@ -1,98 +1,162 @@
 [
   {
     "id": "10",
+    "slug": "spanish-flow",
     "title": "Spanish Flow",
     "description": "Learn Spanish with music. 12 bilingual songs covering foundational topics like greetings, numbers, colors, family, food, and more. Streaming audio with synchronized English translations for vocabulary and pronunciation practice.",
+    "longDescription": "Spanish Flow transforms language learning through AI-generated music. Each song is carefully crafted to teach essential Spanish vocabulary and phrases while being genuinely enjoyable to listen to. The platform features streaming audio, synchronized translations, and covers 12 foundational topics from greetings to advanced conversational phrases.",
     "image": "https://image.thum.io/get/width/1280/https://spanishflow.org/",
     "link": "https://spanishflow.org/",
     "category": "AI Education",
     "dateAdded": "2026-01-24",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://spanishflow.org/"
+    "websiteUrl": "https://spanishflow.org/",
+    "techStack": ["Next.js", "React", "AI/ML", "Audio Processing"],
+    "results": {
+      "songs": "12",
+      "topics": "Foundational vocabulary",
+      "feature": "Bilingual lyrics"
+    }
   },
   {
     "id": "9",
+    "slug": "israeli-tax-helper",
     "title": "Israeli Tax Helper",
     "description": "A free web-based tool helping Israeli citizens understand the tax system with 5 calculators: net salary, self-employed income, exempt vs. authorized business comparison, military reserve duty credits, and child tax credits. Features educational content on tax brackets, credits, and official form guidance.",
+    "longDescription": "Israeli Tax Helper demystifies the complex Israeli tax system with practical, easy-to-use calculators. Whether you're an employee, self-employed, or running a small business, this tool provides accurate calculations and educational content to help you understand your tax obligations and maximize your credits.",
     "image": "https://image.thum.io/get/width/1280/https://helpmewithtaxes.com/",
     "link": "https://helpmewithtaxes.com/",
     "category": "Web Tools",
     "dateAdded": "2026-01-23",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://helpmewithtaxes.com/"
+    "websiteUrl": "https://helpmewithtaxes.com/",
+    "techStack": ["Next.js", "React", "Tailwind CSS"],
+    "results": {
+      "calculators": "5",
+      "feature": "Free to use",
+      "coverage": "Israeli tax system"
+    }
   },
   {
     "id": "8",
+    "slug": "poly-player",
     "title": "The Poly Player",
     "description": "An AI-powered analytics platform for prediction market traders on Polymarket. Features probability estimates, Kelly Criterion bet sizing optimization, and value calculations to help traders make data-driven decisions. Rated 4.8/5 stars by 127+ users.",
+    "longDescription": "The Poly Player is a sophisticated analytics platform designed for prediction market traders. Using AI-powered probability estimates and the Kelly Criterion for optimal bet sizing, it helps traders identify value opportunities and make data-driven decisions on Polymarket. The platform has earned exceptional user reviews for its accuracy and usability.",
     "image": "https://image.thum.io/get/width/1280/https://thepolyplayer.com/",
     "link": "https://thepolyplayer.com/",
     "category": "AI Fintech",
     "dateAdded": "2026-01-23",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://thepolyplayer.com/"
+    "websiteUrl": "https://thepolyplayer.com/",
+    "techStack": ["Next.js", "React", "OpenAI", "Python"],
+    "results": {
+      "rating": "4.8/5",
+      "users": "127+",
+      "feature": "Kelly Criterion optimization"
+    }
   },
   {
     "id": "1",
+    "slug": "job-genie-ai",
     "title": "Job Genie AI",
     "description": "Job Genie AI is an autonomous job-search agent. You upload your resume once, and it continuously finds real openings across multiple sources, matches them to your profile, prevents duplicates, and sends tailored applications automatically. Every action is logged live in the Agent Activity panel, daily email summaries are sent, and all data is stored for tracking results.",
+    "longDescription": "Job Genie AI revolutionizes the job search process with fully autonomous AI-powered job hunting. Upload your resume once, and the agent works 24/7 to find matching opportunities, craft tailored applications, and track every interaction. With real-time activity logging and daily email summaries, you stay informed while the AI does the heavy lifting.",
     "image": "https://img.youtube.com/vi/ABz6YNAO9ss/maxresdefault.jpg",
     "link": "https://www.youtube.com/watch?v=ABz6YNAO9ss",
     "category": "AI Solutions",
     "dateAdded": "2024-01-15",
     "featured": true,
     "videoId": "ABz6YNAO9ss",
-    "isVideo": true
+    "isVideo": true,
+    "techStack": ["Python", "OpenAI", "Node.js", "AI/ML"],
+    "results": {
+      "feature": "Autonomous job applications",
+      "automation": "24/7 operation",
+      "tracking": "Real-time logging"
+    }
   },
   {
     "id": "2",
+    "slug": "hebrew-flow",
     "title": "Hebrew Flow",
     "description": "A revolutionary way to study Hebrew using AI-generated music. Learn Hebrew through personalized songs and melodies created by artificial intelligence, making language learning more engaging and effective.",
+    "longDescription": "Hebrew Flow brings the proven music-based learning approach to the Hebrew language. Using advanced AI to generate catchy, educational songs, it makes learning Hebrew vocabulary and pronunciation both effective and enjoyable. Perfect for beginners and intermediate learners looking for an innovative study method.",
     "image": "https://image.thum.io/get/width/1280/https://www.hebrewflow.com/",
     "link": "https://www.hebrewflow.com",
     "category": "AI Education",
     "dateAdded": "2024-01-10",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://www.hebrewflow.com"
+    "websiteUrl": "https://www.hebrewflow.com",
+    "techStack": ["Next.js", "React", "AI/ML", "Audio Processing"],
+    "results": {
+      "method": "AI-generated music",
+      "feature": "Personalized learning",
+      "approach": "Engaging & effective"
+    }
   },
   {
     "id": "3",
+    "slug": "adventures-ai",
     "title": "Adventures AI",
     "description": "A fully AI-generated adventure game where every player choice creates new content. The game works in 5 languages and generates unique gameplay experiences based on player decisions, creating infinite replayability.",
+    "longDescription": "Adventures AI pushes the boundaries of interactive entertainment with a fully AI-generated adventure game. Every choice you make triggers the creation of new, unique content - from story branches to characters and scenarios. Supporting 5 languages, it offers infinite replayability and a truly personalized gaming experience.",
     "image": "https://image.thum.io/get/width/1280/https://adventuresai.app/",
     "link": "https://adventuresai.app",
     "category": "AI Gaming",
     "dateAdded": "2024-01-05",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://adventuresai.app"
+    "websiteUrl": "https://adventuresai.app",
+    "techStack": ["Next.js", "React", "OpenAI", "Node.js"],
+    "results": {
+      "languages": "5",
+      "feature": "Infinite replayability",
+      "content": "AI-generated stories"
+    }
   },
   {
     "id": "4",
+    "slug": "cissp-rock-study",
     "title": "CISSP Rock Study Experience",
     "description": "This isn't just background music — here, every lyric is a lesson. We transformed key CISSP concepts, domain facts, and core principles into heavy riffs and rock verses you can sing along to — so your brain locks them in.",
+    "longDescription": "CISSP Rock Study Experience transforms cybersecurity certification preparation into an unforgettable musical journey. Complex CISSP concepts, domain knowledge, and security principles are encoded into memorable rock songs, helping security professionals retain critical information through the power of music.",
     "image": "https://img.youtube.com/vi/WDxmACquFbs/maxresdefault.jpg",
     "link": "https://www.youtube.com/watch?v=WDxmACquFbs",
     "category": "AI Solutions",
     "dateAdded": "2024-01-01",
     "featured": false,
     "videoId": "WDxmACquFbs",
-    "isVideo": true
+    "isVideo": true,
+    "techStack": ["AI/ML", "Audio Processing", "Python"],
+    "results": {
+      "focus": "CISSP certification",
+      "method": "Rock music learning",
+      "feature": "Memorable content"
+    }
   },
   {
     "id": "6",
+    "slug": "yonatan-perlin-portfolio",
     "title": "Yonatan Perlin Portfolio",
     "description": "A clean, minimal professional portfolio website showcasing resume and credentials. Features direct access to downloadable resume and LinkedIn profile for professional networking.",
+    "longDescription": "A beautifully crafted, minimalist portfolio website designed to showcase professional credentials and experience. The clean design puts the focus on what matters - skills, experience, and easy access to resume and LinkedIn for professional networking opportunities.",
     "image": "https://image.thum.io/get/width/1280/https://clear-eight.vercel.app/",
     "link": "https://clear-eight.vercel.app/",
     "category": "Web Development",
     "dateAdded": "2024-01-01",
     "featured": false,
     "isWebsite": true,
-    "websiteUrl": "https://clear-eight.vercel.app/"
+    "websiteUrl": "https://clear-eight.vercel.app/",
+    "techStack": ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    "results": {
+      "design": "Clean & minimal",
+      "feature": "Professional showcase",
+      "deployment": "Vercel"
+    }
   }
 ]

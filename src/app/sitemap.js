@@ -51,12 +51,14 @@ export default async function sitemap() {
     const projectsData = fs.readFileSync(projectsFile, 'utf8');
     const projects = JSON.parse(projectsData);
 
-    projectPages = projects.map((project) => ({
-      url: `${BASE_URL}/portfolio#${project.id}`,
-      lastModified: new Date(project.dateAdded),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    }));
+    projectPages = projects
+      .filter((project) => project.slug)
+      .map((project) => ({
+        url: `${BASE_URL}/portfolio/${project.slug}`,
+        lastModified: new Date(project.dateAdded),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      }));
   } catch (error) {
     console.error('Error reading projects for sitemap:', error);
   }

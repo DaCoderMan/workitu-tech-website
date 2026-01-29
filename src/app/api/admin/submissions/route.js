@@ -3,6 +3,8 @@ import { requireAuth } from '../../../../utils/auth';
 import fs from 'fs';
 import path from 'path';
 
+export const dynamic = 'force-dynamic';
+
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 const SUBMISSIONS_FILE = path.join(DATA_DIR, 'submissions.json');
 
@@ -28,4 +30,4 @@ async function getHandler(request) {
   }
 }
 
-export const GET = getHandler;
+export const GET = requireAuth(getHandler);

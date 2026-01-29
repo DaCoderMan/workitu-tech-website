@@ -34,7 +34,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'sans': ['"Playwrite GB S"', 'cursive', 'system-ui', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
@@ -47,7 +47,15 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
         }
-      }
+      },
+      boxShadow: {
+        'gold-glow': '0 0 30px rgba(245, 158, 11, 0.3)',
+        'gold-glow-lg': '0 0 60px rgba(245, 158, 11, 0.4)',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gold-gradient': 'linear-gradient(135deg, #f59e0b, #fbbf24)',
+      },
     },
   },
   plugins: [],

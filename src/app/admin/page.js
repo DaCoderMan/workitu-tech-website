@@ -4,11 +4,15 @@ import { useState, useEffect } from 'react';
 
 export default function Admin() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState('dashboard');
   const [projects, setProjects] = useState([]);
   const [content, setContent] = useState(null);
   const [analytics, setAnalytics] = useState(null);
   const [submissions, setSubmissions] = useState([]);
+  const [loginForm, setLoginForm] = useState({ email: '', password: '' });
+  const [authError, setAuthError] = useState(null);
+  const [authLoading, setAuthLoading] = useState(false);
   const [newProject, setNewProject] = useState({
     title: '',
     description: '',
@@ -22,8 +26,24 @@ export default function Admin() {
   const [toast, setToast] = useState(null);
 
   useEffect(() => {
-    loadData();
+    verifySession();
   }, []);
+
+  const verifySession = async () => {
+    try {
+      const sessionRes = await fetch('/api/auth/session', { cache: 'no-store' });
+      if (sessionRes.ok) {
+        setIsAuthenticated(true);
+        await loadData();
+      } else {
+        setIsAuthenticated(false);
+      }
+    } catch (error) {
+      setIsAuthenticated(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const loadData = async () => {
     try {
@@ -34,6 +54,11 @@ export default function Admin() {
         fetch('/api/admin/submissions')
       ]);
 
+      if (projectsRes.status === 401 || contentRes.status === 401 || submissionsRes.status === 401) {
+        setIsAuthenticated(false);
+        return;
+      }
+
       if (projectsRes.ok) setProjects(await projectsRes.json());
       if (contentRes.ok) setContent(await contentRes.json());
       if (analyticsRes.ok) setAnalytics(await analyticsRes.json());
@@ -43,6 +68,45 @@ export default function Admin() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setAuthError(null);
+    setAuthLoading(true);
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(loginForm)
+      });
+
+      if (response.ok) {
+        setIsAuthenticated(true);
+        setLoginForm({ email: '', password: '' });
+        await loadData();
+        showToast('Logged in successfully', 'success');
+      } else {
+        const data = await response.json();
+        setAuthError(data.message || 'Login failed');
+      }
+    } catch (error) {
+      setAuthError('Login failed. Please try again.');
+    } finally {
+      setAuthLoading(false);
+      setIsLoading(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    await fetch('/api/auth/logout', { method: 'POST' });
+    setIsAuthenticated(false);
+    setProjects([]);
+    setContent(null);
+    setAnalytics(null);
+    setSubmissions([]);
+    setActiveTab('dashboard');
+    showToast('Logged out', 'success');
   };
 
   const showToast = (message, type) => {
@@ -111,14 +175,74 @@ export default function Admin() {
     );
   }
 
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-black text-gold-400 flex items-center justify-center px-4">
+        <div className="glass max-w-md w-full rounded-2xl p-8 space-y-6 border border-gold-500/20">
+          <div>
+            <h1 className="text-2xl font-bold">Admin Login</h1>
+            <p className="text-gold-400/70 text-sm mt-2">
+              Use the admin credentials configured in <code>.env.local</code> to access the dashboard.
+            </p>
+          </div>
+
+          {authError && (
+            <div className="rounded-lg bg-red-500/10 text-red-400 px-4 py-3 text-sm">
+              {authError}
+            </div>
+          )}
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium mb-2">Email</label>
+              <input
+                type="email"
+                value={loginForm.email}
+                onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
+                className="input-gold w-full px-4 py-3 rounded-lg"
+                placeholder="admin@workitu.com"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-2">Password</label>
+              <input
+                type="password"
+                value={loginForm.password}
+                onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
+                className="input-gold w-full px-4 py-3 rounded-lg"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={authLoading}
+              className="btn-gold w-full py-3 rounded-lg flex items-center justify-center"
+            >
+              {authLoading ? 'Signing in…' : 'Sign in'}
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-black text-gold-400">
       {/* Header */}
       <div className="bg-black/90 border-b border-gold-500/20 p-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">Admin Panel</h1>
-          <div className="text-gold-400/70 text-sm">
-            Full Access - No Authentication Required
+          <div className="flex items-center space-x-4 text-sm text-gold-400/80">
+            <span>Authenticated</span>
+            <button
+              onClick={handleLogout}
+              className="px-3 py-1 border border-gold-400/40 rounded-lg hover:bg-gold-400/10"
+            >
+              Log out
+            </button>
           </div>
         </div>
       </div>
