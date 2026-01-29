@@ -40,15 +40,7 @@ export default function StructuredData() {
     url: BASE_URL,
     priceRange: '$$',
     serviceType: ['Web Development', 'AI Solutions', 'E-commerce', 'Digital Marketing'],
-    areaServed: {
-      '@type': 'GeoCircle',
-      geoMidpoint: {
-        '@type': 'GeoCoordinates',
-        latitude: 32.0853,
-        longitude: 34.7818,
-      },
-      geoRadius: '50000',
-    },
+    areaServed: 'Worldwide',
   };
 
   const serviceSchema = {

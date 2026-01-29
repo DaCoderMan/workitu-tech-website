@@ -7,6 +7,7 @@ import { useLanguage } from '../lib/useLanguage';
 import StatsCounter from '../components/ui/StatsCounter';
 import TechStackShowcase from '../components/ui/TechStackShowcase';
 import FeaturedProjects from '../components/home/FeaturedProjects';
+import ProcessSection from '../components/home/ProcessSection';
 import FAQ from '../components/ui/FAQ';
 
 export default function Home() {
@@ -27,8 +28,7 @@ export default function Home() {
 
   const stats = [
     { value: 8, suffix: '+', label: t('home.stats.projects') },
-    { value: 6, suffix: '', label: t('home.stats.categories') },
-    { value: 100, suffix: '%', label: t('home.stats.worldwide') }
+    { value: 6, suffix: '', label: t('home.stats.categories') }
   ];
 
   const faqItems = [
@@ -92,10 +92,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Process Section - How We Work */}
+      <section className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto fade-in" style={{ animationDelay: '1.2s' }}>
+          <ProcessSection />
+        </div>
+      </section>
+
       {/* Mission Section */}
       <section className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="glass rounded-2xl p-8 md:p-12 fade-in" style={{ animationDelay: '1.2s' }}>
+          <div className="glass rounded-2xl p-8 md:p-12 fade-in" style={{ animationDelay: '1.4s' }}>
             <p className="text-lg md:text-xl text-gold-300 mb-6">
               {t('home.mission1')}
             </p>
@@ -157,6 +164,9 @@ export default function Home() {
             >
               {t('home.ctaPrimary')}
             </Link>
+            <p className="text-gold-400/70 text-sm mt-4">
+              Or email us directly: <a href="mailto:contact@workitu.com" className="text-gold-400 hover:text-gold-300">contact@workitu.com</a>
+            </p>
           </div>
         </div>
       </section>

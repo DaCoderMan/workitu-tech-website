@@ -43,7 +43,7 @@
     "id": "8",
     "slug": "poly-player",
     "title": "The Poly Player",
-    "description": "An AI-powered analytics platform for prediction market traders on Polymarket. Features probability estimates, Kelly Criterion bet sizing optimization, and value calculations to help traders make data-driven decisions. Rated 4.8/5 stars by 127+ users.",
+    "description": "An AI-powered analytics platform for prediction market traders on Polymarket. Features probability estimates, Kelly Criterion bet sizing optimization, and value calculations to help traders make data-driven decisions.",
     "longDescription": "The Poly Player is a sophisticated analytics platform designed for prediction market traders. Using AI-powered probability estimates and the Kelly Criterion for optimal bet sizing, it helps traders identify value opportunities and make data-driven decisions on Polymarket. The platform has earned exceptional user reviews for its accuracy and usability.",
     "image": "https://image.thum.io/get/width/1280/https://thepolyplayer.com/",
     "link": "https://thepolyplayer.com/",
@@ -54,9 +54,9 @@
     "websiteUrl": "https://thepolyplayer.com/",
     "techStack": ["Next.js", "React", "OpenAI", "Python"],
     "results": {
-      "rating": "4.8/5",
-      "users": "127+",
-      "feature": "Kelly Criterion optimization"
+      "feature": "Kelly Criterion optimization",
+      "method": "AI probability analysis",
+      "purpose": "Prediction market trading"
     }
   },
   {
@@ -95,15 +95,15 @@
     "techStack": ["Next.js", "React", "AI/ML", "Audio Processing"],
     "results": {
       "method": "AI-generated music",
-      "feature": "Personalized learning",
-      "approach": "Engaging & effective"
+      "feature": "Hebrew vocabulary songs",
+      "languages": "Hebrew & English"
     }
   },
   {
     "id": "3",
     "slug": "adventures-ai",
     "title": "Adventures AI",
-    "description": "A fully AI-generated adventure game where every player choice creates new content. The game works in 5 languages and generates unique gameplay experiences based on player decisions, creating infinite replayability.",
+    "description": "A fully AI-generated adventure game where every player choice creates new content. The game works in 5 languages and generates unique gameplay experiences based on player decisions.",
     "longDescription": "Adventures AI pushes the boundaries of interactive entertainment with a fully AI-generated adventure game. Every choice you make triggers the creation of new, unique content - from story branches to characters and scenarios. Supporting 5 languages, it offers infinite replayability and a truly personalized gaming experience.",
     "image": "https://image.thum.io/get/width/1280/https://adventuresai.app/",
     "link": "https://adventuresai.app",
@@ -115,7 +115,7 @@
     "techStack": ["Next.js", "React", "OpenAI", "Node.js"],
     "results": {
       "languages": "5",
-      "feature": "Infinite replayability",
+      "feature": "Unique gameplay each session",
       "content": "AI-generated stories"
     }
   },

@@ -17,7 +17,7 @@ export const translations = {
       description: 'Workitu Tech creates digital experiences that inspire and perform.',
       subDescription: 'We craft sophisticated websites, AI-powered apps, and e-commerce platforms that help your ideas shine online.',
       mission1: '✨ Gen AI works for you and I — turning creativity into code, and vision into reality.',
-      mission2: 'Our mission is simple: deliver world-class technology at a fair price, built with care, passion, and precision.',
+      mission2: 'Our mission is simple: deliver quality technology at a fair price, built with care, passion, and precision.',
       mission3: 'From sleek web design to smart automation, from marketing strategy to digital growth — Workitu Tech is your partner in building the future.',
       tagline1: 'Because the web isn\'t just where you exist —',
       tagline2: '🌍 It\'s where your story begins.',
@@ -32,6 +32,13 @@ export const translations = {
       techStack: 'Built With Modern Technologies',
       featuredWork: 'Featured Work',
       viewAllProjects: 'View All Projects',
+      process: {
+        title: 'How We Work',
+        step1: { title: 'Discovery', desc: 'We learn about your goals' },
+        step2: { title: 'Design', desc: 'We create mockups for feedback' },
+        step3: { title: 'Development', desc: 'We build with modern tech' },
+        step4: { title: 'Launch', desc: 'We deploy and support' }
+      },
       faq: {
         title: 'Frequently Asked Questions',
         q1: 'How long does a typical project take?',
@@ -70,7 +77,7 @@ export const translations = {
       subtitle: 'At Workitu Tech, we believe great technology should be accessible to everyone.',
       description: 'We offer transparent, flexible pricing — built around your goals, not just your budget. Every project is crafted with precision, creativity, and heart — because your success is our code.',
       loading: 'Loading pricing...',
-      promise: '💡 Our promise: fair pricing, honest communication, and results that last.',
+      promise: '💡 Our promise: fair pricing, honest communication, and quality work.',
       cta: 'Get Started Today',
       services: {
         website: {
@@ -122,7 +129,7 @@ export const translations = {
       linkedinLabel: 'LinkedIn',
       linkedinText: 'Connect with us on LinkedIn',
       responseTitle: 'Response Time',
-      responseText: 'We typically respond to all inquiries within 24 hours. For urgent matters, please mention it in your message and we\'ll prioritize your request.'
+      responseText: 'We aim to respond within 1-2 business days. For urgent matters, please mention it in your message and we\'ll prioritize your request.'
     },
 
     // Footer
@@ -153,7 +160,7 @@ export const translations = {
       description: 'וורקיטו טק יוצרת חוויות דיגיטליות שמעוררות השראה ומביאות תוצאות.',
       subDescription: 'אנחנו בונים אתרים מתוחכמים, אפליקציות מונעות AI ופלטפורמות מסחר אלקטרוני שעוזרות לרעיונות שלכם לזרוח ברשת.',
       mission1: '✨ בינה מלאכותית עובדת בשבילך ובשבילי — הופכת יצירתיות לקוד, וחזון למציאות.',
-      mission2: 'המשימה שלנו פשוטה: לספק טכנולוגיה ברמה עולמית במחיר הוגן, בנויה עם אכפתיות, תשוקה ודיוק.',
+      mission2: 'המשימה שלנו פשוטה: לספק טכנולוגיה באיכות גבוהה במחיר הוגן, בנויה עם אכפתיות, תשוקה ודיוק.',
       mission3: 'מעיצוב אתרים אלגנטי ועד אוטומציה חכמה, מאסטרטגיית שיווק ועד צמיחה דיגיטלית — וורקיטו טק היא השותפה שלכם בבניית העתיד.',
       tagline1: 'כי האינטרנט הוא לא רק המקום שבו אתם קיימים —',
       tagline2: '🌍 זה המקום שבו הסיפור שלכם מתחיל.',
@@ -168,6 +175,13 @@ export const translations = {
       techStack: 'בנוי עם טכנולוגיות מודרניות',
       featuredWork: 'עבודות נבחרות',
       viewAllProjects: 'צפה בכל הפרויקטים',
+      process: {
+        title: 'איך אנחנו עובדים',
+        step1: { title: 'גילוי', desc: 'אנחנו לומדים על המטרות שלכם' },
+        step2: { title: 'עיצוב', desc: 'אנחנו יוצרים מוקאפים לפידבק' },
+        step3: { title: 'פיתוח', desc: 'אנחנו בונים עם טכנולוגיה מודרנית' },
+        step4: { title: 'השקה', desc: 'אנחנו מפרסמים ותומכים' }
+      },
       faq: {
         title: 'שאלות נפוצות',
         q1: 'כמה זמן לוקח פרויקט טיפוסי?',
@@ -206,7 +220,7 @@ export const translations = {
       subtitle: 'בוורקיטו טק, אנחנו מאמינים שטכנולוגיה מעולה צריכה להיות נגישה לכולם.',
       description: 'אנחנו מציעים תמחור שקוף וגמיש — בנוי סביב המטרות שלכם, לא רק סביב התקציב. כל פרויקט נבנה בדיוק, יצירתיות ולב — כי ההצלחה שלכם היא הקוד שלנו.',
       loading: 'טוען מחירים...',
-      promise: '💡 ההבטחה שלנו: תמחור הוגן, תקשורת כנה ותוצאות שנשארות.',
+      promise: '💡 ההבטחה שלנו: תמחור הוגן, תקשורת כנה ועבודה איכותית.',
       cta: 'התחל היום',
       services: {
         website: {
@@ -258,7 +272,7 @@ export const translations = {
       linkedinLabel: 'לינקדאין',
       linkedinText: 'התחברו איתנו בלינקדאין',
       responseTitle: 'זמן תגובה',
-      responseText: 'אנחנו בדרך כלל עונים לכל הפניות תוך 24 שעות. לעניינים דחופים, אנא ציינו זאת בהודעתכם ונתעדף את הבקשה שלכם.'
+      responseText: 'אנחנו שואפים להגיב תוך 1-2 ימי עסקים. לעניינים דחופים, אנא ציינו זאת בהודעתכם ונתעדף את הבקשה שלכם.'
     },
 
     // Footer
