@@ -3,37 +3,40 @@
     "id": "10",
     "title": "Spanish Flow",
     "description": "Learn Spanish with music. 12 bilingual songs covering foundational topics like greetings, numbers, colors, family, food, and more. Streaming audio with synchronized English translations for vocabulary and pronunciation practice.",
-    "image": "https://image.thum.io/get/width/1280/https://spanishflow.org/",
+    "image": "/images/projects/10.png",
     "link": "https://spanishflow.org/",
     "category": "AI Education",
     "dateAdded": "2026-01-24",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://spanishflow.org/"
+    "websiteUrl": "https://spanishflow.org/",
+    "lastUpdated": "2026-02-02T15:38:28.266Z"
   },
   {
     "id": "9",
     "title": "Israeli Tax Helper",
     "description": "A free web-based tool helping Israeli citizens understand the tax system with 5 calculators: net salary, self-employed income, exempt vs. authorized business comparison, military reserve duty credits, and child tax credits. Features educational content on tax brackets, credits, and official form guidance.",
-    "image": "https://image.thum.io/get/width/1280/https://helpmewithtaxes.com/",
+    "image": "/images/projects/9.png",
     "link": "https://helpmewithtaxes.com/",
     "category": "Web Tools",
     "dateAdded": "2026-01-23",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://helpmewithtaxes.com/"
+    "websiteUrl": "https://helpmewithtaxes.com/",
+    "lastUpdated": "2026-02-02T15:38:32.453Z"
   },
   {
     "id": "8",
     "title": "The Poly Player",
     "description": "An AI-powered analytics platform for prediction market traders on Polymarket. Features probability estimates, Kelly Criterion bet sizing optimization, and value calculations to help traders make data-driven decisions. Rated 4.8/5 stars by 127+ users.",
-    "image": "https://image.thum.io/get/width/1280/https://thepolyplayer.com/",
+    "image": "/images/projects/8.png",
     "link": "https://thepolyplayer.com/",
     "category": "AI Fintech",
     "dateAdded": "2026-01-23",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://thepolyplayer.com/"
+    "websiteUrl": "https://thepolyplayer.com/",
+    "lastUpdated": "2026-02-02T15:38:36.400Z"
   },
   {
     "id": "1",
@@ -51,25 +54,27 @@
     "id": "2",
     "title": "Hebrew Flow",
     "description": "A revolutionary way to study Hebrew using AI-generated music. Learn Hebrew through personalized songs and melodies created by artificial intelligence, making language learning more engaging and effective.",
-    "image": "https://image.thum.io/get/width/1280/https://www.hebrewflow.com/",
+    "image": "/images/projects/2.png",
     "link": "https://www.hebrewflow.com",
     "category": "AI Education",
     "dateAdded": "2024-01-10",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://www.hebrewflow.com"
+    "websiteUrl": "https://www.hebrewflow.com",
+    "lastUpdated": "2026-02-02T15:38:38.615Z"
   },
   {
     "id": "3",
     "title": "Adventures AI",
     "description": "A fully AI-generated adventure game where every player choice creates new content. The game works in 5 languages and generates unique gameplay experiences based on player decisions, creating infinite replayability.",
-    "image": "https://image.thum.io/get/width/1280/https://adventuresai.app/",
+    "image": "/images/projects/3.png",
     "link": "https://adventuresai.app",
     "category": "AI Gaming",
     "dateAdded": "2024-01-05",
     "featured": true,
     "isWebsite": true,
-    "websiteUrl": "https://adventuresai.app"
+    "websiteUrl": "https://adventuresai.app",
+    "lastUpdated": "2026-02-02T15:38:41.010Z"
   },
   {
     "id": "4",
@@ -87,12 +92,13 @@
     "id": "6",
     "title": "Yonatan Perlin Portfolio",
     "description": "A clean, minimal professional portfolio website showcasing resume and credentials. Features direct access to downloadable resume and LinkedIn profile for professional networking.",
-    "image": "https://image.thum.io/get/width/1280/https://clear-eight.vercel.app/",
+    "image": "/images/projects/6.png",
     "link": "https://clear-eight.vercel.app/",
     "category": "Web Development",
     "dateAdded": "2024-01-01",
     "featured": false,
     "isWebsite": true,
-    "websiteUrl": "https://clear-eight.vercel.app/"
+    "websiteUrl": "https://clear-eight.vercel.app/",
+    "lastUpdated": "2026-02-02T15:38:46.094Z"
   }
 ]
