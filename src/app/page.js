@@ -5,7 +5,7 @@ import VideoBackground from '../components/animations/VideoBackground';
 import { useLanguage } from '../lib/useLanguage';
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     // Track page view
@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen">
-      <VideoBackground />
+      <VideoBackground imageSrc="/images/bg-home.png" />
 
       {/* Hero Section */}
       <section className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">

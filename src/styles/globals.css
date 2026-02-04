@@ -32,6 +32,12 @@ body {
     )
     rgb(var(--background-start-rgb));
   min-height: 100vh;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Improve readability everywhere */
+}
+
+::selection {
+  background: #f59e0b; /* Gold */
+  color: #000000; /* Black */
 }
 
 a {

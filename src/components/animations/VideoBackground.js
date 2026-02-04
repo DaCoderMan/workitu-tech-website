@@ -1,13 +1,16 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
 
-export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.mp4', className = '' }) {
+export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.mp4', imageSrc, className = '' }) {
   const videoRef = useRef(null);
   const [isVideoSupported, setIsVideoSupported] = useState(true);
   const [hasUserInteracted, setHasUserInteracted] = useState(false);
 
   useEffect(() => {
+    if (imageSrc) return; // Skip video logic if image is provided
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -47,11 +50,11 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
       video.removeEventListener('loadeddata', handleLoadedData);
       video.removeEventListener('error', handleError);
     };
-  }, []);
+  }, [imageSrc]); // Removed empty dependency array to react to imageSrc changes if needed, though usually static
 
   // Handle user interaction to start video on mobile
   useEffect(() => {
-    if (hasUserInteracted) return;
+    if (imageSrc || hasUserInteracted) return;
 
     const handleUserInteraction = () => {
       setHasUserInteracted(true);
@@ -75,7 +78,23 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
       document.removeEventListener('touchstart', handleUserInteraction);
       document.removeEventListener('scroll', handleUserInteraction);
     };
-  }, [hasUserInteracted]);
+  }, [hasUserInteracted, imageSrc]);
+
+  if (imageSrc) {
+    return (
+      <div className={`fixed inset-0 w-full h-full overflow-hidden z-0 ${className}`}>
+        <Image
+          src={imageSrc}
+          alt="Background"
+          fill
+          priority
+          className="object-cover"
+          quality={100}
+        />
+        <div className="absolute inset-0 bg-black/40"></div>
+      </div>
+    );
+  }
 
   return (
     <div className={`fixed inset-0 w-full h-full overflow-hidden z-0 ${className}`}>
@@ -109,10 +128,10 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
       )}
       
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/70"></div>
       
       {/* Mobile-specific overlay for better performance */}
-      <div className="absolute inset-0 bg-black/30 md:hidden"></div>
+      <div className="absolute inset-0 bg-black/50 md:hidden"></div>
     </div>
   );
 }

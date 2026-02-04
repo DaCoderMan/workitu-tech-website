@@ -1,16 +1,43 @@
 // In-memory analytics storage for Edge Runtime compatibility
-let analyticsData = {
-  totalViews: 0,
-  uniqueVisitors: 0,
-  pageViews: { home: 0, portfolio: 0, pricing: 0, contact: 0 },
-  projectClicks: {},
-  deviceTypes: { desktop: 0, mobile: 0, tablet: 0 },
-  referrers: {},
-  dailyStats: {},
-  lastUpdated: new Date().toISOString()
-};
+import fs from 'fs';
+import path from 'path';
+
+const DATA_DIR = path.join(process.cwd(), 'src', 'data');
+const ANALYTICS_FILE = path.join(DATA_DIR, 'analytics.json');
+
+// Ensure data directory exists
+if (!fs.existsSync(DATA_DIR)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+
+function loadAnalytics() {
+  try {
+    if (fs.existsSync(ANALYTICS_FILE)) {
+      const data = fs.readFileSync(ANALYTICS_FILE, 'utf8');
+      return JSON.parse(data);
+    }
+  } catch (error) {
+    console.error('Error loading analytics:', error);
+  }
+  
+  return {
+    totalViews: 0,
+    uniqueVisitors: 0,
+    pageViews: { home: 0, portfolio: 0, pricing: 0, contact: 0 },
+    projectClicks: {},
+    deviceTypes: { desktop: 0, mobile: 0, tablet: 0 },
+    referrers: {},
+    dailyStats: {},
+    lastUpdated: new Date().toISOString()
+  };
+}
+
+// In-memory cache
+let analyticsData = loadAnalytics();
 
 export function getAnalytics() {
+  // Reload in case file changed by another process (simple concurrency handling)
+  analyticsData = loadAnalytics();
   return { ...analyticsData };
 }
 
@@ -18,6 +45,7 @@ export function saveAnalytics(analytics) {
   try {
     analytics.lastUpdated = new Date().toISOString();
     analyticsData = { ...analytics };
+    fs.writeFileSync(ANALYTICS_FILE, JSON.stringify(analyticsData, null, 2));
     return true;
   } catch (error) {
     console.error('Error saving analytics:', error);

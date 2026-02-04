@@ -10,7 +10,7 @@ export default function Portfolio() {
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     // Track page view
@@ -75,7 +75,7 @@ export default function Portfolio() {
 
   return (
     <div className="relative min-h-screen">
-      <VideoBackground />
+      <VideoBackground imageSrc="/images/bg-portfolio.png" />
 
       {/* Header Section */}
       <section className="relative z-10 pt-20 pb-8 px-4 sm:px-6 lg:px-8">
@@ -100,7 +100,7 @@ export default function Portfolio() {
                 placeholder="Search projects..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-2 bg-black/50 border border-gold-400/30 rounded-lg text-gold-300 placeholder-gold-400/50 focus:outline-none focus:border-gold-400"
+                className="w-full px-4 py-2 bg-black/80 border border-gold-400/30 rounded-lg text-gold-300 placeholder-gold-400/50 focus:outline-none focus:border-gold-400"
               />
             </div>
 
@@ -209,10 +209,10 @@ export default function Portfolio() {
 
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-gold-300 mb-2">
-                      {project.title}
+                      {language === 'he' ? (project.title_he || project.title) : project.title}
                     </h3>
                     <p className="text-gold-400/70 text-sm mb-4 line-clamp-3">
-                      {project.description}
+                      {language === 'he' ? (project.description_he || project.description) : project.description}
                     </p>
                     {project.category && (
                       <span className="inline-block px-3 py-1 bg-gold-400/10 text-gold-400 text-xs rounded-full mb-4">

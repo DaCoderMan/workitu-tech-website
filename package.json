@@ -11,6 +11,7 @@
     "deploy:netlify": "netlify deploy --prod",
     "preview": "next build && next start",
     "update-portfolio": "node .agent/scripts/portfolio-manager.js",
+    "business-agent": "node .agent/scripts/business-agent.js",
     "qa-check": "node .agent/scripts/qa-agent.js"
   },
   "dependencies": {

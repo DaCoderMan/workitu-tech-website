@@ -96,6 +96,120 @@ export const translations = {
       responseText: 'We typically respond to all inquiries within 24 hours. For urgent matters, please mention it in your message and we\'ll prioritize your request.'
     },
 
+    // About page
+    about: {
+      title: 'About Workitu Tech',
+      subtitle: 'Where imagination meets innovation. We transform ideas into digital experiences that inspire and perform.',
+      missionTitle: 'Our Mission',
+      mission1: 'At Workitu Tech, we believe great technology should be accessible to everyone. Our mission is to bridge the gap between complex technology and practical business solutions.',
+      mission2: 'From sleek web design to smart automation, from marketing strategy to digital growth - Workitu Tech is your partner in building the future.',
+      mission3: 'We specialize in creating AI-powered solutions, sophisticated websites, and e-commerce platforms that help businesses thrive in the digital age.',
+      whyChooseUs: 'Why Choose Us?',
+      reasons: {
+        1: 'Cutting-edge AI integration in all our solutions',
+        2: 'Responsive, mobile-first design approach',
+        3: 'SEO optimization built into every project',
+        4: 'Ongoing support and maintenance',
+        5: 'Transparent pricing with no hidden fees'
+      },
+      valuesTitle: 'Our Values',
+      values: {
+        innovation: {
+          title: 'Innovation',
+          description: 'We stay at the forefront of technology, constantly exploring new ways to solve problems.'
+        },
+        quality: {
+          title: 'Quality',
+          description: 'Every line of code, every design element is crafted with attention to detail.'
+        },
+        partnership: {
+          title: 'Partnership',
+          description: 'We work alongside our clients, treating their success as our own.'
+        }
+      },
+      techStackTitle: 'Our Tech Stack',
+      techCategories: {
+        Frontend: 'Frontend',
+        Styling: 'Styling',
+        Backend: 'Backend',
+        AIML: 'AI/ML',
+        Deployment: 'Deployment',
+        Database: 'Database'
+      },
+      ctaTitle: 'Ready to Start Your Project?',
+      ctaText: 'Let\'s discuss how we can help bring your vision to life.',
+      ctaButton: 'Get in Touch'
+    },
+
+    // Services page
+    servicesPage: {
+      title: 'Our Services',
+      subtitle: 'Comprehensive digital solutions to help your business thrive in the modern world.',
+      items: {
+        webDev: {
+          title: 'Web Development',
+          description: 'Custom websites built with modern technologies like Next.js, React, and Tailwind CSS. From landing pages to complex web applications.',
+          features: [
+            'Responsive, mobile-first design',
+            'Fast loading with optimized performance',
+            'SEO-friendly architecture',
+            'CMS integration (WordPress, Sanity, etc.)',
+            'E-commerce functionality',
+            'Custom admin dashboards'
+          ]
+        },
+        aiSolutions: {
+          title: 'AI Solutions',
+          description: 'Integrate artificial intelligence into your business workflows. From chatbots to custom AI agents that automate complex tasks.',
+          features: [
+            'Custom AI chatbots and assistants',
+            'Process automation with AI',
+            'Natural language processing',
+            'Machine learning integration',
+            'AI-powered content generation',
+            'Predictive analytics'
+          ]
+        },
+        ecommerce: {
+          title: 'E-Commerce',
+          description: 'Build your online store with secure payment processing, inventory management, and a seamless shopping experience.',
+          features: [
+            'Shopify / WooCommerce setup',
+            'Custom e-commerce solutions',
+            'Payment gateway integration',
+            'Inventory management',
+            'Order tracking systems',
+            'Customer analytics'
+          ]
+        },
+        digitalMarketing: {
+          title: 'Digital Marketing',
+          description: 'Grow your online presence with data-driven marketing strategies. SEO, social media, and content marketing that delivers results.',
+          features: [
+            'Search Engine Optimization (SEO)',
+            'Social media management',
+            'Content marketing strategy',
+            'Email marketing campaigns',
+            'PPC advertising',
+            'Analytics and reporting'
+          ]
+        }
+      },
+      processTitle: 'Our Process',
+      process: {
+        1: { title: 'Discovery', description: 'We learn about your business, goals, and requirements.' },
+        2: { title: 'Planning', description: 'We create a detailed project plan and timeline.' },
+        3: { title: 'Design', description: 'We design the user interface and user experience.' },
+        4: { title: 'Development', description: 'We build your solution with clean, maintainable code.' },
+        5: { title: 'Testing', description: 'We thoroughly test everything before launch.' },
+        6: { title: 'Launch & Support', description: 'We deploy and provide ongoing support.' }
+      },
+      ctaTitle: 'Ready to Get Started?',
+      ctaText: 'Check out our pricing or contact us for a custom quote.',
+      viewPricing: 'View Pricing',
+      contactUs: 'Contact Us'
+    },
+
     // Footer
     footer: {
       tagline: 'Where Imagination Meets Innovation. Creating digital experiences that inspire and perform.',
@@ -201,6 +315,120 @@ export const translations = {
       linkedinText: 'התחברו איתנו בלינקדאין',
       responseTitle: 'זמן תגובה',
       responseText: 'אנחנו בדרך כלל עונים לכל הפניות תוך 24 שעות. לעניינים דחופים, אנא ציינו זאת בהודעתכם ונתעדף את הבקשה שלכם.'
+    },
+
+    // About page
+    about: {
+      title: 'אודות וורקיטו טק',
+      subtitle: 'כאשר דמיון פוגש חדשנות. אנחנו הופכים רעיונות לחוויות דיגיטליות שמעוררות השראה ומביאות תוצאות.',
+      missionTitle: 'המשימה שלנו',
+      mission1: 'בוורקיטו טק, אנחנו מאמינים שטכנולוגיה מעולה צריכה להיות נגישה לכולם. המשימה שלנו היא לגשר על הפער בין טכנולוגיה מורכבת ופתרונות עסקיים מעשיים.',
+      mission2: 'מעיצוב אתרים אלגנטי ועד אוטומציה חכמה, מאסטרטגיית שיווק ועד צמיחה דיגיטלית - וורקיטו טק היא השותפה שלכם בבניית העתיד.',
+      mission3: 'אנחנו מתמחים ביצירת פתרונות מבוססי AI, אתרים מתוחכמים ופלטפורמות מסחר אלקטרוני שעוזרות לעסקים לצמוח בעידן הדיגיטלי.',
+      whyChooseUs: 'למה לבחור בנו?',
+      reasons: {
+        1: 'שילוב AI מתקדם בכל הפתרונות שלנו',
+        2: 'עיצוב רספונסיבי בגישת מובייל-תחילה',
+        3: 'אופטימיזציית SEO מובנית בכל פרויקט',
+        4: 'תמיכה ותחזוקה שוטפת',
+        5: 'תמחור שקוף ללא עמלות נסתרות'
+      },
+      valuesTitle: 'הערכים שלנו',
+      values: {
+        innovation: {
+          title: 'חדשנות',
+          description: 'אנחנו נשארים בחזית הטכנולוגיה, וחוקרים כל הזמן דרכים חדשות לפתרון בעיות.'
+        },
+        quality: {
+          title: 'איכות',
+          description: 'כל שורת קוד, כל אלמנט עיצובי מיוצר עם תשומת לב לפרטים.'
+        },
+        partnership: {
+          title: 'שותפות',
+          description: 'אנחנו עובדים לצד הלקוחות שלנו, ומתייחסים להצלחה שלהם כשלנו.'
+        }
+      },
+      techStackTitle: 'הטכנולוגיות שלנו',
+      techCategories: {
+        Frontend: 'צד לקוח',
+        Styling: 'עיצוב וסגנון',
+        Backend: 'צד שרת',
+        AIML: 'בינה מלאכותית',
+        Deployment: 'פריסה ותשתיות',
+        Database: 'מסדי נתונים'
+      },
+      ctaTitle: 'מוכנים להתחיל בפרויקט?',
+      ctaText: 'בואו נדון איך אנחנו יכולים לעזור להפוך את החזון שלכם למציאות.',
+      ctaButton: 'צרו קשר'
+    },
+
+    // Services page
+    servicesPage: {
+      title: 'השירותים שלנו',
+      subtitle: 'פתרונות דיגיטליים מקיפים שיעזרו לעסק שלכם לצמוח בעולם המודרני.',
+      items: {
+        webDev: {
+          title: 'פיתוח אתרים',
+          description: 'אתרים מותאמים אישית הבנויים בטכנולוגיות מודרניות כמו Next.js, React ו-Tailwind CSS. מדפי נחיתה ועד אפליקציות ווב מורכבות.',
+          features: [
+            'עיצוב רספונסיבי, מובייל-תחילה',
+            'טעינה מהירה עם ביצועים אופטימליים',
+            'ארכיטקטורה ידידותית ל-SEO',
+            'אינטגרציית מערכות ניהול תוכן (WordPress, Sanity וכו\')',
+            'פונקציונליות מסחר אלקטרוני',
+            'לוחות ניהול מותאמים אישית'
+          ]
+        },
+        aiSolutions: {
+          title: 'פתרונות בינה מלאכותית',
+          description: 'שילוב בינה מלאכותית בתהליכי העבודה של העסק. מצ\'אטבוטים ועד סוכני AI מותאמים אישית המבצעים אוטומציה למשימות מורכבות.',
+          features: [
+            'צ\'אטבוטים ועוזרים וירטואליים מותאמים אישית',
+            'אוטומציה של תהליכים עם AI',
+            'עיבוד שפה טבעית (NLP)',
+            'למידת מכונה (Machine Learning)',
+            'יצירת תוכן מבוססת AI',
+            'ניתוח אנליטי חזוי'
+          ]
+        },
+        ecommerce: {
+          title: 'מסחר אלקטרוני',
+          description: 'בניית חנות מקוונת עם עיבוד תשלומים מאובטח, ניהול מלאי וחווית קנייה חלקה.',
+          features: [
+            'הקמת Shopify / WooCommerce',
+            'פתרונות מסחר אלקטרוני מותאמים אישית',
+            'אינטגרציית סליקה',
+            'ניהול מלאי',
+            'מערכות מעקב הזמנות',
+            'ניתוח נתוני לקוחות'
+          ]
+        },
+        digitalMarketing: {
+          title: 'שיווק דיגיטלי',
+          description: 'הגדלת הנוכחות המקוונת עם אסטרטגיות שיווק מבוססות נתונים. SEO, רשתות חברתיות ושיווק באמצעות תוכן שמביא תוצאות.',
+          features: [
+            'קידום אתרים במנועי חיפוש (SEO)',
+            'ניהול רשתות חברתיות',
+            'אסטרטגיית שיווק תוכן',
+            'קמפיינים במייל (Email Marketing)',
+            'פרסום ממומן (PPC)',
+            'אנליטיקס ודוחות'
+          ]
+        }
+      },
+      processTitle: 'התהליך שלנו',
+      process: {
+        1: { title: 'גילוי', description: 'אנחנו לומדים על העסק, המטרות והדרישות שלכם.' },
+        2: { title: 'תכנון', description: 'אנחנו יוצרים תוכנית פרויקט מפורטת ולוח זמנים.' },
+        3: { title: 'עיצוב', description: 'אנחנו מעצבים את ממשק המשתמש וחווית המשתמש.' },
+        4: { title: 'פיתוח', description: 'אנחנו בונים את הפתרון שלכם עם קוד נקי וקל לתחזוקה.' },
+        5: { title: 'בדיקות', description: 'אנחנו בודקים הכל ביסודיות לפני ההשקה.' },
+        6: { title: 'השקה ותמיכה', description: 'אנחנו מעלים לאוויר ומספקים תמיכה מתמשכת.' }
+      },
+      ctaTitle: 'מוכנים להתחיל?',
+      ctaText: 'בדקו את המחירים שלנו או צרו קשר לקבלת הצעת מחיר מותאמת אישית.',
+      viewPricing: 'צפו במחירים',
+      contactUs: 'צרו קשר'
     },
 
     // Footer

@@ -1,7 +1,7 @@
 import './globals.css';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import MusicPlayer from '../components/audio/MusicPlayer';
+
 import LanguageProvider from '../components/LanguageProvider';
 import StructuredData from '../components/StructuredData';
 
@@ -76,7 +76,7 @@ export default function RootLayout({ children }) {
             {children}
           </main>
           <Footer />
-          <MusicPlayer />
+
         </LanguageProvider>
       </body>
     </html>

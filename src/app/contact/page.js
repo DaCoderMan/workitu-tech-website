@@ -13,7 +13,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [content, setContent] = useState(null);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     // Track page view
@@ -78,7 +78,7 @@ export default function Contact() {
 
   return (
     <div className="relative min-h-screen">
-      <VideoBackground />
+      <VideoBackground imageSrc="/images/bg-contact.png" />
 
       {/* Header Section */}
       <section className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">

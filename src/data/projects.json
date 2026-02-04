@@ -2,7 +2,9 @@
   {
     "id": "10",
     "title": "Spanish Flow",
+    "title_he": "Spanish Flow",
     "description": "Learn Spanish with music. 12 bilingual songs covering foundational topics like greetings, numbers, colors, family, food, and more. Streaming audio with synchronized English translations for vocabulary and pronunciation practice.",
+    "description_he": "למדו ספרדית עם מוזיקה. 12 שירים דו-לשוניים המכסים נושאי יסוד כמו ברכות, מספרים, צבעים, משפחה, אוכל ועוד. אודיו זורם עם תרגומים מסונכרנים לאנגלית לתרגול אוצר מילים והגייה.",
     "image": "/images/projects/10.png",
     "link": "https://spanishflow.org/",
     "category": "AI Education",
@@ -10,12 +12,14 @@
     "featured": true,
     "isWebsite": true,
     "websiteUrl": "https://spanishflow.org/",
-    "lastUpdated": "2026-02-02T15:38:28.266Z"
+    "lastUpdated": "2026-02-04T17:59:38.985Z"
   },
   {
     "id": "9",
     "title": "Israeli Tax Helper",
+    "title_he": "עוזר המס הישראלי",
     "description": "A free web-based tool helping Israeli citizens understand the tax system with 5 calculators: net salary, self-employed income, exempt vs. authorized business comparison, military reserve duty credits, and child tax credits. Features educational content on tax brackets, credits, and official form guidance.",
+    "description_he": "כלי אינטרנטי חינמי העוזר לאזרחי ישראל להבין את מערכת המס עם 5 מחשבונים: שכר נטו, הכנסה מעבודה עצמאית, השוואה בין עוסק פטור למורשה, נקודות זיכוי למילואים ונקודות זיכוי לילדים. כולל תוכן חינוכי על מדרגות מס, נקודות זיכוי והנחיות לטפסים רשמיים.",
     "image": "/images/projects/9.png",
     "link": "https://helpmewithtaxes.com/",
     "category": "Web Tools",
@@ -23,12 +27,14 @@
     "featured": true,
     "isWebsite": true,
     "websiteUrl": "https://helpmewithtaxes.com/",
-    "lastUpdated": "2026-02-02T15:38:32.453Z"
+    "lastUpdated": "2026-02-04T17:59:43.279Z"
   },
   {
     "id": "8",
     "title": "The Poly Player",
+    "title_he": "The Poly Player",
     "description": "An AI-powered analytics platform for prediction market traders on Polymarket. Features probability estimates, Kelly Criterion bet sizing optimization, and value calculations to help traders make data-driven decisions. Rated 4.8/5 stars by 127+ users.",
+    "description_he": "פלטפורמת ניתוח מבוססת AI לסוחרים בשוקי חיזוי ב-Polymarket. כוללת הערכות הסתברות, אופטימיזציית גודל הימור לפי קריטריון קלי, וחישובי ערך לעזרה בקבלת החלטות מבוססות נתונים. מדורג 4.8/5 כוכבים על ידי יותר מ-127 משתמשים.",
     "image": "/images/projects/8.png",
     "link": "https://thepolyplayer.com/",
     "category": "AI Fintech",
@@ -36,12 +42,14 @@
     "featured": true,
     "isWebsite": true,
     "websiteUrl": "https://thepolyplayer.com/",
-    "lastUpdated": "2026-02-02T15:38:36.400Z"
+    "lastUpdated": "2026-02-04T17:59:48.653Z"
   },
   {
     "id": "1",
     "title": "Job Genie AI",
+    "title_he": "Job Genie AI",
     "description": "Job Genie AI is an autonomous job-search agent. You upload your resume once, and it continuously finds real openings across multiple sources, matches them to your profile, prevents duplicates, and sends tailored applications automatically. Every action is logged live in the Agent Activity panel, daily email summaries are sent, and all data is stored for tracking results.",
+    "description_he": "Job Genie AI הוא סוכן חיפוש עבודה אוטונומי. מעלים את קורות החיים פעם אחת, והוא מוצא ללא הרף משרות אמיתיות ממקורות מרובים, מתאים אותן לפרופיל שלכם, מונע כפילויות ושולח מועמדויות מותאמות אישית באופן אוטומטי. כל פעולה נרשמת בזמן אמת בלוח הפעילות של הסוכן, סיכומים יומיים נשלחים במייל, וכל הנתונים נשמרים למעקב אחר תוצאות.",
     "image": "https://img.youtube.com/vi/ABz6YNAO9ss/maxresdefault.jpg",
     "link": "https://www.youtube.com/watch?v=ABz6YNAO9ss",
     "category": "AI Solutions",
@@ -53,7 +61,9 @@
   {
     "id": "2",
     "title": "Hebrew Flow",
+    "title_he": "Hebrew Flow",
     "description": "A revolutionary way to study Hebrew using AI-generated music. Learn Hebrew through personalized songs and melodies created by artificial intelligence, making language learning more engaging and effective.",
+    "description_he": "דרך מהפכנית ללמוד עברית באמצעות מוזיקה שנוצרה על ידי AI. למדו עברית דרך שירים ומנגינות מותאמים אישית שנוצרו על ידי בינה מלאכותית, מה שהופך את לימוד השפה למעניין ויעיל יותר.",
     "image": "/images/projects/2.png",
     "link": "https://www.hebrewflow.com",
     "category": "AI Education",
@@ -61,12 +71,14 @@
     "featured": true,
     "isWebsite": true,
     "websiteUrl": "https://www.hebrewflow.com",
-    "lastUpdated": "2026-02-02T15:38:38.615Z"
+    "lastUpdated": "2026-02-04T17:59:51.005Z"
   },
   {
     "id": "3",
     "title": "Adventures AI",
+    "title_he": "Adventures AI",
     "description": "A fully AI-generated adventure game where every player choice creates new content. The game works in 5 languages and generates unique gameplay experiences based on player decisions, creating infinite replayability.",
+    "description_he": "משחק הרפתקאות שנוצר כולו על ידי AI שבו כל בחירה של השחקן יוצרת תוכן חדש. המשחק עובד ב-5 שפות ומייצר חוויות משחק ייחודיות המבוססות על החלטות השחקן, מה שיוצר אפשרויות משחק אינסופיות.",
     "image": "/images/projects/3.png",
     "link": "https://adventuresai.app",
     "category": "AI Gaming",
@@ -74,12 +86,14 @@
     "featured": true,
     "isWebsite": true,
     "websiteUrl": "https://adventuresai.app",
-    "lastUpdated": "2026-02-02T15:38:41.010Z"
+    "lastUpdated": "2026-02-04T17:59:55.357Z"
   },
   {
     "id": "4",
     "title": "CISSP Rock Study Experience",
+    "title_he": "CISSP Rock Study Experience",
     "description": "This isn't just background music — here, every lyric is a lesson. We transformed key CISSP concepts, domain facts, and core principles into heavy riffs and rock verses you can sing along to — so your brain locks them in.",
+    "description_he": "זו לא סתם מוזיקת רקע — כאן, כל מילה היא שיעור. הפכנו מושגי מפתח ב-CISSP, עובדות ועקרונות ליבה לריפים כבדים ובתים של רוק שאפשר לשיר איתם — כדי שהמוח שלכם ינעיל אותם.",
     "image": "https://img.youtube.com/vi/WDxmACquFbs/maxresdefault.jpg",
     "link": "https://www.youtube.com/watch?v=WDxmACquFbs",
     "category": "AI Solutions",
@@ -91,7 +105,9 @@
   {
     "id": "6",
     "title": "Yonatan Perlin Portfolio",
+    "title_he": "תיק עבודות יונתן פרלין",
     "description": "A clean, minimal professional portfolio website showcasing resume and credentials. Features direct access to downloadable resume and LinkedIn profile for professional networking.",
+    "description_he": "אתר פורטפוליו מקצועי נקי ומינימליסטי המציג קורות חיים וכישורים. כולל גישה ישירה להורדת קורות חיים ופרופיל לינקדאין לרישות עסקי.",
     "image": "/images/projects/6.png",
     "link": "https://clear-eight.vercel.app/",
     "category": "Web Development",
@@ -99,6 +115,6 @@
     "featured": false,
     "isWebsite": true,
     "websiteUrl": "https://clear-eight.vercel.app/",
-    "lastUpdated": "2026-02-02T15:38:46.094Z"
+    "lastUpdated": "2026-02-04T18:00:01.021Z"
   }
 ]
