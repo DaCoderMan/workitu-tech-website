@@ -47,6 +47,12 @@ export default function Header() {
                 {t(`nav.${item.key}`)}
               </Link>
             ))}
+            <Link
+              href="/pay"
+              className="px-4 py-2 bg-gradient-to-r from-gold-400 to-gold-600 text-black font-semibold rounded-lg hover:from-gold-500 hover:to-gold-700 transition-all"
+            >
+              💳 Pay Now
+            </Link>
             <LanguageToggle />
           </nav>
 
