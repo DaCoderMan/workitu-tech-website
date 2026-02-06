@@ -4,6 +4,7 @@ import Footer from '../components/layout/Footer';
 
 import LanguageProvider from '../components/LanguageProvider';
 import StructuredData from '../components/StructuredData';
+import { GoogleAnalytics, GoogleTagManager } from '../components/Analytics';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.tech';
 
@@ -56,6 +57,7 @@ export const metadata = {
     languages: {
       'en-US': `${BASE_URL}/en`,
       'he-IL': `${BASE_URL}/he`,
+      'pt-BR': `${BASE_URL}/pt`,
     },
   },
 };
@@ -70,13 +72,14 @@ export default function RootLayout({ children }) {
         <StructuredData />
       </head>
       <body className="bg-black text-gold-400 min-h-screen">
+        <GoogleAnalytics />
+        <GoogleTagManager />
         <LanguageProvider>
           <Header />
           <main className="pt-16">
             {children}
           </main>
           <Footer />
-
         </LanguageProvider>
       </body>
     </html>

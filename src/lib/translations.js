@@ -439,5 +439,226 @@ export const translations = {
       copyright: '© 2024 וורקיטו טק. כל הזכויות שמורות.',
       admin: 'ניהול'
     }
+  },
+
+  pt: {
+    // Navigation
+    nav: {
+      home: 'Início',
+      about: 'Sobre',
+      services: 'Serviços',
+      portfolio: 'Portfólio',
+      pricing: 'Preços',
+      contact: 'Contato'
+    },
+
+    // Home page
+    home: {
+      title: 'Workitu Tech',
+      tagline: 'Onde a Imaginação Encontra a Inovação',
+      description: 'A Workitu Tech cria experiências digitais que inspiram e performam.',
+      subDescription: 'Criamos sites sofisticados, aplicativos com IA e plataformas de e-commerce que ajudam suas ideias a brilharem online.',
+      mission1: '✨ A IA Gen trabalha para você e para mim — transformando criatividade em código e visão em realidade.',
+      mission2: 'Nossa missão é simples: entregar tecnologia de classe mundial a um preço justo, construída com cuidado, paixão e precisão.',
+      mission3: 'De web design elegante a automação inteligente, de estratégia de marketing a crescimento digital — Workitu Tech é seu parceiro na construção do futuro.',
+      tagline1: 'Porque a web não é apenas onde você existe —',
+      tagline2: '🌍 É onde sua história começa.',
+      cta: 'Comece Sua História'
+    },
+
+    // Portfolio page
+    portfolio: {
+      title: 'Nosso Portfólio',
+      description: 'Descubra as experiências digitais que criamos. Cada projeto representa nosso compromisso com inovação, criatividade e excelência.',
+      loading: 'Carregando projetos...',
+      noProjects: 'Nenhum projeto disponível ainda. Volte em breve!',
+      watchVideo: 'Assistir Vídeo',
+      visitWebsite: 'Visitar Site',
+      viewProject: 'Ver Projeto'
+    },
+
+    // Pricing page
+    pricing: {
+      title: 'Preços',
+      subtitle: 'Na Workitu Tech, acreditamos que grande tecnologia deve ser acessível a todos.',
+      description: 'Oferecemos preços transparentes e flexíveis — construídos em torno dos seus objetivos, não apenas do seu orçamento. Cada projeto é criado com precisão, criatividade e coração — porque seu sucesso é nosso código.',
+      loading: 'Carregando preços...',
+      promise: '💡 Nossa promessa: preços justos, comunicação honesta e resultados duradouros.',
+      cta: 'Comece Hoje',
+      services: {
+        website: {
+          title: '🌐 Criação de Sites',
+          price: 'A partir de $320',
+          description: 'Sites elegantes, rápidos e prontos para mobile, projetados para impressionar e performar. Perfeito para marcas pessoais, startups e pequenas empresas prontas para crescer online.'
+        },
+        ecommerce: {
+          title: '🛒 Soluções de E-Commerce',
+          price: 'A partir de $950',
+          description: 'Lojas online poderosas e seguras que ajudam você a vender com confiança e estilo. Inclui integração de pagamento, gestão de inventário e configuração de marketing digital.'
+        },
+        ai: {
+          title: '🤖 Aplicações com IA',
+          price: 'A partir de $670',
+          description: 'Transforme suas ideias em software inteligente e escalável, alimentado por IA Generativa. Automatizamos fluxos de trabalho, personalizamos experiências e fazemos a IA trabalhar para você e para mim.'
+        },
+        marketing: {
+          title: '📈 Marketing Digital e Crescimento',
+          price: 'A partir de $270/mês',
+          description: 'Fazemos crescer sua presença online com SEO, automação e estratégia de mídias sociais. Da busca à narrativa — sua marca merece ser vista e lembrada.'
+        },
+        custom: {
+          title: '⚙️ Projetos Personalizados',
+          price: 'Cada ideia é única — e cada preço também.',
+          description: 'Vamos discutir sua visão, definir seus objetivos e projetar a solução perfeita juntos.'
+        }
+      }
+    },
+
+    // Contact page
+    contact: {
+      title: 'Entre em Contato',
+      subtitle: 'Vamos Construir Algo Incrível Juntos',
+      description: 'Pronto para transformar sua visão em realidade? Entre em contato para discutir seu projeto, fazer perguntas ou apenas dizer olá. Estamos aqui para ajudá-lo a ter sucesso.',
+      formTitle: 'Envie-nos uma mensagem',
+      success: 'Obrigado! Sua mensagem foi enviada com sucesso.',
+      error: 'Desculpe, houve um erro ao enviar sua mensagem. Por favor, tente novamente.',
+      name: 'Nome',
+      namePlaceholder: 'Seu nome completo',
+      email: 'E-mail',
+      emailPlaceholder: 'seu.email@exemplo.com',
+      message: 'Mensagem',
+      messagePlaceholder: 'Conte-nos sobre seu projeto ou pergunte-nos qualquer coisa...',
+      send: 'Enviar Mensagem',
+      sending: 'Enviando...',
+      infoTitle: 'Entre em contato',
+      emailLabel: 'E-mail',
+      linkedinLabel: 'LinkedIn',
+      linkedinText: 'Conecte-se conosco no LinkedIn',
+      responseTitle: 'Tempo de Resposta',
+      responseText: 'Normalmente respondemos a todas as consultas dentro de 24 horas. Para assuntos urgentes, mencione na sua mensagem e priorizaremos sua solicitação.'
+    },
+
+    // About page
+    about: {
+      title: 'Sobre a Workitu Tech',
+      subtitle: 'Onde a imaginação encontra a inovação. Transformamos ideias em experiências digitais que inspiram e performam.',
+      missionTitle: 'Nossa Missão',
+      mission1: 'Na Workitu Tech, acreditamos que grande tecnologia deve ser acessível a todos. Nossa missão é preencher a lacuna entre tecnologia complexa e soluções práticas de negócios.',
+      mission2: 'De web design elegante a automação inteligente, de estratégia de marketing a crescimento digital - Workitu Tech é seu parceiro na construção do futuro.',
+      mission3: 'Somos especializados na criação de soluções com IA, sites sofisticados e plataformas de e-commerce que ajudam empresas a prosperar na era digital.',
+      whyChooseUs: 'Por que nos Escolher?',
+      reasons: {
+        1: 'Integração de IA de ponta em todas as nossas soluções',
+        2: 'Abordagem de design responsivo, mobile-first',
+        3: 'Otimização SEO integrada em cada projeto',
+        4: 'Suporte e manutenção contínuos',
+        5: 'Preços transparentes sem taxas ocultas'
+      },
+      valuesTitle: 'Nossos Valores',
+      values: {
+        innovation: {
+          title: 'Inovação',
+          description: 'Permanecemos na vanguarda da tecnologia, constantemente explorando novas formas de resolver problemas.'
+        },
+        quality: {
+          title: 'Qualidade',
+          description: 'Cada linha de código, cada elemento de design é criado com atenção aos detalhes.'
+        },
+        partnership: {
+          title: 'Parceria',
+          description: 'Trabalhamos ao lado de nossos clientes, tratando seu sucesso como nosso.'
+        }
+      },
+      techStackTitle: 'Nossa Stack de Tecnologia',
+      techCategories: {
+        Frontend: 'Frontend',
+        Styling: 'Estilização',
+        Backend: 'Backend',
+        AIML: 'IA/ML',
+        Deployment: 'Implantação',
+        Database: 'Banco de Dados'
+      },
+      ctaTitle: 'Pronto para Começar Seu Projeto?',
+      ctaText: 'Vamos discutir como podemos ajudar a dar vida à sua visão.',
+      ctaButton: 'Entre em Contato'
+    },
+
+    // Services page
+    servicesPage: {
+      title: 'Nossos Serviços',
+      subtitle: 'Soluções digitais abrangentes para ajudar seu negócio a prosperar no mundo moderno.',
+      items: {
+        webDev: {
+          title: 'Desenvolvimento Web',
+          description: 'Sites personalizados construídos com tecnologias modernas como Next.js, React e Tailwind CSS. De páginas de destino a aplicações web complexas.',
+          features: [
+            'Design responsivo, mobile-first',
+            'Carregamento rápido com desempenho otimizado',
+            'Arquitetura amigável para SEO',
+            'Integração CMS (WordPress, Sanity, etc.)',
+            'Funcionalidade de e-commerce',
+            'Painéis administrativos personalizados'
+          ]
+        },
+        aiSolutions: {
+          title: 'Soluções de IA',
+          description: 'Integre inteligência artificial aos seus fluxos de trabalho. De chatbots a agentes de IA personalizados que automatizam tarefas complexas.',
+          features: [
+            'Chatbots e assistentes de IA personalizados',
+            'Automação de processos com IA',
+            'Processamento de linguagem natural',
+            'Integração de aprendizado de máquina',
+            'Geração de conteúdo com IA',
+            'Análise preditiva'
+          ]
+        },
+        ecommerce: {
+          title: 'E-Commerce',
+          description: 'Construa sua loja online com processamento seguro de pagamentos, gestão de inventário e uma experiência de compra perfeita.',
+          features: [
+            'Configuração Shopify / WooCommerce',
+            'Soluções de e-commerce personalizadas',
+            'Integração de gateway de pagamento',
+            'Gestão de inventário',
+            'Sistemas de rastreamento de pedidos',
+            'Análise de clientes'
+          ]
+        },
+        digitalMarketing: {
+          title: 'Marketing Digital',
+          description: 'Cresça sua presença online com estratégias de marketing orientadas por dados. SEO, mídias sociais e marketing de conteúdo que entrega resultados.',
+          features: [
+            'Otimização para Motores de Busca (SEO)',
+            'Gestão de mídias sociais',
+            'Estratégia de marketing de conteúdo',
+            'Campanhas de e-mail marketing',
+            'Publicidade PPC',
+            'Análise e relatórios'
+          ]
+        }
+      },
+      processTitle: 'Nosso Processo',
+      process: {
+        1: { title: 'Descoberta', description: 'Aprendemos sobre seu negócio, objetivos e requisitos.' },
+        2: { title: 'Planejamento', description: 'Criamos um plano de projeto detalhado e cronograma.' },
+        3: { title: 'Design', description: 'Projetamos a interface e experiência do usuário.' },
+        4: { title: 'Desenvolvimento', description: 'Construímos sua solução com código limpo e mantível.' },
+        5: { title: 'Testes', description: 'Testamos tudo minuciosamente antes do lançamento.' },
+        6: { title: 'Lançamento e Suporte', description: 'Implantamos e fornecemos suporte contínuo.' }
+      },
+      ctaTitle: 'Pronto para Começar?',
+      ctaText: 'Confira nossos preços ou entre em contato para um orçamento personalizado.',
+      viewPricing: 'Ver Preços',
+      contactUs: 'Entre em Contato'
+    },
+
+    // Footer
+    footer: {
+      tagline: 'Onde a Imaginação Encontra a Inovação. Criando experiências digitais que inspiram e performam.',
+      quickLinks: 'Links Rápidos',
+      connect: 'Conecte-se',
+      copyright: '© 2024 Workitu Tech. Todos os direitos reservados.',
+      admin: 'Admin'
+    }
   }
 };
