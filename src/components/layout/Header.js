@@ -25,11 +25,10 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
-            <div className="w-8 h-8 bg-gradient-to-r from-gold-400 to-gold-600 rounded-lg flex items-center justify-center">
-              <span className="text-black font-bold text-lg">W</span>
-            </div>
-            <span className="text-gold-400 font-bold text-xl">Workitu Tech</span>
+          <Link href="/" className="flex items-center space-x-2 rtl:space-x-reverse group">
+            <span className="text-gold-400 font-black text-xl tracking-wide group-hover:text-gold-300 transition-colors">
+              Workitu Tech
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -1,7 +1,3 @@
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import { NextResponse } from 'next/server';
-
 // Security: These MUST be set via environment variables
 const JWT_SECRET = process.env.JWT_SECRET;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
@@ -9,6 +5,17 @@ const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH;
 
 if (!JWT_SECRET || !ADMIN_EMAIL || !ADMIN_PASSWORD_HASH) {
   console.warn('Warning: Missing required auth environment variables. Set JWT_SECRET, ADMIN_EMAIL, and ADMIN_PASSWORD_HASH.');
+}
+
+/**
+ * Get the current admin user from JWT token
+ */
+export async function getCurrentUser(request) {
+  const token = request.cookies.get('auth-token')?.value;
+  if (!token) return null;
+
+  const decoded = verifyToken(token);
+  return decoded;
 }
 
 export async function hashPassword(password) {

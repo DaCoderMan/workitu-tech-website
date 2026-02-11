@@ -7,6 +7,8 @@ import { Validator } from '@/billing/utils/validate';
 import { logger } from '@/billing/utils/logger';
 import { env } from '@/billing/utils/env';
 
+const isNumericId = (value: string) => /^\d+$/.test(value);
+
 export async function POST(request: NextRequest) {
   const log = logger.child({ endpoint: 'checkout' });
 
@@ -52,18 +54,52 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!lemonSqueezy.storeId || !lemonSqueezy.variantId) {
+      log.error('Missing LemonSqueezy store/variant configuration', {
+        offeringKey,
+        hasStoreId: Boolean(lemonSqueezy.storeId),
+        hasVariantId: Boolean(lemonSqueezy.variantId),
+      });
+      return NextResponse.json(
+        {
+          error:
+            'Payment system is not fully configured. Missing LemonSqueezy store or variant ID.',
+        },
+        { status: 500 }
+      );
+    }
+
+    if (!isNumericId(lemonSqueezy.storeId) || !isNumericId(lemonSqueezy.variantId)) {
+      log.error('Invalid LemonSqueezy store/variant format', {
+        offeringKey,
+        storeId: lemonSqueezy.storeId,
+        variantId: lemonSqueezy.variantId,
+      });
+      return NextResponse.json(
+        {
+          error:
+            'Payment system is misconfigured. LemonSqueezy Store ID and Variant ID must be numeric.',
+        },
+        { status: 500 }
+      );
+    }
+
     // Prepare checkout data
     const checkoutData: any = {
       email: customData.email || '',
-      name: customData.name || '',
       custom: {
         offeringKey,
         productKey: product.productKey,
         projectName: customData.projectName || '',
         timestamp: new Date().toISOString(),
-        environment: env.get('NODE_ENV', false) || 'production',
+        environment: String(env.get('NODE_ENV', false) || 'production'),
       },
     };
+
+    // Only include name if provided (LemonSqueezy rejects empty string)
+    if (customData.name && typeof customData.name === 'string' && customData.name.trim()) {
+      checkoutData.name = customData.name.trim();
+    }
 
     // Handle custom amount if specified
     let checkoutOptions: any = {
@@ -76,13 +112,15 @@ export async function POST(request: NextRequest) {
     };
 
     // For custom payment amounts
+    let customPrice: number | undefined;
     if (customData.amount && offering.metadata?.allowCustomAmount) {
       const amount = Validator.validateCustomAmount(
         customData.amount,
         offering.metadata.minAmount,
         offering.metadata.maxAmount
       );
-      checkoutData.custom.customAmount = amount;
+      checkoutData.custom.customAmount = String(amount);
+      customPrice = amount; // Pass to LemonSqueezy as custom_price (in cents)
     }
 
     // Create LemonSqueezy client
@@ -92,6 +130,7 @@ export async function POST(request: NextRequest) {
     const checkout = await client.createCheckout({
       storeId: lemonSqueezy.storeId,
       variantId: lemonSqueezy.variantId,
+      customPrice,
       checkoutData,
       checkoutOptions,
       testMode: env.isDevelopment(),
@@ -113,6 +152,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         error: error.message || 'Failed to create checkout',
+        hint:
+          'Verify LEMONSQUEEZY_API_KEY, LEMONSQUEEZY_STORE_ID, and LEMONSQUEEZY_VARIANT_ID_CUSTOM_PAYMENT are set.',
         details: env.isDevelopment() ? error.stack : undefined,
       },
       { status: 500 }

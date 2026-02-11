@@ -1,15 +1,18 @@
 // File: src/app/api/billing/webhook/route.ts
 
 import { NextRequest, NextResponse } from 'next/server';
+import { createHash } from 'crypto';
 import { CryptoUtils } from '@/billing/utils/crypto';
 import { logger } from '@/billing/utils/logger';
 import { env } from '@/billing/utils/env';
 import { getEntitlementsForOffering } from '@/billing/billing.config';
+import { FirestoreStorageAdapter } from '@/billing/adapters/storage.firebase';
+import type { EntitlementStatus } from '@/billing/billing.types';
 
 /**
  * LemonSqueezy Webhook Handler
  *
- * Processes payment events and grants entitlements
+ * Processes payment events and grants/revokes entitlements via Firestore.
  * Events handled:
  * - order_created: One-time purchase completed
  * - order_refunded: Purchase refunded
@@ -19,8 +22,13 @@ import { getEntitlementsForOffering } from '@/billing/billing.config';
  * - subscription_expired: Subscription expired
  */
 
-// Processed events cache (in-memory for MVP - use Redis/DB in production)
-const processedEvents = new Set<string>();
+const storage = new FirestoreStorageAdapter();
+
+function emailToUserId(email: string): string {
+  return createHash('sha256')
+    .update(email.toLowerCase().trim())
+    .digest('hex');
+}
 
 export async function POST(request: NextRequest) {
   const log = logger.child({ endpoint: 'webhook' });
@@ -73,8 +81,9 @@ export async function POST(request: NextRequest) {
     const eventId = meta?.event_name + '_' + data?.id || CryptoUtils.generateNonce();
     const eventKey = CryptoUtils.generateEventKey(eventId, payload);
 
-    // Check if already processed
-    if (processedEvents.has(eventKey)) {
+    // Check if already processed (Firestore-backed)
+    const alreadyProcessed = await storage.isWebhookProcessed(eventKey);
+    if (alreadyProcessed) {
       log.info('Event already processed (idempotency)', { eventKey });
       return NextResponse.json({ status: 'already_processed' });
     }
@@ -85,8 +94,7 @@ export async function POST(request: NextRequest) {
 
     if (!offeringKey) {
       log.warn('No offering key in webhook payload', { eventName });
-      // Still mark as processed to avoid retry loops
-      processedEvents.add(eventKey);
+      await storage.markWebhookProcessed(eventKey, { eventName, reason: 'no_offering_key' });
       return NextResponse.json({ status: 'no_offering_key' });
     }
 
@@ -130,14 +138,22 @@ export async function POST(request: NextRequest) {
         log.info('Unhandled event type', { eventName });
     }
 
-    // Mark as processed
-    processedEvents.add(eventKey);
+    // Mark as processed in Firestore
+    await storage.markWebhookProcessed(eventKey, {
+      eventName,
+      offeringKey,
+      processedAt: new Date().toISOString(),
+    });
 
-    // Clean up old events (keep last 1000)
-    if (processedEvents.size > 1000) {
-      const toDelete = Array.from(processedEvents).slice(0, 100);
-      toDelete.forEach(key => processedEvents.delete(key));
-    }
+    // Audit log
+    await storage.logWebhookEvent?.({
+      id: eventKey,
+      provider: 'lemonsqueezy',
+      eventType: eventName,
+      payload,
+      processedAt: new Date(),
+      createdAt: new Date(),
+    });
 
     log.info('Webhook processed successfully', { eventName, eventKey });
 
@@ -155,7 +171,9 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// ---------------------------------------------------------------------------
 // Event handlers
+// ---------------------------------------------------------------------------
 
 async function handleOrderCreated(
   payload: any,
@@ -165,38 +183,44 @@ async function handleOrderCreated(
 ) {
   const { data } = payload;
   const userEmail = data.attributes.user_email;
-  const orderId = data.id;
+  const orderId = String(data.id);
   const amount = data.attributes.total;
   const currency = data.attributes.currency;
   const customData = payload.meta?.custom_data || {};
 
-  log.info('Order created', {
-    orderId,
-    userEmail,
-    amount,
-    currency,
-    entitlements,
-    projectName: customData.projectName,
-  });
-
-  // TODO: Grant entitlements to user
-  // TODO: Store order in database
-  // TODO: Send notification email
-  // TODO: Trigger any custom business logic
-
-  // For now, just log
-  console.log('✅ Payment received:', {
-    orderId,
-    email: userEmail,
-    amount: `${currency} ${amount}`,
-    project: customData.projectName || 'N/A',
-    entitlements,
-  });
-
-  // You can add Telegram notification here
-  if (process.env.TELEGRAM_BOT_TOKEN) {
-    // await sendTelegramNotification(...)
+  if (!userEmail) {
+    log.error('No user email in order_created payload', { orderId });
+    return;
   }
+
+  const userId = emailToUserId(userEmail);
+
+  log.info('Order created - granting entitlements', {
+    orderId, userEmail, userId, amount, currency, entitlements,
+  });
+
+  for (const entitlementKey of entitlements) {
+    await storage.upsertEntitlement({
+      userId,
+      entitlementKey,
+      status: 'active',
+      sourceProvider: 'lemonsqueezy',
+      sourceId: orderId,
+      sourceType: 'order',
+      startsAt: new Date(),
+      expiresAt: null, // One-time purchases are lifetime
+      metaJson: {
+        email: userEmail,
+        amount,
+        currency,
+        offeringKey,
+        projectName: customData.projectName || null,
+        customAmount: customData.customAmount || null,
+      },
+    });
+  }
+
+  log.info('Entitlements granted for order', { orderId, userId, entitlements });
 }
 
 async function handleOrderRefunded(
@@ -206,15 +230,33 @@ async function handleOrderRefunded(
   log: any
 ) {
   const { data } = payload;
-  const orderId = data.id;
+  const orderId = String(data.id);
+  const userEmail = data.attributes.user_email;
 
-  log.info('Order refunded', { orderId, entitlements });
+  if (!userEmail) {
+    log.error('No user email in order_refunded payload', { orderId });
+    return;
+  }
 
-  // TODO: Revoke entitlements
-  // TODO: Update order status
-  // TODO: Send notification
+  const userId = emailToUserId(userEmail);
 
-  console.log('⚠️ Payment refunded:', { orderId });
+  log.info('Order refunded - revoking entitlements', { orderId, userId, entitlements });
+
+  for (const entitlementKey of entitlements) {
+    try {
+      await storage.revokeEntitlement({
+        userId,
+        entitlementKey,
+        sourceId: orderId,
+      });
+    } catch (err: any) {
+      log.warn('Failed to revoke entitlement (may not exist)', {
+        entitlementKey, orderId, error: err.message,
+      });
+    }
+  }
+
+  log.info('Entitlements revoked for refunded order', { orderId, userId });
 }
 
 async function handleSubscriptionCreated(
@@ -224,29 +266,44 @@ async function handleSubscriptionCreated(
   log: any
 ) {
   const { data } = payload;
-  const subscriptionId = data.id;
+  const subscriptionId = String(data.id);
   const userEmail = data.attributes.user_email;
   const status = data.attributes.status;
   const renewsAt = data.attributes.renews_at;
 
-  log.info('Subscription created', {
-    subscriptionId,
-    userEmail,
-    status,
-    renewsAt,
-    entitlements,
+  if (!userEmail) {
+    log.error('No user email in subscription_created payload', { subscriptionId });
+    return;
+  }
+
+  const userId = emailToUserId(userEmail);
+
+  log.info('Subscription created - granting entitlements', {
+    subscriptionId, userEmail, userId, status, renewsAt, entitlements,
   });
 
-  // TODO: Grant subscription entitlements
-  // TODO: Store subscription in database
-  // TODO: Set expiry to renewsAt
+  const expiresAt = renewsAt ? new Date(renewsAt) : null;
 
-  console.log('✅ Subscription started:', {
-    subscriptionId,
-    email: userEmail,
-    renewsAt,
-    entitlements,
-  });
+  for (const entitlementKey of entitlements) {
+    await storage.upsertEntitlement({
+      userId,
+      entitlementKey,
+      status: 'active',
+      sourceProvider: 'lemonsqueezy',
+      sourceId: subscriptionId,
+      sourceType: 'subscription',
+      startsAt: new Date(),
+      expiresAt,
+      metaJson: {
+        email: userEmail,
+        offeringKey,
+        subscriptionStatus: status,
+        renewsAt,
+      },
+    });
+  }
+
+  log.info('Subscription entitlements granted', { subscriptionId, userId, entitlements });
 }
 
 async function handleSubscriptionUpdated(
@@ -256,24 +313,64 @@ async function handleSubscriptionUpdated(
   log: any
 ) {
   const { data } = payload;
-  const subscriptionId = data.id;
+  const subscriptionId = String(data.id);
   const status = data.attributes.status;
   const renewsAt = data.attributes.renews_at;
+  const endsAt = data.attributes.ends_at;
+  const userEmail = data.attributes.user_email;
 
-  log.info('Subscription updated', {
-    subscriptionId,
-    status,
-    renewsAt,
-  });
+  if (!userEmail) {
+    log.error('No user email in subscription_updated payload', { subscriptionId });
+    return;
+  }
 
-  // TODO: Update subscription status
-  // TODO: Update renewal date
+  const userId = emailToUserId(userEmail);
 
-  console.log('🔄 Subscription updated:', {
-    subscriptionId,
-    status,
-    renewsAt,
-  });
+  log.info('Subscription updated', { subscriptionId, userId, status, renewsAt });
+
+  // Map LemonSqueezy status to EntitlementStatus
+  let entitlementStatus: EntitlementStatus;
+  switch (status) {
+    case 'active':
+    case 'on_trial':
+      entitlementStatus = 'active';
+      break;
+    case 'past_due':
+    case 'paused':
+      entitlementStatus = 'active';
+      break;
+    case 'cancelled':
+      entitlementStatus = 'canceled';
+      break;
+    case 'expired':
+    case 'unpaid':
+      entitlementStatus = 'expired';
+      break;
+    default:
+      entitlementStatus = 'active';
+  }
+
+  const expiresAt = renewsAt ? new Date(renewsAt) : (endsAt ? new Date(endsAt) : null);
+
+  for (const entitlementKey of entitlements) {
+    await storage.upsertEntitlement({
+      userId,
+      entitlementKey,
+      status: entitlementStatus,
+      sourceProvider: 'lemonsqueezy',
+      sourceId: subscriptionId,
+      sourceType: 'subscription',
+      startsAt: new Date(),
+      expiresAt,
+      metaJson: {
+        email: userEmail,
+        offeringKey,
+        subscriptionStatus: status,
+        renewsAt,
+        endsAt,
+      },
+    });
+  }
 }
 
 async function handleSubscriptionCancelled(
@@ -283,21 +380,42 @@ async function handleSubscriptionCancelled(
   log: any
 ) {
   const { data } = payload;
-  const subscriptionId = data.id;
+  const subscriptionId = String(data.id);
   const endsAt = data.attributes.ends_at;
+  const userEmail = data.attributes.user_email;
 
-  log.info('Subscription cancelled', {
-    subscriptionId,
-    endsAt,
+  if (!userEmail) {
+    log.error('No user email in subscription_cancelled payload', { subscriptionId });
+    return;
+  }
+
+  const userId = emailToUserId(userEmail);
+
+  log.info('Subscription cancelled - keeping access until end date', {
+    subscriptionId, userId, endsAt,
   });
 
-  // TODO: Mark subscription as cancelled
-  // TODO: Keep access until endsAt
+  const expiresAt = endsAt ? new Date(endsAt) : null;
 
-  console.log('⚠️ Subscription cancelled (access until end):', {
-    subscriptionId,
-    endsAt,
-  });
+  for (const entitlementKey of entitlements) {
+    await storage.upsertEntitlement({
+      userId,
+      entitlementKey,
+      status: 'canceled',
+      sourceProvider: 'lemonsqueezy',
+      sourceId: subscriptionId,
+      sourceType: 'subscription',
+      startsAt: new Date(),
+      expiresAt,
+      metaJson: {
+        email: userEmail,
+        offeringKey,
+        subscriptionStatus: 'cancelled',
+        endsAt,
+        cancelledAt: new Date().toISOString(),
+      },
+    });
+  }
 }
 
 async function handleSubscriptionExpired(
@@ -307,19 +425,35 @@ async function handleSubscriptionExpired(
   log: any
 ) {
   const { data } = payload;
-  const subscriptionId = data.id;
+  const subscriptionId = String(data.id);
+  const userEmail = data.attributes.user_email;
 
-  log.info('Subscription expired', {
-    subscriptionId,
-    entitlements,
+  if (!userEmail) {
+    log.error('No user email in subscription_expired payload', { subscriptionId });
+    return;
+  }
+
+  const userId = emailToUserId(userEmail);
+
+  log.info('Subscription expired - revoking entitlements', {
+    subscriptionId, userId, entitlements,
   });
 
-  // TODO: Revoke entitlements
-  // TODO: Update subscription status
+  for (const entitlementKey of entitlements) {
+    try {
+      await storage.revokeEntitlement({
+        userId,
+        entitlementKey,
+        sourceId: subscriptionId,
+      });
+    } catch (err: any) {
+      log.warn('Failed to revoke entitlement on expiry', {
+        entitlementKey, subscriptionId, error: err.message,
+      });
+    }
+  }
 
-  console.log('❌ Subscription expired:', {
-    subscriptionId,
-  });
+  log.info('Subscription entitlements revoked', { subscriptionId, userId });
 }
 
 export async function GET() {

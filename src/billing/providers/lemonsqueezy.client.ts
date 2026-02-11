@@ -10,6 +10,7 @@ import { logger } from '../utils/logger';
 export interface LemonSqueezyCheckoutOptions {
   storeId: string;
   variantId: string;
+  customPrice?: number; // Price in cents for custom amount checkouts
   checkoutData?: {
     email?: string;
     name?: string;
@@ -70,6 +71,7 @@ export class LemonSqueezyClient {
         data: {
           type: 'checkouts',
           attributes: {
+            custom_price: options.customPrice ?? undefined,
             checkout_options: options.checkoutOptions || {},
             checkout_data: options.checkoutData || {},
             expires_at: options.expiresAt,
