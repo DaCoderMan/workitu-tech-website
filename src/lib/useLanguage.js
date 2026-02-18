@@ -2,7 +2,8 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { translations } from './translations';
+import { useState, useEffect } from 'react';
+import { translations, getEn } from './translations';
 
 export const useLanguage = create(
   persist(
@@ -59,4 +60,12 @@ export function useLanguageInit() {
   }
 
   return language;
+}
+
+/** Hydration-safe t: uses English until client has mounted (avoids server/client mismatch). */
+export function useSafeT() {
+  const { t } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  return (key) => (mounted ? t(key) : getEn(key));
 }

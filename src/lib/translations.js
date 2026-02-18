@@ -16,7 +16,7 @@ export const translations = {
       tagline: 'Where Imagination Meets Innovation',
       description: 'Workitu Tech creates digital experiences that inspire and perform.',
       subDescription: 'We craft sophisticated websites, AI-powered apps, and e-commerce platforms that help your ideas shine online.',
-      mission1: '✨ Gen AI works for you and I — turning creativity into code, and vision into reality.',
+      mission1: '✨ Gen AI works for you and me — turning creativity into code, and vision into reality.',
       mission2: 'Our mission is simple: deliver world-class technology at a fair price, built with care, passion, and precision.',
       mission3: 'From sleek web design to smart automation, from marketing strategy to digital growth — Workitu Tech is your partner in building the future.',
       tagline1: 'Because the web isn\'t just where you exist —',
@@ -57,7 +57,7 @@ export const translations = {
         ai: {
           title: '🤖 AI-Powered Applications',
           price: 'Starting from $670',
-          description: 'Transform your ideas into smart, scalable software powered by Generative AI. We automate workflows, personalize experiences, and make AI work for you and I.'
+          description: 'Transform your ideas into smart, scalable software powered by Generative AI. We automate workflows, personalize experiences, and make AI work for you and me.'
         },
         marketing: {
           title: '📈 Digital Marketing & Growth',
@@ -215,7 +215,7 @@ export const translations = {
       tagline: 'Where Imagination Meets Innovation. Creating digital experiences that inspire and perform.',
       quickLinks: 'Quick Links',
       connect: 'Connect',
-      copyright: '© 2024 Workitu Tech. All rights reserved.',
+      copyright: '© {year} Workitu Tech. All rights reserved.',
       admin: 'Admin'
     }
   },
@@ -436,7 +436,7 @@ export const translations = {
       tagline: 'כאשר דמיון פוגש חדשנות. יוצרים חוויות דיגיטליות שמעוררות השראה ומביאות תוצאות.',
       quickLinks: 'קישורים מהירים',
       connect: 'התחברו',
-      copyright: '© 2024 וורקיטו טק. כל הזכויות שמורות.',
+      copyright: '© {year} וורקיטו טק. כל הזכויות שמורות.',
       admin: 'ניהול'
     }
   },
@@ -657,8 +657,18 @@ export const translations = {
       tagline: 'Onde a Imaginação Encontra a Inovação. Criando experiências digitais que inspiram e performam.',
       quickLinks: 'Links Rápidos',
       connect: 'Conecte-se',
-      copyright: '© 2024 Workitu Tech. Todos os direitos reservados.',
+      copyright: '© {year} Workitu Tech. Todos os direitos reservados.',
       admin: 'Admin'
     }
   }
 };
+
+/** Get English translation by key (for SSR/hydration-safe initial render). */
+export function getEn(key) {
+  const keys = key.split('.');
+  let result = translations.en;
+  for (const k of keys) {
+    result = result && typeof result === 'object' ? result[k] : undefined;
+  }
+  return (typeof result === 'string' ? result : key);
+}

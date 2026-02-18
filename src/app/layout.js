@@ -28,7 +28,7 @@ export const metadata = {
     siteName: 'Workitu Tech',
     images: [
       {
-        url: '/og-image.png',
+        url: `${BASE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: 'Workitu Tech - Where Imagination Meets Innovation',
@@ -39,7 +39,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Workitu Tech - Where Imagination Meets Innovation',
     description: 'Creating digital experiences that inspire and perform',
-    images: ['/og-image.png'],
+    images: [`${BASE_URL}/og-image.png`],
   },
   robots: {
     index: true,

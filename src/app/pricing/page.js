@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import VideoBackground from '../../components/animations/VideoBackground';
-import { useLanguage } from '../../lib/useLanguage';
+import { useSafeT } from '../../lib/useLanguage';
+import Link from 'next/link';
 
 export default function Pricing() {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { t, language } = useLanguage();
+  const t = useSafeT();
 
   useEffect(() => {
     // Track page view
@@ -108,7 +109,7 @@ export default function Pricing() {
             {services.map((service, index) => (
               <div
                 key={service.key || index}
-                className="card-hover glass rounded-xl p-8 fade-in"
+                className="card-hover glass rounded-xl p-8 fade-in flex flex-col"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <h3 className="text-xl font-semibold text-gold-300 mb-3">
@@ -117,9 +118,15 @@ export default function Pricing() {
                 <div className="text-2xl font-bold text-gold-400 mb-4">
                   {service.price}
                 </div>
-                <p className="text-gold-400/70 text-sm leading-relaxed">
+                <p className="text-gold-400/70 text-sm leading-relaxed flex-grow">
                   {service.description}
                 </p>
+                <Link
+                  href={`/contact?service=${service.key || 'custom'}`}
+                  className="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium bg-gold-400/20 text-gold-400 hover:bg-gold-400/30 transition-colors"
+                >
+                  Get Started →
+                </Link>
               </div>
             ))}
           </div>

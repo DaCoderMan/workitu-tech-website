@@ -7,9 +7,10 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
   const videoRef = useRef(null);
   const [isVideoSupported, setIsVideoSupported] = useState(true);
   const [hasUserInteracted, setHasUserInteracted] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
-    if (imageSrc) return; // Skip video logic if image is provided
+    if (imageSrc && !imageError) return; // Skip video logic if image is provided and loaded
 
     const video = videoRef.current;
     if (!video) return;
@@ -50,11 +51,11 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
       video.removeEventListener('loadeddata', handleLoadedData);
       video.removeEventListener('error', handleError);
     };
-  }, [imageSrc]); // Removed empty dependency array to react to imageSrc changes if needed, though usually static
+  }, [imageSrc, imageError]);
 
   // Handle user interaction to start video on mobile
   useEffect(() => {
-    if (imageSrc || hasUserInteracted) return;
+    if ((imageSrc && !imageError) || hasUserInteracted) return;
 
     const handleUserInteraction = () => {
       setHasUserInteracted(true);
@@ -78,11 +79,11 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
       document.removeEventListener('touchstart', handleUserInteraction);
       document.removeEventListener('scroll', handleUserInteraction);
     };
-  }, [hasUserInteracted, imageSrc]);
+  }, [hasUserInteracted, imageSrc, imageError]);
 
-  if (imageSrc) {
+  if (imageSrc && !imageError) {
     return (
-      <div className={`fixed inset-0 w-full h-full overflow-hidden z-0 ${className}`}>
+      <div className={`fixed inset-0 w-full h-full min-h-screen min-h-[100dvh] overflow-hidden z-0 ${className}`}>
         <Image
           src={imageSrc}
           alt="Background"
@@ -90,6 +91,7 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
           priority
           className="object-cover"
           quality={100}
+          onError={() => setImageError(true)}
         />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
@@ -97,7 +99,7 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
   }
 
   return (
-    <div className={`fixed inset-0 w-full h-full overflow-hidden z-0 ${className}`}>
+    <div className={`fixed inset-0 w-full h-full min-h-screen min-h-[100dvh] overflow-hidden z-0 ${className}`}>
       {isVideoSupported ? (
         <video
           ref={videoRef}

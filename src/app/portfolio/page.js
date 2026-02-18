@@ -3,14 +3,15 @@
 import { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 import VideoBackground from '../../components/animations/VideoBackground';
-import { useLanguage } from '../../lib/useLanguage';
+import { useSafeT, useLanguage } from '../../lib/useLanguage';
 
 export default function Portfolio() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const { t, language } = useLanguage();
+  const t = useSafeT();
+  const { language } = useLanguage();
 
   useEffect(() => {
     // Track page view

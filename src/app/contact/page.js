@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import VideoBackground from '../../components/animations/VideoBackground';
-import { useLanguage } from '../../lib/useLanguage';
+import { useSafeT } from '../../lib/useLanguage';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,7 +13,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [content, setContent] = useState(null);
-  const { t, language } = useLanguage();
+  const t = useSafeT();
 
   useEffect(() => {
     // Track page view

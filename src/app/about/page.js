@@ -2,10 +2,10 @@
 
 import { useEffect } from 'react';
 import VideoBackground from '../../components/animations/VideoBackground';
-import { useLanguage } from '../../lib/useLanguage';
+import { useSafeT } from '../../lib/useLanguage';
 
 export default function About() {
-  const { t, language } = useLanguage();
+  const t = useSafeT();
 
   useEffect(() => {
     fetch('/api/analytics/track', {

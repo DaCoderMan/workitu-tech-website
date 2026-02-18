@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 import VideoBackground from '../../components/animations/VideoBackground';
-import { useLanguage } from '../../lib/useLanguage';
+import { useSafeT } from '../../lib/useLanguage';
 
 export default function Services() {
-  const { t, language } = useLanguage();
+  const t = useSafeT();
 
   useEffect(() => {
     fetch('/api/analytics/track', {
@@ -57,6 +58,9 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
+                <Link href="/pricing" className="mt-4 inline-block text-gold-400 hover:text-gold-300 text-sm font-medium">
+                  See Pricing →
+                </Link>
             </div>
             
             <div className="glass rounded-xl p-8 card-hover fade-in" style={{ animationDelay: '0.2s' }}>
@@ -76,6 +80,9 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
+                <Link href="/pricing" className="mt-4 inline-block text-gold-400 hover:text-gold-300 text-sm font-medium">
+                  See Pricing →
+                </Link>
             </div>
 
             <div className="glass rounded-xl p-8 card-hover fade-in" style={{ animationDelay: '0.3s' }}>
@@ -94,6 +101,9 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
+                <Link href="/pricing" className="mt-4 inline-block text-gold-400 hover:text-gold-300 text-sm font-medium">
+                  See Pricing →
+                </Link>
             </div>
 
             <div className="glass rounded-xl p-8 card-hover fade-in" style={{ animationDelay: '0.4s' }}>
@@ -112,6 +122,9 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
+                <Link href="/pricing" className="mt-4 inline-block text-gold-400 hover:text-gold-300 text-sm font-medium">
+                  See Pricing →
+                </Link>
             </div>
           </div>
         </div>

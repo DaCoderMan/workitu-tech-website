@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { useLanguage } from '../../lib/useLanguage';
+import { useSafeT } from '../../lib/useLanguage';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const t = useSafeT();
 
   return (
     <footer className="bg-black/90 border-t border-gold-500/20 mt-20">
@@ -29,6 +29,12 @@ export default function Footer() {
             <div className="space-y-2">
               <Link href="/" className="block text-gold-300 hover:text-gold-400 text-sm transition-colors">
                 {t('nav.home')}
+              </Link>
+              <Link href="/about" className="block text-gold-300 hover:text-gold-400 text-sm transition-colors">
+                {t('nav.about')}
+              </Link>
+              <Link href="/services" className="block text-gold-300 hover:text-gold-400 text-sm transition-colors">
+                {t('nav.services')}
               </Link>
               <Link href="/portfolio" className="block text-gold-300 hover:text-gold-400 text-sm transition-colors">
                 {t('nav.portfolio')}
@@ -155,16 +161,8 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gold-500/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gold-300 text-sm">
-            {t('footer.copyright')}
+            {t('footer.copyright').replace('{year}', new Date().getFullYear())}
           </p>
-          <div className="flex items-center space-x-4 rtl:space-x-reverse mt-4 md:mt-0">
-            <Link
-              href="/admin"
-              className="admin-link text-xs"
-            >
-              {t('footer.admin')}
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

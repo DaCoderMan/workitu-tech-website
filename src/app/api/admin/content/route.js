@@ -17,7 +17,7 @@ function getContent() {
         title: 'Workitu Tech – Where Imagination Meets Innovation',
         subtitle: 'Workitu Tech creates digital experiences that inspire and perform.',
         description: 'We craft sophisticated websites, AI-powered apps, and e-commerce platforms that help your ideas shine online.',
-        mission: '✨ Gen AI works for you and I — turning creativity into code, and vision into reality. Our mission is simple: deliver world-class technology at a fair price, built with care, passion, and precision.',
+        mission: '✨ Gen AI works for you and me — turning creativity into code, and vision into reality. Our mission is simple: deliver world-class technology at a fair price, built with care, passion, and precision.',
         services: 'From sleek web design to smart automation, from marketing strategy to digital growth — Workitu Tech is your partner in building the future.',
         tagline: 'Because the web isn\'t just where you exist — 🌍 It\'s where your story begins.'
       },

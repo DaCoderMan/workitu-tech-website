@@ -1,15 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useLanguage } from '../../lib/useLanguage';
+import { useSafeT } from '../../lib/useLanguage';
 import LanguageToggle from '../LanguageToggle';
+
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    const m = window.matchMedia(query);
+    setMatches(m.matches);
+    const listener = () => setMatches(m.matches);
+    m.addEventListener('change', listener);
+    return () => m.removeEventListener('change', listener);
+  }, [query]);
+  return matches;
+}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { t } = useLanguage();
+  const t = useSafeT();
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   const navigation = [
     { key: 'home', href: '/' },
@@ -52,11 +65,13 @@ export default function Header() {
             >
               💳 Pay Now
             </Link>
-            <LanguageToggle />
+            <div aria-hidden={!isDesktop}>
+              <LanguageToggle />
+            </div>
           </nav>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2 rtl:space-x-reverse">
+          <div className="md:hidden flex items-center space-x-2 rtl:space-x-reverse" aria-hidden={isDesktop}>
             <LanguageToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
