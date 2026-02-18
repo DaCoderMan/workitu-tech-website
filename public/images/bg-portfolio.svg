@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg-portfolio" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="50%" stop-color="#000000" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="gridLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0" />
+      <stop offset="40%" stop-color="#fbbf24" stop-opacity="0.18" />
+      <stop offset="60%" stop-color="#fbbf24" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg-portfolio)" />
+  <g stroke="url(#gridLine)" stroke-width="1">
+    <!-- vertical grid -->
+    <g opacity="0.35">
+      <path d="M160 0 L160 1080" />
+      <path d="M320 0 L320 1080" />
+      <path d="M480 0 L480 1080" />
+      <path d="M640 0 L640 1080" />
+      <path d="M800 0 L800 1080" />
+      <path d="M960 0 L960 1080" />
+      <path d="M1120 0 L1120 1080" />
+      <path d="M1280 0 L1280 1080" />
+      <path d="M1440 0 L1440 1080" />
+      <path d="M1600 0 L1600 1080" />
+      <path d="M1760 0 L1760 1080" />
+    </g>
+    <!-- horizontal grid -->
+    <g opacity="0.25">
+      <path d="M0 160 L1920 160" />
+      <path d="M0 320 L1920 320" />
+      <path d="M0 480 L1920 480" />
+      <path d="M0 640 L1920 640" />
+      <path d="M0 800 L1920 800" />
+      <path d="M0 960 L1920 960" />
+    </g>
+  </g>
+  <g fill="#f59e0b" fill-opacity="0.35">
+    <circle cx="320" cy="320" r="5" />
+    <circle cx="640" cy="480" r="4" />
+    <circle cx="960" cy="240" r="6" />
+    <circle cx="1280" cy="560" r="4" />
+    <circle cx="1600" cy="360" r="5" />
+    <circle cx="480" cy="720" r="4" />
+    <circle cx="960" cy="880" r="5" />
+    <circle cx="1440" cy="760" r="4" />
+  </g>
+</svg>
+

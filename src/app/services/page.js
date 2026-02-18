@@ -24,7 +24,7 @@ export default function Services() {
 
   return (
     <div className="relative min-h-screen">
-      <VideoBackground imageSrc="/images/bg-portfolio.png" />
+      <VideoBackground imageSrc="/images/bg-portfolio.svg" />
 
       {/* Hero Section */}
       <section className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">

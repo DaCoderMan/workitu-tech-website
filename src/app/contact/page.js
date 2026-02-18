@@ -78,7 +78,7 @@ export default function Contact() {
 
   return (
     <div className="relative min-h-screen">
-      <VideoBackground imageSrc="/images/bg-contact.png" />
+      <VideoBackground imageSrc="/images/bg-contact.svg" />
 
       {/* Header Section */}
       <section className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">
