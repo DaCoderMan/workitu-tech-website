@@ -63,9 +63,11 @@ a {
   background: #d97706;
 }
 
-/* Smooth transitions */
-* {
-  transition: all 0.3s ease;
+/* Smooth transitions - applied to interactive elements only */
+a, button, input, textarea, select,
+.card-hover, .btn-gold, .input-gold {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease,
+              box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Loading animation */
@@ -176,4 +178,41 @@ a {
 
 .admin-link:hover {
   opacity: 1;
+}
+
+/* W Logo background pulse/glow animation */
+@keyframes w-pulse {
+  0%, 100% {
+    opacity: 0.08;
+    filter: drop-shadow(0 0 0px rgba(245, 158, 11, 0));
+  }
+  50% {
+    opacity: 0.12;
+    filter: drop-shadow(0 0 40px rgba(245, 158, 11, 0.15));
+  }
+}
+
+.animate-w-pulse {
+  animation: w-pulse 6s ease-in-out infinite;
+}
+
+/* Loading screen W animation */
+@keyframes loading-w {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+}
+
+.animate-loading-w {
+  animation: loading-w 1.2s ease-in-out infinite;
 }

@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import VideoBackground from '../../components/animations/VideoBackground';
+import ScrollReveal from '../../components/animations/ScrollReveal';
 import { useSafeT } from '../../lib/useLanguage';
 
 export default function Services() {
@@ -131,16 +132,13 @@ export default function Services() {
       </section>
 
       {/* Process Section */}
+      <ScrollReveal>
       <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gold-400 mb-12 text-center fade-in">{t('servicesPage.processTitle')}</h2>
+          <h2 className="text-3xl font-bold text-gold-400 mb-12 text-center">{t('servicesPage.processTitle')}</h2>
           <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((num, index) => (
-              <div
-                key={num}
-                className="text-center fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+            {[1, 2, 3, 4, 5, 6].map((num) => (
+              <div key={num} className="text-center">
                 <div className="text-4xl font-bold text-gold-400/30 mb-2">0{num}</div>
                 <h4 className="text-lg font-semibold text-gold-300 mb-2">{t(`servicesPage.process.${num}.title`)}</h4>
                 <p className="text-sm text-gold-400/70">{t(`servicesPage.process.${num}.description`)}</p>
@@ -149,10 +147,12 @@ export default function Services() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* CTA Section */}
+      <ScrollReveal delay={100}>
       <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center glass rounded-xl p-12 fade-in">
+        <div className="max-w-4xl mx-auto text-center glass rounded-xl p-12">
           <h2 className="text-3xl font-bold text-gold-400 mb-4">{t('servicesPage.ctaTitle')}</h2>
           <p className="text-gold-300/80 mb-8">
             {t('servicesPage.ctaText')}
@@ -173,6 +173,7 @@ export default function Services() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
     </div>
   );
 }

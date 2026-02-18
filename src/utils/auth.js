@@ -1,3 +1,5 @@
+import { NextResponse } from 'next/server';
+
 // Security: These MUST be set via environment variables
 const JWT_SECRET = process.env.JWT_SECRET;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;

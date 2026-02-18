@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 import VideoBackground from '../../components/animations/VideoBackground';
+import ScrollReveal from '../../components/animations/ScrollReveal';
 import { useSafeT, useLanguage } from '../../lib/useLanguage';
 
 export default function Portfolio() {

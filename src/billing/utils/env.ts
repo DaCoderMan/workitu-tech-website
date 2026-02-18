@@ -58,7 +58,7 @@ class EnvValidator {
     if (key === 'LEMONSQUEEZY_API_KEY' && value && (value.length < 100 || value.startsWith('sk_'))) {
       const local = readEnvLocal();
       if (local.LEMONSQUEEZY_API_KEY && local.LEMONSQUEEZY_API_KEY.length > 100) {
-        value = local.LEMONSQUEEZY_API_KEY;
+        value = local.LEMONSQUEEZY_API_KEY as typeof value;
       }
     }
 

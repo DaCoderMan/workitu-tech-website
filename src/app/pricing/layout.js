@@ -1,6 +1,10 @@
 export const metadata = {
-  title: 'Web & AI Development Pricing',
-  description: 'Transparent pricing for websites, e-commerce, AI apps, and digital marketing. Fair pricing from Workitu Tech.',
+  title: 'Pricing',
+  description: 'Transparent pricing for web development, AI solutions, e-commerce, and digital marketing services from Workitu Tech.',
+  openGraph: {
+    title: 'Pricing - Workitu Tech',
+    description: 'Flexible pricing plans tailored to your project needs. Get a quote for web, AI, e-commerce, or marketing.',
+  },
 };
 
 export default function PricingLayout({ children }) {

@@ -216,7 +216,8 @@ export const translations = {
       quickLinks: 'Quick Links',
       connect: 'Connect',
       copyright: '© {year} Workitu Tech. All rights reserved.',
-      admin: 'Admin'
+      admin: 'Admin',
+      legal: 'Legal & Privacy'
     }
   },
 
@@ -437,7 +438,8 @@ export const translations = {
       quickLinks: 'קישורים מהירים',
       connect: 'התחברו',
       copyright: '© {year} וורקיטו טק. כל הזכויות שמורות.',
-      admin: 'ניהול'
+      admin: 'ניהול',
+      legal: 'משפטי ופרטיות'
     }
   },
 
@@ -658,7 +660,8 @@ export const translations = {
       quickLinks: 'Links Rápidos',
       connect: 'Conecte-se',
       copyright: '© {year} Workitu Tech. Todos os direitos reservados.',
-      admin: 'Admin'
+      admin: 'Admin',
+      legal: 'Legal e Privacidade'
     }
   }
 };

@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import VideoBackground from '../components/animations/VideoBackground';
+import ScrollReveal from '../components/animations/ScrollReveal';
 import { useSafeT } from '../lib/useLanguage';
 
 export default function Home() {
@@ -47,26 +48,28 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="glass rounded-2xl p-8 md:p-12 fade-in" style={{ animationDelay: '0.8s' }}>
-            <p className="text-lg md:text-xl text-gold-300 mb-6">
-              {t('home.mission1')}
-            </p>
-            <p className="text-base md:text-lg text-gold-400/80 mb-6">
-              {t('home.mission2')}
-            </p>
-            <p className="text-base md:text-lg text-gold-300/70">
-              {t('home.mission3')}
-            </p>
+      <ScrollReveal>
+        <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="glass rounded-2xl p-8 md:p-12">
+              <p className="text-lg md:text-xl text-gold-300 mb-6">
+                {t('home.mission1')}
+              </p>
+              <p className="text-base md:text-lg text-gold-400/80 mb-6">
+                {t('home.mission2')}
+              </p>
+              <p className="text-base md:text-lg text-gold-300/70">
+                {t('home.mission3')}
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Tagline Section */}
-      <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="fade-in" style={{ animationDelay: '1s' }}>
+      <ScrollReveal delay={100}>
+        <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
             <p className="text-xl md:text-2xl text-gold-400 font-medium">
               {t('home.tagline1')}
             </p>
@@ -74,13 +77,13 @@ export default function Home() {
               {t('home.tagline2')}
             </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* CTA Section */}
-      <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="fade-in" style={{ animationDelay: '1.2s' }}>
+      <ScrollReveal delay={200}>
+        <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mx-auto text-center">
             <a
               href="/contact"
               className="btn-gold inline-block px-8 py-4 rounded-full text-lg font-semibold"
@@ -88,8 +91,8 @@ export default function Home() {
               {t('home.cta')}
             </a>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   );
 }

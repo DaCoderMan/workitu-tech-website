@@ -93,7 +93,7 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
           quality={100}
           onError={() => setImageError(true)}
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
     );
   }
@@ -130,10 +130,7 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
       )}
       
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/70"></div>
-      
-      {/* Mobile-specific overlay for better performance */}
-      <div className="absolute inset-0 bg-black/50 md:hidden"></div>
+      <div className="absolute inset-0 bg-black/50"></div>
     </div>
   );
 }

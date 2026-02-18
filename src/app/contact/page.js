@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import VideoBackground from '../../components/animations/VideoBackground';
+import ScrollReveal from '../../components/animations/ScrollReveal';
 import { useSafeT } from '../../lib/useLanguage';
 
 export default function Contact() {
@@ -12,7 +13,7 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [content, setContent] = useState(null);
+  const [submitErrors, setSubmitErrors] = useState([]);
   const t = useSafeT();
 
   useEffect(() => {
@@ -25,17 +26,7 @@ export default function Contact() {
         page: 'contact',
         timestamp: new Date().toISOString()
       })
-    });
-
-    // Fetch contact content
-    fetch('/api/admin/content')
-      .then(res => res.json())
-      .then(data => {
-        setContent(data.contact);
-      })
-      .catch(err => {
-        console.error('Error fetching content:', err);
-      });
+    }).catch(() => {});
   }, []);
 
   const handleInputChange = (e) => {
@@ -48,6 +39,27 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitErrors([]);
+
+    // Basic client-side validation to match API rules
+    const errors = [];
+    if (!formData.name || formData.name.trim().length < 2) {
+      errors.push('Name must be at least 2 characters long');
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email || !emailRegex.test(formData.email)) {
+      errors.push('Please provide a valid email address');
+    }
+    if (!formData.message || formData.message.trim().length < 10) {
+      errors.push('Message must be at least 10 characters long');
+    }
+
+    if (errors.length > 0) {
+      setSubmitStatus('error');
+      setSubmitErrors(errors);
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -64,13 +76,22 @@ export default function Contact() {
 
       if (response.ok) {
         setSubmitStatus('success');
+        setSubmitErrors([]);
         setFormData({ name: '', email: '', message: '' });
       } else {
         setSubmitStatus('error');
+        if (Array.isArray(result.errors) && result.errors.length > 0) {
+          setSubmitErrors(result.errors);
+        } else if (result.message) {
+          setSubmitErrors([result.message]);
+        } else {
+          setSubmitErrors(['There was an error sending your message. Please try again.']);
+        }
       }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
+      setSubmitErrors(['There was an error sending your message. Please try again later.']);
     } finally {
       setIsSubmitting(false);
     }
@@ -96,11 +117,12 @@ export default function Contact() {
       </section>
 
       {/* Contact Form & Info */}
+      <ScrollReveal>
       <section className="relative z-10 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="fade-in" style={{ animationDelay: '0.6s' }}>
+            <div>
               <div className="glass rounded-2xl p-8">
                 <h2 className="text-2xl font-semibold text-gold-300 mb-6">{t('contact.formTitle')}</h2>
 
@@ -112,7 +134,14 @@ export default function Contact() {
 
                 {submitStatus === 'error' && (
                   <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
-                    <p className="text-red-400">{t('contact.error')}</p>
+                    <p className="text-red-400 mb-2">{t('contact.error')}</p>
+                    {submitErrors.length > 0 && (
+                      <ul className="list-disc list-inside text-red-300 text-sm space-y-1">
+                        {submitErrors.map((err, idx) => (
+                          <li key={idx}>{err}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 )}
 
@@ -184,7 +213,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Information */}
-            <div className="fade-in" style={{ animationDelay: '0.8s' }}>
+            <div>
               <div className="glass rounded-2xl p-8">
                 <h2 className="text-2xl font-semibold text-gold-300 mb-6">{t('contact.infoTitle')}</h2>
 
@@ -238,6 +267,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
     </div>
   );
 }

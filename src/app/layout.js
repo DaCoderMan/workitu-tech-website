@@ -4,6 +4,7 @@ import Footer from '../components/layout/Footer';
 
 import LanguageProvider from '../components/LanguageProvider';
 import StructuredData from '../components/StructuredData';
+import WLogoBackground from '../components/animations/WLogoBackground';
 import { GoogleAnalytics, GoogleTagManager } from '../components/Analytics';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.tech';
@@ -74,6 +75,7 @@ export default function RootLayout({ children }) {
       <body className="bg-black text-gold-400 min-h-screen">
         <GoogleAnalytics />
         <GoogleTagManager />
+        <WLogoBackground />
         <LanguageProvider>
           <Header />
           <main className="pt-16">

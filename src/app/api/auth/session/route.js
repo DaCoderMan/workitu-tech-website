@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { verifyToken } from '../../../../utils/auth';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request) {
   try {
     const token = request.cookies.get('auth-token')?.value;

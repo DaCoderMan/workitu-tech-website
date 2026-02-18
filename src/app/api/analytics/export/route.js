@@ -3,6 +3,8 @@ import { requireAuth } from '../../../../utils/auth';
 import { getAnalyticsSummary } from '../../../../utils/analytics';
 import Papa from 'papaparse';
 
+export const dynamic = 'force-dynamic';
+
 async function handler(request) {
   try {
     const analytics = getAnalyticsSummary();

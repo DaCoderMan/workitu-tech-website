@@ -1,13 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import VideoBackground from '../../components/animations/VideoBackground';
+import ScrollReveal from '../../components/animations/ScrollReveal';
 import { useSafeT } from '../../lib/useLanguage';
 import Link from 'next/link';
 
 export default function Pricing() {
-  const [content, setContent] = useState(null);
-  const [loading, setLoading] = useState(true);
   const t = useSafeT();
 
   useEffect(() => {
@@ -20,23 +19,10 @@ export default function Pricing() {
         page: 'pricing',
         timestamp: new Date().toISOString()
       })
-    });
-
-    // Fetch pricing content
-    fetch('/api/admin/content')
-      .then(res => res.json())
-      .then(data => {
-        setContent(data.pricing);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Error fetching content:', err);
-        setLoading(false);
-      });
+    }).catch(() => {});
   }, []);
 
-  // Default services with translations
-  const defaultServices = [
+  const services = [
     {
       key: 'website',
       title: t('pricing.services.website.title'),
@@ -68,20 +54,6 @@ export default function Pricing() {
       description: t('pricing.services.custom.description')
     }
   ];
-
-  if (loading) {
-    return (
-      <div className="relative min-h-screen">
-        <VideoBackground />
-        <div className="relative z-10 flex justify-center items-center min-h-screen">
-          <div className="loading-spinner"></div>
-          <span className="ml-3 rtl:mr-3 rtl:ml-0 text-gold-400">{t('pricing.loading')}</span>
-        </div>
-      </div>
-    );
-  }
-
-  const services = content?.services || defaultServices;
 
   return (
     <div className="relative min-h-screen">
@@ -134,29 +106,31 @@ export default function Pricing() {
       </section>
 
       {/* Promise Section */}
+      <ScrollReveal>
       <section className="relative z-10 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="glass rounded-2xl p-8 md:p-12 fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="glass rounded-2xl p-8 md:p-12">
             <p className="text-lg md:text-xl text-gold-300 font-medium">
               {t('pricing.promise')}
             </p>
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* CTA Section */}
+      <ScrollReveal delay={100}>
       <section className="relative z-10 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="fade-in" style={{ animationDelay: '0.8s' }}>
-            <a
-              href="/contact"
-              className="btn-gold inline-block px-8 py-4 rounded-full text-lg font-semibold"
-            >
-              {t('pricing.cta')}
-            </a>
-          </div>
+          <a
+            href="/contact"
+            className="btn-gold inline-block px-8 py-4 rounded-full text-lg font-semibold"
+          >
+            {t('pricing.cta')}
+          </a>
         </div>
       </section>
+      </ScrollReveal>
     </div>
   );
 }

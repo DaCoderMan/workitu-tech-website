@@ -37,6 +37,7 @@ export async function POST(request) {
     // Validate form
     const validation = validateContactForm(sanitizedData);
     if (!validation.isValid) {
+      // Return detailed validation errors so the client can display them
       return NextResponse.json(
         { message: 'Validation failed', errors: validation.errors },
         { status: 400 }
@@ -53,14 +54,24 @@ export async function POST(request) {
     
     let submissions = [];
     try {
-      const data = fs.readFileSync(SUBMISSIONS_FILE, 'utf8');
-      submissions = JSON.parse(data);
+      if (!fs.existsSync(DATA_DIR)) {
+        fs.mkdirSync(DATA_DIR, { recursive: true });
+      }
+      if (fs.existsSync(SUBMISSIONS_FILE)) {
+        const data = fs.readFileSync(SUBMISSIONS_FILE, 'utf8');
+        submissions = JSON.parse(data);
+      }
     } catch (error) {
-      // File doesn't exist, start with empty array
+      // File doesn't exist or is invalid, start with empty array
     }
-    
+
     submissions.push(submission);
-    fs.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(submissions, null, 2));
+    try {
+      fs.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(submissions, null, 2));
+    } catch (writeError) {
+      console.error('Failed to write submissions file:', writeError);
+      // Continue - don't fail the request if file write fails (e.g. on serverless)
+    }
     
     // Send Telegram notification (if configured)
     try {
@@ -74,7 +85,7 @@ export async function POST(request) {
     // Send email notification and auto-responder (if configured)
     if (process.env.SMTP_USER && process.env.SMTP_PASS) {
       try {
-        const transporter = nodemailer.createTransporter({
+        const transporter = nodemailer.createTransport({
           host: process.env.SMTP_HOST || 'smtp.gmail.com',
           port: parseInt(process.env.SMTP_PORT) || 587,
           secure: false,
