@@ -1,4 +1,5 @@
 import './globals.css';
+import { Suspense } from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 
@@ -73,7 +74,9 @@ export default function RootLayout({ children }) {
         <StructuredData />
       </head>
       <body className="bg-black text-gold-400 min-h-screen">
-        <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+        </Suspense>
         <GoogleTagManager />
         <WLogoBackground />
         <LanguageProvider>

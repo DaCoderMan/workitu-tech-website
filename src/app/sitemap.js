@@ -1,5 +1,4 @@
-import fs from 'fs';
-import path from 'path';
+import { getProjects } from '../lib/firestore-data';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.tech';
 
@@ -42,14 +41,18 @@ export default async function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/legal`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ];
 
-  // Dynamic project pages (if individual project pages exist)
+  // Dynamic project pages
   let projectPages = [];
   try {
-    const projectsFile = path.join(process.cwd(), 'src', 'data', 'projects.json');
-    const projectsData = fs.readFileSync(projectsFile, 'utf8');
-    const projects = JSON.parse(projectsData);
+    const projects = await getProjects();
 
     projectPages = projects.map((project) => ({
       url: `${BASE_URL}/portfolio#${project.id}`,

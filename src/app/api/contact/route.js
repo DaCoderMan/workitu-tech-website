@@ -3,12 +3,8 @@ import { validateContactForm, sanitizeInput } from '../../../utils/validation';
 import { rateLimit } from '../../../utils/rateLimit';
 import { notifyContactFormSubmission } from '../../../utils/telegram';
 import { captureException } from '../../../utils/sentry';
-import fs from 'fs';
-import path from 'path';
+import { saveSubmission } from '../../../lib/firestore-data';
 import nodemailer from 'nodemailer';
-
-const DATA_DIR = path.join(process.cwd(), 'src', 'data');
-const SUBMISSIONS_FILE = path.join(DATA_DIR, 'submissions.json');
 
 export async function POST(request) {
   try {
@@ -44,33 +40,19 @@ export async function POST(request) {
       );
     }
     
-    // Save to submissions file
+    // Save to Firestore
     const submission = {
       id: Date.now().toString(),
       ...sanitizedData,
       timestamp: new Date().toISOString(),
       ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
     };
-    
-    let submissions = [];
-    try {
-      if (!fs.existsSync(DATA_DIR)) {
-        fs.mkdirSync(DATA_DIR, { recursive: true });
-      }
-      if (fs.existsSync(SUBMISSIONS_FILE)) {
-        const data = fs.readFileSync(SUBMISSIONS_FILE, 'utf8');
-        submissions = JSON.parse(data);
-      }
-    } catch (error) {
-      // File doesn't exist or is invalid, start with empty array
-    }
 
-    submissions.push(submission);
     try {
-      fs.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(submissions, null, 2));
-    } catch (writeError) {
-      console.error('Failed to write submissions file:', writeError);
-      // Continue - don't fail the request if file write fails (e.g. on serverless)
+      await saveSubmission(submission);
+    } catch (dbError) {
+      console.error('Failed to save submission:', dbError);
+      // Continue — don't fail the request if DB write fails
     }
     
     // Send Telegram notification (if configured)

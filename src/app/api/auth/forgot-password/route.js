@@ -2,16 +2,7 @@ import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
 import { rateLimit } from '../../../../utils/rateLimit';
-import fs from 'fs';
-import path from 'path';
-
-const DATA_DIR = path.join(process.cwd(), 'src', 'data');
-const RESET_TOKENS_FILE = path.join(DATA_DIR, 'reset-tokens.json');
-
-// Ensure data directory exists
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-}
+import { saveResetToken } from '../../../../lib/firestore-data';
 
 export async function POST(request) {
   try {
@@ -43,7 +34,7 @@ export async function POST(request) {
     const resetToken = crypto.randomBytes(32).toString('hex');
     const resetTokenExpiry = Date.now() + 3600000; // 1 hour
 
-    // Save reset token
+    // Save reset token to Firestore
     const resetData = {
       email,
       token: resetToken,
@@ -51,7 +42,7 @@ export async function POST(request) {
       createdAt: new Date().toISOString()
     };
 
-    fs.writeFileSync(RESET_TOKENS_FILE, JSON.stringify([resetData], null, 2));
+    await saveResetToken(resetData);
 
     // Send reset email
     if (process.env.SMTP_USER && process.env.SMTP_PASS) {

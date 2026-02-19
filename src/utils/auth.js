@@ -1,12 +1,14 @@
 import { NextResponse } from 'next/server';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 // Security: These MUST be set via environment variables
 const JWT_SECRET = process.env.JWT_SECRET;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH;
 
-if (!JWT_SECRET || !ADMIN_EMAIL || !ADMIN_PASSWORD_HASH) {
-  console.warn('Warning: Missing required auth environment variables. Set JWT_SECRET, ADMIN_EMAIL, and ADMIN_PASSWORD_HASH.');
+if (!JWT_SECRET && process.env.NODE_ENV === 'production') {
+  console.warn('[auth] JWT_SECRET is not set — admin auth will not work.');
 }
 
 /**

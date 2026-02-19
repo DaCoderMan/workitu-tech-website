@@ -1,28 +1,11 @@
 import { NextResponse } from 'next/server';
 import { requireAuth } from '../../../../utils/auth';
 import { validateProject, sanitizeInput } from '../../../../utils/validation';
-import fs from 'fs';
-import path from 'path';
-
-const DATA_DIR = path.join(process.cwd(), 'src', 'data');
-const PROJECTS_FILE = path.join(DATA_DIR, 'projects.json');
-
-function getProjects() {
-  try {
-    const data = fs.readFileSync(PROJECTS_FILE, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    return [];
-  }
-}
-
-function saveProjects(projects) {
-  fs.writeFileSync(PROJECTS_FILE, JSON.stringify(projects, null, 2));
-}
+import { getProjects as fetchProjects, saveProject, deleteProject as removeProject } from '../../../../lib/firestore-data';
 
 async function getHandler(request) {
   try {
-    const projects = getProjects();
+    const projects = await fetchProjects();
     return NextResponse.json(projects);
   } catch (error) {
     console.error('Error fetching projects:', error);
@@ -55,17 +38,15 @@ async function postHandler(request) {
       );
     }
     
-    const projects = getProjects();
     const newProject = {
       id: Date.now().toString(),
       ...sanitizedProject,
       dateAdded: new Date().toISOString(),
       featured: projectData.featured || false
     };
-    
-    projects.push(newProject);
-    saveProjects(projects);
-    
+
+    await saveProject(newProject);
+
     return NextResponse.json(newProject, { status: 201 });
   } catch (error) {
     console.error('Error creating project:', error);
@@ -113,20 +94,20 @@ async function putHandler(request) {
       }
     }
     
-    const projects = getProjects();
-    const projectIndex = projects.findIndex(p => p.id === id);
-    
-    if (projectIndex === -1) {
+    const projects = await fetchProjects();
+    const existing = projects.find(p => p.id === id);
+
+    if (!existing) {
       return NextResponse.json(
         { message: 'Project not found' },
         { status: 404 }
       );
     }
-    
-    projects[projectIndex] = { ...projects[projectIndex], ...sanitizedUpdate };
-    saveProjects(projects);
-    
-    return NextResponse.json(projects[projectIndex]);
+
+    const updated = { ...existing, ...sanitizedUpdate };
+    await saveProject(updated);
+
+    return NextResponse.json(updated);
   } catch (error) {
     console.error('Error updating project:', error);
     return NextResponse.json(
@@ -148,18 +129,15 @@ async function deleteHandler(request) {
       );
     }
     
-    const projects = getProjects();
-    const filteredProjects = projects.filter(p => p.id !== id);
-    
-    if (projects.length === filteredProjects.length) {
+    const deleted = await removeProject(id);
+
+    if (!deleted) {
       return NextResponse.json(
         { message: 'Project not found' },
         { status: 404 }
       );
     }
-    
-    saveProjects(filteredProjects);
-    
+
     return NextResponse.json({ message: 'Project deleted successfully' });
   } catch (error) {
     console.error('Error deleting project:', error);

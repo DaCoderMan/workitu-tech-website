@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
 
     // Get LemonSqueezy configuration
     const apiKey = env.get('LEMONSQUEEZY_API_KEY');
-    const appUrl = env.get('APP_URL') || 'http://localhost:3000';
+    const appUrl = env.get('APP_URL') || process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.com';
 
     if (!apiKey) {
       log.error('LemonSqueezy API key not configured');

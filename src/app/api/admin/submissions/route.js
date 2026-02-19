@@ -1,23 +1,12 @@
 import { NextResponse } from 'next/server';
 import { requireAuth } from '../../../../utils/auth';
-import fs from 'fs';
-import path from 'path';
+import { getSubmissions } from '../../../../lib/firestore-data';
 
-const DATA_DIR = path.join(process.cwd(), 'src', 'data');
-const SUBMISSIONS_FILE = path.join(DATA_DIR, 'submissions.json');
-
-function getSubmissions() {
-  try {
-    const data = fs.readFileSync(SUBMISSIONS_FILE, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    return [];
-  }
-}
+export const dynamic = 'force-dynamic';
 
 async function getHandler(request) {
   try {
-    const submissions = getSubmissions();
+    const submissions = await getSubmissions();
     return NextResponse.json(submissions);
   } catch (error) {
     console.error('Error fetching submissions:', error);

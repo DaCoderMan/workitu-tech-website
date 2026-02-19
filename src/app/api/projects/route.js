@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { getProjects } from '../../../lib/firestore-data';
 
-const PROJECTS_FILE_PATH = path.join(process.cwd(), 'src', 'data', 'projects.json');
+export const dynamic = 'force-dynamic';
 
 function withLatestThumbnailVersion(project) {
   if (!project?.image || typeof project.image !== 'string') {
@@ -24,8 +23,7 @@ function withLatestThumbnailVersion(project) {
 // Public endpoint to fetch projects (no auth required)
 export async function GET() {
   try {
-    const raw = await fs.readFile(PROJECTS_FILE_PATH, 'utf8');
-    const projectsData = JSON.parse(raw);
+    const projectsData = await getProjects();
     const normalized = Array.isArray(projectsData)
       ? projectsData.map(withLatestThumbnailVersion)
       : [];

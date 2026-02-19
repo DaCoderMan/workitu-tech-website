@@ -54,10 +54,10 @@ export const useLanguage = create(
 export function useLanguageInit() {
   const { language } = useLanguage();
 
-  if (typeof window !== 'undefined') {
+  useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = language === 'he' ? 'rtl' : 'ltr';
-  }
+  }, [language]);
 
   return language;
 }

@@ -1,4 +1,5 @@
-// Simple in-memory rate limiting
+// In-memory rate limiting — best-effort on serverless (resets per cold start).
+// For stricter enforcement, use a persistent store (e.g., Firestore or Upstash Redis).
 const attempts = new Map();
 const RATE_LIMIT_MAX = parseInt(process.env.RATE_LIMIT_MAX) || 5;
 const RATE_LIMIT_WINDOW = parseInt(process.env.RATE_LIMIT_WINDOW) || 900000; // 15 minutes
@@ -37,9 +38,15 @@ export function rateLimit(identifier) {
 }
 
 export function getClientIP(req) {
-  return req.headers['x-forwarded-for'] || 
-         req.headers['x-real-ip'] || 
-         req.connection?.remoteAddress || 
+  // Support both Next.js App Router Request (headers.get) and Express-style (headers[])
+  if (typeof req.headers?.get === 'function') {
+    return req.headers.get('x-forwarded-for') ||
+           req.headers.get('x-real-ip') ||
+           'unknown';
+  }
+  return req.headers?.['x-forwarded-for'] ||
+         req.headers?.['x-real-ip'] ||
+         req.connection?.remoteAddress ||
          req.socket?.remoteAddress ||
          'unknown';
 }

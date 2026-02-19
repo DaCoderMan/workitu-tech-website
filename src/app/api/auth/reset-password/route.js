@@ -1,10 +1,6 @@
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import fs from 'fs';
-import path from 'path';
-
-const DATA_DIR = path.join(process.cwd(), 'src', 'data');
-const RESET_TOKENS_FILE = path.join(DATA_DIR, 'reset-tokens.json');
+import { getResetToken, deleteResetToken } from '../../../../lib/firestore-data';
 
 export async function POST(request) {
   try {
@@ -25,17 +21,8 @@ export async function POST(request) {
       );
     }
 
-    // Check if reset tokens file exists
-    if (!fs.existsSync(RESET_TOKENS_FILE)) {
-      return NextResponse.json(
-        { message: 'Invalid or expired reset token' },
-        { status: 400 }
-      );
-    }
-
-    // Read and validate token
-    const resetTokens = JSON.parse(fs.readFileSync(RESET_TOKENS_FILE, 'utf8'));
-    const resetData = resetTokens.find(t => t.token === token);
+    // Look up token in Firestore
+    const resetData = await getResetToken(token);
 
     if (!resetData) {
       return NextResponse.json(
@@ -67,7 +54,7 @@ export async function POST(request) {
     console.log('========================================\n');
 
     // Delete the used token
-    fs.writeFileSync(RESET_TOKENS_FILE, JSON.stringify([], null, 2));
+    await deleteResetToken(token);
 
     return NextResponse.json(
       {

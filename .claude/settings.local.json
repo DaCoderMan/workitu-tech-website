@@ -4,7 +4,11 @@
       "Bash(cat:*)",
       "Bash(wait)",
       "Bash(awk:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx next dev:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []

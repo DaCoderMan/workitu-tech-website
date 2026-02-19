@@ -7,15 +7,15 @@ export async function POST(request) {
     
     switch (event) {
       case 'page_view':
-        trackPageView(page, userAgent, referrer);
+        await trackPageView(page, userAgent, referrer);
         break;
       case 'project_click':
         if (projectId) {
-          trackProjectClick(projectId);
+          await trackProjectClick(projectId);
         }
         break;
       case 'unique_visitor':
-        trackUniqueVisitor();
+        await trackUniqueVisitor();
         break;
       default:
         return NextResponse.json(
@@ -36,7 +36,7 @@ export async function POST(request) {
 
 export async function GET() {
   try {
-    const analytics = getAnalytics();
+    const analytics = await getAnalytics();
     return NextResponse.json(analytics);
   } catch (error) {
     console.error('Analytics fetch error:', error);

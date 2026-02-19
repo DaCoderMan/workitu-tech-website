@@ -1,0 +1,21 @@
+---
+description: Prefer Brave MCP for external web search and browsing tasks
+alwaysApply: true
+---
+
+# Brave MCP Usage
+
+- When you need to look up **current information**, run **web searches**, or fetch **live documentation**, prefer using the **Brave MCP provider** (if available in this environment).
+- Use Brave MCP for:
+  - Up-to-date technical docs and API references
+  - General web research needed to answer questions
+  - Checking external articles, blogs, or news
+- Continue to rely on repository code and local tools for anything that can be answered **without** web access.
+
+# API Key & Configuration (user responsibility)
+
+- The Brave MCP server should be configured to read an environment variable (for example `BRAVE_API_KEY`) instead of hard‑coding secrets in the repo.
+- Make sure you have:
+  - Set your Brave API key in your local Cursor / system environment
+  - Wired that environment variable into the Brave MCP server configuration (e.g. in your global `mcp.json`).
+

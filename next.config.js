@@ -1,5 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    // Prevent micromatch stack overflow during build trace collection
+    outputFileTracingExcludes: {
+      '*': [
+        'node_modules/@swc/core-linux-x64-gnu',
+        'node_modules/@swc/core-linux-x64-musl',
+        'node_modules/@esbuild',
+        'node_modules/sharp',
+        'node_modules/puppeteer',
+        'node_modules/playwright',
+        'node_modules/selenium-webdriver',
+        'public/videos/**',
+      ],
+    },
+  },
   images: {
     remotePatterns: [
       {

@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 async function handler(request) {
   try {
-    const analytics = getAnalyticsSummary();
+    const analytics = await getAnalyticsSummary();
     
     // Convert analytics to CSV format
     const csvData = Papa.unparse([
