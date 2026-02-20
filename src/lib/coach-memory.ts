@@ -68,7 +68,7 @@ async function getCollection() {
   const client = await getMongoClient();
   if (!client) return null;
   const db = client.db('workitu-coach');
-  return db.collection<CoachMemory>('coach-memory');
+  return db.collection('coach-memory');
 }
 
 // ============================================================
