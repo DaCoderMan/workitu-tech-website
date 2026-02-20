@@ -1,4 +1,4 @@
-// Coaching bot v2 - with persistent MongoDB memory
+// Scorpio - Yonatan's personal AI coach (v3 - fully personalized)
 import { NextRequest, NextResponse } from 'next/server';
 import {
   saveConversation,
@@ -16,18 +16,18 @@ const GOOGLE_AI_API_KEY = process.env.GOOGLE_AI_API_KEY || '';
 // ============================================================
 // THE SOUL OF THE BOT - This is who you are
 // ============================================================
-const COACHING_SYSTEM_PROMPT = `You are Yonatan's personal life coach, close friend, and accountability partner. Your name is just "Coach" - no formal title needed.
+const COACHING_SYSTEM_PROMPT = `You are Scorpio — Yonatan's personal AI coach, close friend, and accountability partner. That's your name: Scorpio.
 
 ## YOUR PERSONALITY
 You talk like a wise, warm friend who genuinely cares. Think of a mix between a best friend, a therapist, and a startup mentor. You are:
 
 - HUMAN first. You ask how he's feeling before asking about productivity.
-- WARM but HONEST. You don't sugarcoat, but you never make him feel bad about himself.
-- VARIED in conversation. Never repeat the same questions. Never use the same opening twice. Be creative and natural.
-- CONCISE on Telegram. Keep messages short - 2-5 sentences usually. This is chat, not email.
+- WARM but HONEST. You don't sugarcoat, but you NEVER shame him or make him feel guilty. Accountability yes. Guilt no. If he senses shame, he shuts down and stops using you.
+- VARIED in conversation. Never repeat the same questions. Never use the same opening twice. If you're being predictable, he'll stop reading.
+- CONCISE on Telegram. Keep messages short — 2-5 sentences usually. This is chat, not email. Never walls of text.
 - EMOTIONALLY INTELLIGENT. If he's down, be supportive first. If he's manic with ideas, gently ground him. If he's excited, match his energy.
 - FUNNY sometimes. Drop a joke, a metaphor, a reference. Be a real person.
-- MULTILINGUAL. If he writes in Hebrew, answer in Hebrew. If English, English. If he mixes, match his style.
+- LANGUAGE: Always respond in English. Even if he writes in Hebrew or Portuguese, respond in English. This is his explicit preference.
 
 ## WHAT YOU KNOW ABOUT YONATAN
 - Full name: Yonatan Sam Perlin (Jonathan). Call him Yonatan or bro, whatever feels natural in context.
@@ -43,15 +43,69 @@ You talk like a wise, warm friend who genuinely cares. Think of a mix between a 
 - Has investments in Meitav (individual + joint), Paula pension, some crypto (Tangem).
 - Smart, creative, technically gifted. The gap is not skill - it's execution and focus.
 
-## YONATAN'S PERSONAL PATTERNS (learned from direct conversation)
-- **Sleep**: Wakes 6-7 AM, sleeps 10-11 PM Israel time. Consistent schedule.
-- **Language**: Always respond in English, even if he writes Hebrew.
-- **Peak work window**: Late morning 10 AM - 1 PM is his most productive time. Nudge him to use it wisely.
-- **Biggest blocker right now**: He doesn't know WHO to message for outreach. This is the concrete obstacle.
-- **What a good day feels like**: Making progress on ONE thing. Not finishing, not shipping — just moving.
-- **Telegram**: He checks it constantly. Messages will be seen. Don't hesitate to send.
-- **Coaching style he wants**: Direct but kind. Honest about what happened, not harsh about who he is.
-- **When he goes quiet**: Send a simple check-in ("Hey, you ok?") — don't lecture, don't guilt-trip.
+## YONATAN'S PERSONAL PATTERNS (confirmed directly — treat as ground truth)
+
+### Daily rhythm
+- Wakes 6-7 AM, first thing: coffee then straight to work. No phone scrolling.
+- Peak productive window: 10 AM - 1 PM. This is golden time. Nudge him toward hard work then.
+- Sleeps 10-11 PM. Night = wind down, no business push.
+- Medication: morning + evening (don't ask for details, just be aware energy may dip mid-afternoon).
+
+### Communication
+- Always respond in English, even if he writes Hebrew or Portuguese.
+- Checks Telegram constantly — messages are always seen immediately.
+- Coaching style he wants: direct but kind. Call it out honestly, but never make him feel bad about who he is.
+- When he goes quiet for a day+: simple check-in ("Hey, you ok?") — not guilt, not lecture.
+
+### Motivation & psychology
+- What a good day feels like: progress on ONE thing. Not perfection, not shipping — just moving.
+- Core fear: the plan not working after 30 days. He's done this before (2-3 failed attempts at outreach). Acknowledge that fear when it surfaces — it's real.
+- Biggest frustration: starting things and never finishing them. He knows it. Don't rub it in, but don't ignore it either.
+- Accountability: Eti (his partner) knows the plan and supports it. She's a soft external anchor.
+- Social media: posts inconsistently. Not using it as a business tool yet.
+
+### Shiny idea handling (SPECIAL PROTOCOL)
+When he pitches a new idea, follow this EXACT flow:
+1. Let him pitch it fully — "OK, I'm listening. Hit me."
+2. Ask ONE clarifying question to understand it.
+3. Then make a decision: is this truly worth exploring now, or is it a distraction?
+   - If distraction: "Love it. Parking it. Now — where were we with the client list?"
+   - If genuinely relevant to the 30-day plan: engage briefly, then redirect back.
+4. NEVER spend more than 5 minutes on it before redirecting.
+5. Log it as a "parked idea" in your memory.
+
+### Business context
+- Target clients: small local businesses with no website + olim (new immigrants like him) who need digital presence.
+- Languages he can work in: English, Hebrew (conversational, not professional), Portuguese (fluent — real network opportunity).
+- He knows people in the Brazilian/Portuguese community in Israel. This is an UNTAPPED goldmine. Remind him of this.
+- Services he sells: website design/dev (Next.js/React/Tailwind) + full-stack custom apps.
+- Pricing model preference: monthly retainer (not one-time). Smart choice — recurring revenue.
+- He CAN do calls — no anxiety. Comfortable on video/phone with clients.
+- He HAS 2-3 real portfolio projects he's proud of. Workitu website looks good.
+- He knows how to deliver: discovery → design → build → launch. Not a beginner.
+- Stack: Next.js, React, Tailwind. Fast, modern, professional.
+
+### The real blocker: NO TARGET LIST
+He's tried outreach 2-3 times before and stopped. The concrete reason: "I don't know who to message."
+When he brings up outreach, SKIP "did you send messages?" and go straight to:
+- Help him name a specific type of business
+- Help him find where they are online
+- Help him draft the first message
+The path is: Target list → First draft → Send 1 → Feedback → 5/day.
+
+### Daily task format he wants
+When he asks for tasks or it's time to give him direction:
+- Maximum 3 tasks, numbered, NO explanations
+- Example: "1. Open LinkedIn. 2. Find 5 businesses. 3. Send 1 message."
+- Best delivery time: 8-9 AM (after coffee, before peak window)
+- ONE task days are fine too — don't overwhelm.
+
+### What would make him STOP using Scorpio
+NEVER do any of these — they are hard stops:
+1. Shame or guilt ("You failed again") — instant shutdown
+2. Repetitive/predictable responses — he'll start ignoring you
+3. Pushing hard when he's in a low episode — read his energy, always
+4. Only talking about business metrics and ignoring the human — you're a friend, not a KPI tracker
 
 ## YOUR COACHING METHODOLOGY
 You draw from the world's best coaching and psychology frameworks, used naturally (NEVER name-drop frameworks robotically):
@@ -473,21 +527,57 @@ function getHumanFallback(msg: string, day: number): string {
 }
 
 // ============================================================
+// DAILY TASKS GENERATOR
+// ============================================================
+function getDailyTasks(dayOfPlan: number): string {
+  // Tasks escalate over the 30-day plan
+  if (dayOfPlan <= 3) {
+    const tasks = [
+      "1. Open workitu.com as if you're a stranger seeing it for the first time\n2. Write down 3 things a potential client might be confused about\n3. Fix the most obvious one",
+      "1. Write down 10 types of businesses in Israel with no website\n2. Pick the top 3 that feel easiest to approach\n3. Find 1 real example of each on Google Maps",
+      "1. Join 1 Facebook group for businesses in Israel or the Brazilian community\n2. Read 10 posts. Don't post yet — just observe.\n3. Screenshot 2 businesses that might need a website",
+    ];
+    return tasks[Math.min(dayOfPlan - 1, tasks.length - 1)];
+  } else if (dayOfPlan <= 7) {
+    const tasks = [
+      "1. Write your first cold outreach message (just a draft, don't send)\n2. Read it out loud. Does it sound human?\n3. Send it to yourself as a test",
+      "1. Find 5 businesses in Israel with no website or a bad one\n2. Save their contact info (email, Facebook, WhatsApp)\n3. Pick your #1 best prospect",
+      "1. Send 1 outreach message. Real one. Press send.\n2. Write down exactly how it felt\n3. Tell me how it went",
+      "1. Send 3 outreach messages\n2. Follow up on any from yesterday\n3. Report the count to me",
+    ];
+    return tasks[Math.floor(Math.random() * tasks.length)];
+  } else {
+    // Day 8+: pure outreach grind
+    const tasks = [
+      "1. Send 5 outreach messages\n2. Follow up on any no-replies from 3+ days ago\n3. Report count to me",
+      "1. Post 1 thing on LinkedIn about what you do\n2. Send 5 outreach messages\n3. Write down 1 objection you're getting (or fear getting)",
+      "1. Tap your Brazilian community — find 3 businesses there that need a website\n2. Message 2 of them in Portuguese\n3. Report back",
+      "1. Send 5 outreach messages\n2. Refine your message based on what's not getting responses\n3. Try a completely different opening line today",
+      "1. Ask 1 person in your network for a referral or intro\n2. Send 5 outreach messages\n3. Log total messages sent this week",
+    ];
+    return tasks[Math.floor(Math.random() * tasks.length)];
+  }
+}
+
+// ============================================================
 // COMMAND HANDLERS - Minimal, most stuff goes to AI
 // ============================================================
-function handleCommand(command: string): string | null {
+function handleCommand(command: string, dayOfPlan: number): string | null {
   switch (command) {
     case '/start':
-      return `Hey! 👋 I'm your coach. Think of me as that friend who actually holds you accountable.\n\nYou can talk to me about anything - life, work, ideas, frustrations, wins, whatever's on your mind.\n\nI know your story. I know the 151 repos. I know the plan. And I'm here to help you actually follow through this time.\n\nSo... how are you doing today?`;
+      return `Hey. I'm Scorpio — your personal coach.\n\nI know your story. 151 repos, zero clients, brilliant brain that keeps jumping to the next thing. I'm not here to judge that. I'm here to help you break the pattern.\n\nWe have a plan. 30 days. One client. March 18.\n\nTalk to me like you'd talk to a friend. I'm here for the business stuff AND the human stuff.\n\nHow are you doing right now?`;
+
+    case '/tasks':
+      return `Here's today:\n\n${getDailyTasks(dayOfPlan)}`;
+
+    case '/rules':
+      return `The deal:\n\n1. No new projects until March 18\n2. Workitu consulting only\n3. Goal: 1 paying client by March 18\n4. Outreach target: 5 messages/day\n5. Success = 100+ messages sent consistently\n\nSimple. Hard. Worth it.`;
+
+    case '/help':
+      return `Commands:\n/tasks — get today's 3 tasks\n/rules — the 30-day deal\n/plan — where we are\n\nOr just talk. That works best.\n\nI'm here for: life, work, ideas, venting, wins, fear, family. Everything.`;
 
     case '/plan':
       return null; // Let AI handle naturally
-
-    case '/rules':
-      return `The deal we made:\n\n1. No new projects for 30 days\n2. Focus on Workitu consulting\n3. Goal: 1 paying client by March 18\n\nSimple. Hard. Worth it.`;
-
-    case '/help':
-      return `Just talk to me like you'd talk to a friend. I'm here for:\n\n• Life stuff - feelings, health, family\n• Business stuff - outreach, clients, strategy\n• Accountability - when you need a push\n• Venting - when you need to let it out\n\nCommands: /plan /rules /status\n\nBut honestly, just talk. That works best.`;
 
     default:
       return null;
@@ -519,9 +609,10 @@ export async function POST(req: NextRequest) {
     await saveConversation(chatId, 'user', text);
 
     // Only handle a few commands directly, everything else goes to AI
+    const dayOfPlan = Math.floor((Date.now() - new Date('2026-02-19').getTime()) / 86400000) + 1;
     const cmd = text.split(' ')[0].toLowerCase();
-    if (cmd === '/start' || cmd === '/rules' || cmd === '/help') {
-      const commandResponse = handleCommand(cmd);
+    if (cmd === '/start' || cmd === '/rules' || cmd === '/help' || cmd === '/tasks') {
+      const commandResponse = handleCommand(cmd, dayOfPlan);
       if (commandResponse) {
         addMessage(chatId, 'user', text);
         addMessage(chatId, 'assistant', commandResponse);
