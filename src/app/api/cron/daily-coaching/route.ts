@@ -5,7 +5,8 @@ const OWNER_CHAT_ID = process.env.TELEGRAM_OWNER_CHAT_ID!;
 const CRON_SECRET = process.env.CRON_SECRET || '';
 
 // 4 DAILY CHECK-INS: 8:00, 13:00, 18:00, 20:00 Israel time
-// Each has a different purpose and feeling
+// Vercel Hobby cron runs once daily at 5AM UTC (8AM Israel)
+// Other slots triggered via ?slot=midday|evening|night (use external cron like cron-job.org)
 
 const morning8am = [
   "Morning ☀️ How'd you sleep? What's one thing you want to get done today?",
@@ -80,10 +81,18 @@ function getTimeSlot(): string {
 function pick<T>(arr: T[]): T { return arr[Math.floor(Math.random() * arr.length)]; }
 
 export async function GET(req: NextRequest) {
+  // Auth: either Vercel cron (Bearer token) or external cron with ?secret= param
   const authHeader = req.headers.get('authorization');
-  if (CRON_SECRET && authHeader !== `Bearer ${CRON_SECRET}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  const urlSecret = req.nextUrl.searchParams.get('secret');
+
+  if (CRON_SECRET) {
+    const isVercelCron = authHeader === `Bearer ${CRON_SECRET}`;
+    const isExternalCron = urlSecret === CRON_SECRET;
+    if (!isVercelCron && !isExternalCron) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
   }
+
   if (!OWNER_CHAT_ID) return NextResponse.json({ error: 'No owner' }, { status: 500 });
 
   const day = new Date().toLocaleDateString('en-US', { weekday: 'long', timeZone: 'Asia/Jerusalem' });
@@ -94,7 +103,10 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ success: true, slot: 'shabbat' });
   }
 
-  const slot = getTimeSlot();
+  // Allow forcing a specific slot via query param (for external cron services)
+  const forceSlot = req.nextUrl.searchParams.get('slot');
+  const slot = forceSlot || getTimeSlot();
+
   const pools: Record<string, string[]> = { morning: morning8am, midday: midday1pm, evening: evening6pm, night: night8pm, friday: fridayMessages };
   let msg = pick(pools[slot] || morning8am);
 

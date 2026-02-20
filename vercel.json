@@ -1,5 +1,4 @@
 {
-  "name": "workitu-tech-website",
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
@@ -8,7 +7,7 @@
   "crons": [
     {
       "path": "/api/cron/daily-coaching",
-      "schedule": "0 5,10,15,17 * * *"
+      "schedule": "0 5 * * *"
     }
   ]
 }
