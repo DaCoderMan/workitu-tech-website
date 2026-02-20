@@ -1,24 +1,31 @@
-// Coach Memory System - Persistent learning about Yonatan
-// Stores conversation history, learned facts, mood patterns, and progress tracking
+// Scorpio Memory System - Persistent, agentic memory for Yonatan
+// Fixes: cold-start amnesia, commitment tracking, richer context
 
 const MONGO_URI = process.env.MONGO_URI || '';
 
-interface ConversationEntry {
+export interface ConversationEntry {
   role: 'user' | 'assistant';
   content: string;
   timestamp: Date;
 }
 
 interface LearnedFact {
-  category: string; // 'preference', 'life_event', 'health', 'family', 'mood_pattern', 'business', 'goal', 'fear', 'strength'
+  category: string;
   fact: string;
   learnedAt: Date;
-  source: string; // what message led to learning this
+  source: string;
+}
+
+interface Commitment {
+  text: string;        // What they committed to
+  madeAt: Date;        // When they said it
+  followedUpAt?: Date; // When we checked
+  fulfilled?: boolean; // Did they do it?
 }
 
 interface MoodEntry {
   mood: string;
-  energy: number; // 1-10
+  energy: number;
   timestamp: Date;
   context?: string;
 }
@@ -34,25 +41,23 @@ interface CoachMemory {
   chatId: string;
   conversations: ConversationEntry[];
   learnedFacts: LearnedFact[];
+  commitments: Commitment[];
   moodHistory: MoodEntry[];
   progressLog: ProgressEntry[];
   lastInteraction: Date;
-  totalSessions: number;
+  totalMessages: number;
   updatedAt: Date;
 }
 
 // ============================================================
-// MongoDB helpers using native driver via fetch to Atlas Data API
-// We use a simple approach: store/retrieve from MongoDB Atlas
+// MongoDB connection
 // ============================================================
 
 let mongoClientPromise: Promise<any> | null = null;
 
 async function getMongoClient() {
   if (!MONGO_URI) return null;
-
   try {
-    // Dynamic import to avoid issues if mongodb package isn't installed
     const { MongoClient } = await import('mongodb');
     if (!mongoClientPromise) {
       const client = new MongoClient(MONGO_URI);
@@ -72,17 +77,16 @@ async function getCollection() {
 }
 
 // ============================================================
-// Public API
+// Core memory operations
 // ============================================================
 
 export async function loadMemory(chatId: string): Promise<CoachMemory | null> {
   try {
     const col = await getCollection();
     if (!col) return null;
-    const doc = await col.findOne({ chatId });
-    return doc || null;
+    return await col.findOne({ chatId }) as CoachMemory | null;
   } catch (e) {
-    console.error('Failed to load memory:', e);
+    console.error('loadMemory error:', e);
     return null;
   }
 }
@@ -96,26 +100,20 @@ export async function saveConversation(
     const col = await getCollection();
     if (!col) return;
 
-    const entry: ConversationEntry = {
-      role,
-      content,
-      timestamp: new Date(),
-    };
+    const entry: ConversationEntry = { role, content, timestamp: new Date() };
 
     await col.updateOne(
       { chatId },
       {
         $push: {
-          conversations: {
-            $each: [entry],
-            $slice: -200, // Keep last 200 messages
-          },
+          conversations: { $each: [entry], $slice: -300 }, // Keep last 300 messages
         },
         $set: { lastInteraction: new Date(), updatedAt: new Date() },
-        $inc: { totalSessions: role === 'user' ? 1 : 0 },
+        $inc: { totalMessages: 1 },
         $setOnInsert: {
           chatId,
           learnedFacts: [],
+          commitments: [],
           moodHistory: [],
           progressLog: [],
         },
@@ -123,7 +121,7 @@ export async function saveConversation(
       { upsert: true }
     );
   } catch (e) {
-    console.error('Failed to save conversation:', e);
+    console.error('saveConversation error:', e);
   }
 }
 
@@ -136,19 +134,13 @@ export async function learnFact(
   try {
     const col = await getCollection();
     if (!col) return;
-
     await col.updateOne(
       { chatId },
       {
         $push: {
           learnedFacts: {
-            $each: [{
-              category,
-              fact,
-              learnedAt: new Date(),
-              source,
-            }],
-            $slice: -100, // Keep last 100 facts
+            $each: [{ category, fact, learnedAt: new Date(), source }],
+            $slice: -150,
           },
         },
         $set: { updatedAt: new Date() },
@@ -156,32 +148,69 @@ export async function learnFact(
       { upsert: true }
     );
   } catch (e) {
-    console.error('Failed to learn fact:', e);
+    console.error('learnFact error:', e);
   }
 }
 
-export async function logMood(
-  chatId: string,
-  mood: string,
-  energy: number,
-  context?: string
-): Promise<void> {
+export async function saveCommitment(chatId: string, text: string): Promise<void> {
   try {
     const col = await getCollection();
     if (!col) return;
+    await col.updateOne(
+      { chatId },
+      {
+        $push: {
+          commitments: {
+            $each: [{ text, madeAt: new Date() }],
+            $slice: -20, // Keep last 20 commitments
+          },
+        },
+        $set: { updatedAt: new Date() },
+      },
+      { upsert: true }
+    );
+  } catch (e) {
+    console.error('saveCommitment error:', e);
+  }
+}
 
+export async function getUnfollowedCommitments(chatId: string): Promise<Commitment[]> {
+  try {
+    const memory = await loadMemory(chatId);
+    if (!memory?.commitments) return [];
+    const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    return memory.commitments.filter(
+      c => !c.followedUpAt && new Date(c.madeAt) < oneDayAgo
+    );
+  } catch {
+    return [];
+  }
+}
+
+export async function markCommitmentFollowedUp(chatId: string, commitmentText: string): Promise<void> {
+  try {
+    const col = await getCollection();
+    if (!col) return;
+    await col.updateOne(
+      { chatId, 'commitments.text': commitmentText },
+      { $set: { 'commitments.$.followedUpAt': new Date() } }
+    );
+  } catch (e) {
+    console.error('markCommitmentFollowedUp error:', e);
+  }
+}
+
+export async function logMood(chatId: string, mood: string, energy: number, context?: string): Promise<void> {
+  try {
+    const col = await getCollection();
+    if (!col) return;
     await col.updateOne(
       { chatId },
       {
         $push: {
           moodHistory: {
-            $each: [{
-              mood,
-              energy,
-              timestamp: new Date(),
-              context,
-            }],
-            $slice: -60, // Keep last 60 mood entries (2 months of daily)
+            $each: [{ mood, energy, timestamp: new Date(), context }],
+            $slice: -90,
           },
         },
         $set: { updatedAt: new Date() },
@@ -189,31 +218,20 @@ export async function logMood(
       { upsert: true }
     );
   } catch (e) {
-    console.error('Failed to log mood:', e);
+    console.error('logMood error:', e);
   }
 }
 
-export async function logProgress(
-  chatId: string,
-  metric: string,
-  value: number | string,
-  note?: string
-): Promise<void> {
+export async function logProgress(chatId: string, metric: string, value: number | string, note?: string): Promise<void> {
   try {
     const col = await getCollection();
     if (!col) return;
-
     await col.updateOne(
       { chatId },
       {
         $push: {
           progressLog: {
-            $each: [{
-              metric,
-              value,
-              timestamp: new Date(),
-              note,
-            }],
+            $each: [{ metric, value, timestamp: new Date(), note }],
             $slice: -200,
           },
         },
@@ -222,111 +240,158 @@ export async function logProgress(
       { upsert: true }
     );
   } catch (e) {
-    console.error('Failed to log progress:', e);
+    console.error('logProgress error:', e);
   }
 }
 
-/**
- * Build a context string from memory for the AI prompt
- * This is what makes the bot actually remember and learn
- */
+// ============================================================
+// Load full conversation history for cold-start recovery
+// This is the fix for the repetition/amnesia problem
+// ============================================================
+
+export async function loadConversationHistory(chatId: string, limit = 40): Promise<ConversationEntry[]> {
+  try {
+    const memory = await loadMemory(chatId);
+    if (!memory?.conversations) return [];
+    return memory.conversations.slice(-limit);
+  } catch {
+    return [];
+  }
+}
+
+// ============================================================
+// Build AI context from memory
+// ============================================================
+
 export async function buildMemoryContext(chatId: string): Promise<string> {
   const memory = await loadMemory(chatId);
-  if (!memory) return '[No persistent memory yet - this is a fresh start]';
+  if (!memory) return '[No memory yet — first conversation]';
 
   const parts: string[] = [];
 
-  // Learned facts
+  // Total history stats
+  const totalMsgs = memory.totalMessages || 0;
+  const lastTalked = memory.lastInteraction
+    ? new Date(memory.lastInteraction).toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })
+    : 'never';
+  parts.push(`[We've exchanged ${totalMsgs} messages total. Last talked: ${lastTalked}]`);
+
+  // Pending commitments (most important — drives follow-up)
+  const pendingCommitments = memory.commitments?.filter(c => !c.followedUpAt) || [];
+  if (pendingCommitments.length > 0) {
+    parts.push('\n⚠️ PENDING COMMITMENTS (he said he would do these — CHECK on them):');
+    for (const c of pendingCommitments.slice(-5)) {
+      const when = new Date(c.madeAt).toLocaleDateString();
+      parts.push(`- "${c.text}" (committed on ${when})`);
+    }
+  }
+
+  // Learned facts grouped by category
   if (memory.learnedFacts?.length > 0) {
-    parts.push('## Things I\'ve learned about Yonatan from our conversations:');
+    parts.push('\n📚 What I know about Yonatan (learned from conversations):');
     const grouped: Record<string, string[]> = {};
     for (const fact of memory.learnedFacts) {
       if (!grouped[fact.category]) grouped[fact.category] = [];
       grouped[fact.category].push(fact.fact);
     }
-    for (const category of Object.keys(grouped)) {
-      parts.push(`**${category}**: ${grouped[category].join('; ')}`);
+    for (const cat of Object.keys(grouped)) {
+      // Only show most recent 3 per category to avoid bloat
+      const recent = grouped[cat].slice(-3);
+      parts.push(`  ${cat}: ${recent.join(' | ')}`);
     }
   }
 
   // Recent mood pattern
   if (memory.moodHistory?.length > 0) {
-    const recent = memory.moodHistory.slice(-7);
-    const avgEnergy = recent.reduce((sum, m) => sum + m.energy, 0) / recent.length;
+    const recent = memory.moodHistory.slice(-5);
     const moods = recent.map(m => m.mood).join(', ');
-    parts.push(`\n## Recent mood pattern (last ${recent.length} check-ins):`);
-    parts.push(`Moods: ${moods}`);
-    parts.push(`Average energy: ${avgEnergy.toFixed(1)}/10`);
+    const avgEnergy = (recent.reduce((s, m) => s + m.energy, 0) / recent.length).toFixed(1);
+    parts.push(`\n😶 Recent mood: ${moods} (avg energy ${avgEnergy}/10)`);
   }
 
-  // Progress metrics
+  // Recent progress
   if (memory.progressLog?.length > 0) {
-    const recent = memory.progressLog.slice(-10);
-    parts.push('\n## Recent progress:');
-    for (const entry of recent) {
-      const date = new Date(entry.timestamp).toLocaleDateString();
-      parts.push(`- ${date}: ${entry.metric} = ${entry.value}${entry.note ? ` (${entry.note})` : ''}`);
+    const recent = memory.progressLog.slice(-5);
+    parts.push('\n📈 Recent progress:');
+    for (const e of recent) {
+      parts.push(`  - ${e.metric}: ${e.value}${e.note ? ` (${e.note})` : ''}`);
     }
   }
 
-  // Recent conversation topics (last 10 messages for context)
+  // Last 20 messages for full conversation continuity
   if (memory.conversations?.length > 0) {
-    const recent = memory.conversations.slice(-10);
-    parts.push('\n## Our recent conversation:');
+    const recent = memory.conversations.slice(-20);
+    parts.push('\n💬 Our recent conversation (use this to NOT repeat yourself):');
     for (const msg of recent) {
-      const prefix = msg.role === 'user' ? 'Yonatan' : 'Coach';
-      parts.push(`${prefix}: ${msg.content.slice(0, 150)}${msg.content.length > 150 ? '...' : ''}`);
+      const who = msg.role === 'user' ? 'Yonatan' : 'Scorpio';
+      parts.push(`${who}: ${msg.content.slice(0, 200)}${msg.content.length > 200 ? '...' : ''}`);
     }
   }
-
-  parts.push(`\nTotal sessions: ${memory.totalSessions || 0}`);
-  parts.push(`Last talked: ${memory.lastInteraction ? new Date(memory.lastInteraction).toLocaleDateString() : 'never'}`);
 
   return parts.join('\n');
 }
 
-/**
- * Extract things to learn from a user message
- * The AI will do the heavy lifting, but we can catch obvious patterns
- */
+// ============================================================
+// Detect commitments in user messages
+// Patterns: "I will...", "I'll...", "Tomorrow I...", "Going to...", "I'm going to..."
+// ============================================================
+
+export function detectCommitments(message: string): string[] {
+  const commitments: string[] = [];
+  const sentences = message.split(/[.!?]/);
+
+  for (const sentence of sentences) {
+    const s = sentence.trim();
+    if (!s) continue;
+    if (s.match(/i('ll| will| am going to| gonna| plan to| promise to| commit to)/i)) {
+      // Filter out very short/vague ones
+      if (s.length > 15 && s.length < 200) {
+        commitments.push(s);
+      }
+    }
+    if (s.match(/^(tomorrow|today|tonight|this week|by friday).*(i|i'll|will|going to)/i)) {
+      if (s.length > 15) commitments.push(s);
+    }
+  }
+
+  return commitments;
+}
+
+// ============================================================
+// Extract learning signals from user messages
+// ============================================================
+
 export function extractLearningSignals(message: string): { category: string; fact: string }[] {
   const signals: { category: string; fact: string }[] = [];
   const lower = message.toLowerCase();
 
-  // Mood/energy signals
-  if (lower.match(/feeling (great|good|amazing|awesome|fantastic)/)) {
-    signals.push({ category: 'mood_pattern', fact: 'Was feeling great/positive' });
+  if (lower.match(/feeling (great|good|amazing|awesome|fantastic|happy)/)) {
+    signals.push({ category: 'mood_pattern', fact: `Reported feeling positive: "${message.slice(0, 60)}"` });
   }
-  if (lower.match(/feeling (bad|down|sad|depressed|low|terrible)/)) {
-    signals.push({ category: 'mood_pattern', fact: 'Was feeling down/low' });
+  if (lower.match(/feeling (bad|down|sad|depressed|low|terrible|rough)/)) {
+    signals.push({ category: 'mood_pattern', fact: `Reported feeling low: "${message.slice(0, 60)}"` });
   }
-  if (lower.match(/tired|exhausted|no energy|burnt out|burnout/)) {
+  if (lower.match(/tired|exhausted|no energy|burnt out/)) {
     signals.push({ category: 'health', fact: 'Reported being tired/exhausted' });
   }
-
-  // Progress signals
-  if (lower.match(/sent (\d+) message|(\d+) outreach/)) {
+  if (lower.match(/sent (\d+) message|(\d+) outreach|(\d+) leads/)) {
     const match = lower.match(/(\d+)/);
     if (match) signals.push({ category: 'business', fact: `Sent ${match[1]} outreach messages` });
   }
-  if (lower.match(/got a (response|reply|call|meeting|lead)/)) {
+  if (lower.match(/got a (response|reply|call|meeting|lead|client)/)) {
     signals.push({ category: 'business', fact: 'Got a response/lead from outreach' });
   }
-  if (lower.match(/signed|client|deal|paid|payment|invoice/)) {
+  if (lower.match(/signed|new client|deal|paid|payment|invoice/)) {
     signals.push({ category: 'business', fact: 'Mentioned client/deal/payment activity' });
   }
-
-  // Life events
-  if (lower.match(/milan.*(sick|school|birthday|first|walking|talking)/)) {
-    signals.push({ category: 'family', fact: 'Mentioned Milan milestone/event' });
+  if (lower.match(/milan.*(sick|school|birthday|walked|talked|first)/)) {
+    signals.push({ category: 'family', fact: `Milan milestone: "${message.slice(0, 80)}"` });
   }
-  if (lower.match(/eti.*(happy|upset|birthday|anniversary)/)) {
-    signals.push({ category: 'family', fact: 'Mentioned Eti milestone/event' });
+  if (lower.match(/back pain|spine|doctor|medication|meds|episode/)) {
+    signals.push({ category: 'health', fact: `Health mention: "${message.slice(0, 80)}"` });
   }
-
-  // Health
-  if (lower.match(/back pain|spine|doctor|appointment|medication|meds/)) {
-    signals.push({ category: 'health', fact: 'Discussed health/medical issue' });
+  if (lower.match(/i (hate|love|prefer|always|never|usually)/)) {
+    signals.push({ category: 'preference', fact: `Preference stated: "${message.slice(0, 80)}"` });
   }
 
   return signals;

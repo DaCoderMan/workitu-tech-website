@@ -104,3 +104,5 @@ src/data/submissions.json
 .env*.local
 .env.backup
 firebase-service-account*.json
+
+.vercel

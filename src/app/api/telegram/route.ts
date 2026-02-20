@@ -1,10 +1,13 @@
-// Scorpio - Yonatan's personal AI coach (v3 - fully personalized)
+// Scorpio - Yonatan's personal AI coach (v4 - agentic memory, no cold-start amnesia)
 import { NextRequest, NextResponse } from 'next/server';
 import {
   saveConversation,
   buildMemoryContext,
   extractLearningSignals,
   learnFact,
+  loadConversationHistory,
+  detectCommitments,
+  saveCommitment,
 } from '@/lib/coach-memory';
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
@@ -293,15 +296,27 @@ Match your tone and questions to the TIME OF DAY, always.
 // ============================================================
 // CONVERSATION MEMORY (in-memory, resets on cold start)
 // ============================================================
+// CONVERSATION MEMORY — hydrates from MongoDB on cold start
+// This is the fix for the repetition/amnesia problem
+// ============================================================
 interface Message {
   role: 'user' | 'assistant' | 'system';
   content: string;
 }
 
 const conversations = new Map<string, Message[]>();
-const MAX_HISTORY = 40; // More history = more natural conversation
+const hydratedChats = new Set<string>(); // track which chats we've loaded from DB
+const MAX_HISTORY = 40;
 
-function getConversation(chatId: string): Message[] {
+async function getConversation(chatId: string): Promise<Message[]> {
+  // On cold start: hydrate from MongoDB so Scorpio remembers everything
+  if (!hydratedChats.has(chatId)) {
+    hydratedChats.add(chatId);
+    const history = await loadConversationHistory(chatId, 40);
+    if (history.length > 0) {
+      conversations.set(chatId, history.map(h => ({ role: h.role, content: h.content })));
+    }
+  }
   if (!conversations.has(chatId)) {
     conversations.set(chatId, []);
   }
@@ -309,11 +324,12 @@ function getConversation(chatId: string): Message[] {
 }
 
 function addMessage(chatId: string, role: 'user' | 'assistant', content: string) {
-  const conv = getConversation(chatId);
+  const conv = conversations.get(chatId) || [];
   conv.push({ role, content });
   if (conv.length > MAX_HISTORY) {
     conv.splice(0, conv.length - MAX_HISTORY);
   }
+  conversations.set(chatId, conv);
 }
 
 // ============================================================
@@ -359,15 +375,24 @@ function splitMessage(text: string, maxLen: number): string[] {
 // AI RESPONSE - Try multiple providers
 // ============================================================
 async function getAIResponse(chatId: string, userMessage: string): Promise<string> {
-  const history = getConversation(chatId);
+  // Hydrate from MongoDB on cold start (fixes amnesia/repetition)
+  const history = await getConversation(chatId);
 
-  // Load persistent memory from MongoDB
-  const memoryContext = await buildMemoryContext(chatId);
+  // Run in parallel: memory context + learning signals + commitment detection
+  const [memoryContext, signals, commitments] = await Promise.all([
+    buildMemoryContext(chatId),
+    Promise.resolve(extractLearningSignals(userMessage)),
+    Promise.resolve(detectCommitments(userMessage)),
+  ]);
 
-  // Extract and save learning signals
-  const signals = extractLearningSignals(userMessage);
+  // Save learned facts
   for (const signal of signals) {
     await learnFact(chatId, signal.category, signal.fact, userMessage.slice(0, 100));
+  }
+
+  // Auto-save any commitments he makes ("I'll do X", "Tomorrow I will...")
+  for (const commitment of commitments) {
+    await saveCommitment(chatId, commitment);
   }
 
   const now = new Date();
