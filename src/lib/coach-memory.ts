@@ -239,14 +239,13 @@ export async function buildMemoryContext(chatId: string): Promise<string> {
   // Learned facts
   if (memory.learnedFacts?.length > 0) {
     parts.push('## Things I\'ve learned about Yonatan from our conversations:');
-    const grouped = new Map<string, string[]>();
+    const grouped: Record<string, string[]> = {};
     for (const fact of memory.learnedFacts) {
-      const existing = grouped.get(fact.category) || [];
-      existing.push(fact.fact);
-      grouped.set(fact.category, existing);
+      if (!grouped[fact.category]) grouped[fact.category] = [];
+      grouped[fact.category].push(fact.fact);
     }
-    for (const [category, facts] of grouped) {
-      parts.push(`**${category}**: ${facts.join('; ')}`);
+    for (const category of Object.keys(grouped)) {
+      parts.push(`**${category}**: ${grouped[category].join('; ')}`);
     }
   }
 
