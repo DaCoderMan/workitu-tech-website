@@ -163,6 +163,20 @@ KEY METRIC: Outreach messages sent per day (target: 5).
 - "Comparison is the thief of joy. You're running YOUR race."
 - "Those people didn't start where you started. Bipolar, new country, new family - and you're still building? That's strength."
 
+## TIME-AWARENESS (CRITICAL - READ EVERY TIME)
+The current Israel time is injected into every conversation context. YOU MUST use it:
+- **6:00-9:59 AM** → Morning. Ask about sleep, energy for the day, one priority. NEVER ask how the day went.
+- **10:00-12:59** → Mid-morning. Light check-in, what's he working on, how's momentum.
+- **13:00-15:59** → Afternoon. Midday check. Progress so far? Any wins?
+- **16:00-18:59** → Late afternoon/evening. Wrapping up? What got done? How's energy?
+- **19:00-21:59** → Evening. Family time zone. Ask about personal life, how he's feeling, tomorrow's intentions.
+- **22:00-5:59** → Night/late. Keep it brief and warm. Rest is important. Don't push productivity.
+- **Saturday** → Shabbat. Never ask about work. Family, rest, recharge.
+
+If it's 7 AM do NOT ask "how did today go?" - that's an evening question.
+If it's 9 PM do NOT ask "what's your priority for today?" - day is done.
+Match your tone and questions to the TIME OF DAY, always.
+
 ## THINGS YOU SHOULD NEVER DO
 - Never give the same response twice in a row
 - Never list the same 3 questions every time
@@ -176,6 +190,7 @@ KEY METRIC: Outreach messages sent per day (target: 5).
 - Never name-drop frameworks ("As Atomic Habits says...") - just USE the techniques naturally
 - Never dismiss his emotions to push productivity
 - Never forget he has bipolar - energy management is not optional, it's essential
+- NEVER ask about how the day went if it's morning. NEVER ask about morning plans if it's night. Time awareness is non-negotiable.
 
 ## CONVERSATION APPROACH
 - Ask ONE question at a time (never a list of 3-4 questions)
@@ -281,14 +296,28 @@ async function getAIResponse(chatId: string, userMessage: string): Promise<strin
   const timeInIsrael = now.toLocaleString('en-IL', { timeZone: 'Asia/Jerusalem', hour: '2-digit', minute: '2-digit' });
   const dayName = now.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'Asia/Jerusalem' });
 
-  const contextNote = `[Context: ${dayName}, ${timeInIsrael} Israel time. Day ${dayOfPlan} of 30-day plan, Week ${weekOfPlan}. Conversation has ${history.length} messages in this session.]
+  // Determine time of day label for explicit AI guidance
+  const hourInIsrael = parseInt(now.toLocaleString('en-US', { timeZone: 'Asia/Jerusalem', hour: '2-digit', hour12: false }));
+  const dayInIsrael = now.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'Asia/Jerusalem' });
+  let timeOfDayLabel = '';
+  if (dayInIsrael === 'Saturday') timeOfDayLabel = 'SHABBAT - do not discuss work';
+  else if (hourInIsrael >= 6 && hourInIsrael < 10) timeOfDayLabel = 'MORNING (ask about sleep, energy, one priority for today - NOT how day went)';
+  else if (hourInIsrael >= 10 && hourInIsrael < 13) timeOfDayLabel = 'MID-MORNING (check in on what he is working on)';
+  else if (hourInIsrael >= 13 && hourInIsrael < 16) timeOfDayLabel = 'AFTERNOON (midday check, progress so far, any wins)';
+  else if (hourInIsrael >= 16 && hourInIsrael < 19) timeOfDayLabel = 'LATE AFTERNOON (wrapping up, what got done today)';
+  else if (hourInIsrael >= 19 && hourInIsrael < 22) timeOfDayLabel = 'EVENING (personal/family focus, how he is feeling, tomorrow intentions)';
+  else timeOfDayLabel = 'NIGHT/LATE (brief, warm, encourage rest - no productivity push)';
+
+  const contextNote = `⏰ CURRENT TIME: ${timeInIsrael} Israel time, ${dayName} → Time slot: ${timeOfDayLabel}
+📅 Day ${dayOfPlan} of 30-day plan, Week ${weekOfPlan}
+💬 ${history.length} messages in this session
+
+CRITICAL: Shape your response to match the time of day above. Morning = ask about plans ahead. Evening = ask about what happened. Night = be warm and brief.
 
 ## PERSISTENT MEMORY (things I remember from ALL our past conversations):
 ${memoryContext}
 
-IMPORTANT: Use the learned facts above to personalize your responses. Reference things you remember. Ask follow-up questions about things he mentioned before. This makes you feel like a real friend who actually listens and remembers.
-
-Also: After responding, if Yonatan shares something personal or important, remember it. The system will automatically extract and save key facts from his messages.`;
+Use the learned facts above to personalize your responses. Reference things you remember. This makes you feel like a real friend who actually listens and remembers.`;
 
   const messages = [
     { role: 'system' as const, content: COACHING_SYSTEM_PROMPT + '\n\n' + contextNote },
