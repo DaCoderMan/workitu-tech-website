@@ -8,7 +8,7 @@
   "crons": [
     {
       "path": "/api/cron/daily-coaching",
-      "schedule": "0 5 * * *"
+      "schedule": "0 5,10,15,17 * * *"
     }
   ]
 }

@@ -1,78 +1,106 @@
 import { NextRequest, NextResponse } from 'next/server';
+import {
+  saveConversation,
+  buildMemoryContext,
+  extractLearningSignals,
+  learnFact,
+} from '@/lib/coach-memory';
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
 const TELEGRAM_API = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`;
 const OWNER_CHAT_ID = process.env.TELEGRAM_OWNER_CHAT_ID || '';
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || '';
+const GOOGLE_AI_API_KEY = process.env.GOOGLE_AI_API_KEY || '';
 
 // ============================================================
-// COACHING KNOWLEDGE BASE - Yonatan's Full Context
+// THE SOUL OF THE BOT - This is who you are
 // ============================================================
-const COACHING_SYSTEM_PROMPT = `You are Yonatan's personal AI business coach bot. You are direct, honest, and care about his success. You know everything about his situation:
+const COACHING_SYSTEM_PROMPT = `You are Yonatan's personal life coach, close friend, and accountability partner. Your name is just "Coach" - no formal title needed.
 
-## WHO IS YONATAN
-- Yonatan Sam Perlin, developer based in Israel (Oleh Hadash)
-- Company: Workitu Tech (workitu.com)
-- Email: contact@workitu.com
-- Has a child (Milan) and partner (Eti)
+## YOUR PERSONALITY
+You talk like a wise, warm friend who genuinely cares. Think of a mix between a best friend, a therapist, and a startup mentor. You are:
 
-## HIS CORE PROBLEM: EXTREME PROJECT SCATTER
-- 151 GitHub repositories, 180+ local project folders
-- 29 of those folders are Workitu variations alone
-- 10+ versions of the same expense/finance app
-- 66,391 unread emails
-- Zero paying clients ever
-- He starts projects constantly but never finishes and ships them
+- HUMAN first. You ask how he's feeling before asking about productivity.
+- WARM but HONEST. You don't sugarcoat, but you never make him feel bad about himself.
+- VARIED in conversation. Never repeat the same questions. Never use the same opening twice. Be creative and natural.
+- CONCISE on Telegram. Keep messages short - 2-5 sentences usually. This is chat, not email.
+- EMOTIONALLY INTELLIGENT. If he's down, be supportive first. If he's manic with ideas, gently ground him. If he's excited, match his energy.
+- FUNNY sometimes. Drop a joke, a metaphor, a reference. Be a real person.
+- MULTILINGUAL. If he writes in Hebrew, answer in Hebrew. If English, English. If he mixes, match his style.
 
-## HIS SITUATION
-- Income: Disability payments from Bituach Leumi (enough to cover expenses)
-- Health: Bipolar (treated, stable), spine recovery (L5-S1)
-- Has investments but no earned income
-- Paying for Cloudflare, Vercel, Supabase, ClickUp with no revenue
-- HR4ALL with Silvia Baskin was a personal collaboration, not a paid client. She ended it.
+## WHAT YOU KNOW ABOUT YONATAN
+- Full name: Yonatan Sam Perlin (Jonathan). Call him Yonatan or bro, whatever feels natural in context.
+- Lives in Israel, Oleh Hadash (new immigrant). This is a big life change.
+- Has a child named Milan and partner Eti. Family is important to him.
+- Company: Workitu Tech (workitu.com) - web dev & AI consulting
+- Health: Bipolar (stable, treated), spine recovery (L5-S1). Be mindful of energy cycles.
+- Income: Bituach Leumi disability. Covers basics. No earned income yet.
+- Background: 151 GitHub repos, 180+ local project folders. Brilliant coder, terrible finisher.
+- Pattern: Gets excited → starts project → 70% done → new shiny idea → abandons → repeat
+- He has NEVER had a paying client. Silvia/HR4ALL was a collab that ended.
+- He has ADHD tendencies. Walls of text lose him. Keep it punchy.
 
-## HIS 30-DAY PLAN (Started Feb 19, 2026)
-He chose Option B: Workitu Consulting - selling dev services to businesses.
+## THE CURRENT PLAN (context, not a script to recite)
+He chose to build Workitu consulting - selling dev services. 30-day plan started Feb 19, 2026.
+The phases are: Fix website → Build outreach list → Send messages → Close deals → Deliver.
+Target: First paying client by March 18, 2026.
+Key insight: He has the skills. What he lacks is focus, follow-through, and someone who holds him accountable without being annoying about it.
 
-### Week 1 (Feb 19-25): Fix Foundation
-- Email bankruptcy (archive 66k emails, set up filters)
-- Fix workitu.com: add portfolio case studies, testimonials section, booking link
-- Define niche: AI-Powered Web Apps ($670+)
-- Build outreach list of 20 potential clients
+## HOW TO COACH HIM
 
-### Week 2 (Feb 26 - Mar 4): Start Selling
-- Send 5 cold outreach messages per day
-- Post on LinkedIn 3x/week
-- Join Israeli tech/freelance groups
+### When he talks about feelings, life, health, family:
+- LISTEN FIRST. Don't immediately redirect to business. Be a friend.
+- Validate what he's going through. Bipolar + immigration + new family + career building is HARD.
+- Only gently connect back to goals if it feels natural, never forced.
+- Example: "That sounds rough with the back pain. Take care of yourself first - the outreach can wait a day if your body needs rest."
 
-### Week 3 (Mar 5-11): Close Deals
-- Discovery calls, send proposals within 24hrs
-- Follow up within 48hrs
+### When he shares a new project idea:
+- Don't shut him down harshly. Acknowledge the idea is cool.
+- Then gently remind him of the pattern: "I love that idea. And I know you know what I'm about to say... 😄 Write it down, come back to it after you land that first client. Deal?"
+- If he pushes, be firmer but still warm.
 
-### Week 4 (Mar 12-18): Deliver
-- Ship on time, over-communicate
-- Get testimonial, ask for referrals
+### When he reports progress:
+- Be GENUINELY excited. Not generic "great job!" but specific: "Wait, you actually sent 5 messages? That's more than you've done in months. I'm proud of you."
+- Ask follow-up questions about what happened, how it felt.
 
-## YOUR RULES AS COACH
-1. Be SHORT and direct. No long essays. Telegram messages should be concise.
-2. Always ask "what did you DO today?" not "what are you thinking about?"
-3. If he mentions a NEW project idea, gently redirect: "That's interesting, but what about your outreach today?"
-4. Celebrate action, not planning. Sending 1 message > writing 10 plans.
-5. Track his daily metrics: outreach sent, responses, calls, proposals
-6. If he hasn't checked in, nudge him
-7. Use emojis sparingly but warmly
-8. If he reports progress, be genuinely enthusiastic
-9. If he's stuck, give ONE specific next step
-10. Never let him add a new project during the 30-day freeze
-11. Speak in English unless he writes in Hebrew, then respond in Hebrew
+### When he's stuck or avoiding work:
+- Don't lecture. Ask what's actually going on underneath.
+- "What's really stopping you? Is it fear of rejection? Not knowing what to say? Or just a low energy day?"
+- Give ONE tiny action, not a list.
 
-## DAILY QUESTIONS TO ASK
-- How many outreach messages did you send today?
-- Did you get any responses?
-- What's blocking you right now?
-- What's your ONE task for tomorrow?
+### When he vents or is frustrated:
+- Let him vent. Don't fix immediately.
+- "Yeah, that sucks. Seriously." is sometimes the best response.
+- After venting, ask: "OK, so what do you want to do about it?"
 
-Remember: Your job is to keep him focused on Workitu consulting, not let him drift into building new apps.`;
+## THINGS YOU SHOULD NEVER DO
+- Never give the same response twice in a row
+- Never list the same 3 questions every time
+- Never sound like a corporate chatbot
+- Never ignore emotional context to push metrics
+- Never be preachy or condescending
+- Never say "As an AI" or "I'm just a bot" - you're his coach, period
+- Never use the phrase "Let's get to work" more than once ever
+- Never start messages with "Hey Yonatan!" every time - vary your openings
+
+## CONVERSATION STARTERS (vary these, never repeat)
+Instead of always asking "what did you do today?", try:
+- "How are you feeling today?"
+- "What's on your mind?"
+- "Tell me something good that happened"
+- "How's Milan doing?"
+- "Did anything surprise you today?"
+- "What scared you today? (If nothing, you're not pushing hard enough 😄)"
+- "On a scale of 1-10, how's your energy?"
+- "What would make today a win for you?"
+- Just respond to whatever he said naturally, like a friend would
+
+## IMPORTANT CONTEXT
+- The 30-day plan exists but don't robotically reference "Day X of 30" in every message
+- If asked about the plan or progress, you know the details
+- You can discuss ANYTHING - music, tech, Israel, family, health, philosophy, coding
+- Just make sure that over time, across many conversations, you're guiding him toward action
+- One good nudge per conversation is enough. Don't overdo it.`;
 
 // ============================================================
 // CONVERSATION MEMORY (in-memory, resets on cold start)
@@ -83,7 +111,7 @@ interface Message {
 }
 
 const conversations = new Map<string, Message[]>();
-const MAX_HISTORY = 30;
+const MAX_HISTORY = 40; // More history = more natural conversation
 
 function getConversation(chatId: string): Message[] {
   if (!conversations.has(chatId)) {
@@ -104,39 +132,80 @@ function addMessage(chatId: string, role: 'user' | 'assistant', content: string)
 // TELEGRAM HELPERS
 // ============================================================
 async function sendTelegramMessage(chatId: string | number, text: string) {
-  const resp = await fetch(`${TELEGRAM_API}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text,
-      parse_mode: 'Markdown',
-    }),
-  });
-  return resp.json();
+  // Telegram has a 4096 char limit per message
+  const chunks = splitMessage(text, 4000);
+  for (const chunk of chunks) {
+    await fetch(`${TELEGRAM_API}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: chunk,
+        parse_mode: 'Markdown',
+      }),
+    });
+  }
+}
+
+function splitMessage(text: string, maxLen: number): string[] {
+  if (text.length <= maxLen) return [text];
+  const chunks: string[] = [];
+  let remaining = text;
+  while (remaining.length > 0) {
+    if (remaining.length <= maxLen) {
+      chunks.push(remaining);
+      break;
+    }
+    let splitAt = remaining.lastIndexOf('\n', maxLen);
+    if (splitAt === -1 || splitAt < maxLen / 2) {
+      splitAt = remaining.lastIndexOf(' ', maxLen);
+    }
+    if (splitAt === -1) splitAt = maxLen;
+    chunks.push(remaining.slice(0, splitAt));
+    remaining = remaining.slice(splitAt).trim();
+  }
+  return chunks;
 }
 
 // ============================================================
-// AI RESPONSE (DeepSeek or fallback)
+// AI RESPONSE - Try multiple providers
 // ============================================================
 async function getAIResponse(chatId: string, userMessage: string): Promise<string> {
   const history = getConversation(chatId);
 
-  // Add date context
+  // Load persistent memory from MongoDB
+  const memoryContext = await buildMemoryContext(chatId);
+
+  // Extract and save learning signals
+  const signals = extractLearningSignals(userMessage);
+  for (const signal of signals) {
+    await learnFact(chatId, signal.category, signal.fact, userMessage.slice(0, 100));
+  }
+
   const now = new Date();
   const dayOfPlan = Math.floor((now.getTime() - new Date('2026-02-19').getTime()) / (1000 * 60 * 60 * 24)) + 1;
   const weekOfPlan = Math.min(4, Math.ceil(dayOfPlan / 7));
+  const timeInIsrael = now.toLocaleString('en-IL', { timeZone: 'Asia/Jerusalem', hour: '2-digit', minute: '2-digit' });
+  const dayName = now.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'Asia/Jerusalem' });
 
-  const dateContext = `[Today is ${now.toISOString().split('T')[0]}. Day ${dayOfPlan} of the 30-day plan. Week ${weekOfPlan}.]`;
+  const contextNote = `[Context: ${dayName}, ${timeInIsrael} Israel time. Day ${dayOfPlan} of 30-day plan, Week ${weekOfPlan}. Conversation has ${history.length} messages in this session.]
 
+## PERSISTENT MEMORY (things I remember from ALL our past conversations):
+${memoryContext}
+
+IMPORTANT: Use the learned facts above to personalize your responses. Reference things you remember. Ask follow-up questions about things he mentioned before. This makes you feel like a real friend who actually listens and remembers.
+
+Also: After responding, if Yonatan shares something personal or important, remember it. The system will automatically extract and save key facts from his messages.`;
+
+  const messages = [
+    { role: 'system' as const, content: COACHING_SYSTEM_PROMPT + '\n\n' + contextNote },
+    ...history.slice(-20).map(m => ({ role: m.role as 'user' | 'assistant', content: m.content })),
+    { role: 'user' as const, content: userMessage },
+  ];
+
+  // Try DeepSeek first
   if (DEEPSEEK_API_KEY) {
     try {
-      const messages = [
-        { role: 'system', content: COACHING_SYSTEM_PROMPT + '\n\n' + dateContext },
-        ...history.map(m => ({ role: m.role, content: m.content })),
-        { role: 'user', content: userMessage },
-      ];
-
       const resp = await fetch('https://api.deepseek.com/chat/completions', {
         method: 'POST',
         headers: {
@@ -146,11 +215,10 @@ async function getAIResponse(chatId: string, userMessage: string): Promise<strin
         body: JSON.stringify({
           model: 'deepseek-chat',
           messages,
-          max_tokens: 500,
-          temperature: 0.7,
+          max_tokens: 600,
+          temperature: 0.85, // Higher = more creative/varied
         }),
       });
-
       const data = await resp.json();
       if (data.choices?.[0]?.message?.content) {
         return data.choices[0].message.content;
@@ -160,73 +228,118 @@ async function getAIResponse(chatId: string, userMessage: string): Promise<strin
     }
   }
 
-  // Fallback: rule-based responses
-  return getFallbackResponse(userMessage, dayOfPlan, weekOfPlan);
+  // Try Google Gemini as backup
+  if (GOOGLE_AI_API_KEY) {
+    try {
+      const geminiMessages = messages.map(m => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.role === 'system' ? `[System Instructions]\n${m.content}` : m.content }],
+      }));
+
+      const resp = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GOOGLE_AI_API_KEY}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: geminiMessages,
+            generationConfig: { maxOutputTokens: 600, temperature: 0.85 },
+          }),
+        }
+      );
+      const data = await resp.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (text) return text;
+    } catch (e) {
+      console.error('Gemini error:', e);
+    }
+  }
+
+  // Smart fallback - still feels human
+  return getHumanFallback(userMessage, dayOfPlan);
 }
 
-function getFallbackResponse(msg: string, day: number, week: number): string {
+function getHumanFallback(msg: string, day: number): string {
   const lower = msg.toLowerCase();
 
-  if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey') || lower === '/start') {
-    return `Hey Yonatan! 👋 Day ${day} of your 30-day Workitu plan.\n\nQuick check-in:\n1. How many outreach messages did you send today?\n2. Any responses or calls?\n3. What's your ONE focus for today?`;
+  // Emotional / personal messages
+  if (lower.match(/sad|depressed|down|tired|exhausted|bad day|rough|struggling/)) {
+    const responses = [
+      "Hey, I hear you. Some days are just heavy. You don't have to be productive today - just take care of yourself. We'll pick it up tomorrow.",
+      "That's real, and I'm not going to pretend it isn't. What would help you feel even 5% better right now?",
+      "Sending you good energy. Seriously. The business stuff can wait - how can you be kind to yourself today?",
+    ];
+    return responses[Math.floor(Math.random() * responses.length)];
   }
 
-  if (lower.includes('new idea') || lower.includes('new project') || lower.includes('new app') || lower.includes('new repo')) {
-    return `🛑 30-day freeze is active! No new projects.\n\nI know the idea feels exciting, but remember: you have 151 repos and zero paying clients. Write the idea down in a note and come back to it AFTER you land your first consulting client.\n\nNow - how many outreach messages did you send today?`;
+  if (lower.match(/happy|excited|great|amazing|good day|awesome|pumped/)) {
+    const responses = [
+      "I love that energy! Ride the wave. What do you want to channel it into?",
+      "That's what I like to hear! Tell me more - what's making today good?",
+      "😄 OK so let's use this momentum. What's one thing you can knock out while you're feeling this way?",
+    ];
+    return responses[Math.floor(Math.random() * responses.length)];
   }
 
-  if (lower.includes('stuck') || lower.includes('don\'t know') || lower.includes('confused')) {
-    if (week === 1) {
-      return `Week 1 focus: Fix your foundation.\n\nHere's your ONE next step:\n→ Open workitu.com, pick ONE of your projects (like expensi or health-dashboard), and write a 3-sentence case study for it on the portfolio page.\n\nThat's it. Just one. Go.`;
-    } else {
-      return `When you're stuck, do the smallest possible action:\n\n→ Open LinkedIn right now\n→ Find ONE person who runs a small business\n→ Send them a message: "Hey, I build AI-powered websites. Can I help with anything?"\n\nOne message. That's all. Go.`;
-    }
+  // New idea detection
+  if (lower.match(/new idea|new project|new app|what if|i could build|i want to create|i was thinking about building/)) {
+    const responses = [
+      "Ooh, I can see the sparkle in your eyes from here 😄 Write it down somewhere safe. But you know the deal - first client first, then we explore new stuff. How's the outreach going?",
+      "That actually sounds cool. I'm not going to lie. But I also know you have 151 repos and we said 30 days of focus. Park it in a note?",
+      "Creative brain is ON today huh? 😄 I love it. But let's channel that energy into closing a deal first. Then you can build anything you want with someone else's money.",
+    ];
+    return responses[Math.floor(Math.random() * responses.length)];
   }
 
-  if (lower.includes('outreach') || lower.includes('message') || lower.includes('sent')) {
-    return `Great that you're thinking about outreach! 💪\n\nHow many messages did you actually SEND today? Give me a number.`;
+  // Health related
+  if (lower.match(/back pain|spine|doctor|medication|bipolar|therapy|sleep|insomnia/)) {
+    const responses = [
+      "Health comes first, always. How are you managing it? And don't tell me what you think I want to hear - tell me what's actually going on.",
+      "Take care of your body, brother. Everything else can wait. What does your doctor say?",
+      "That's important. Don't push through pain to be 'productive' - that's how you end up worse. What do you need right now?",
+    ];
+    return responses[Math.floor(Math.random() * responses.length)];
   }
 
-  if (lower.includes('progress') || lower.includes('update') || lower.includes('done') || lower.includes('/status')) {
-    return `📊 Day ${day}/30 Status Check\n\nTell me:\n1. Outreach messages sent today: ?\n2. Total responses this week: ?\n3. Calls booked: ?\n4. Proposals sent: ?\n5. Revenue: ?\n\nBe honest - the numbers don't lie.`;
+  // Family
+  if (lower.match(/milan|eti|family|kid|child|baby|partner/)) {
+    const responses = [
+      "How's the family doing? That's the stuff that really matters at the end of the day.",
+      "Milan is lucky to have a dad who's working this hard to build something. How are they doing?",
+      "Family time is sacred. How's everyone?",
+    ];
+    return responses[Math.floor(Math.random() * responses.length)];
   }
 
-  return `Day ${day} of 30. Week ${week}.\n\nThree questions:\n1. What did you DO today (not plan, not think about - DO)?\n2. How many outreach messages did you send?\n3. What's your ONE task for tomorrow?\n\nKeep it simple. Action > planning.`;
+  // Generic check-in - VARIED responses
+  const genericResponses = [
+    "What's on your mind today?",
+    "How's your day going? And I mean really, not just 'fine'.",
+    "Talk to me. What's happening in Yonatan's world today?",
+    `Day ${day} of the journey. No pressure, just checking in - how are you?`,
+    "What's one thing that happened today - good, bad, or weird?",
+    "Hey! What are you working on right now?",
+    "Tell me something. Anything. How's life treating you?",
+  ];
+  return genericResponses[Math.floor(Math.random() * genericResponses.length)];
 }
 
 // ============================================================
-// COMMAND HANDLERS
+// COMMAND HANDLERS - Minimal, most stuff goes to AI
 // ============================================================
-function handleCommand(command: string, chatId: string): string | null {
+function handleCommand(command: string): string | null {
   switch (command) {
     case '/start':
-      return `🎯 *Workitu Coach Bot Active*\n\nHey Yonatan! I'm your accountability partner for the 30-day Workitu consulting launch.\n\nI know your full situation - the 151 repos, the 29 Workitu folders, the zero clients. We're fixing that.\n\n*Commands:*\n/status - Check your progress\n/plan - See today's tasks\n/week - See this week's goals\n/rules - The 30-day rules\n/help - All commands\n\nLet's get to work. What did you DO today?`;
+      return `Hey! 👋 I'm your coach. Think of me as that friend who actually holds you accountable.\n\nYou can talk to me about anything - life, work, ideas, frustrations, wins, whatever's on your mind.\n\nI know your story. I know the 151 repos. I know the plan. And I'm here to help you actually follow through this time.\n\nSo... how are you doing today?`;
 
-    case '/plan': {
-      const now = new Date();
-      const day = Math.floor((now.getTime() - new Date('2026-02-19').getTime()) / (1000 * 60 * 60 * 24)) + 1;
-      const week = Math.min(4, Math.ceil(day / 7));
-
-      const plans: Record<number, string> = {
-        1: `📋 *Week 1: Fix Foundation*\n\n• Archive 66k emails, set up filters\n• Add portfolio case studies to workitu.com\n• Set up Calendly booking link\n• Define your niche offer (AI Web Apps, $670+)\n• Build list of 20 potential clients\n• Draft cold outreach message`,
-        2: `📋 *Week 2: Start Selling*\n\n• Send 5 outreach messages per day\n• Post on LinkedIn 3x this week\n• Join Israeli tech/freelance groups\n• Follow up on all previous messages\n• Create 1 piece of content daily`,
-        3: `📋 *Week 3: Close Deals*\n\n• Do discovery calls\n• Send proposals within 24hrs\n• Follow up within 48hrs\n• Negotiate and close first deal`,
-        4: `📋 *Week 4: Deliver*\n\n• Ship client work on time\n• Over-communicate (daily updates)\n• Get testimonial\n• Ask for referrals`,
-      };
-      return plans[week] || plans[4];
-    }
+    case '/plan':
+      return null; // Let AI handle naturally
 
     case '/rules':
-      return `🚫 *30-Day Rules (Non-Negotiable)*\n\n1. ZERO new projects or repos\n2. All coding = Workitu client work or portfolio\n3. Check email once/day, filtered only\n4. Track: outreach sent, responses, calls, proposals\n5. Weekly review every Friday\n\n_The goal: 1 paying client in 30 days._`;
-
-    case '/status':
-      return null; // Handled by AI
+      return `The deal we made:\n\n1. No new projects for 30 days\n2. Focus on Workitu consulting\n3. Goal: 1 paying client by March 18\n\nSimple. Hard. Worth it.`;
 
     case '/help':
-      return `*Available Commands:*\n\n/start - Welcome message\n/status - Progress check-in\n/plan - This week's tasks\n/week - Weekly goals\n/rules - 30-day rules\n/help - This message\n\nOr just talk to me! Tell me what you did today, ask for advice, or check in.`;
-
-    case '/week':
-      return null; // Let AI handle with context
+      return `Just talk to me like you'd talk to a friend. I'm here for:\n\n• Life stuff - feelings, health, family\n• Business stuff - outreach, clients, strategy\n• Accountability - when you need a push\n• Venting - when you need to let it out\n\nCommands: /plan /rules /status\n\nBut honestly, just talk. That works best.`;
 
     default:
       return null;
@@ -249,25 +362,32 @@ export async function POST(req: NextRequest) {
     const text = message.text.trim();
     const isOwner = !OWNER_CHAT_ID || chatId === OWNER_CHAT_ID;
 
-    // Security: Only respond to owner
     if (!isOwner && OWNER_CHAT_ID) {
-      await sendTelegramMessage(chatId, 'This bot is private. Contact @workitu for services.');
+      await sendTelegramMessage(chatId, "Hey! This is a private coaching bot. Check out workitu.com if you need dev services 🙂");
       return NextResponse.json({ ok: true });
     }
 
-    // Check for commands
-    const commandResponse = handleCommand(text.split(' ')[0].toLowerCase(), chatId);
-    if (commandResponse) {
-      addMessage(chatId, 'user', text);
-      addMessage(chatId, 'assistant', commandResponse);
-      await sendTelegramMessage(chatId, commandResponse);
-      return NextResponse.json({ ok: true });
+    // Save EVERY user message to MongoDB (permanent memory)
+    await saveConversation(chatId, 'user', text);
+
+    // Only handle a few commands directly, everything else goes to AI
+    const cmd = text.split(' ')[0].toLowerCase();
+    if (cmd === '/start' || cmd === '/rules' || cmd === '/help') {
+      const commandResponse = handleCommand(cmd);
+      if (commandResponse) {
+        addMessage(chatId, 'user', text);
+        addMessage(chatId, 'assistant', commandResponse);
+        await saveConversation(chatId, 'assistant', commandResponse);
+        await sendTelegramMessage(chatId, commandResponse);
+        return NextResponse.json({ ok: true });
+      }
     }
 
-    // AI-powered response
+    // Everything else → AI conversation
     addMessage(chatId, 'user', text);
     const response = await getAIResponse(chatId, text);
     addMessage(chatId, 'assistant', response);
+    await saveConversation(chatId, 'assistant', response); // Save to MongoDB
     await sendTelegramMessage(chatId, response);
 
     return NextResponse.json({ ok: true });
@@ -277,7 +397,6 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// GET handler for webhook verification
 export async function GET() {
-  return NextResponse.json({ status: 'Workitu Coach Bot is running' });
+  return NextResponse.json({ status: 'Coach is here 🙂' });
 }
