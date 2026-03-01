@@ -39,7 +39,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 rtl:space-x-reverse group">
-            <span className="text-gold-400 font-black text-xl tracking-wide group-hover:text-gold-300 transition-colors">
+            <span className="text-gold-400 font-display font-extrabold text-xl tracking-tight group-hover:text-gold-300 transition-colors">
               Workitu Tech
             </span>
           </Link>

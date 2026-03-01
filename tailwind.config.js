@@ -34,7 +34,9 @@ module.exports = {
         }
       },
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'sans': ['Outfit', 'system-ui', 'sans-serif'],
+        'display': ['Syne', 'system-ui', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'monospace'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
