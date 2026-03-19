@@ -7,35 +7,35 @@ import { useSafeT } from '../lib/useLanguage';
 import Link from 'next/link';
 
 const stats = [
-  { value: '50+', label: 'Projects Delivered' },
-  { value: '15+', label: 'Years Experience' },
-  { value: '99%', label: 'Client Satisfaction' },
-  { value: '24/7', label: 'AI-Powered Support' },
+  { value: '10+', label: 'Years in Tech' },
+  { value: 'Full-Stack', label: '+ AI Specialist' },
+  { value: '3', label: 'Active Clients' },
+  { value: '🇧🇷🇮🇱🇬🇧', label: 'Trilingual' },
 ];
 
 const services = [
   {
     emoji: '🤖',
-    title: 'AI Automation',
-    description: 'Intelligent workflows that save hours of manual work. Custom AI agents, chatbots, and process automation.',
+    title: 'AI Agents & Automation',
+    description: 'Custom AI assistants that run your business 24/7. Chatbots, workflow automation, and intelligent systems built with real-world AI.',
     accent: 'from-amber-400 to-orange-500',
   },
   {
     emoji: '🌐',
     title: 'Web Development',
-    description: 'Production-grade websites and web apps built with Next.js, React, and modern tooling.',
+    description: 'Professional websites and web apps that convert visitors into clients. Built with Next.js, React, and modern tooling.',
     accent: 'from-yellow-400 to-amber-500',
   },
   {
-    emoji: '⚡',
-    title: 'Business Automation',
-    description: 'n8n workflows, API integrations, and custom scripts that connect your tools and eliminate busywork.',
+    emoji: '📱',
+    title: 'Digital Marketing & Social Media',
+    description: 'Social media management, content strategy, and lead generation that brings real clients to your business.',
     accent: 'from-orange-400 to-red-500',
   },
   {
-    emoji: '📊',
-    title: 'Data & Analytics',
-    description: 'Turn raw data into actionable insights with custom dashboards, reports, and monitoring.',
+    emoji: '🎓',
+    title: 'Tech & AI Lessons',
+    description: 'Private lessons in programming, AI tools, and technology. Learn at your own pace with a senior developer as your teacher.',
     accent: 'from-yellow-300 to-amber-400',
   },
 ];
@@ -70,15 +70,15 @@ export default function Home() {
             </div>
 
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 fade-in leading-[0.95] tracking-tight">
-              <span className="text-gold-100/90">Where </span>
-              <span className="gradient-text">Imagination</span>
+              <span className="text-gold-100/90">AI </span>
+              <span className="gradient-text">Automation</span>
               <br />
-              <span className="text-gold-100/90">Meets </span>
-              <span className="gradient-text">Innovation</span>
+              <span className="text-gold-100/90">& Tech </span>
+              <span className="gradient-text">Education</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gold-300/80 mb-10 max-w-2xl fade-in leading-relaxed" style={{ animationDelay: '0.2s' }}>
-              {t('home.description') || 'We build AI-powered solutions, stunning websites, and intelligent automations that transform how businesses operate.'}
+              {t('home.description') || 'I build AI systems that save businesses hours every week, create professional websites that convert, and teach tech & AI to anyone who wants to learn.'}
             </p>
 
             {/* Dual CTAs */}
@@ -87,16 +87,16 @@ export default function Home() {
                 href="/contact"
                 className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-full text-lg font-bold"
               >
-                Start a Project
+                Book a Call
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
               <Link
-                href="/portfolio"
+                href="/services"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-lg font-semibold border border-gold-500/30 text-gold-300 hover:border-gold-400 hover:text-gold-200 hover:bg-gold-500/5 transition-all"
               >
-                View Our Work
+                See What I Do
               </Link>
             </div>
 
@@ -151,16 +151,16 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="glass rounded-3xl p-10 md:p-16 relative overflow-hidden">
               <h2 className="font-display text-2xl md:text-4xl font-bold text-gold-200 mb-8 relative z-10">
-                Our Mission
+                Meet <span className="gradient-text">Yonatan</span>
               </h2>
               <p className="text-lg md:text-xl text-gold-300 mb-6 relative z-10 leading-relaxed">
-                {t('home.mission1') || 'We believe every business deserves intelligent, beautiful digital solutions — not just the big players.'}
+                {t('home.mission1') || "Hi, I'm Yonatan Perlin — a full-stack developer and AI automation specialist based in Israel."}
               </p>
               <p className="text-base md:text-lg text-gold-400/80 mb-6 relative z-10 leading-relaxed">
-                {t('home.mission2') || 'Combining 15+ years of full-stack development with cutting-edge AI, we create solutions that actually work for your business.'}
+                {t('home.mission2') || 'With 10+ years in fintech and a passion for AI, I help small businesses automate their operations, build their online presence, and grow. I also teach programming and AI tools to anyone who wants to level up.'}
               </p>
               <p className="text-base md:text-lg text-gold-300/70 relative z-10 leading-relaxed">
-                {t('home.mission3') || 'From Israel to the world — building the future, one project at a time.'}
+                {t('home.mission3') || 'Trilingual (English, Portuguese, Hebrew) · React · Node.js · Python · FastAPI · AI/LLM Integration'}
               </p>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function Home() {
               href="/contact"
               className="btn-gold inline-flex items-center gap-2 px-10 py-5 rounded-full text-xl font-bold"
             >
-              {t('home.cta') || "Let's Talk"}
+              {t('home.cta') || "Let's Talk — Free 15min Call"}
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
