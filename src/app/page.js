@@ -7,7 +7,7 @@ import { useSafeT } from '../lib/useLanguage';
 import Link from 'next/link';
 
 const stats = [
-  { value: '10+', label: 'Years in Tech' },
+  { value: '4.5yr', label: 'Fintech Experience' },
   { value: 'Full-Stack', label: '+ AI Specialist' },
   { value: '3', label: 'Active Clients' },
   { value: '🇧🇷🇮🇱🇬🇧', label: 'Trilingual' },
@@ -157,7 +157,7 @@ export default function Home() {
                 {t('home.mission1') || "Hi, I'm Yonatan Perlin — a full-stack developer and AI automation specialist based in Israel."}
               </p>
               <p className="text-base md:text-lg text-gold-400/80 mb-6 relative z-10 leading-relaxed">
-                {t('home.mission2') || 'With 10+ years in fintech and a passion for AI, I help small businesses automate their operations, build their online presence, and grow. I also teach programming and AI tools to anyone who wants to level up.'}
+                {t('home.mission2') || 'With 4.5 years in fintech (Banco do Brasil) and a passion for AI, I help small businesses automate their operations, build their online presence, and grow. I also teach programming and AI tools to anyone who wants to level up.'}
               </p>
               <p className="text-base md:text-lg text-gold-300/70 relative z-10 leading-relaxed">
                 {t('home.mission3') || 'Trilingual (English, Portuguese, Hebrew) · React · Node.js · Python · FastAPI · AI/LLM Integration'}
