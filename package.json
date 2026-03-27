@@ -15,6 +15,8 @@
     "qa-check": "node .agent/scripts/qa-agent.js"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "bcryptjs": "^2.4.3",
     "firebase-admin": "^13.6.1",
     "framer-motion": "^10.16.16",

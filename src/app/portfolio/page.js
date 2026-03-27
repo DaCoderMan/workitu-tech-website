@@ -3,7 +3,7 @@ import PortfolioClient from './PortfolioClient';
 
 export const metadata = {
   title: 'Portfolio | Workitu Tech',
-  description: 'AI automation systems, SaaS products, and web applications built by Workitu Tech. See Conex\u00e3o Israel Brasil, Bee AI Chief of Staff, and more.',
+  description: 'AI automation systems, SaaS products, and web applications built by Workitu Tech. See Conex\u00e3o Israel Brasil and more.',
 };
 
 const FEATURED_PROJECTS = [
@@ -12,22 +12,11 @@ const FEATURED_PROJECTS = [
     title: 'Conex\u00e3o Israel Brasil',
     description: 'AI assistant for the 15,000+ Brazilians living in Israel. Includes AI chat powered by Claude and GPT, financial simulators (income tax, Bituach Leumi), a rights calculator, 10 step-by-step guides, and a verified directory of Brazilian professionals in Israel. Freemium SaaS with $9.99/month premium plan.',
     category: 'SaaS Product',
-    image: '/images/portfolio/cib.png',
+    image: '/images/portfolio/cib.jpg',
     link: 'https://conexaoisraelbrasil.org',
     isWebsite: true,
     featured: true,
     tags: ['Next.js', 'React', 'Node.js', 'PostgreSQL', 'Claude API', 'OpenAI', 'Lemon Squeezy', 'Vercel'],
-  },
-  {
-    id: 'bee',
-    title: 'Bee \u2014 AI Chief of Staff System',
-    description: 'Proprietary AI Chief of Staff system that manages tasks, memory, health data, finances, and business operations. Running on a Hetzner VPS with 38+ modular skills, a custom Vault API, and integrations with Google Calendar, Gmail, and ClickUp. Demonstrates ability to architect complex multi-service AI systems.',
-    category: 'AI Infrastructure',
-    image: '/images/portfolio/bee.png',
-    link: '/contact',
-    isWebsite: false,
-    featured: true,
-    tags: ['Python', 'FastAPI', 'PostgreSQL', 'ChromaDB', 'n8n', 'Claude API', 'Hetzner VPS'],
   },
 ];
 

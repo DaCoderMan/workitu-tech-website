@@ -7,6 +7,8 @@ import LanguageProvider from '../components/LanguageProvider';
 import StructuredData from '../components/StructuredData';
 import WLogoBackground from '../components/animations/WLogoBackground';
 import { GoogleAnalytics, GoogleTagManager } from '../components/Analytics';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.tech';
 
@@ -105,6 +107,8 @@ export default function RootLayout({ children }) {
           </main>
           <Footer />
         </LanguageProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
