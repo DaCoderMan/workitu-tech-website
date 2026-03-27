@@ -6,48 +6,48 @@ import ScrollReveal from '../components/animations/ScrollReveal';
 import { useSafeT } from '../lib/useLanguage';
 import Link from 'next/link';
 
-const stats = [
-  { value: '4.5yr', label: 'Fintech (BdB)' },
-  { value: '150+', label: 'Projects Built' },
-  { value: '1', label: 'Live SaaS Product' },
-  { value: '\u{1F1E7}\u{1F1F7}\u{1F1EE}\u{1F1F1}\u{1F1EC}\u{1F1E7}', label: 'Trilingual' },
-];
-
-const services = [
-  {
-    emoji: '\u{1F916}',
-    title: 'AI Agents & Automation',
-    description: 'Custom AI assistants that run your business 24/7. Chatbots, workflow automation with n8n, and intelligent systems built with Claude API and OpenAI.',
-    accent: 'from-amber-400 to-orange-500',
-  },
-  {
-    emoji: '\u{1F310}',
-    title: 'Web Development',
-    description: 'Professional websites and web apps that convert visitors into clients. Built with Next.js, React, and modern tooling by a developer with enterprise fintech background.',
-    accent: 'from-yellow-400 to-amber-500',
-  },
-  {
-    emoji: '\u{1F4F1}',
-    title: 'Digital Marketing & Social Media',
-    description: 'Social media management, content strategy, and lead generation that brings real clients to your business.',
-    accent: 'from-orange-400 to-red-500',
-  },
-  {
-    emoji: '\u{1F393}',
-    title: 'Tech & AI Lessons',
-    description: 'Private lessons in programming, AI tools, and technology. Learn at your own pace with a senior developer as your teacher.',
-    accent: 'from-yellow-300 to-amber-400',
-  },
-  {
-    emoji: '\u{1F1E7}\u{1F1F7}',
-    title: 'AI Systems for Brazilian-Israeli Market',
-    description: 'Bilingual AI products, chatbots, and automation tools for businesses operating between Brazil and Israel. Unique expertise \u2014 few developers in the world cover both markets.',
-    accent: 'from-emerald-400 to-teal-500',
-  },
-];
-
 export default function Home() {
   const t = useSafeT();
+
+  const stats = [
+    { value: t('home.stats.fintech.value'), label: t('home.stats.fintech.label') },
+    { value: t('home.stats.projects.value'), label: t('home.stats.projects.label') },
+    { value: t('home.stats.saas.value'), label: t('home.stats.saas.label') },
+    { value: '\u{1F1E7}\u{1F1F7}\u{1F1EE}\u{1F1F1}\u{1F1EC}\u{1F1E7}', label: t('home.stats.trilingual.label') },
+  ];
+
+  const services = [
+    {
+      emoji: '\u{1F916}',
+      title: t('home.services.ai.title'),
+      description: t('home.services.ai.description'),
+      accent: 'from-amber-400 to-orange-500',
+    },
+    {
+      emoji: '\u{1F310}',
+      title: t('home.services.web.title'),
+      description: t('home.services.web.description'),
+      accent: 'from-yellow-400 to-amber-500',
+    },
+    {
+      emoji: '\u{1F4F1}',
+      title: t('home.services.marketing.title'),
+      description: t('home.services.marketing.description'),
+      accent: 'from-orange-400 to-red-500',
+    },
+    {
+      emoji: '\u{1F393}',
+      title: t('home.services.lessons.title'),
+      description: t('home.services.lessons.description'),
+      accent: 'from-yellow-300 to-amber-400',
+    },
+    {
+      emoji: '\u{1F1E7}\u{1F1F7}',
+      title: t('home.services.brazil.title'),
+      description: t('home.services.brazil.description'),
+      accent: 'from-emerald-400 to-teal-500',
+    },
+  ];
 
   useEffect(() => {
     fetch('/api/analytics/track', {
@@ -72,19 +72,19 @@ export default function Home() {
             {/* Status Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/5 mb-8 fade-in">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-sm text-gold-300 font-medium">Available for projects</span>
+              <span className="text-sm text-gold-300 font-medium">{t('home.badge')}</span>
             </div>
 
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 fade-in leading-[0.95] tracking-tight">
-              <span className="text-gold-100/90">AI </span>
-              <span className="gradient-text">Automation</span>
+              <span className="text-gold-100/90">{t('home.heroLine1a')}</span>
+              <span className="gradient-text">{t('home.heroLine1b')}</span>
               <br />
-              <span className="text-gold-100/90">Built by Someone Who Has </span>
-              <span className="gradient-text">Shipped Real Systems</span>
+              <span className="text-gold-100/90">{t('home.heroLine2a')}</span>
+              <span className="gradient-text">{t('home.heroLine2b')}</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gold-300/80 mb-10 max-w-2xl fade-in leading-relaxed" style={{ animationDelay: '0.2s' }}>
-              4.5 years in enterprise fintech. Trilingual. Living in Israel. Building AI systems that actually work &mdash; for businesses that need results, not demos.
+              {t('home.subtitle')}
             </p>
 
             {/* Dual CTAs */}
@@ -93,7 +93,7 @@ export default function Home() {
                 href="/contact"
                 className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-full text-lg font-bold"
               >
-                Book a Free Discovery Call
+                {t('home.ctaPrimary')}
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -102,7 +102,7 @@ export default function Home() {
                 href="/services"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-lg font-semibold border border-gold-500/30 text-gold-300 hover:border-gold-400 hover:text-gold-200 hover:bg-gold-500/5 transition-all"
               >
-                See What I Build
+                {t('home.ctaSecondary')}
               </Link>
             </div>
 
@@ -125,10 +125,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="mb-16">
               <h2 className="font-display text-3xl md:text-5xl font-bold text-gold-100/90 mb-4">
-                What We <span className="gradient-text">Build</span>
+                {t('home.servicesTitle1')}<span className="gradient-text">{t('home.servicesTitle2')}</span>
               </h2>
               <p className="text-lg text-gold-400/70 max-w-xl">
-                End-to-end AI automation and web development powered by enterprise-grade engineering and modern AI.
+                {t('home.servicesSubtitle')}
               </p>
             </div>
 
@@ -157,16 +157,16 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="glass rounded-3xl p-10 md:p-16 relative overflow-hidden">
               <h2 className="font-display text-2xl md:text-4xl font-bold text-gold-200 mb-8 relative z-10">
-                Meet <span className="gradient-text">Yonatan</span>
+                {t('home.meetTitle')}<span className="gradient-text">{t('home.meetName')}</span>
               </h2>
               <p className="text-lg md:text-xl text-gold-300 mb-6 relative z-10 leading-relaxed">
-                I&apos;m Yonatan Perlin &mdash; a Brazilian-Israeli software engineer, AI builder, and founder of Workitu Tech. I spent 4.5 years at Banco do Brasil building enterprise-grade software used by millions of people.
+                {t('home.meetP1')}
               </p>
               <p className="text-base md:text-lg text-gold-400/80 mb-6 relative z-10 leading-relaxed">
-                Today, I build AI automation systems, web applications, and custom software for businesses in Israel, Brazil, and globally. I speak Portuguese, English, and Hebrew &mdash; which means I can work with your team without the translation layer most agencies need.
+                {t('home.meetP2')}
               </p>
               <p className="text-base md:text-lg text-gold-300/70 relative z-10 leading-relaxed">
-                React &middot; Next.js &middot; Node.js &middot; Python &middot; FastAPI &middot; n8n &middot; Claude API &middot; OpenAI &middot; MBA Technology Management, University of Haifa
+                {t('home.meetP3')}
               </p>
             </div>
           </div>
@@ -178,29 +178,29 @@ export default function Home() {
         <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <h2 className="font-display text-3xl md:text-5xl font-bold text-gold-100/90 mb-12 text-center">
-              Why <span className="gradient-text">Work With Me</span>
+              {t('home.whyTitle1')}<span className="gradient-text">{t('home.whyTitle2')}</span>
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  title: 'Fintech DNA',
-                  subtitle: 'Enterprise background, startup speed.',
-                  text: 'I have built and maintained software used by millions of people. I apply that discipline to every project, no matter the size.',
+                  title: t('home.why.fintech.title'),
+                  subtitle: t('home.why.fintech.subtitle'),
+                  text: t('home.why.fintech.text'),
                 },
                 {
-                  title: 'Trilingual Delivery',
-                  subtitle: 'Portuguese, English, and Hebrew.',
-                  text: 'No translation errors, no cultural gaps. I understand the Brazilian-Israeli business environment from the inside.',
+                  title: t('home.why.trilingual.title'),
+                  subtitle: t('home.why.trilingual.subtitle'),
+                  text: t('home.why.trilingual.text'),
                 },
                 {
-                  title: 'Live Products, Not Mockups',
-                  subtitle: 'I ship things that go online and stay online.',
-                  text: 'Conex\u00e3o Israel Brasil is a live SaaS with real users and a paid subscription model. You\u2019re hiring someone who builds things that work.',
+                  title: t('home.why.live.title'),
+                  subtitle: t('home.why.live.subtitle'),
+                  text: t('home.why.live.text'),
                 },
                 {
-                  title: 'Strategy Meets Code',
-                  subtitle: 'MBA in Technology Management, University of Haifa.',
-                  text: 'I can code your product and help you think through the business model. Both matter.',
+                  title: t('home.why.strategy.title'),
+                  subtitle: t('home.why.strategy.subtitle'),
+                  text: t('home.why.strategy.text'),
                 },
               ].map((item, i) => (
                 <div key={i} className="glass rounded-2xl p-8 card-hover">
@@ -219,16 +219,16 @@ export default function Home() {
         <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-display text-3xl md:text-5xl font-bold text-gold-100/90 mb-6">
-              Ready to <span className="gradient-text">Transform</span> Your Business?
+              {t('home.ctaTitle1')}<span className="gradient-text">{t('home.ctaTitle2')}</span>{t('home.ctaTitle3')}
             </h2>
             <p className="text-lg text-gold-400/70 mb-10 max-w-xl mx-auto">
-              Let&apos;s discuss how AI automation and modern web solutions can accelerate your growth.
+              {t('home.ctaText')}
             </p>
             <Link
               href="/contact"
               className="btn-gold inline-flex items-center gap-2 px-10 py-5 rounded-full text-xl font-bold"
             >
-              Book a Free Discovery Call
+              {t('home.ctaButton')}
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
