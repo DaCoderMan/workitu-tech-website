@@ -1,9 +1,9 @@
 export const metadata = {
-  title: 'About Us',
-  description: 'Learn about Workitu Tech — our mission, values, and the technology stack powering innovative digital experiences.',
+  title: 'About Yonatan Perlin \u2014 AI Builder & Fintech Engineer',
+  description: 'Yonatan Perlin: 4.5 years in fintech at Banco do Brasil, trilingual (EN/PT/HE), MBA Technology Management at University of Haifa. Building AI systems and web apps in Israel.',
   openGraph: {
-    title: 'About Workitu Tech',
-    description: 'Our mission is to create digital experiences that inspire and perform. Learn about our values and tech stack.',
+    title: 'About Yonatan Perlin \u2014 AI Builder & Fintech Engineer | Workitu Tech',
+    description: '4.5 years in enterprise fintech, trilingual, MBA at University of Haifa. Building AI automation systems and web apps in Israel.',
   },
 };
 

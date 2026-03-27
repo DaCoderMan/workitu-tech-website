@@ -195,17 +195,6 @@ a, button, input, textarea, select,
   }
 }
 
-/* Admin link styling */
-.admin-link {
-  color: #dc2626;
-  font-size: 0.75rem;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
-.admin-link:hover {
-  opacity: 1;
-}
 
 /* W Logo background pulse/glow animation */
 @keyframes w-pulse {

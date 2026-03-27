@@ -1,9 +1,9 @@
 export const metadata = {
-  title: 'Services',
-  description: 'Web development, AI solutions, e-commerce platforms, and digital marketing services by Workitu Tech.',
+  title: 'AI Automation, Web Development & AI Agents in Israel',
+  description: 'Custom AI agents, n8n workflows, Next.js web apps, and AI chatbots built by an enterprise-background developer in Israel. Serving clients in English, Portuguese, and Hebrew.',
   openGraph: {
-    title: 'Services - Workitu Tech',
-    description: 'Full-stack web development, AI integration, e-commerce, and digital marketing to grow your business.',
+    title: 'AI Automation, Web Development & AI Agents in Israel | Workitu Tech',
+    description: 'Custom AI agents, n8n workflows, Next.js web apps, and AI chatbots. Enterprise-background developer in Israel.',
   },
 };
 

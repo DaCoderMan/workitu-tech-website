@@ -1,9 +1,9 @@
 export const metadata = {
-  title: 'Portfolio',
-  description: 'Explore our portfolio of web applications, AI projects, and digital solutions built by Workitu Tech.',
+  title: 'Portfolio \u2014 AI Automation & Web Development Projects',
+  description: 'Explore AI automation systems, SaaS products, and web applications built by Workitu Tech in Israel. Featuring Conex\u00e3o Israel Brasil and Bee AI Chief of Staff.',
   openGraph: {
-    title: 'Portfolio - Workitu Tech',
-    description: 'See our latest projects — websites, AI integrations, e-commerce platforms, and more.',
+    title: 'Portfolio \u2014 AI Automation & Web Development Projects | Workitu Tech',
+    description: 'AI automation systems, SaaS products, and web apps built by an enterprise-background developer in Israel.',
   },
 };
 
