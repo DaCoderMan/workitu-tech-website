@@ -33,7 +33,7 @@ export const useLanguage = create(
           }
         }
 
-        return result || key;
+        return result != null ? result : key;
       },
 
       // Check if current language is RTL

@@ -7,7 +7,8 @@ export const translations = {
       services: 'Services',
       portfolio: 'Portfolio',
       pricing: 'Pricing',
-      contact: 'Contact'
+      contact: 'Contact',
+      bookCall: '\ud83d\udcde Book a Call'
     },
 
     // Home page
@@ -208,7 +209,9 @@ export const translations = {
       ctaTitle: 'Ready to Automate & Build?',
       ctaText: 'Let\u2019s discuss your project. Book a free discovery call or explore pricing.',
       ctaPrimary: 'Book a Free Discovery Call',
-      ctaSecondary: 'View Pricing'
+      ctaSecondary: 'View Pricing',
+      getInTouch: 'Get in Touch',
+      letsTalk: 'Let\u2019s Talk'
     },
 
     // Footer
@@ -228,7 +231,8 @@ export const translations = {
       services: '\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9\u05dd',
       portfolio: '\u05ea\u05d9\u05e7 \u05e2\u05d1\u05d5\u05d3\u05d5\u05ea',
       pricing: '\u05de\u05d7\u05d9\u05e8\u05d9\u05dd',
-      contact: '\u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8'
+      contact: '\u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8',
+      bookCall: '\ud83d\udcde \u05e7\u05d1\u05e2 \u05e9\u05d9\u05d7\u05d4'
     },
     home: {
       badge: '\u05d6\u05de\u05d9\u05df \u05dc\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd',
@@ -382,7 +386,9 @@ export const translations = {
       ctaTitle: '\u05de\u05d5\u05db\u05e0\u05d9\u05dd \u05dc\u05d0\u05d5\u05d8\u05de\u05d8 \u05d5\u05dc\u05d1\u05e0\u05d5\u05ea?',
       ctaText: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05d3\u05d1\u05e8 \u05e2\u05dc \u05d4\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05e9\u05dc\u05db\u05dd. \u05e7\u05d1\u05e2\u05d5 \u05e9\u05d9\u05d7\u05ea \u05d4\u05d9\u05db\u05e8\u05d5\u05ea \u05d7\u05d9\u05e0\u05dd \u05d0\u05d5 \u05d1\u05d3\u05e7\u05d5 \u05de\u05d7\u05d9\u05e8\u05d9\u05dd.',
       ctaPrimary: '\u05e7\u05d1\u05e2 \u05e9\u05d9\u05d7\u05ea \u05d4\u05d9\u05db\u05e8\u05d5\u05ea \u05d7\u05d9\u05e0\u05dd',
-      ctaSecondary: '\u05e6\u05e4\u05d5 \u05d1\u05de\u05d7\u05d9\u05e8\u05d9\u05dd'
+      ctaSecondary: '\u05e6\u05e4\u05d5 \u05d1\u05de\u05d7\u05d9\u05e8\u05d9\u05dd',
+      getInTouch: '\u05e6\u05e8\u05d5 \u05e7\u05e9\u05e8',
+      letsTalk: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05d3\u05d1\u05e8'
     },
     footer: {
       tagline: '\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05d5\u05e4\u05d9\u05ea\u05d5\u05d7 \u05d0\u05ea\u05e8\u05d9\u05dd \u05e9\u05e0\u05d1\u05e0\u05d5 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05de\u05d4\u05e0\u05d3\u05e1 \u05e2\u05dd \u05e8\u05e7\u05e2 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9 \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc.',
@@ -394,7 +400,7 @@ export const translations = {
   },
 
   pt: {
-    nav: { home: 'In\u00edcio', about: 'Sobre', services: 'Servi\u00e7os', portfolio: 'Portf\u00f3lio', pricing: 'Pre\u00e7os', contact: 'Contato' },
+    nav: { home: 'In\u00edcio', about: 'Sobre', services: 'Servi\u00e7os', portfolio: 'Portf\u00f3lio', pricing: 'Pre\u00e7os', contact: 'Contato', bookCall: '\ud83d\udcde Agendar' },
     home: {
       badge: 'Dispon\u00edvel para projetos',
       heroLine1a: '',
@@ -540,7 +546,9 @@ export const translations = {
       ctaTitle: 'Pronto para Automatizar e Construir?',
       ctaText: 'Vamos discutir seu projeto. Agende uma consulta gratuita ou veja pre\u00e7os.',
       ctaPrimary: 'Agende uma Consulta Gratuita',
-      ctaSecondary: 'Ver Pre\u00e7os'
+      ctaSecondary: 'Ver Pre\u00e7os',
+      getInTouch: 'Entre em Contato',
+      letsTalk: 'Vamos Conversar'
     },
     footer: {
       tagline: 'Automa\u00e7\u00e3o com IA e desenvolvimento web constru\u00eddos por um engenheiro com background enterprise em Israel.',

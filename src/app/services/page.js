@@ -127,7 +127,7 @@ export default function Services() {
                 ))}
               </ul>
               <Link href="/contact" className="mt-4 inline-block text-gold-400 hover:text-gold-300 text-sm font-medium">
-                Get in Touch &rarr;
+                {t('servicesPage.getInTouch')} &rarr;
               </Link>
             </div>
 
@@ -147,7 +147,7 @@ export default function Services() {
                 ))}
               </ul>
               <Link href="/contact" className="mt-4 inline-block text-gold-400 hover:text-gold-300 text-sm font-medium">
-                Let&apos;s Talk &rarr;
+                {t('servicesPage.letsTalk')} &rarr;
               </Link>
             </div>
           </div>

@@ -63,7 +63,7 @@ export default function Header() {
               href="/contact"
               className="px-4 py-2 bg-gradient-to-r from-gold-400 to-gold-600 text-black font-semibold rounded-lg hover:from-gold-500 hover:to-gold-700 transition-all"
             >
-              📞 Book a Call
+              {t('nav.bookCall')}
             </Link>
             <div aria-hidden={!isDesktop}>
               <LanguageToggle />
