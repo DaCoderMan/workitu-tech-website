@@ -15,10 +15,10 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.tech';
 export const metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'AI Automation & Web Development in Israel | Workitu Tech',
+    default: 'Workitu Tech — AI Automation for Professionals',
     template: '%s | Workitu Tech',
   },
-  description: 'Workitu Tech builds AI automation systems, custom web apps, and intelligent workflows for businesses in Israel and globally. Trilingual (EN/PT/HE). Enterprise background. Book a call.',
+  description: 'AI automation that transforms how professionals work. Tech Mentoring, Online Marketing, and Digital Products. Trilingual service in English, Hebrew, and Portuguese.',
   keywords: [
     'AI automation Israel',
     'AI automation consultant Israel',
@@ -43,26 +43,26 @@ export const metadata = {
   creator: 'Workitu Tech',
   publisher: 'Workitu Tech',
   openGraph: {
-    title: 'AI Automation & Web Development in Israel | Workitu Tech',
-    description: 'AI automation systems, custom web apps, and intelligent workflows built by an enterprise-background developer in Israel. Trilingual (EN/PT/HE).',
+    title: 'Workitu Tech — AI Automation for Professionals',
+    description: 'AI automation that transforms how professionals work. Tech Mentoring, Online Marketing, and Digital Products. Trilingual service in English, Hebrew, and Portuguese.',
     type: 'website',
     locale: 'en_US',
     url: BASE_URL,
     siteName: 'Workitu Tech',
     images: [
       {
-        url: `${BASE_URL}/og-image.png`,
+        url: '/images/og-thumbnail.jpg',
         width: 1200,
         height: 630,
-        alt: 'Workitu Tech — AI Automation & Web Development in Israel',
+        alt: 'Workitu Tech — AI Automation for Professionals',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Automation & Web Development in Israel | Workitu Tech',
-    description: 'AI automation systems, custom web apps, and intelligent workflows built by an enterprise-background developer in Israel.',
-    images: [`${BASE_URL}/og-image.png`],
+    title: 'Workitu Tech — AI Automation for Professionals',
+    description: 'AI automation that transforms how professionals work. Tech Mentoring, Online Marketing, and Digital Products. Trilingual service in English, Hebrew, and Portuguese.',
+    images: ['/images/og-thumbnail.jpg'],
   },
   robots: {
     index: true,

@@ -76,17 +76,17 @@ export const translations = {
       services: {
         techMentoring: {
           title: '🎓 Tech Mentoring',
-          price: 'Starting from ₪150/hour',
+          price: 'From $40/hour (₪150/hour)',
           description: 'Private lessons in programming, AI, and digital tools. Learn at your pace with hands-on guidance from an experienced developer.'
         },
         onlineMarketing: {
           title: '📱 Online Marketing',
-          price: 'Starting from ₪800/month',
+          price: 'From $220/month (₪800/month)',
           description: 'Complete social media management and content strategy. AI-powered tools that amplify your brand and bring real clients to your door.'
         },
         digitalProducts: {
           title: '⚡ Digital Products',
-          price: 'Starting from ₪1,500 setup',
+          price: 'From $400 setup (₪1,500 setup)',
           description: 'Websites, bots, AI agents, and automations built to transform your business. Includes ongoing support and maintenance options.'
         },
         custom: {
@@ -255,17 +255,17 @@ export const translations = {
       services: {
         techMentoring: {
           title: '🎓 חונכות טכנולוגית',
-          price: 'החל מ-₪150/שעה',
+          price: 'החל מ-$40/שעה (₪150/שעה)',
           description: 'שיעורים פרטיים בתכנות, AI וכלים דיגיטליים. למד בקצב שלך עם הדרכה מעשית ממפתח מנוסה.'
         },
         onlineMarketing: {
           title: '📱 שיווק מקוון',
-          price: 'החל מ-₪800/חודש',
+          price: 'החל מ-$220/חודש (₪800/חודש)',
           description: 'ניהול מדיה חברתית מלא ואסטרטגיית תוכן. כלים מונעי AI שמגבירים את המותג שלך ומביאים לקוחות אמיתיים.'
         },
         digitalProducts: {
           title: '⚡ מוצרים דיגיטליים',
-          price: 'החל מ-₪1,500 הקמה',
+          price: 'החל מ-$400 הקמה (₪1,500 הקמה)',
           description: 'אתרים, בוטים, סוכני AI ואוטומציות שנבנו לשנות את העסק שלך. כולל אפשרויות תמיכה ותחזוקה שוטפת.'
         },
         custom: {
@@ -416,9 +416,9 @@ export const translations = {
       promise: '💡 Nossa promessa: preços justos, comunicação honesta e resultados duradouros.',
       cta: 'Agendar Diagnóstico Gratuito',
       services: {
-        techMentoring: { title: '🎓 Mentoria Tech', price: 'A partir de ₪150/hora', description: 'Aulas particulares de programação, IA e ferramentas digitais. Aprenda no seu ritmo com orientação prática.' },
-        onlineMarketing: { title: '📱 Marketing Online', price: 'A partir de ₪800/mês', description: 'Gestão completa de mídias sociais e estratégia de conteúdo. Ferramentas com IA que amplificam sua marca.' },
-        digitalProducts: { title: '⚡ Produtos Digitais', price: 'A partir de ₪1.500 setup', description: 'Sites, bots, agentes de IA e automações construídos para transformar seu negócio.' },
+        techMentoring: { title: '🎓 Mentoria Tech', price: 'A partir de $40/hora (₪150/hora)', description: 'Aulas particulares de programação, IA e ferramentas digitais. Aprenda no seu ritmo com orientação prática.' },
+        onlineMarketing: { title: '📱 Marketing Online', price: 'A partir de $220/mês (₪800/mês)', description: 'Gestão completa de mídias sociais e estratégia de conteúdo. Ferramentas com IA que amplificam sua marca.' },
+        digitalProducts: { title: '⚡ Produtos Digitais', price: 'A partir de $400 setup (₪1.500 setup)', description: 'Sites, bots, agentes de IA e automações construídos para transformar seu negócio.' },
         custom: { title: '⚙️ Projetos Personalizados', price: 'Cada ideia é única.', description: 'Cada negócio é único — e cada solução também. Vamos projetar a transformação digital perfeita juntos.' }
       }
     },
