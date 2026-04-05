@@ -123,34 +123,27 @@ export const translations = {
 
     // About page
     about: {
-      pageTitle: 'The Engineer Behind Workitu Tech',
-      pageSubtitle: '4.5 years in enterprise fintech. Trilingual. Building AI systems and web apps in Israel.',
-      storyTitle: 'My Story in 3 Sentences',
-      storySummary: 'I spent 4.5 years building enterprise software at Banco do Brasil \u2014 one of Latin America\u2019s largest banks. Now I build AI automation systems and web apps for businesses in Israel and globally. I speak three languages and ship products that real people use.',
-      bioTitle: 'About Me',
-      bioP1: 'I\u2019m Yonatan Sam Perlin \u2014 a Brazilian-Israeli software engineer, AI builder, and founder of Workitu Tech.',
-      bioP2: 'Before starting Workitu, I spent 4.5 years at Banco do Brasil \u2014 one of Latin America\u2019s largest financial institutions \u2014 building and maintaining enterprise-grade software. That experience gave me something most freelancers don\u2019t have: a deep understanding of what real production systems look like, and what it takes to ship software that thousands of people depend on.',
-      bioP3: 'Today, I build AI automation systems, web applications, and custom software for businesses in Israel, Brazil, and globally. I speak Portuguese, English, and Hebrew \u2014 which means I can work with your team, understand your market, and deliver without the translation layer most agencies need.',
-      bioP4: 'I\u2019m currently completing an MBA in Technology Management at the University of Haifa, focused on leading AI and tech companies. Not because I need a credential \u2014 but because I believe the best builders also understand business.',
-      whyChooseUs: 'Why Choose Workitu',
-      differentiators: {
-        fintech: { title: 'Fintech DNA', subtitle: 'Enterprise background, startup speed.', text: 'I have built and maintained software used by millions of people. I apply that discipline to every project, no matter the size.' },
-        trilingual: { title: 'Trilingual Delivery', subtitle: 'Portuguese, English, and Hebrew.', text: 'No translation errors, no cultural gaps. I understand the Brazilian-Israeli business environment from the inside.' },
-        live: { title: 'Live Products, Not Mockups', subtitle: 'I ship things that go online and stay online.', text: 'Conexão Israel Brasil is a live SaaS with real users and a paid subscription model. You\u2019re hiring someone who builds things that work.' },
-        strategy: { title: 'Strategy Meets Code', subtitle: 'MBA in Technology Management, University of Haifa.', text: 'I can code your product and help you think through the business model. Both matter.' },
-        pricing: { title: 'Transparent Pricing', subtitle: 'Fixed prices. No surprises.', text: 'Every project starts with a written scope. You know what you\u2019re paying for before we start.' }
+      title: 'About Workitu Tech',
+      subtitle: 'Efficient. Simple. Transformative. — Technology that works for you.',
+      meet: {
+        title: 'Meet Yonatan',
+        p1: 'I\'m Yonatan Perlin — a Brazilian-Israeli software engineer, AI builder, and founder of Workitu Tech. I spent 4.5 years at Banco do Brasil building enterprise-grade software used by millions.',
+        p2: 'Today, I build AI automation systems, websites, and digital products for professionals in Israel and globally. I speak Portuguese, English, and Hebrew — no translation layer needed.',
+        skills: 'React · Next.js · Node.js · Python · FastAPI · n8n · Claude API · OpenAI · MBA Technology Management, University of Haifa'
       },
-      principlesTitle: 'Core Principles',
-      principles: {
-        enterprise: { title: 'Enterprise Foundation', text: 'I didn\u2019t start as a freelancer. I started in a bank. 4.5 years of building software that real people depend on.' },
-        ai: { title: 'AI Is Real, Not Buzzword', text: 'The AI systems I build are running live in production. Bee is on a server right now. CIB has paying users.' },
-        trilingual: { title: 'Trilingual = Rare', text: 'Portuguese + English + Hebrew. I build for the Israeli market, sell to Brazilian companies, and work with international clients.' },
-        builder: { title: 'Builder, Not Reseller', text: 'Every line of code is written by me. No white-labeling, no subcontractors. What you see in the portfolio is what I actually built.' }
+      why: {
+        title: 'Why Workitu?',
+        enterprise: { title: 'Enterprise DNA', text: '4.5 years building software used by millions at Banco do Brasil. Same discipline and quality — at accessible prices.' },
+        trilingual: { title: 'Trilingual Delivery', text: 'Portuguese, English, and Hebrew. No communication gaps, no cultural friction. I understand your market from the inside.' },
+        results: { title: 'Results, Not Demos', text: 'Live products with real users. Conexão Israel Brasil is a live SaaS with paid subscribers. You\'re hiring someone who ships.' }
       },
-      techStackTitle: 'Tech Stack',
-      ctaTitle: 'Let\u2019s Build Something Together',
-      ctaText: 'Whether you need AI automation, a web application, or a technical consultant who speaks your language \u2014 I\u2019m here.',
-      ctaButton: 'Schedule Free Diagnosis'
+      approach: {
+        title: 'Our Approach',
+        step1: { title: 'Free Diagnosis', text: 'We talk about your business, your pain points, and where AI can make the biggest impact.' },
+        step2: { title: 'We Build', text: 'Fixed scope, fixed price. You see progress at every step. No surprises.' },
+        step3: { title: 'Your Business Transforms', text: 'Your AI agents work 24/7. Your marketing runs on autopilot. You focus on what you do best.' }
+      },
+      cta: { title: 'Ready to Transform Your Business?', text: 'Book a free diagnosis call and discover how AI can simplify your operations.', button: 'Schedule Free Diagnosis' }
     },
 
     // Services page
@@ -305,34 +298,27 @@ export const translations = {
       responseText: 'אנחנו בדרך כלל עונים לכל הפניות תוך 24 שעות.'
     },
     about: {
-      pageTitle: 'המהנדס שמאחורי Workitu Tech',
-      pageSubtitle: '4.5 שנים בפינטק ארגוני. תלת לשוני. בונה מערכות AI ואפליקציות וב בישראל.',
-      storyTitle: 'הסיפור שלי ב-3 משפטים',
-      storySummary: 'ביליתי 4.5 שנים בבניית תוכנה ארגונית ב-Banco do Brasil. עכשיו אני בונה מערכות AI ואפליקציות וב לעסקים בישראל ובעולם.',
-      bioTitle: 'עלי',
-      bioP1: 'אני יונתן סם פרלין — מהנדס תוכנה ברזילאי-ישראלי, בונה AI ומייסד Workitu Tech.',
-      bioP2: 'לפני שהקמתי את Workitu, ביליתי 4.5 שנים ב-Banco do Brasil בבניית תוכנה ארגונית.',
-      bioP3: 'היום אני בונה מערכות AI, אפליקציות וב ותוכנות מותאמות. אני מדבר פורטוגזית, אנגלית ועברית.',
-      bioP4: 'אני כרגע מסיים MBA בניהול טכנולוגי באוניברסיטת חיפה.',
-      whyChooseUs: 'למה לבחור ב-Workitu',
-      differentiators: {
-        fintech: { title: 'DNA פינטק', subtitle: 'רקע ארגוני, מהירות סטארטאפ.', text: 'בניתי ותחזקתי תוכנה שמיליוני אנשים משתמשים בה.' },
-        trilingual: { title: 'מסירה תלת-לשונית', subtitle: 'פורטוגזית, אנגלית ועברית.', text: 'אין שגיאות תרגום, אין פערים תרבותיים.' },
-        live: { title: 'מוצרים חיים, לא הדמיות', subtitle: 'אני שולח דברים שעולים לאוויר.', text: 'Conexão Israel Brasil הוא SaaS פעיל עם משתמשים אמיתיים.' },
-        strategy: { title: 'אסטרטגיה פוגשת קוד', subtitle: 'MBA בניהול טכנולוגי, אוניברסיטת חיפה.', text: 'אני יכול לתכנת את המוצר שלך וגם לעזור לך לחשוב על המודל העסקי.' },
-        pricing: { title: 'תמחור שקוף', subtitle: 'מחירים קבועים. בלי הפתעות.', text: 'כל פרויקט מתחיל עם היקף כתוב.' }
+      title: 'אודות Workitu Tech',
+      subtitle: 'יעיל. פשוט. משנה חוקים. — טכנולוגיה שעובדת בשבילך.',
+      meet: {
+        title: 'הכירו את יונתן',
+        p1: 'אני יונתן פרלין — מהנדס תוכנה ברזילאי-ישראלי, בונה AI ומייסד Workitu Tech. עבדתי 4.5 שנים ב-Banco do Brasil ובניתי תוכנה ברמה ארגונית שמיליונים משתמשים בה.',
+        p2: 'היום, אני בונה מערכות אוטומציה עם AI, אתרים ומוצרים דיגיטליים לאנשי מקצוע בישראל ובעולם. אני מדבר פורטוגזית, אנגלית ועברית — בלי שכבות תרגום.',
+        skills: 'React · Next.js · Node.js · Python · FastAPI · n8n · Claude API · OpenAI · MBA בניהול טכנולוגי, אוניברסיטת חיפה'
       },
-      principlesTitle: 'עקרונות יסוד',
-      principles: {
-        enterprise: { title: 'בסיס ארגוני', text: 'לא התחלתי כפרילנסר. התחלתי בבנק.' },
-        ai: { title: 'AI אמיתי, לא באזוורד', text: 'מערכות ה-AI שאני בונה רצות חיות בייצור.' },
-        trilingual: { title: 'תלת לשוני = נדיר', text: 'פורטוגזית + אנגלית + עברית.' },
-        builder: { title: 'בונה, לא משווק', text: 'כל שורת קוד נכתבת על ידי.' }
+      why: {
+        title: 'למה Workitu?',
+        enterprise: { title: 'DNA ארגוני', text: '4.5 שנים של בניית תוכנה שמיליונים משתמשים בה ב-Banco do Brasil. אותה משמעת ואיכות — במחירים נגישים.' },
+        trilingual: { title: 'מסירה תלת-לשונית', text: 'פורטוגזית, אנגלית ועברית. בלי פערי תקשורת, בלי חיכוך תרבותי. אני מבין את השוק שלך מבפנים.' },
+        results: { title: 'תוצאות, לא הדגמות', text: 'מוצרים חיים עם משתמשים אמיתיים. Conexão Israel Brasil הוא SaaS פעיל עם מנויים משלמים. אתה שוכר מישהו שמספק.' }
       },
-      techStackTitle: 'הטכנולוגיות שלנו',
-      ctaTitle: 'בואו נבנה משהו יחד',
-      ctaText: 'בין אם אתם צריכים אוטומציה של AI, אפליקציית אינטרנט או יועץ טכני — אני כאן.',
-      ctaButton: 'לתאם אבחון חינם'
+      approach: {
+        title: 'הגישה שלנו',
+        step1: { title: 'אבחון חינם', text: 'נדבר על העסק שלך, הכאבים שלך, והיכן AI יכול להשפיע הכי הרבה.' },
+        step2: { title: 'אנחנו בונים', text: 'היקף קבוע, מחיר קבוע. אתה רואה התקדמות בכל שלב. בלי הפתעות.' },
+        step3: { title: 'העסק שלך משתנה', text: 'סוכני ה-AI שלך עובדים 24/7. השיווק רץ על אוטומט. אתה מתמקד במה שאתה עושה הכי טוב.' }
+      },
+      cta: { title: 'מוכנים לשנות את העסק?', text: 'קבעו שיחת אבחון חינם וגלו איך AI יכול לפשט את התפעול שלכם.', button: 'לתאם אבחון חינם' }
     },
     servicesPage: {
       title: 'השירותים שלנו',
@@ -452,34 +438,27 @@ export const translations = {
       responseTitle: 'Tempo de Resposta', responseText: 'Normalmente respondemos em até 24 horas.'
     },
     about: {
-      pageTitle: 'O Engenheiro por trás da Workitu Tech',
-      pageSubtitle: '4,5 anos em fintech enterprise. Trilíngue. Construindo sistemas de IA e apps web em Israel.',
-      storyTitle: 'Minha História em 3 Frases',
-      storySummary: 'Passei 4,5 anos construindo software enterprise no Banco do Brasil. Agora construo sistemas de IA e apps web para empresas em Israel e no mundo.',
-      bioTitle: 'Sobre Mim',
-      bioP1: 'Sou Yonatan Sam Perlin — engenheiro de software brasileiro-israelense, construtor de IA e fundador da Workitu Tech.',
-      bioP2: 'Antes de fundar a Workitu, passei 4,5 anos no Banco do Brasil construindo software de nível enterprise.',
-      bioP3: 'Hoje, construo sistemas de automação com IA, aplicativos web e software personalizado. Falo português, inglês e hebraico.',
-      bioP4: 'Estou concluindo um MBA em Gestão de Tecnologia na Universidade de Haifa.',
-      whyChooseUs: 'Por que escolher a Workitu',
-      differentiators: {
-        fintech: { title: 'DNA Fintech', subtitle: 'Background enterprise, velocidade de startup.', text: 'Construí e mantive software usado por milhões de pessoas.' },
-        trilingual: { title: 'Entrega Trilíngue', subtitle: 'Português, inglês e hebraico.', text: 'Sem erros de tradução, sem gaps culturais.' },
-        live: { title: 'Produtos Reais — Eu Entrego', subtitle: 'Não sou de mockups.', text: 'Conexão Israel Brasil é um SaaS real com usuários e assinaturas pagas.' },
-        strategy: { title: 'Estratégia + Código', subtitle: 'MBA em Gestão de Tecnologia.', text: 'Posso programar seu produto e ajudar a pensar o modelo de negócio.' },
-        pricing: { title: 'Preços Transparentes', subtitle: 'Preços fixos. Sem surpresas.', text: 'Cada projeto começa com um escopo escrito.' }
+      title: 'Sobre a Workitu Tech',
+      subtitle: 'Eficiente. Simples. Transformador. — Tecnologia que trabalha para você.',
+      meet: {
+        title: 'Conheça o Yonatan',
+        p1: 'Sou Yonatan Perlin — engenheiro de software brasileiro-israelense, construtor de IA e fundador da Workitu Tech. Trabalhei 4,5 anos no Banco do Brasil desenvolvendo software de nível enterprise usado por milhões.',
+        p2: 'Hoje, construo sistemas de automação com IA, sites e produtos digitais para profissionais em Israel e no mundo. Falo português, inglês e hebraico — sem camada de tradução.',
+        skills: 'React · Next.js · Node.js · Python · FastAPI · n8n · Claude API · OpenAI · MBA em Gestão de Tecnologia, Universidade de Haifa'
       },
-      principlesTitle: 'Princípios Fundamentais',
-      principles: {
-        enterprise: { title: 'Base Enterprise', text: 'Não comecei como freelancer. Comecei em um banco.' },
-        ai: { title: 'IA é Real, Não Buzzword', text: 'Os sistemas de IA que construo estão rodando ao vivo em produção.' },
-        trilingual: { title: 'Trilíngue = Raro', text: 'Português + inglês + hebraico.' },
-        builder: { title: 'Construtor, Não Revendedor', text: 'Cada linha de código é escrita por mim.' }
+      why: {
+        title: 'Por que a Workitu?',
+        enterprise: { title: 'DNA Enterprise', text: '4,5 anos construindo software usado por milhões no Banco do Brasil. Mesma disciplina e qualidade — a preços acessíveis.' },
+        trilingual: { title: 'Entrega Trilíngue', text: 'Português, inglês e hebraico. Sem falhas de comunicação, sem atrito cultural. Eu entendo o seu mercado por dentro.' },
+        results: { title: 'Resultados, Não Demos', text: 'Produtos reais com usuários reais. Conexão Israel Brasil é um SaaS ativo com assinantes pagantes. Você está contratando alguém que entrega.' }
       },
-      techStackTitle: 'Stack de Tecnologia',
-      ctaTitle: 'Vamos Construir Algo Juntos',
-      ctaText: 'Se você precisa de automação com IA ou um aplicativo web — estou aqui.',
-      ctaButton: 'Agendar Diagnóstico Gratuito'
+      approach: {
+        title: 'Nossa Abordagem',
+        step1: { title: 'Diagnóstico Gratuito', text: 'Conversamos sobre seu negócio, suas dores e onde a IA pode gerar o maior impacto.' },
+        step2: { title: 'Nós Construímos', text: 'Escopo fixo, preço fixo. Você acompanha o progresso em cada etapa. Sem surpresas.' },
+        step3: { title: 'Seu Negócio se Transforma', text: 'Seus agentes de IA trabalham 24/7. Seu marketing roda no piloto automático. Você foca no que faz de melhor.' }
+      },
+      cta: { title: 'Pronto para Transformar seu Negócio?', text: 'Agende uma chamada de diagnóstico gratuita e descubra como a IA pode simplificar suas operações.', button: 'Agendar Diagnóstico Gratuito' }
     },
     servicesPage: {
       title: 'Nossos Serviços',
