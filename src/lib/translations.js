@@ -8,21 +8,50 @@ export const translations = {
       portfolio: 'Portfolio',
       pricing: 'Pricing',
       contact: 'Contact',
-      bookCall: '\ud83d\udcde Book a Call'
+      bookCall: '📞 Free Diagnosis'
     },
 
     // Home page
     home: {
-      title: 'Workitu Tech',
-      tagline: 'Efficient. Simple. Transformative.',
-      description: 'AI automation for professionals who don\'t have time to waste. Simple to use. Impossible to ignore the results.',
-      subDescription: 'We build AI solutions that are simple to use and deliver real transformation for liberal professionals.',
-      mission1: 'We believe technology should work for you, not the other way around. That\'s why we build AI solutions that are simple to use and deliver real transformation.',
-      mission2: 'With 4.5 years of enterprise fintech experience and an MBA in Technology Management, we combine technical depth with business strategy.',
-      mission3: 'From Israel to the world \u2014 Efficient. Simple. Transformative.',
-      tagline1: 'Your clients come to you for your work.',
-      tagline2: 'AI takes care of everything else.',
-      cta: 'Schedule Free Diagnosis'
+      badge: 'Available for projects',
+      heroLine1a: 'Your clients come to you ',
+      heroLine1b: 'for your work.',
+      heroLine2a: 'AI takes care of ',
+      heroLine2b: 'everything else.',
+      subtitle: 'AI automation for professionals who don\'t have time to waste. Simple to use. Impossible to ignore the results.',
+      ctaPrimary: 'Schedule Free Diagnosis',
+      ctaSecondary: 'See Our Services',
+      stats: {
+        services: { label: 'Services' },
+        aiAgents: { label: 'AI Agents' },
+        trilingual: { label: 'Trilingual' }
+      },
+      servicesTitle1: 'What We ',
+      servicesTitle2: 'Build',
+      servicesSubtitle: 'End-to-end digital solutions powered by cutting-edge AI and modern web technologies.',
+      services: {
+        mentoring: {
+          title: 'Tech Mentoring',
+          description: 'Private 1:1 lessons in programming, AI tools, and technology. Learn at your own pace with a senior developer as your guide.'
+        },
+        marketing: {
+          title: 'Online Marketing',
+          description: 'Social media management, content strategy, and lead generation powered by AI. Your brand deserves to be seen.'
+        },
+        products: {
+          title: 'Digital Products',
+          description: 'Websites, bots, AI agents, and workflow automations that run your business 24/7. Built to transform, not just to impress.'
+        }
+      },
+      missionTitle: 'Our Mission',
+      missionP1: 'We believe technology should work for you, not the other way around. That\'s why we build AI solutions that are simple to use and deliver real transformation.',
+      missionP2: 'With 4.5 years of enterprise fintech experience and an MBA in Technology Management, we combine technical depth with business strategy.',
+      missionP3: 'From Israel to the world — Efficient. Simple. Transformative.',
+      ctaTitle1: 'Ready to ',
+      ctaTitle2: 'Transform',
+      ctaTitle3: ' Your Business?',
+      ctaText: 'Let\u2019s discuss how AI automation and modern web solutions can accelerate your growth.',
+      ctaButton: 'Schedule Free Diagnosis'
     },
 
     // Portfolio page
@@ -39,31 +68,31 @@ export const translations = {
     // Pricing page
     pricing: {
       title: 'Pricing',
-      subtitle: 'At Workitu Tech, we believe great technology should be accessible to everyone.',
-      description: 'We offer transparent, flexible pricing \u2014 built around your goals, not just your budget. Every project is crafted with precision, creativity, and heart \u2014 because your success is our code.',
+      subtitle: 'Efficient. Simple. Transformative. — Technology that works for you.',
+      description: 'We offer transparent, flexible pricing — built around your goals, not just your budget. Every project is crafted with precision, creativity, and heart.',
       loading: 'Loading pricing...',
-      promise: '\ud83d\udca1 Our promise: fair pricing, honest communication, and results that last.',
-      cta: 'Get Started Today',
+      promise: '💡 Our promise: fair pricing, honest communication, and results that last.',
+      cta: 'Schedule Free Diagnosis',
       services: {
-        mentoring: {
+        techMentoring: {
           title: '🎓 Tech Mentoring',
           price: 'Starting from ₪150/hour',
           description: 'Private lessons in programming, AI, and digital tools. Learn at your pace with hands-on guidance from an experienced developer.'
         },
-        marketing: {
+        onlineMarketing: {
           title: '📱 Online Marketing',
           price: 'Starting from ₪800/month',
           description: 'Complete social media management and content strategy. AI-powered tools that amplify your brand and bring real clients to your door.'
         },
-        products: {
+        digitalProducts: {
           title: '⚡ Digital Products',
           price: 'Starting from ₪1,500 setup',
           description: 'Websites, bots, AI agents, and automations built to transform your business. Includes ongoing support and maintenance options.'
         },
         custom: {
-          title: '⚙️ Custom Solutions',
-          price: 'Every business is unique',
-          description: 'Let\'s discuss your vision and design the perfect digital transformation together. Book a free diagnosis call.'
+          title: '⚙️ Custom Projects',
+          price: 'Every idea is unique — and so is every price.',
+          description: 'Every business is unique — and so is every solution. Let\'s discuss your vision and design the perfect digital transformation together.'
         }
       }
     },
@@ -107,7 +136,7 @@ export const translations = {
       differentiators: {
         fintech: { title: 'Fintech DNA', subtitle: 'Enterprise background, startup speed.', text: 'I have built and maintained software used by millions of people. I apply that discipline to every project, no matter the size.' },
         trilingual: { title: 'Trilingual Delivery', subtitle: 'Portuguese, English, and Hebrew.', text: 'No translation errors, no cultural gaps. I understand the Brazilian-Israeli business environment from the inside.' },
-        live: { title: 'Live Products \u2014 I Ship', subtitle: 'Not a mockup person.', text: 'Conex\u00e3o Israel Brasil is a live SaaS with real users and a paid subscription model. You\u2019re hiring someone who builds things that go online and stay online.' },
+        live: { title: 'Live Products, Not Mockups', subtitle: 'I ship things that go online and stay online.', text: 'Conexão Israel Brasil is a live SaaS with real users and a paid subscription model. You\u2019re hiring someone who builds things that work.' },
         strategy: { title: 'Strategy Meets Code', subtitle: 'MBA in Technology Management, University of Haifa.', text: 'I can code your product and help you think through the business model. Both matter.' },
         pricing: { title: 'Transparent Pricing', subtitle: 'Fixed prices. No surprises.', text: 'Every project starts with a written scope. You know what you\u2019re paying for before we start.' }
       },
@@ -121,49 +150,28 @@ export const translations = {
       techStackTitle: 'Tech Stack',
       ctaTitle: 'Let\u2019s Build Something Together',
       ctaText: 'Whether you need AI automation, a web application, or a technical consultant who speaks your language \u2014 I\u2019m here.',
-      ctaButton: 'Book a Free Discovery Call'
+      ctaButton: 'Schedule Free Diagnosis'
     },
 
     // Services page
     servicesPage: {
-      title: 'AI Automation & Web Development Services',
-      subtitle: 'Custom AI agents, n8n workflows, Next.js web apps, and AI chatbots built by an enterprise-background developer in Israel.',
-      items: {
-        mentoring: {
+      title: 'Our Services',
+      subtitle: 'Efficient. Simple. Transformative. — Digital solutions that work for you, not the other way around.',
+      services: {
+        techMentoring: {
           title: 'Tech Mentoring',
           description: 'Master technology and AI with personalized guidance. Whether you\'re learning to code, exploring AI tools, or leveling up your digital skills — get expert mentoring from a developer with enterprise fintech background.',
-          features: {
-            0: 'Private 1:1 sessions',
-            1: 'AI tools training',
-            2: 'Programming fundamentals',
-            3: 'Digital literacy',
-            4: 'Custom learning path',
-            5: 'Flexible scheduling'
-          }
+          features: ['Private 1:1 sessions', 'AI tools training', 'Programming fundamentals', 'Digital literacy', 'Custom learning path', 'Flexible scheduling']
         },
-        marketing: {
+        onlineMarketing: {
           title: 'Online Marketing',
           description: 'Grow your online presence with AI-powered social media management, content strategy, and lead generation. We handle your digital marketing so you can focus on what you do best.',
-          features: {
-            0: 'Social media management',
-            1: 'AI-powered content creation',
-            2: 'Lead generation strategy',
-            3: 'Brand positioning',
-            4: 'Analytics & reporting',
-            5: 'Multi-language support (EN/PT/HE)'
-          }
+          features: ['Social media management', 'AI-powered content creation', 'Lead generation strategy', 'Brand positioning', 'Analytics & reporting', 'Multi-language support (EN/PT/HE)']
         },
-        products: {
+        digitalProducts: {
           title: 'Digital Products',
           description: 'Custom websites, AI chatbots, workflow automations, and intelligent agents built to transform how your business operates. Enterprise-quality solutions at accessible prices.',
-          features: {
-            0: 'Professional websites (Next.js)',
-            1: 'AI chatbots (WhatsApp & Web)',
-            2: 'Workflow automation (n8n)',
-            3: 'Custom AI agents',
-            4: 'API integrations',
-            5: 'Ongoing maintenance'
-          }
+          features: ['Professional websites (Next.js)', 'AI chatbots (WhatsApp & Web)', 'Workflow automation (n8n)', 'Custom AI agents', 'API integrations', 'Ongoing maintenance']
         }
       },
       processTitle: 'How We Work',
@@ -175,19 +183,9 @@ export const translations = {
         5: { title: 'Launch', description: 'Deployment, testing, and go-live support.' },
         6: { title: 'Support', description: 'Ongoing maintenance and improvements.' }
       },
-      faqTitle: 'Frequently Asked Questions',
-      faq: {
-        0: { q: 'How much does AI automation cost in Israel?', a: 'AI automation projects at Workitu Tech start from a few thousand shekels for simple workflow automations (n8n, Zapier) and scale based on complexity. Custom AI agents with memory, integrations, and production deployment are priced per project with a fixed scope. Book a free discovery call for a tailored quote.' },
-        1: { q: 'What is n8n automation?', a: 'n8n is an open-source workflow automation platform that connects apps, APIs, and services without code. Workitu Tech specializes in self-hosted n8n deployments on VPS, giving you full control over your automation workflows \u2014 no vendor lock-in, no per-execution fees.' },
-        2: { q: 'Can you build an AI chatbot for my business?', a: 'Yes. Workitu Tech builds custom AI chatbots powered by Claude API and OpenAI that integrate with your existing systems \u2014 CRM, calendar, email, databases. Our chatbots handle real conversations, not scripted flows.' },
-        3: { q: 'Do you work with international clients?', a: 'Absolutely. Workitu Tech serves clients in Israel, Brazil, and globally. Yonatan speaks English, Portuguese, and Hebrew fluently, which means zero communication friction across markets.' },
-        4: { q: 'What is the difference between AI automation and traditional automation?', a: 'Traditional automation follows rigid rules (if X then Y). AI automation uses language models and machine learning to handle ambiguous tasks \u2014 understanding emails, classifying documents, generating reports, and making decisions. Workitu builds both, often combining them.' },
-        5: { q: 'How long does a typical web development project take?', a: 'A professional business website takes 2\u20134 weeks. A full web application with backend, authentication, and integrations takes 4\u20138 weeks. Every project starts with a written scope so you know the timeline before we begin.' },
-        6: { q: 'Do you offer ongoing support after delivery?', a: 'Yes. Workitu Tech offers maintenance packages for hosting, updates, bug fixes, and feature additions. Your project doesn\u2019t end at delivery \u2014 it\u2019s the beginning of a working relationship.' }
-      },
-      ctaTitle: 'Ready to Automate & Build?',
-      ctaText: 'Let\u2019s discuss your project. Book a free discovery call or explore pricing.',
-      ctaPrimary: 'Book a Free Discovery Call',
+      ctaTitle: 'Ready to Get Started?',
+      ctaText: 'Let\u2019s discuss your project. Schedule a free diagnosis or explore pricing.',
+      ctaPrimary: 'Schedule Free Diagnosis',
       ctaSecondary: 'View Pricing',
       getInTouch: 'Get in Touch',
       letsTalk: 'Let\u2019s Talk'
@@ -195,263 +193,253 @@ export const translations = {
 
     // Footer
     footer: {
-      tagline: 'AI automation and web development built by an enterprise-background engineer in Israel.',
+      tagline: 'Efficient. Simple. Transformative. AI automation and web development built by an enterprise-background engineer in Israel.',
       quickLinks: 'Quick Links',
       connect: 'Connect',
-      copyright: '\u00a9 {year} Workitu Tech. All rights reserved.',
+      copyright: '© {year} Workitu Tech. All rights reserved.',
       legal: 'Legal & Privacy'
     }
   },
 
   he: {
     nav: {
-      home: '\u05d1\u05d9\u05ea',
-      about: '\u05d0\u05d5\u05d3\u05d5\u05ea',
-      services: '\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9\u05dd',
-      portfolio: '\u05ea\u05d9\u05e7 \u05e2\u05d1\u05d5\u05d3\u05d5\u05ea',
-      pricing: '\u05de\u05d7\u05d9\u05e8\u05d9\u05dd',
-      contact: '\u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8',
-      bookCall: '\ud83d\udcde \u05e7\u05d1\u05e2 \u05e9\u05d9\u05d7\u05d4'
+      home: 'בית',
+      about: 'אודות',
+      services: 'שירותים',
+      portfolio: 'תיק עבודות',
+      pricing: 'מחירים',
+      contact: 'צור קשר',
+      bookCall: '📞 אבחון חינם'
     },
     home: {
-      badge: '\u05d6\u05de\u05d9\u05df \u05dc\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd',
-      heroLine1a: '',
-      heroLine1b: '\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05d1\u05d9\u05e0\u05d4 \u05de\u05dc\u05d0\u05db\u05d5\u05ea\u05d9\u05ea',
-      heroLine2a: '\u05e0\u05d1\u05e0\u05ea\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05de\u05d9 \u05e9\u05d1\u05d0\u05de\u05ea ',
-      heroLine2b: '\u05e9\u05dc\u05d7 \u05de\u05e2\u05e8\u05db\u05d5\u05ea \u05d0\u05de\u05d9\u05ea\u05d9\u05d5\u05ea',
-      subtitle: '4.5 \u05e9\u05e0\u05d9\u05dd \u05d1\u05e4\u05d9\u05e0\u05d8\u05e7 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9. \u05ea\u05dc\u05ea \u05dc\u05e9\u05d5\u05e0\u05d9. \u05d7\u05d9 \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc. \u05d1\u05d5\u05e0\u05d4 \u05de\u05e2\u05e8\u05db\u05d5\u05ea AI \u05e9\u05e2\u05d5\u05d1\u05d3\u05d5\u05ea \u05d1\u05d0\u05de\u05ea \u2014 \u05dc\u05e2\u05e1\u05e7\u05d9\u05dd \u05e9\u05e6\u05e8\u05d9\u05db\u05d9\u05dd \u05ea\u05d5\u05e6\u05d0\u05d5\u05ea, \u05dc\u05d0 \u05d4\u05d3\u05d2\u05de\u05d5\u05ea.',
-      ctaPrimary: '\u05e7\u05d1\u05e2 \u05e9\u05d9\u05d7\u05ea \u05d4\u05d9\u05db\u05e8\u05d5\u05ea \u05d7\u05d9\u05e0\u05dd',
-      ctaSecondary: '\u05e8\u05d0\u05d4 \u05de\u05d4 \u05d0\u05e0\u05d9 \u05d1\u05d5\u05e0\u05d4',
+      badge: 'זמין לפרויקטים',
+      heroLine1a: 'הלקוחות שלך מגיעים אליך ',
+      heroLine1b: 'בזכות העבודה שלך.',
+      heroLine2a: 'הבינה המלאכותית מטפלת ',
+      heroLine2b: 'בכל השאר.',
+      subtitle: 'אוטומציה עם AI לאנשי מקצוע שאין להם זמן לבזבז. פשוט לשימוש. בלתי אפשרי להתעלם מהתוצאות.',
+      ctaPrimary: 'לתאם אבחון חינם',
+      ctaSecondary: 'ראה את השירותים',
       stats: {
-        fintech: { value: '4.5 \u05e9\u05e0\u05d9\u05dd', label: '\u05e4\u05d9\u05e0\u05d8\u05e7 (BdB)' },
-        projects: { value: '150+', label: '\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd' },
-        saas: { value: '1', label: '\u05de\u05d5\u05e6\u05e8 SaaS \u05e4\u05e2\u05d9\u05dc' },
-        trilingual: { label: '\u05ea\u05dc\u05ea \u05dc\u05e9\u05d5\u05e0\u05d9' }
+        services: { label: 'שירותים' },
+        aiAgents: { label: 'סוכני AI' },
+        trilingual: { label: 'תלת לשוני' }
       },
-      servicesTitle1: '\u05de\u05d4 \u05d0\u05e0\u05d7\u05e0\u05d5 ',
-      servicesTitle2: '\u05d1\u05d5\u05e0\u05d9\u05dd',
-      servicesSubtitle: '\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05d5\u05e4\u05d9\u05ea\u05d5\u05d7 \u05d0\u05ea\u05e8\u05d9\u05dd \u05de\u05e7\u05e6\u05d4 \u05dc\u05e7\u05e6\u05d4 \u05de\u05d5\u05e0\u05e2\u05d9\u05dd \u05e2\u05dc \u05d9\u05d3\u05d9 \u05d4\u05e0\u05d3\u05e1\u05d4 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9\u05ea \u05d5-AI \u05de\u05d5\u05d3\u05e8\u05e0\u05d9.',
+      servicesTitle1: 'מה אנחנו ',
+      servicesTitle2: 'בונים',
+      servicesSubtitle: 'פתרונות דיגיטליים מקצה לקצה מונעים על ידי AI מתקדם וטכנולוגיות וב מודרניות.',
       services: {
-        ai: { title: '\u05e1\u05d5\u05db\u05e0\u05d9 AI \u05d5\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4', description: '\u05e2\u05d5\u05d6\u05e8\u05d9 AI \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd \u05e9\u05de\u05e0\u05d4\u05dc\u05d9\u05dd \u05d0\u05ea \u05d4\u05e2\u05e1\u05e7 \u05e9\u05dc\u05da 24/7. \u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8\u05d9\u05dd, \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05e2\u05dd n8n, \u05d5\u05de\u05e2\u05e8\u05db\u05d5\u05ea \u05d7\u05db\u05de\u05d5\u05ea.' },
-        web: { title: '\u05e4\u05d9\u05ea\u05d5\u05d7 \u05d0\u05ea\u05e8\u05d9\u05dd', description: '\u05d0\u05ea\u05e8\u05d9\u05dd \u05d5\u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea \u05d5\u05d1 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05d9\u05dd \u05e9\u05d4\u05d5\u05e4\u05db\u05d9\u05dd \u05de\u05d1\u05e7\u05e8\u05d9\u05dd \u05dc\u05dc\u05e7\u05d5\u05d7\u05d5\u05ea. \u05d1\u05e0\u05d5\u05d9\u05d9\u05dd \u05e2\u05dd Next.js, React \u05d5\u05db\u05dc\u05d9\u05dd \u05de\u05d5\u05d3\u05e8\u05e0\u05d9\u05d9\u05dd.' },
-        marketing: { title: '\u05e9\u05d9\u05d5\u05d5\u05e7 \u05d3\u05d9\u05d2\u05d9\u05d8\u05dc\u05d9 \u05d5\u05e8\u05e9\u05ea\u05d5\u05ea \u05d7\u05d1\u05e8\u05ea\u05d9\u05d5\u05ea', description: '\u05e0\u05d9\u05d4\u05d5\u05dc \u05e8\u05e9\u05ea\u05d5\u05ea \u05d7\u05d1\u05e8\u05ea\u05d9\u05d5\u05ea, \u05d0\u05e1\u05d8\u05e8\u05d8\u05d2\u05d9\u05d9\u05ea \u05ea\u05d5\u05db\u05df \u05d5\u05d9\u05d9\u05e6\u05d5\u05e8 \u05dc\u05d9\u05d3\u05d9\u05dd \u05e9\u05de\u05d1\u05d9\u05d0\u05d9\u05dd \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea \u05d0\u05de\u05d9\u05ea\u05d9\u05d9\u05dd.' },
-        lessons: { title: '\u05e9\u05d9\u05e2\u05d5\u05e8\u05d9 \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4 \u05d5-AI', description: '\u05e9\u05d9\u05e2\u05d5\u05e8\u05d9\u05dd \u05e4\u05e8\u05d8\u05d9\u05d9\u05dd \u05d1\u05ea\u05db\u05e0\u05d5\u05ea, \u05db\u05dc\u05d9 AI \u05d5\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4. \u05dc\u05de\u05d3 \u05d1\u05e7\u05e6\u05d1 \u05e9\u05dc\u05da \u05e2\u05dd \u05de\u05e4\u05ea\u05d7 \u05d1\u05db\u05d9\u05e8.' },
-        brazil: { title: '\u05de\u05e2\u05e8\u05db\u05d5\u05ea AI \u05dc\u05e9\u05d5\u05e7 \u05d4\u05d1\u05e8\u05d6\u05d9\u05dc\u05d0\u05d9-\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9', description: '\u05de\u05d5\u05e6\u05e8\u05d9 AI \u05d3\u05d5-\u05dc\u05e9\u05d5\u05e0\u05d9\u05d9\u05dd, \u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8\u05d9\u05dd \u05d5\u05db\u05dc\u05d9 \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05dc\u05e2\u05e1\u05e7\u05d9\u05dd \u05e9\u05e4\u05d5\u05e2\u05dc\u05d9\u05dd \u05d1\u05d9\u05df \u05d1\u05e8\u05d6\u05d9\u05dc \u05dc\u05d9\u05e9\u05e8\u05d0\u05dc.' }
+        mentoring: { title: 'מנטורינג טכנולוגי', description: 'שיעורים פרטיים 1:1 בתכנות, כלי AI וטכנולוגיה. למד בקצב שלך עם מפתח בכיר.' },
+        marketing: { title: 'שיווק דיגיטלי', description: 'ניהול מדיה חברתית, אסטרטגיית תוכן וייצור לידים מונעים על ידי AI. המותג שלך ראוי להיראות.' },
+        products: { title: 'מוצרים דיגיטליים', description: 'אתרים, בוטים, סוכני AI ואוטומציות שמריצים את העסק שלך 24/7. נבנו לשנות, לא רק להרשים.' }
       },
-      meetTitle: '\u05d4\u05db\u05d9\u05e8\u05d5 \u05d0\u05ea ',
-      meetName: '\u05d9\u05d5\u05e0\u05ea\u05df',
-      meetP1: '\u05d0\u05e0\u05d9 \u05d9\u05d5\u05e0\u05ea\u05df \u05e4\u05e8\u05dc\u05d9\u05df \u2014 \u05de\u05d4\u05e0\u05d3\u05e1 \u05ea\u05d5\u05db\u05e0\u05d4 \u05d1\u05e8\u05d6\u05d9\u05dc\u05d0\u05d9-\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9, \u05d1\u05d5\u05e0\u05d4 AI \u05d5\u05de\u05d9\u05d9\u05e1\u05d3 Workitu Tech. \u05d1\u05d9\u05dc\u05d9\u05ea\u05d9 4.5 \u05e9\u05e0\u05d9\u05dd \u05d1-Banco do Brasil \u05dc\u05d1\u05e0\u05d5\u05ea \u05ea\u05d5\u05db\u05e0\u05d4 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9\u05ea \u05e9\u05de\u05d9\u05dc\u05d9\u05d5\u05e0\u05d9 \u05d0\u05e0\u05e9\u05d9\u05dd \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05d1\u05d4.',
-      meetP2: '\u05d4\u05d9\u05d5\u05dd \u05d0\u05e0\u05d9 \u05d1\u05d5\u05e0\u05d4 \u05de\u05e2\u05e8\u05db\u05d5\u05ea \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05e9\u05dc AI, \u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea \u05d5\u05d1 \u05d5\u05ea\u05d5\u05db\u05e0\u05d5\u05ea \u05de\u05d5\u05ea\u05d0\u05de\u05d5\u05ea \u05dc\u05e2\u05e1\u05e7\u05d9\u05dd \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc, \u05d1\u05e8\u05d6\u05d9\u05dc \u05d5\u05d1\u05e2\u05d5\u05dc\u05dd. \u05d0\u05e0\u05d9 \u05de\u05d3\u05d1\u05e8 \u05e4\u05d5\u05e8\u05d8\u05d5\u05d2\u05d6\u05d9\u05ea, \u05d0\u05e0\u05d2\u05dc\u05d9\u05ea \u05d5\u05e2\u05d1\u05e8\u05d9\u05ea \u2014 \u05d0\u05e0\u05d9 \u05d9\u05db\u05d5\u05dc \u05dc\u05e2\u05d1\u05d5\u05d3 \u05e2\u05dd \u05d4\u05e6\u05d5\u05d5\u05ea \u05e9\u05dc\u05da \u05d1\u05dc\u05d9 \u05e9\u05db\u05d1\u05ea \u05ea\u05e8\u05d2\u05d5\u05dd.',
-      meetP3: 'React \u00b7 Next.js \u00b7 Node.js \u00b7 Python \u00b7 FastAPI \u00b7 n8n \u00b7 Claude API \u00b7 OpenAI \u00b7 MBA \u05e0\u05d9\u05d4\u05d5\u05dc \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9, \u05d0\u05d5\u05e0\u05d9\u05d1\u05e8\u05e1\u05d9\u05d8\u05ea \u05d7\u05d9\u05e4\u05d4',
-      whyTitle1: '\u05dc\u05de\u05d4 ',
-      whyTitle2: '\u05dc\u05e2\u05d1\u05d5\u05d3 \u05d0\u05d9\u05ea\u05d9',
-      why: {
-        fintech: { title: 'DNA \u05e4\u05d9\u05e0\u05d8\u05e7', subtitle: '\u05e8\u05e7\u05e2 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9, \u05de\u05d4\u05d9\u05e8\u05d5\u05ea \u05e1\u05d8\u05d0\u05e8\u05d8\u05d0\u05e4.', text: '\u05d1\u05e0\u05d9\u05ea\u05d9 \u05d5\u05ea\u05d7\u05d6\u05e7\u05ea\u05d9 \u05ea\u05d5\u05db\u05e0\u05d4 \u05e9\u05de\u05d9\u05dc\u05d9\u05d5\u05e0\u05d9 \u05d0\u05e0\u05e9\u05d9\u05dd \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05d1\u05d4. \u05d0\u05e0\u05d9 \u05de\u05d9\u05d9\u05e9\u05dd \u05d0\u05ea \u05d4\u05de\u05e9\u05de\u05e2\u05ea \u05d4\u05d6\u05d5 \u05dc\u05db\u05dc \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8.' },
-        trilingual: { title: '\u05de\u05e1\u05d9\u05e8\u05d4 \u05ea\u05dc\u05ea-\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea', subtitle: '\u05e4\u05d5\u05e8\u05d8\u05d5\u05d2\u05d6\u05d9\u05ea, \u05d0\u05e0\u05d2\u05dc\u05d9\u05ea \u05d5\u05e2\u05d1\u05e8\u05d9\u05ea.', text: '\u05d0\u05d9\u05df \u05e9\u05d2\u05d9\u05d0\u05d5\u05ea \u05ea\u05e8\u05d2\u05d5\u05dd, \u05d0\u05d9\u05df \u05e4\u05e2\u05e8\u05d9\u05dd \u05ea\u05e8\u05d1\u05d5\u05ea\u05d9\u05d9\u05dd. \u05d0\u05e0\u05d9 \u05de\u05d1\u05d9\u05df \u05d0\u05ea \u05d4\u05e1\u05d1\u05d9\u05d1\u05d4 \u05d4\u05e2\u05e1\u05e7\u05d9\u05ea \u05d4\u05d1\u05e8\u05d6\u05d9\u05dc\u05d0\u05d9\u05ea-\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9\u05ea \u05de\u05d1\u05e4\u05e0\u05d9\u05dd.' },
-        live: { title: '\u05de\u05d5\u05e6\u05e8\u05d9\u05dd \u05d7\u05d9\u05d9\u05dd, \u05dc\u05d0 \u05d4\u05d3\u05de\u05d9\u05d5\u05ea', subtitle: '\u05d0\u05e0\u05d9 \u05e9\u05d5\u05dc\u05d7 \u05d3\u05d1\u05e8\u05d9\u05dd \u05e9\u05e2\u05d5\u05dc\u05d9\u05dd \u05dc\u05d0\u05d5\u05d5\u05d9\u05e8 \u05d5\u05e0\u05e9\u05d0\u05e8\u05d9\u05dd \u05e9\u05dd.', text: 'Conex\u00e3o Israel Brasil \u05d4\u05d5\u05d0 SaaS \u05e4\u05e2\u05d9\u05dc \u05e2\u05dd \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05d0\u05de\u05d9\u05ea\u05d9\u05d9\u05dd \u05d5\u05de\u05e0\u05d5\u05d9 \u05d1\u05ea\u05e9\u05dc\u05d5\u05dd. \u05d0\u05ea\u05d4 \u05e9\u05d5\u05db\u05e8 \u05de\u05d9\u05e9\u05d4\u05d5 \u05e9\u05d1\u05d5\u05e0\u05d4 \u05d3\u05d1\u05e8\u05d9\u05dd \u05e9\u05e2\u05d5\u05d1\u05d3\u05d9\u05dd.' },
-        strategy: { title: '\u05d0\u05e1\u05d8\u05e8\u05d8\u05d2\u05d9\u05d4 \u05e4\u05d5\u05d2\u05e9\u05ea \u05e7\u05d5\u05d3', subtitle: 'MBA \u05d1\u05e0\u05d9\u05d4\u05d5\u05dc \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9, \u05d0\u05d5\u05e0\u05d9\u05d1\u05e8\u05e1\u05d9\u05d8\u05ea \u05d7\u05d9\u05e4\u05d4.', text: '\u05d0\u05e0\u05d9 \u05d9\u05db\u05d5\u05dc \u05dc\u05ea\u05db\u05e0\u05ea \u05d0\u05ea \u05d4\u05de\u05d5\u05e6\u05e8 \u05e9\u05dc\u05da \u05d5\u05dc\u05e2\u05d6\u05d5\u05e8 \u05dc\u05da \u05dc\u05d7\u05e9\u05d5\u05d1 \u05e2\u05dc \u05d4\u05de\u05d5\u05d3\u05dc \u05d4\u05e2\u05e1\u05e7\u05d9. \u05e9\u05e0\u05d9\u05d4\u05dd \u05d7\u05e9\u05d5\u05d1\u05d9\u05dd.' }
-      },
-      ctaTitle1: '\u05de\u05d5\u05db\u05e0\u05d9\u05dd ',
-      ctaTitle2: '\u05dc\u05e9\u05e0\u05d5\u05ea',
-      ctaTitle3: ' \u05d0\u05ea \u05d4\u05e2\u05e1\u05e7?',
-      ctaText: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05d3\u05d1\u05e8 \u05d0\u05d9\u05da \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05d5\u05e4\u05ea\u05e8\u05d5\u05e0\u05d5\u05ea \u05d0\u05d9\u05e0\u05d8\u05e8\u05e0\u05d8 \u05de\u05d5\u05d3\u05e8\u05e0\u05d9\u05d9\u05dd \u05d9\u05db\u05d5\u05dc\u05d9\u05dd \u05dc\u05d4\u05d0\u05d9\u05e5 \u05d0\u05ea \u05d4\u05e6\u05de\u05d9\u05d7\u05d4 \u05e9\u05dc\u05db\u05dd.',
-      ctaButton: '\u05e7\u05d1\u05e2 \u05e9\u05d9\u05d7\u05ea \u05d4\u05d9\u05db\u05e8\u05d5\u05ea \u05d7\u05d9\u05e0\u05dd'
+      missionTitle: 'המשימה שלנו',
+      missionP1: 'אנחנו מאמינים שטכנולוגיה צריכה לעבוד בשבילך, לא הפוך. לכן אנחנו בונים פתרונות AI שפשוטים לשימוש ומספקים טרנספורמציה אמיתית.',
+      missionP2: 'עם 4.5 שנות ניסיון בפינטק ארגוני ו-MBA בניהול טכנולוגי, אנחנו משלבים עומק טכני עם אסטרטגיה עסקית.',
+      missionP3: 'מישראל לעולם — יעיל. פשוט. משנה חוקים.',
+      ctaTitle1: 'מוכנים ',
+      ctaTitle2: 'לשנות',
+      ctaTitle3: ' את העסק?',
+      ctaText: 'בואו נדבר איך אוטומציה ופתרונות אינטרנט מודרניים יכולים להאיץ את הצמיחה שלכם.',
+      ctaButton: 'לתאם אבחון חינם'
     },
     portfolio: {
-      title: '\u05ea\u05d9\u05e7 \u05d4\u05e2\u05d1\u05d5\u05d3\u05d5\u05ea \u05e9\u05dc\u05e0\u05d5',
-      description: '\u05d2\u05dc\u05d5 \u05d0\u05ea \u05d4\u05d7\u05d5\u05d5\u05d9\u05d5\u05ea \u05d4\u05d3\u05d9\u05d2\u05d9\u05d8\u05dc\u05d9\u05d5\u05ea \u05e9\u05d9\u05e6\u05e8\u05e0\u05d5. \u05db\u05dc \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05de\u05d9\u05d9\u05e6\u05d2 \u05d0\u05ea \u05d4\u05de\u05d7\u05d5\u05d9\u05d1\u05d5\u05ea \u05e9\u05dc\u05e0\u05d5 \u05dc\u05d7\u05d3\u05e9\u05e0\u05d5\u05ea, \u05d9\u05e6\u05d9\u05e8\u05ea\u05d9\u05d5\u05ea \u05d5\u05de\u05e6\u05d5\u05d9\u05e0\u05d5\u05ea.',
-      loading: '\u05d8\u05d5\u05e2\u05df \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd...',
-      noProjects: '\u05d0\u05d9\u05df \u05e2\u05d3\u05d9\u05d9\u05df \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd \u05d6\u05de\u05d9\u05e0\u05d9\u05dd. \u05d1\u05d3\u05e7\u05d5 \u05e9\u05d5\u05d1 \u05d1\u05e7\u05e8\u05d5\u05d1!',
-      watchVideo: '\u05e6\u05e4\u05d4 \u05d1\u05e1\u05e8\u05d8\u05d5\u05df',
-      visitWebsite: '\u05d1\u05e7\u05e8 \u05d1\u05d0\u05ea\u05e8',
-      viewProject: '\u05e6\u05e4\u05d4 \u05d1\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8'
+      title: 'תיק העבודות שלנו',
+      description: 'גלו את החוויות הדיגיטליות שיצרנו.',
+      loading: 'טוען פרויקטים...',
+      noProjects: 'אין עדיין פרויקטים זמינים.',
+      watchVideo: 'צפה בסרטון',
+      visitWebsite: 'בקר באתר',
+      viewProject: 'צפה בפרויקט'
     },
     pricing: {
-      title: '\u05de\u05d7\u05d9\u05e8\u05d9\u05dd',
-      subtitle: '\u05d1\u05d5\u05d5\u05e8\u05e7\u05d9\u05d8\u05d5 \u05d8\u05e7, \u05d0\u05e0\u05d7\u05e0\u05d5 \u05de\u05d0\u05de\u05d9\u05e0\u05d9\u05dd \u05e9\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4 \u05de\u05e2\u05d5\u05dc\u05d4 \u05e6\u05e8\u05d9\u05db\u05d4 \u05dc\u05d4\u05d9\u05d5\u05ea \u05e0\u05d2\u05d9\u05e9\u05d4 \u05dc\u05db\u05d5\u05dc\u05dd.',
-      description: '\u05d0\u05e0\u05d7\u05e0\u05d5 \u05de\u05e6\u05d9\u05e2\u05d9\u05dd \u05ea\u05de\u05d7\u05d5\u05e8 \u05e9\u05e7\u05d5\u05e3 \u05d5\u05d2\u05de\u05d9\u05e9 \u2014 \u05d1\u05e0\u05d5\u05d9 \u05e1\u05d1\u05d9\u05d1 \u05d4\u05de\u05d8\u05e8\u05d5\u05ea \u05e9\u05dc\u05db\u05dd, \u05dc\u05d0 \u05e8\u05e7 \u05e1\u05d1\u05d9\u05d1 \u05d4\u05ea\u05e7\u05e6\u05d9\u05d1.',
-      loading: '\u05d8\u05d5\u05e2\u05df \u05de\u05d7\u05d9\u05e8\u05d9\u05dd...',
-      promise: '\ud83d\udca1 \u05d4\u05d4\u05d1\u05d8\u05d7\u05d4 \u05e9\u05dc\u05e0\u05d5: \u05ea\u05de\u05d7\u05d5\u05e8 \u05d4\u05d5\u05d2\u05df, \u05ea\u05e7\u05e9\u05d5\u05e8\u05ea \u05db\u05e0\u05d4 \u05d5\u05ea\u05d5\u05e6\u05d0\u05d5\u05ea \u05e9\u05e0\u05e9\u05d0\u05e8\u05d5\u05ea.',
-      cta: '\u05d4\u05ea\u05d7\u05dc \u05d4\u05d9\u05d5\u05dd',
+      title: 'מחירים',
+      subtitle: 'יעיל. פשוט. משנה חוקים. — טכנולוגיה שעובדת בשבילך.',
+      description: 'אנחנו מציעים תמחור שקוף וגמיש — בנוי סביב המטרות שלכם.',
+      loading: 'טוען מחירים...',
+      promise: '💡 ההבטחה שלנו: תמחור הוגן, תקשורת כנה ותוצאות שנשארות.',
+      cta: 'לתאם אבחון חינם',
       services: {
-        website: { title: '\ud83c\udf10 \u05d1\u05e0\u05d9\u05d9\u05ea \u05d0\u05ea\u05e8\u05d9\u05dd', price: '\u05d4\u05d7\u05dc \u05de-$320', description: '\u05d0\u05ea\u05e8\u05d9\u05dd \u05d0\u05dc\u05d2\u05e0\u05d8\u05d9\u05d9\u05dd, \u05de\u05d4\u05d9\u05e8\u05d9\u05dd \u05d5\u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd \u05dc\u05de\u05d5\u05d1\u05d9\u05d9\u05dc.' },
-        ecommerce: { title: '\ud83d\uded2 \u05e4\u05ea\u05e8\u05d5\u05e0\u05d5\u05ea \u05de\u05e1\u05d7\u05e8 \u05d0\u05dc\u05e7\u05d8\u05e8\u05d5\u05e0\u05d9', price: '\u05d4\u05d7\u05dc \u05de-$950', description: '\u05d7\u05e0\u05d5\u05d9\u05d5\u05ea \u05de\u05e7\u05d5\u05d5\u05e0\u05d5\u05ea \u05d7\u05d6\u05e7\u05d5\u05ea \u05d5\u05de\u05d0\u05d5\u05d1\u05d8\u05d7\u05d5\u05ea.' },
-        ai: { title: '\ud83e\udd16 \u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea \u05de\u05d5\u05e0\u05e2\u05d5\u05ea AI', price: '\u05d4\u05d7\u05dc \u05de-$670', description: '\u05d4\u05e4\u05db\u05d5 \u05d0\u05ea \u05d4\u05e8\u05e2\u05d9\u05d5\u05e0\u05d5\u05ea \u05e9\u05dc\u05db\u05dd \u05dc\u05ea\u05d5\u05db\u05e0\u05d4 \u05d7\u05db\u05de\u05d4.' },
-        marketing: { title: '\ud83d\udcc8 \u05e9\u05d9\u05d5\u05d5\u05e7 \u05d3\u05d9\u05d2\u05d9\u05d8\u05dc\u05d9 \u05d5\u05e6\u05de\u05d9\u05d7\u05d4', price: '\u05d4\u05d7\u05dc \u05de-$270/\u05d7\u05d5\u05d3\u05e9', description: '\u05d0\u05e0\u05d7\u05e0\u05d5 \u05de\u05d2\u05d3\u05d9\u05dc\u05d9\u05dd \u05d0\u05ea \u05d4\u05e0\u05d5\u05db\u05d7\u05d5\u05ea \u05d4\u05de\u05e7\u05d5\u05d5\u05e0\u05ea \u05e9\u05dc\u05db\u05dd.' },
-        custom: { title: '\u2699\ufe0f \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd', price: '\u05db\u05dc \u05e8\u05e2\u05d9\u05d5\u05df \u05d9\u05d9\u05d7\u05d5\u05d3\u05d9 \u2014 \u05d5\u05db\u05da \u05d2\u05dd \u05db\u05dc \u05de\u05d7\u05d9\u05e8.', description: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05d3\u05d1\u05e8 \u05e2\u05dc \u05d4\u05d7\u05d6\u05d5\u05df \u05e9\u05dc\u05db\u05dd \u05d5\u05e0\u05e2\u05e6\u05d1 \u05d9\u05d7\u05d3 \u05d0\u05ea \u05d4\u05e4\u05ea\u05e8\u05d5\u05df \u05d4\u05de\u05d5\u05e9\u05dc\u05dd.' }
+        techMentoring: {
+          title: '🎓 חונכות טכנולוגית',
+          price: 'החל מ-₪150/שעה',
+          description: 'שיעורים פרטיים בתכנות, AI וכלים דיגיטליים. למד בקצב שלך עם הדרכה מעשית ממפתח מנוסה.'
+        },
+        onlineMarketing: {
+          title: '📱 שיווק מקוון',
+          price: 'החל מ-₪800/חודש',
+          description: 'ניהול מדיה חברתית מלא ואסטרטגיית תוכן. כלים מונעי AI שמגבירים את המותג שלך ומביאים לקוחות אמיתיים.'
+        },
+        digitalProducts: {
+          title: '⚡ מוצרים דיגיטליים',
+          price: 'החל מ-₪1,500 הקמה',
+          description: 'אתרים, בוטים, סוכני AI ואוטומציות שנבנו לשנות את העסק שלך. כולל אפשרויות תמיכה ותחזוקה שוטפת.'
+        },
+        custom: {
+          title: '⚙️ פרויקטים מותאמים',
+          price: 'כל רעיון ייחודי — וכך גם כל מחיר.',
+          description: 'כל עסק ייחודי — וכך גם כל פתרון. בואו נדבר על החזון שלכם ונעצב יחד את הטרנספורמציה הדיגיטלית המושלמת.'
+        }
       }
     },
     contact: {
-      title: '\u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8',
-      subtitle: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05d1\u05e0\u05d4 \u05de\u05e9\u05d4\u05d5 \u05de\u05d3\u05d4\u05d9\u05dd \u05d9\u05d7\u05d3',
-      description: '\u05de\u05d5\u05db\u05e0\u05d9\u05dd \u05dc\u05d4\u05e4\u05d5\u05da \u05d0\u05ea \u05d4\u05d7\u05d6\u05d5\u05df \u05e9\u05dc\u05db\u05dd \u05dc\u05de\u05e6\u05d9\u05d0\u05d5\u05ea? \u05e6\u05e8\u05d5 \u05d0\u05d9\u05ea\u05e0\u05d5 \u05e7\u05e9\u05e8.',
-      formTitle: '\u05e9\u05dc\u05d7\u05d5 \u05dc\u05e0\u05d5 \u05d4\u05d5\u05d3\u05e2\u05d4',
-      success: '\u05ea\u05d5\u05d3\u05d4! \u05d4\u05d4\u05d5\u05d3\u05e2\u05d4 \u05e9\u05dc\u05db\u05dd \u05e0\u05e9\u05dc\u05d7\u05d4 \u05d1\u05d4\u05e6\u05dc\u05d7\u05d4.',
-      error: '\u05de\u05e6\u05d8\u05e2\u05e8\u05d9\u05dd, \u05d0\u05d9\u05e8\u05e2\u05d4 \u05e9\u05d2\u05d9\u05d0\u05d4 \u05d1\u05e9\u05dc\u05d9\u05d7\u05ea \u05d4\u05d4\u05d5\u05d3\u05e2\u05d4. \u05d0\u05e0\u05d0 \u05e0\u05e1\u05d5 \u05e9\u05d5\u05d1.',
-      name: '\u05e9\u05dd',
-      namePlaceholder: '\u05d4\u05e9\u05dd \u05d4\u05de\u05dc\u05d0 \u05e9\u05dc\u05db\u05dd',
-      email: '\u05d0\u05d9\u05de\u05d9\u05d9\u05dc',
+      title: 'צור קשר',
+      subtitle: 'בואו נבנה משהו מדהים יחד',
+      description: 'מוכנים להפוך את החזון שלכם למציאות? צרו איתנו קשר.',
+      formTitle: 'שלחו לנו הודעה',
+      success: 'תודה! ההודעה שלכם נשלחה בהצלחה.',
+      error: 'מצטערים, אירעה שגיאה בשליחת ההודעה. אנא נסו שוב.',
+      name: 'שם',
+      namePlaceholder: 'השם המלא שלכם',
+      email: 'אימייל',
       emailPlaceholder: 'your.email@example.com',
-      message: '\u05d4\u05d5\u05d3\u05e2\u05d4',
-      messagePlaceholder: '\u05e1\u05e4\u05e8\u05d5 \u05dc\u05e0\u05d5 \u05e2\u05dc \u05d4\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05e9\u05dc\u05db\u05dd...',
-      send: '\u05e9\u05dc\u05d7 \u05d4\u05d5\u05d3\u05e2\u05d4',
-      sending: '\u05e9\u05d5\u05dc\u05d7...',
-      infoTitle: '\u05e6\u05e8\u05d5 \u05e7\u05e9\u05e8',
-      emailLabel: '\u05d0\u05d9\u05de\u05d9\u05d9\u05dc',
-      linkedinLabel: '\u05dc\u05d9\u05e0\u05e7\u05d3\u05d0\u05d9\u05df',
-      linkedinText: '\u05d4\u05ea\u05d7\u05d1\u05e8\u05d5 \u05d0\u05d9\u05ea\u05e0\u05d5 \u05d1\u05dc\u05d9\u05e0\u05e7\u05d3\u05d0\u05d9\u05df',
-      responseTitle: '\u05d6\u05de\u05df \u05ea\u05d2\u05d5\u05d1\u05d4',
-      responseText: '\u05d0\u05e0\u05d7\u05e0\u05d5 \u05d1\u05d3\u05e8\u05da \u05db\u05dc\u05dc \u05e2\u05d5\u05e0\u05d9\u05dd \u05dc\u05db\u05dc \u05d4\u05e4\u05e0\u05d9\u05d5\u05ea \u05ea\u05d5\u05da 24 \u05e9\u05e2\u05d5\u05ea.'
+      message: 'הודעה',
+      messagePlaceholder: 'ספרו לנו על הפרויקט שלכם...',
+      send: 'שלח הודעה',
+      sending: 'שולח...',
+      infoTitle: 'צרו קשר',
+      emailLabel: 'אימייל',
+      linkedinLabel: 'לינקדאין',
+      linkedinText: 'התחברו איתנו בלינקדאין',
+      responseTitle: 'זמן תגובה',
+      responseText: 'אנחנו בדרך כלל עונים לכל הפניות תוך 24 שעות.'
     },
     about: {
-      pageTitle: '\u05d4\u05de\u05d4\u05e0\u05d3\u05e1 \u05e9\u05de\u05d0\u05d7\u05d5\u05e8\u05d9 Workitu Tech',
-      pageSubtitle: '4.5 \u05e9\u05e0\u05d9\u05dd \u05d1\u05e4\u05d9\u05e0\u05d8\u05e7 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9. \u05ea\u05dc\u05ea \u05dc\u05e9\u05d5\u05e0\u05d9. \u05d1\u05d5\u05e0\u05d4 \u05de\u05e2\u05e8\u05db\u05d5\u05ea AI \u05d5\u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea \u05d5\u05d1 \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc.',
-      storyTitle: '\u05d4\u05e1\u05d9\u05e4\u05d5\u05e8 \u05e9\u05dc\u05d9 \u05d1-3 \u05de\u05e9\u05e4\u05d8\u05d9\u05dd',
-      storySummary: '\u05d1\u05d9\u05dc\u05d9\u05ea\u05d9 4.5 \u05e9\u05e0\u05d9\u05dd \u05d1\u05d1\u05e0\u05d9\u05d9\u05ea \u05ea\u05d5\u05db\u05e0\u05d4 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9\u05ea \u05d1-Banco do Brasil \u2014 \u05d0\u05d7\u05d3 \u05de\u05d4\u05d1\u05e0\u05e7\u05d9\u05dd \u05d4\u05d2\u05d3\u05d5\u05dc\u05d9\u05dd \u05d1\u05d0\u05de\u05e8\u05d9\u05e7\u05d4 \u05d4\u05dc\u05d8\u05d9\u05e0\u05d9\u05ea. \u05e2\u05db\u05e9\u05d9\u05d5 \u05d0\u05e0\u05d9 \u05d1\u05d5\u05e0\u05d4 \u05de\u05e2\u05e8\u05db\u05d5\u05ea \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05e9\u05dc AI \u05d5\u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea \u05d5\u05d1 \u05dc\u05e2\u05e1\u05e7\u05d9\u05dd \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc \u05d5\u05d1\u05e2\u05d5\u05dc\u05dd. \u05d0\u05e0\u05d9 \u05de\u05d3\u05d1\u05e8 \u05e9\u05dc\u05d5\u05e9 \u05e9\u05e4\u05d5\u05ea \u05d5\u05e9\u05d5\u05dc\u05d7 \u05de\u05d5\u05e6\u05e8\u05d9\u05dd \u05e9\u05d0\u05e0\u05e9\u05d9\u05dd \u05d0\u05de\u05d9\u05ea\u05d9\u05d9\u05dd \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05d1\u05d4\u05dd.',
-      bioTitle: '\u05e2\u05dc\u05d9',
-      bioP1: '\u05d0\u05e0\u05d9 \u05d9\u05d5\u05e0\u05ea\u05df \u05e1\u05dd \u05e4\u05e8\u05dc\u05d9\u05df \u2014 \u05de\u05d4\u05e0\u05d3\u05e1 \u05ea\u05d5\u05db\u05e0\u05d4 \u05d1\u05e8\u05d6\u05d9\u05dc\u05d0\u05d9-\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9, \u05d1\u05d5\u05e0\u05d4 AI \u05d5\u05de\u05d9\u05d9\u05e1\u05d3 Workitu Tech.',
-      bioP2: '\u05dc\u05e4\u05e0\u05d9 \u05e9\u05d4\u05e7\u05de\u05ea\u05d9 \u05d0\u05ea Workitu, \u05d1\u05d9\u05dc\u05d9\u05ea\u05d9 4.5 \u05e9\u05e0\u05d9\u05dd \u05d1-Banco do Brasil \u2014 \u05d0\u05d7\u05d3 \u05d4\u05de\u05d5\u05e1\u05d3\u05d5\u05ea \u05d4\u05e4\u05d9\u05e0\u05e0\u05e1\u05d9\u05d9\u05dd \u05d4\u05d2\u05d3\u05d5\u05dc\u05d9\u05dd \u05d1\u05d0\u05de\u05e8\u05d9\u05e7\u05d4 \u05d4\u05dc\u05d8\u05d9\u05e0\u05d9\u05ea \u2014 \u05d1\u05e0\u05d9\u05ea\u05d9 \u05d5\u05ea\u05d7\u05d6\u05e7\u05ea\u05d9 \u05ea\u05d5\u05db\u05e0\u05d4 \u05d1\u05e8\u05de\u05d4 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9\u05ea. \u05d4\u05e0\u05d9\u05e1\u05d9\u05d5\u05df \u05d4\u05d6\u05d4 \u05e0\u05ea\u05df \u05dc\u05d9 \u05de\u05e9\u05d4\u05d5 \u05e9\u05e8\u05d5\u05d1 \u05d4\u05e4\u05e8\u05d9\u05dc\u05e0\u05e1\u05e8\u05d9\u05dd \u05dc\u05d0 \u05de\u05db\u05d9\u05e8\u05d9\u05dd: \u05d4\u05d1\u05e0\u05d4 \u05e2\u05de\u05d5\u05e7\u05d4 \u05e9\u05dc \u05d0\u05d9\u05da \u05de\u05e2\u05e8\u05db\u05d5\u05ea \u05d9\u05d9\u05e6\u05d5\u05e8 \u05d0\u05de\u05d9\u05ea\u05d9\u05d5\u05ea \u05e0\u05e8\u05d0\u05d5\u05ea.',
-      bioP3: '\u05d4\u05d9\u05d5\u05dd \u05d0\u05e0\u05d9 \u05d1\u05d5\u05e0\u05d4 \u05de\u05e2\u05e8\u05db\u05d5\u05ea \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05e9\u05dc AI, \u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea \u05d5\u05d1 \u05d5\u05ea\u05d5\u05db\u05e0\u05d5\u05ea \u05de\u05d5\u05ea\u05d0\u05de\u05d5\u05ea \u05dc\u05e2\u05e1\u05e7\u05d9\u05dd \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc, \u05d1\u05e8\u05d6\u05d9\u05dc \u05d5\u05d1\u05e2\u05d5\u05dc\u05dd. \u05d0\u05e0\u05d9 \u05de\u05d3\u05d1\u05e8 \u05e4\u05d5\u05e8\u05d8\u05d5\u05d2\u05d6\u05d9\u05ea, \u05d0\u05e0\u05d2\u05dc\u05d9\u05ea \u05d5\u05e2\u05d1\u05e8\u05d9\u05ea \u2014 \u05db\u05da \u05e9\u05d0\u05e0\u05d9 \u05d9\u05db\u05d5\u05dc \u05dc\u05e2\u05d1\u05d5\u05d3 \u05e2\u05dd \u05d4\u05e6\u05d5\u05d5\u05ea \u05e9\u05dc\u05db\u05dd \u05d1\u05dc\u05d9 \u05e9\u05db\u05d1\u05ea \u05ea\u05e8\u05d2\u05d5\u05dd.',
-      bioP4: '\u05d0\u05e0\u05d9 \u05db\u05e8\u05d2\u05e2 \u05de\u05e1\u05d9\u05d9\u05dd MBA \u05d1\u05e0\u05d9\u05d4\u05d5\u05dc \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9 \u05d1\u05d0\u05d5\u05e0\u05d9\u05d1\u05e8\u05e1\u05d9\u05d8\u05ea \u05d7\u05d9\u05e4\u05d4, \u05e2\u05dd \u05d3\u05d2\u05e9 \u05e2\u05dc \u05d4\u05d5\u05d1\u05dc\u05ea \u05d7\u05d1\u05e8\u05d5\u05ea AI \u05d5\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4. \u05dc\u05d0 \u05db\u05d9 \u05d0\u05e0\u05d9 \u05e6\u05e8\u05d9\u05da \u05ea\u05e2\u05d5\u05d3\u05d4 \u2014 \u05d0\u05dc\u05d0 \u05db\u05d9 \u05d0\u05e0\u05d9 \u05de\u05d0\u05de\u05d9\u05df \u05e9\u05d4\u05d1\u05d5\u05e0\u05d9\u05dd \u05d4\u05d8\u05d5\u05d1\u05d9\u05dd \u05d1\u05d9\u05d5\u05ea\u05e8 \u05d2\u05dd \u05de\u05d1\u05d9\u05e0\u05d9\u05dd \u05e2\u05e1\u05e7\u05d9\u05dd.',
-      whyChooseUs: '\u05dc\u05de\u05d4 \u05dc\u05d1\u05d7\u05d5\u05e8 \u05d1-Workitu',
+      pageTitle: 'המהנדס שמאחורי Workitu Tech',
+      pageSubtitle: '4.5 שנים בפינטק ארגוני. תלת לשוני. בונה מערכות AI ואפליקציות וב בישראל.',
+      storyTitle: 'הסיפור שלי ב-3 משפטים',
+      storySummary: 'ביליתי 4.5 שנים בבניית תוכנה ארגונית ב-Banco do Brasil. עכשיו אני בונה מערכות AI ואפליקציות וב לעסקים בישראל ובעולם.',
+      bioTitle: 'עלי',
+      bioP1: 'אני יונתן סם פרלין — מהנדס תוכנה ברזילאי-ישראלי, בונה AI ומייסד Workitu Tech.',
+      bioP2: 'לפני שהקמתי את Workitu, ביליתי 4.5 שנים ב-Banco do Brasil בבניית תוכנה ארגונית.',
+      bioP3: 'היום אני בונה מערכות AI, אפליקציות וב ותוכנות מותאמות. אני מדבר פורטוגזית, אנגלית ועברית.',
+      bioP4: 'אני כרגע מסיים MBA בניהול טכנולוגי באוניברסיטת חיפה.',
+      whyChooseUs: 'למה לבחור ב-Workitu',
       differentiators: {
-        fintech: { title: 'DNA \u05e4\u05d9\u05e0\u05d8\u05e7', subtitle: '\u05e8\u05e7\u05e2 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9, \u05de\u05d4\u05d9\u05e8\u05d5\u05ea \u05e1\u05d8\u05d0\u05e8\u05d8\u05d0\u05e4.', text: '\u05d1\u05e0\u05d9\u05ea\u05d9 \u05d5\u05ea\u05d7\u05d6\u05e7\u05ea\u05d9 \u05ea\u05d5\u05db\u05e0\u05d4 \u05e9\u05de\u05d9\u05dc\u05d9\u05d5\u05e0\u05d9 \u05d0\u05e0\u05e9\u05d9\u05dd \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05d1\u05d4.' },
-        trilingual: { title: '\u05de\u05e1\u05d9\u05e8\u05d4 \u05ea\u05dc\u05ea-\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea', subtitle: '\u05e4\u05d5\u05e8\u05d8\u05d5\u05d2\u05d6\u05d9\u05ea, \u05d0\u05e0\u05d2\u05dc\u05d9\u05ea \u05d5\u05e2\u05d1\u05e8\u05d9\u05ea.', text: '\u05d0\u05d9\u05df \u05e9\u05d2\u05d9\u05d0\u05d5\u05ea \u05ea\u05e8\u05d2\u05d5\u05dd, \u05d0\u05d9\u05df \u05e4\u05e2\u05e8\u05d9\u05dd \u05ea\u05e8\u05d1\u05d5\u05ea\u05d9\u05d9\u05dd.' },
-        live: { title: '\u05de\u05d5\u05e6\u05e8\u05d9\u05dd \u05d7\u05d9\u05d9\u05dd \u2014 \u05d0\u05e0\u05d9 \u05e9\u05d5\u05dc\u05d7', subtitle: '\u05dc\u05d0 \u05d0\u05d9\u05e9 \u05e9\u05dc \u05d4\u05d3\u05de\u05d9\u05d5\u05ea.', text: 'Conex\u00e3o Israel Brasil \u05d4\u05d5\u05d0 SaaS \u05e4\u05e2\u05d9\u05dc \u05e2\u05dd \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05d0\u05de\u05d9\u05ea\u05d9\u05d9\u05dd \u05d5\u05de\u05e0\u05d5\u05d9 \u05d1\u05ea\u05e9\u05dc\u05d5\u05dd.' },
-        strategy: { title: '\u05d0\u05e1\u05d8\u05e8\u05d8\u05d2\u05d9\u05d4 \u05e4\u05d5\u05d2\u05e9\u05ea \u05e7\u05d5\u05d3', subtitle: 'MBA \u05d1\u05e0\u05d9\u05d4\u05d5\u05dc \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9, \u05d0\u05d5\u05e0\u05d9\u05d1\u05e8\u05e1\u05d9\u05d8\u05ea \u05d7\u05d9\u05e4\u05d4.', text: '\u05d0\u05e0\u05d9 \u05d9\u05db\u05d5\u05dc \u05dc\u05ea\u05db\u05e0\u05ea \u05d0\u05ea \u05d4\u05de\u05d5\u05e6\u05e8 \u05e9\u05dc\u05da \u05d5\u05d2\u05dd \u05dc\u05e2\u05d6\u05d5\u05e8 \u05dc\u05da \u05dc\u05d7\u05e9\u05d5\u05d1 \u05e2\u05dc \u05d4\u05de\u05d5\u05d3\u05dc \u05d4\u05e2\u05e1\u05e7\u05d9.' },
-        pricing: { title: '\u05ea\u05de\u05d7\u05d5\u05e8 \u05e9\u05e7\u05d5\u05e3', subtitle: '\u05de\u05d7\u05d9\u05e8\u05d9\u05dd \u05e7\u05d1\u05d5\u05e2\u05d9\u05dd. \u05d1\u05dc\u05d9 \u05d4\u05e4\u05ea\u05e2\u05d5\u05ea.', text: '\u05db\u05dc \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05de\u05ea\u05d7\u05d9\u05dc \u05e2\u05dd \u05d4\u05d9\u05e7\u05e3 \u05db\u05ea\u05d5\u05d1. \u05d0\u05ea\u05d4 \u05d9\u05d5\u05d3\u05e2 \u05e2\u05dc \u05de\u05d4 \u05d0\u05ea\u05d4 \u05de\u05e9\u05dc\u05dd \u05dc\u05e4\u05e0\u05d9 \u05e9\u05de\u05ea\u05d7\u05d9\u05dc\u05d9\u05dd.' }
+        fintech: { title: 'DNA פינטק', subtitle: 'רקע ארגוני, מהירות סטארטאפ.', text: 'בניתי ותחזקתי תוכנה שמיליוני אנשים משתמשים בה.' },
+        trilingual: { title: 'מסירה תלת-לשונית', subtitle: 'פורטוגזית, אנגלית ועברית.', text: 'אין שגיאות תרגום, אין פערים תרבותיים.' },
+        live: { title: 'מוצרים חיים, לא הדמיות', subtitle: 'אני שולח דברים שעולים לאוויר.', text: 'Conexão Israel Brasil הוא SaaS פעיל עם משתמשים אמיתיים.' },
+        strategy: { title: 'אסטרטגיה פוגשת קוד', subtitle: 'MBA בניהול טכנולוגי, אוניברסיטת חיפה.', text: 'אני יכול לתכנת את המוצר שלך וגם לעזור לך לחשוב על המודל העסקי.' },
+        pricing: { title: 'תמחור שקוף', subtitle: 'מחירים קבועים. בלי הפתעות.', text: 'כל פרויקט מתחיל עם היקף כתוב.' }
       },
-      principlesTitle: '\u05e2\u05e7\u05e8\u05d5\u05e0\u05d5\u05ea \u05d9\u05e1\u05d5\u05d3',
+      principlesTitle: 'עקרונות יסוד',
       principles: {
-        enterprise: { title: '\u05d1\u05e1\u05d9\u05e1 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9', text: '\u05dc\u05d0 \u05d4\u05ea\u05d7\u05dc\u05ea\u05d9 \u05db\u05e4\u05e8\u05d9\u05dc\u05e0\u05e1\u05e8. \u05d4\u05ea\u05d7\u05dc\u05ea\u05d9 \u05d1\u05d1\u05e0\u05e7. 4.5 \u05e9\u05e0\u05d9\u05dd \u05e9\u05dc \u05d1\u05e0\u05d9\u05d9\u05ea \u05ea\u05d5\u05db\u05e0\u05d4 \u05e9\u05d0\u05e0\u05e9\u05d9\u05dd \u05d0\u05de\u05d9\u05ea\u05d9\u05d9\u05dd \u05ea\u05dc\u05d5\u05d9\u05d9\u05dd \u05d1\u05d4.' },
-        ai: { title: 'AI \u05d0\u05de\u05d9\u05ea\u05d9, \u05dc\u05d0 \u05d1\u05d0\u05d6\u05d5\u05d5\u05e8\u05d3', text: '\u05de\u05e2\u05e8\u05db\u05d5\u05ea \u05d4-AI \u05e9\u05d0\u05e0\u05d9 \u05d1\u05d5\u05e0\u05d4 \u05e8\u05e6\u05d5\u05ea \u05d7\u05d9\u05d5\u05ea \u05d1\u05d9\u05d9\u05e6\u05d5\u05e8. Bee \u05e8\u05e5 \u05e2\u05dc \u05e9\u05e8\u05ea \u05e2\u05db\u05e9\u05d9\u05d5. CIB \u05d9\u05e9 \u05dc\u05d5 \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05de\u05e9\u05dc\u05de\u05d9\u05dd.' },
-        trilingual: { title: '\u05ea\u05dc\u05ea \u05dc\u05e9\u05d5\u05e0\u05d9 = \u05e0\u05d3\u05d9\u05e8', text: '\u05e4\u05d5\u05e8\u05d8\u05d5\u05d2\u05d6\u05d9\u05ea + \u05d0\u05e0\u05d2\u05dc\u05d9\u05ea + \u05e2\u05d1\u05e8\u05d9\u05ea. \u05d0\u05e0\u05d9 \u05d1\u05d5\u05e0\u05d4 \u05dc\u05e9\u05d5\u05e7 \u05d4\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9, \u05de\u05d5\u05db\u05e8 \u05dc\u05d7\u05d1\u05e8\u05d5\u05ea \u05d1\u05e8\u05d6\u05d9\u05dc\u05d0\u05d9\u05d5\u05ea, \u05d5\u05e2\u05d5\u05d1\u05d3 \u05e2\u05dd \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea \u05d1\u05d9\u05e0\u05dc\u05d0\u05d5\u05de\u05d9\u05d9\u05dd.' },
-        builder: { title: '\u05d1\u05d5\u05e0\u05d4, \u05dc\u05d0 \u05de\u05e9\u05d5\u05d5\u05e7', text: '\u05db\u05dc \u05e9\u05d5\u05e8\u05ea \u05e7\u05d5\u05d3 \u05e0\u05db\u05ea\u05d1\u05ea \u05e2\u05dc \u05d9\u05d3\u05d9. \u05d1\u05dc\u05d9 \u05e2\u05d8\u05d9\u05e4\u05d4 \u05dc\u05d1\u05e0\u05d4, \u05d1\u05dc\u05d9 \u05e7\u05d1\u05dc\u05e0\u05d9 \u05de\u05e9\u05e0\u05d4. \u05de\u05d4 \u05e9\u05d0\u05ea\u05d4 \u05e8\u05d5\u05d0\u05d4 \u05d1\u05ea\u05d9\u05e7 \u05d4\u05e2\u05d1\u05d5\u05d3\u05d5\u05ea \u05d4\u05d5\u05d0 \u05de\u05d4 \u05e9\u05d0\u05e0\u05d9 \u05d1\u05d0\u05de\u05ea \u05d1\u05e0\u05d9\u05ea\u05d9.' }
+        enterprise: { title: 'בסיס ארגוני', text: 'לא התחלתי כפרילנסר. התחלתי בבנק.' },
+        ai: { title: 'AI אמיתי, לא באזוורד', text: 'מערכות ה-AI שאני בונה רצות חיות בייצור.' },
+        trilingual: { title: 'תלת לשוני = נדיר', text: 'פורטוגזית + אנגלית + עברית.' },
+        builder: { title: 'בונה, לא משווק', text: 'כל שורת קוד נכתבת על ידי.' }
       },
-      techStackTitle: '\u05d4\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d5\u05ea \u05e9\u05dc\u05e0\u05d5',
-      ctaTitle: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05d1\u05e0\u05d4 \u05de\u05e9\u05d4\u05d5 \u05d9\u05d7\u05d3',
-      ctaText: '\u05d1\u05d9\u05df \u05d0\u05dd \u05d0\u05ea\u05dd \u05e6\u05e8\u05d9\u05db\u05d9\u05dd \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05e9\u05dc AI, \u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d9\u05ea \u05d0\u05d9\u05e0\u05d8\u05e8\u05e0\u05d8 \u05d0\u05d5 \u05d9\u05d5\u05e2\u05e5 \u05d8\u05db\u05e0\u05d9 \u05e9\u05de\u05d3\u05d1\u05e8 \u05d0\u05ea \u05d4\u05e9\u05e4\u05d4 \u05e9\u05dc\u05db\u05dd \u2014 \u05d0\u05e0\u05d9 \u05db\u05d0\u05df.',
-      ctaButton: '\u05e7\u05d1\u05e2 \u05e9\u05d9\u05d7\u05ea \u05d4\u05d9\u05db\u05e8\u05d5\u05ea \u05d7\u05d9\u05e0\u05dd'
+      techStackTitle: 'הטכנולוגיות שלנו',
+      ctaTitle: 'בואו נבנה משהו יחד',
+      ctaText: 'בין אם אתם צריכים אוטומציה של AI, אפליקציית אינטרנט או יועץ טכני — אני כאן.',
+      ctaButton: 'לתאם אבחון חינם'
     },
     servicesPage: {
-      title: '\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9 \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05d5\u05e4\u05d9\u05ea\u05d5\u05d7 \u05d0\u05ea\u05e8\u05d9\u05dd',
-      subtitle: '\u05e1\u05d5\u05db\u05e0\u05d9 AI \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd, \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d5\u05ea n8n, \u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea Next.js \u05d5\u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8\u05d9 AI \u05e9\u05e0\u05d1\u05e0\u05d5 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05de\u05e4\u05ea\u05d7 \u05e2\u05dd \u05e8\u05e7\u05e2 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9 \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc.',
+      title: 'השירותים שלנו',
+      subtitle: 'יעיל. פשוט. משנה חוקים. — פתרונות דיגיטליים שעובדים בשבילך.',
       services: {
-        webDev: { title: '\u05e4\u05d9\u05ea\u05d5\u05d7 \u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea \u05d5\u05d1 \u05de\u05d5\u05ea\u05d0\u05de\u05d5\u05ea', description: '\u05d0\u05ea\u05e8\u05d9\u05dd \u05d5\u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea \u05d5\u05d1 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05d9\u05dd \u05e2\u05dd Next.js, React \u05d5-Node.js. \u05e7\u05d5\u05d3 \u05d1\u05e8\u05de\u05d4 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9\u05ea \u05de\u05de\u05e4\u05ea\u05d7 \u05e2\u05dd 4.5 \u05e9\u05e0\u05d9\u05dd \u05d1\u05e4\u05d9\u05e0\u05d8\u05e7.', features: ['\u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea Next.js \u05d5-React', '\u05e2\u05d9\u05e6\u05d5\u05d1 \u05e8\u05e1\u05e4\u05d5\u05e0\u05e1\u05d9\u05d1\u05d9, \u05de\u05d5\u05d1\u05d9\u05d9\u05dc-\u05ea\u05d7\u05d9\u05dc\u05d4', '\u05d0\u05e8\u05db\u05d9\u05d8\u05e7\u05d8\u05d5\u05e8\u05d4 \u05de\u05d5\u05d8\u05de\u05e2\u05ea SEO', '\u05d0\u05d9\u05e0\u05d8\u05d2\u05e8\u05e6\u05d9\u05d5\u05ea API \u05d5\u05e4\u05d9\u05ea\u05d5\u05d7 \u05e6\u05d3 \u05e9\u05e8\u05ea', '\u05e4\u05dc\u05d8\u05e4\u05d5\u05e8\u05de\u05d5\u05ea \u05de\u05e1\u05d7\u05e8 \u05d0\u05dc\u05e7\u05d8\u05e8\u05d5\u05e0\u05d9', '\u05ea\u05d7\u05d6\u05d5\u05e7\u05d4 \u05d5\u05ea\u05de\u05d9\u05db\u05d4 \u05e9\u05d5\u05d8\u05e4\u05ea'] },
-        aiAgents: { title: '\u05e1\u05d5\u05db\u05e0\u05d9 AI \u05d5\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4', description: '\u05e1\u05d5\u05db\u05e0\u05d9 AI \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd \u05e2\u05dd Claude API \u05d5-OpenAI, \u05e2\u05dd \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d5\u05ea n8n. \u05e0\u05d1\u05e0\u05d5 \u05dc\u05d4\u05e8\u05d9\u05e5 \u05d0\u05ea \u05d4\u05e2\u05e1\u05e7 \u05e9\u05dc\u05da 24/7.', features: ['\u05e1\u05d5\u05db\u05e0\u05d9 AI \u05e2\u05dd \u05d6\u05d9\u05db\u05e8\u05d5\u05df \u05d5\u05db\u05dc\u05d9\u05dd', '\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d5\u05ea n8n (\u05d0\u05d9\u05e8\u05d5\u05d7 \u05e2\u05e6\u05de\u05d9)', '\u05d0\u05d9\u05e0\u05d8\u05d2\u05e8\u05e6\u05d9\u05d5\u05ea Claude API \u05d5-OpenAI', '\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d5\u05ea CRM \u05d5\u05d9\u05d5\u05de\u05df', '\u05e2\u05d9\u05d1\u05d5\u05d3 \u05d5\u05e1\u05d9\u05d5\u05d5\u05d2 \u05de\u05e1\u05de\u05db\u05d9\u05dd', '\u05ea\u05d4\u05dc\u05d9\u05db\u05d9 \u05e2\u05d1\u05d5\u05d3\u05d4 \u05d0\u05d5\u05d8\u05d5\u05e0\u05d5\u05de\u05d9\u05d9\u05dd'] },
-        chatbots: { title: '\u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8\u05d9 AI \u05dc\u05e2\u05e1\u05e7\u05d9\u05dd', description: '\u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8\u05d9\u05dd \u05d7\u05db\u05de\u05d9\u05dd \u05e9\u05de\u05e0\u05d4\u05dc\u05d9\u05dd \u05e9\u05d9\u05d7\u05d5\u05ea \u05d0\u05de\u05d9\u05ea\u05d9\u05d5\u05ea, \u05dc\u05d0 \u05ea\u05e8\u05d7\u05d9\u05e9\u05d9\u05dd \u05e1\u05e7\u05e8\u05d9\u05e4\u05d8\u05d9\u05d9\u05dd. \u05de\u05e9\u05d5\u05dc\u05d1\u05d9\u05dd \u05e2\u05dd \u05d4\u05db\u05dc\u05d9\u05dd \u05d4\u05e7\u05d9\u05d9\u05de\u05d9\u05dd \u05e9\u05dc\u05db\u05dd.', features: ['\u05ea\u05de\u05d9\u05db\u05ea \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea \u05d1\u05e9\u05e4\u05d4 \u05d8\u05d1\u05e2\u05d9\u05ea', '\u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8\u05d9\u05dd \u05dc\u05d0\u05ea\u05e8 \u05d5-WhatsApp', '\u05d0\u05d9\u05e0\u05d8\u05d2\u05e8\u05e6\u05d9\u05d4 \u05e2\u05dd \u05d1\u05e1\u05d9\u05e1 \u05d9\u05d3\u05e2', '\u05e1\u05d9\u05e0\u05d5\u05df \u05dc\u05d9\u05d3\u05d9\u05dd \u05d5\u05e7\u05d1\u05d9\u05e2\u05ea \u05e4\u05d2\u05d9\u05e9\u05d5\u05ea', '\u05ea\u05de\u05d9\u05db\u05d4 \u05e8\u05d1-\u05dc\u05e9\u05d5\u05e0\u05d9\u05ea (EN/PT/HE)', '\u05d0\u05e0\u05dc\u05d9\u05d8\u05d9\u05e7\u05d4 \u05d5\u05ea\u05d5\u05d1\u05e0\u05d5\u05ea \u05e9\u05d9\u05d7\u05d4'] },
-        consulting: { title: '\u05d9\u05d9\u05e2\u05d5\u05e5 \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9 \u05d1\u05d0\u05e0\u05d2\u05dc\u05d9\u05ea \u05d5\u05e4\u05d5\u05e8\u05d8\u05d5\u05d2\u05d6\u05d9\u05ea', description: '\u05d9\u05d9\u05e2\u05d5\u05e5 \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9 \u05d0\u05e1\u05d8\u05e8\u05d8\u05d2\u05d9 \u05dc\u05e2\u05e1\u05e7\u05d9\u05dd \u05e9\u05e0\u05db\u05e0\u05e1\u05d9\u05dd \u05d0\u05d5 \u05e4\u05d5\u05e2\u05dc\u05d9\u05dd \u05d1\u05e9\u05d5\u05e7 \u05d4\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9 \u05d5\u05d4\u05d1\u05e8\u05d6\u05d9\u05dc\u05d0\u05d9.', features: ['\u05d4\u05e2\u05e8\u05db\u05ea \u05de\u05d5\u05db\u05e0\u05d5\u05ea \u05dc-AI', '\u05e1\u05e7\u05d9\u05e8\u05ea \u05d0\u05e8\u05db\u05d9\u05d8\u05e7\u05d8\u05d5\u05e8\u05d4 \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05ea', '\u05d0\u05e1\u05d8\u05e8\u05d8\u05d2\u05d9\u05d9\u05ea \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05d5\u05e0\u05d9\u05ea\u05d5\u05d7 ROI', '\u05d1\u05d7\u05d9\u05e8\u05ea \u05e1\u05e4\u05e7\u05d9\u05dd \u05d5\u05ea\u05db\u05e0\u05d5\u05df \u05d0\u05d9\u05e0\u05d8\u05d2\u05e8\u05e6\u05d9\u05d4', '\u05e9\u05d9\u05e2\u05d5\u05e8\u05d9 \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4 \u05d5-AI \u05e4\u05e8\u05d8\u05d9\u05d9\u05dd', '\u05e0\u05d9\u05d4\u05d5\u05dc \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd \u05d3\u05d5-\u05dc\u05e9\u05d5\u05e0\u05d9'] },
-        brazil: { title: '\u05de\u05e2\u05e8\u05db\u05d5\u05ea AI \u05dc\u05e9\u05d5\u05e7 \u05d4\u05d1\u05e8\u05d6\u05d9\u05dc\u05d0\u05d9-\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9', description: '\u05de\u05d5\u05e6\u05e8\u05d9 AI \u05d3\u05d5-\u05dc\u05e9\u05d5\u05e0\u05d9\u05d9\u05dd, \u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8\u05d9\u05dd \u05d5\u05db\u05dc\u05d9 \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05dc\u05e2\u05e1\u05e7\u05d9\u05dd \u05e9\u05e4\u05d5\u05e2\u05dc\u05d9\u05dd \u05d1\u05d9\u05df \u05d1\u05e8\u05d6\u05d9\u05dc \u05dc\u05d9\u05e9\u05e8\u05d0\u05dc.', features: ['\u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8\u05d9 AI \u05d1\u05e4\u05d5\u05e8\u05d8\u05d5\u05d2\u05d6\u05d9\u05ea \u05d5\u05e2\u05d1\u05e8\u05d9\u05ea', '\u05e4\u05dc\u05d8\u05e4\u05d5\u05e8\u05de\u05d5\u05ea \u05e7\u05d4\u05d9\u05dc\u05d4 \u05d1\u05e8\u05d6\u05d9\u05dc\u05d0\u05d9\u05ea \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc', '\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05e2\u05e1\u05e7\u05d9\u05ea \u05d7\u05d5\u05e6\u05d4-\u05d2\u05d1\u05d5\u05dc\u05d5\u05ea', '\u05db\u05dc\u05d9 \u05d4\u05d2\u05d9\u05e8\u05d4 \u05d5\u05d1\u05d9\u05e8\u05d5\u05e7\u05e8\u05d8\u05d9\u05d4', '\u05de\u05d5\u05e6\u05e8\u05d9 SaaS \u05d3\u05d5-\u05dc\u05e9\u05d5\u05e0\u05d9\u05d9\u05dd', '\u05d9\u05d9\u05e2\u05d5\u05e5 \u05d2\u05e9\u05e8 \u05ea\u05e8\u05d1\u05d5\u05ea\u05d9'] }
+        techMentoring: {
+          title: 'מנטורינג טכנולוגי',
+          description: 'שלטו בטכנולוגיה ו-AI עם הדרכה מותאמת אישית. בין אם אתם לומדים לתכנת, חוקרים כלי AI או משדרגים כישורים דיגיטליים — קבלו חונכות ממפתח עם רקע בפינטק ארגוני.',
+          features: ['שיעורים פרטיים 1:1', 'הכשרה בכלי AI', 'יסודות תכנות', 'אוריינות דיגיטלית', 'מסלול למידה מותאם', 'תזמון גמיש']
+        },
+        onlineMarketing: {
+          title: 'שיווק דיגיטלי',
+          description: 'הגדילו את הנוכחות המקוונת שלכם עם ניהול מדיה חברתית מונע AI, אסטרטגיית תוכן וייצור לידים. אנחנו מטפלים בשיווק הדיגיטלי שלכם.',
+          features: ['ניהול מדיה חברתית', 'יצירת תוכן מונעת AI', 'אסטרטגיית ייצור לידים', 'מיצוב מותג', 'אנליטיקה ודיווח', 'תמיכה רב-לשונית (EN/PT/HE)']
+        },
+        digitalProducts: {
+          title: 'מוצרים דיגיטליים',
+          description: 'אתרים מותאמים, צ׳אטבוטי AI, אוטומציות תהליכי עבודה וסוכנים חכמים שנבנו לשנות את האופן שבו העסק שלכם פועל. פתרונות ברמה ארגונית במחירים נגישים.',
+          features: ['אתרים מקצועיים (Next.js)', 'צ׳אטבוטי AI (WhatsApp & Web)', 'אוטומציית תהליכי עבודה (n8n)', 'סוכני AI מותאמים', 'אינטגרציות API', 'תחזוקה שוטפת']
+        }
       },
-      processTitle: '\u05d0\u05d9\u05da \u05d0\u05e0\u05d7\u05e0\u05d5 \u05e2\u05d5\u05d1\u05d3\u05d9\u05dd',
+      processTitle: 'איך אנחנו עובדים',
       process: {
-        1: { title: '\u05d2\u05d9\u05dc\u05d5\u05d9', description: '\u05e9\u05d9\u05d7\u05d4 \u05d7\u05d9\u05e0\u05dd \u05dc\u05d4\u05d1\u05d9\u05df \u05d0\u05ea \u05d4\u05e6\u05e8\u05db\u05d9\u05dd \u05d5\u05d4\u05de\u05d8\u05e8\u05d5\u05ea \u05e9\u05dc\u05db\u05dd.' },
-        2: { title: '\u05d4\u05d9\u05e7\u05e3', description: '\u05d4\u05e6\u05e2\u05d4 \u05db\u05ea\u05d5\u05d1\u05d4 \u05e2\u05dd \u05de\u05d7\u05d9\u05e8 \u05e7\u05d1\u05d5\u05e2 \u05d5\u05dc\u05d5\u05d7 \u05d6\u05de\u05e0\u05d9\u05dd.' },
-        3: { title: '\u05d1\u05e0\u05d9\u05d4', description: '\u05e4\u05d9\u05ea\u05d5\u05d7 \u05e2\u05dd \u05e2\u05d3\u05db\u05d5\u05e0\u05d9\u05dd \u05e9\u05d5\u05d8\u05e4\u05d9\u05dd \u05d5\u05d4\u05d3\u05d2\u05de\u05d5\u05ea.' },
-        4: { title: '\u05e1\u05e7\u05d9\u05e8\u05d4', description: '\u05d4\u05de\u05e9\u05d5\u05d1 \u05e9\u05dc\u05db\u05dd \u05de\u05e2\u05e6\u05d1 \u05d0\u05ea \u05d4\u05de\u05d5\u05e6\u05e8 \u05d4\u05e1\u05d5\u05e4\u05d9.' },
-        5: { title: '\u05d4\u05e9\u05e7\u05d4', description: '\u05e4\u05e8\u05d9\u05e1\u05d4, \u05d1\u05d3\u05d9\u05e7\u05d5\u05ea \u05d5\u05ea\u05de\u05d9\u05db\u05d4 \u05d1\u05e2\u05dc\u05d9\u05d9\u05d4 \u05dc\u05d0\u05d5\u05d5\u05d9\u05e8.' },
-        6: { title: '\u05ea\u05de\u05d9\u05db\u05d4', description: '\u05ea\u05d7\u05d6\u05d5\u05e7\u05d4 \u05e9\u05d5\u05d8\u05e4\u05ea \u05d5\u05e9\u05d9\u05e4\u05d5\u05e8\u05d9\u05dd.' }
+        1: { title: 'גילוי', description: 'שיחה חינם להבין את הצרכים והמטרות שלכם.' },
+        2: { title: 'היקף', description: 'הצעה כתובה עם מחיר קבוע ולוח זמנים.' },
+        3: { title: 'בניה', description: 'פיתוח עם עדכונים שוטפים והדגמות.' },
+        4: { title: 'סקירה', description: 'המשוב שלכם מעצב את המוצר הסופי.' },
+        5: { title: 'השקה', description: 'פריסה, בדיקות ותמיכה בעלייה לאוויר.' },
+        6: { title: 'תמיכה', description: 'תחזוקה שוטפת ושיפורים.' }
       },
-      faqTitle: '\u05e9\u05d0\u05dc\u05d5\u05ea \u05e0\u05e4\u05d5\u05e6\u05d5\u05ea',
-      faq: {
-        0: { q: '\u05db\u05de\u05d4 \u05e2\u05d5\u05dc\u05d4 \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05e9\u05dc AI \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc?', a: '\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9 \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05d1-Workitu Tech \u05de\u05ea\u05d7\u05d9\u05dc\u05d9\u05dd \u05de\u05db\u05de\u05d4 \u05d0\u05dc\u05e4\u05d9 \u05e9\u05e7\u05dc\u05d9\u05dd \u05dc\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d5\u05ea \u05e4\u05e9\u05d5\u05d8\u05d5\u05ea \u05d5\u05e2\u05d5\u05dc\u05d9\u05dd \u05dc\u05e4\u05d9 \u05de\u05d5\u05e8\u05db\u05d1\u05d5\u05ea. \u05e7\u05d1\u05e2\u05d5 \u05e9\u05d9\u05d7\u05ea \u05d4\u05d9\u05db\u05e8\u05d5\u05ea \u05d7\u05d9\u05e0\u05dd \u05dc\u05d4\u05e6\u05e2\u05ea \u05de\u05d7\u05d9\u05e8.' },
-        1: { q: '\u05de\u05d4 \u05d6\u05d4 \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 n8n?', a: 'n8n \u05d4\u05d9\u05d0 \u05e4\u05dc\u05d8\u05e4\u05d5\u05e8\u05de\u05ea \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05d1\u05e7\u05d5\u05d3 \u05e4\u05ea\u05d5\u05d7 \u05e9\u05de\u05d7\u05d1\u05e8\u05ea \u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea, API-\u05d9\u05dd \u05d5\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9\u05dd \u05d1\u05dc\u05d9 \u05e7\u05d5\u05d3. Workitu Tech \u05de\u05ea\u05de\u05d7\u05d4 \u05d1\u05d4\u05ea\u05e7\u05e0\u05d5\u05ea n8n \u05e2\u05dc \u05e9\u05e8\u05ea\u05d9 VPS \u05e2\u05e6\u05de\u05d0\u05d9\u05d9\u05dd.' },
-        2: { q: '\u05d0\u05ea\u05d4 \u05d9\u05db\u05d5\u05dc \u05dc\u05d1\u05e0\u05d5\u05ea \u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8 AI \u05dc\u05e2\u05e1\u05e7 \u05e9\u05dc\u05d9?', a: '\u05db\u05df. Workitu Tech \u05d1\u05d5\u05e0\u05d4 \u05e6\u05f3\u05d0\u05d8\u05d1\u05d5\u05d8\u05d9 AI \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd \u05e9\u05de\u05e9\u05ea\u05dc\u05d1\u05d9\u05dd \u05e2\u05dd \u05d4\u05de\u05e2\u05e8\u05db\u05d5\u05ea \u05d4\u05e7\u05d9\u05d9\u05de\u05d5\u05ea \u05e9\u05dc\u05db\u05dd \u2014 CRM, \u05d9\u05d5\u05de\u05df, \u05d0\u05d9\u05de\u05d9\u05d9\u05dc, \u05de\u05e1\u05d3\u05d9 \u05e0\u05ea\u05d5\u05e0\u05d9\u05dd.' },
-        3: { q: '\u05d0\u05ea\u05dd \u05e2\u05d5\u05d1\u05d3\u05d9\u05dd \u05e2\u05dd \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea \u05d1\u05d9\u05e0\u05dc\u05d0\u05d5\u05de\u05d9\u05d9\u05dd?', a: '\u05d1\u05d4\u05d7\u05dc\u05d8. Workitu Tech \u05de\u05e9\u05e8\u05ea\u05ea \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc, \u05d1\u05e8\u05d6\u05d9\u05dc \u05d5\u05d1\u05e2\u05d5\u05dc\u05dd. \u05d9\u05d5\u05e0\u05ea\u05df \u05de\u05d3\u05d1\u05e8 \u05d0\u05e0\u05d2\u05dc\u05d9\u05ea, \u05e4\u05d5\u05e8\u05d8\u05d5\u05d2\u05d6\u05d9\u05ea \u05d5\u05e2\u05d1\u05e8\u05d9\u05ea \u05d1\u05e9\u05d8\u05e3.' },
-        4: { q: '\u05de\u05d4 \u05d4\u05d4\u05d1\u05d3\u05dc \u05d1\u05d9\u05df \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05e9\u05dc AI \u05dc\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05de\u05e1\u05d5\u05e8\u05ea\u05d9\u05ea?', a: '\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05de\u05e1\u05d5\u05e8\u05ea\u05d9\u05ea \u05e2\u05d5\u05e7\u05d1\u05ea \u05d0\u05d7\u05e8\u05d9 \u05db\u05dc\u05dc\u05d9\u05dd \u05e0\u05d5\u05e7\u05e9\u05d9\u05dd. \u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05e9\u05dc AI \u05de\u05e9\u05ea\u05de\u05e9\u05ea \u05d1\u05de\u05d5\u05d3\u05dc\u05d9 \u05e9\u05e4\u05d4 \u05d5\u05dc\u05de\u05d9\u05d3\u05ea \u05de\u05db\u05d5\u05e0\u05d4 \u05dc\u05d8\u05d9\u05e4\u05d5\u05dc \u05d1\u05de\u05e9\u05d9\u05de\u05d5\u05ea \u05de\u05d5\u05e8\u05db\u05d1\u05d5\u05ea. Workitu \u05d1\u05d5\u05e0\u05d4 \u05d0\u05ea \u05e9\u05e0\u05d9\u05d4\u05dd.' },
-        5: { q: '\u05db\u05de\u05d4 \u05d6\u05de\u05df \u05dc\u05d5\u05e7\u05d7 \u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05e4\u05d9\u05ea\u05d5\u05d7 \u05d0\u05ea\u05e8\u05d9\u05dd \u05d8\u05d9\u05e4\u05d5\u05e1\u05d9?', a: '\u05d0\u05ea\u05e8 \u05e2\u05e1\u05e7\u05d9 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9 \u05dc\u05d5\u05e7\u05d7 2\u20134 \u05e9\u05d1\u05d5\u05e2\u05d5\u05ea. \u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d9\u05ea \u05d5\u05d1 \u05de\u05dc\u05d0\u05d4 \u05dc\u05d5\u05e7\u05d7\u05ea 4\u20138 \u05e9\u05d1\u05d5\u05e2\u05d5\u05ea.' },
-        6: { q: '\u05d0\u05ea\u05dd \u05de\u05e6\u05d9\u05e2\u05d9\u05dd \u05ea\u05de\u05d9\u05db\u05d4 \u05e9\u05d5\u05d8\u05e4\u05ea \u05d0\u05d7\u05e8\u05d9 \u05de\u05e1\u05d9\u05e8\u05d4?', a: '\u05db\u05df. Workitu Tech \u05de\u05e6\u05d9\u05e2\u05d4 \u05d7\u05d1\u05d9\u05dc\u05d5\u05ea \u05ea\u05d7\u05d6\u05d5\u05e7\u05d4 \u05dc\u05d0\u05d9\u05e8\u05d5\u05d7, \u05e2\u05d3\u05db\u05d5\u05e0\u05d9\u05dd, \u05ea\u05d9\u05e7\u05d5\u05df \u05d1\u05d0\u05d2\u05d9\u05dd \u05d5\u05d4\u05d5\u05e1\u05e4\u05ea \u05ea\u05db\u05d5\u05e0\u05d5\u05ea.' }
-      },
-      ctaTitle: '\u05de\u05d5\u05db\u05e0\u05d9\u05dd \u05dc\u05d0\u05d5\u05d8\u05de\u05d8 \u05d5\u05dc\u05d1\u05e0\u05d5\u05ea?',
-      ctaText: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05d3\u05d1\u05e8 \u05e2\u05dc \u05d4\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8 \u05e9\u05dc\u05db\u05dd. \u05e7\u05d1\u05e2\u05d5 \u05e9\u05d9\u05d7\u05ea \u05d4\u05d9\u05db\u05e8\u05d5\u05ea \u05d7\u05d9\u05e0\u05dd \u05d0\u05d5 \u05d1\u05d3\u05e7\u05d5 \u05de\u05d7\u05d9\u05e8\u05d9\u05dd.',
-      ctaPrimary: '\u05e7\u05d1\u05e2 \u05e9\u05d9\u05d7\u05ea \u05d4\u05d9\u05db\u05e8\u05d5\u05ea \u05d7\u05d9\u05e0\u05dd',
-      ctaSecondary: '\u05e6\u05e4\u05d5 \u05d1\u05de\u05d7\u05d9\u05e8\u05d9\u05dd',
-      getInTouch: '\u05e6\u05e8\u05d5 \u05e7\u05e9\u05e8',
-      letsTalk: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05d3\u05d1\u05e8'
+      ctaTitle: 'מוכנים להתחיל?',
+      ctaText: 'בואו נדבר על הפרויקט שלכם. קבעו אבחון חינם או בדקו מחירים.',
+      ctaPrimary: 'לתאם אבחון חינם',
+      ctaSecondary: 'צפו במחירים',
+      getInTouch: 'צרו קשר',
+      letsTalk: 'בואו נדבר'
     },
     footer: {
-      tagline: '\u05d0\u05d5\u05d8\u05d5\u05de\u05e6\u05d9\u05d4 \u05d5\u05e4\u05d9\u05ea\u05d5\u05d7 \u05d0\u05ea\u05e8\u05d9\u05dd \u05e9\u05e0\u05d1\u05e0\u05d5 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05de\u05d4\u05e0\u05d3\u05e1 \u05e2\u05dd \u05e8\u05e7\u05e2 \u05d0\u05e8\u05d2\u05d5\u05e0\u05d9 \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc.',
-      quickLinks: '\u05e7\u05d9\u05e9\u05d5\u05e8\u05d9\u05dd \u05de\u05d4\u05d9\u05e8\u05d9\u05dd',
-      connect: '\u05d4\u05ea\u05d7\u05d1\u05e8\u05d5',
-      copyright: '\u00a9 {year} Workitu Tech. \u05db\u05dc \u05d4\u05d6\u05db\u05d5\u05d9\u05d5\u05ea \u05e9\u05de\u05d5\u05e8\u05d5\u05ea.',
-      legal: '\u05de\u05e9\u05e4\u05d8\u05d9 \u05d5\u05e4\u05e8\u05d8\u05d9\u05d5\u05ea'
+      tagline: 'יעיל. פשוט. משנה חוקים. אוטומציה ופיתוח אתרים ממהנדס עם רקע ארגוני בישראל.',
+      quickLinks: 'קישורים מהירים',
+      connect: 'התחברו',
+      copyright: '© {year} Workitu Tech. כל הזכויות שמורות.',
+      legal: 'משפטי ופרטיות'
     }
   },
 
   pt: {
-    nav: { home: 'In\u00edcio', about: 'Sobre', services: 'Servi\u00e7os', portfolio: 'Portf\u00f3lio', pricing: 'Pre\u00e7os', contact: 'Contato', bookCall: '\ud83d\udcde Agendar' },
+    nav: { home: 'Início', about: 'Sobre', services: 'Serviços', portfolio: 'Portfólio', pricing: 'Preços', contact: 'Contato', bookCall: '📞 Diagnóstico Grátis' },
     home: {
-      badge: 'Dispon\u00edvel para projetos',
-      heroLine1a: '',
-      heroLine1b: 'Automa\u00e7\u00e3o com IA',
-      heroLine2a: 'Constru\u00edda por quem j\u00e1 ',
-      heroLine2b: 'entregou sistemas reais',
-      subtitle: '4,5 anos em fintech enterprise. Tril\u00edngue. Morando em Israel. Construindo sistemas de IA que funcionam de verdade \u2014 para empresas que precisam de resultados, n\u00e3o demos.',
-      ctaPrimary: 'Agende uma Consulta Gratuita',
-      ctaSecondary: 'Veja o que eu construo',
+      badge: 'Disponível para projetos',
+      heroLine1a: 'Seus clientes procuram você ',
+      heroLine1b: 'pelo seu trabalho.',
+      heroLine2a: 'A IA cuida de ',
+      heroLine2b: 'todo o resto.',
+      subtitle: 'Automação com IA para profissionais que não têm tempo a perder. Simples de usar. Impossível ignorar os resultados.',
+      ctaPrimary: 'Agendar Diagnóstico Gratuito',
+      ctaSecondary: 'Veja Nossos Serviços',
       stats: {
-        fintech: { value: '4,5 anos', label: 'Fintech (BdB)' },
-        projects: { value: '150+', label: 'Projetos' },
-        saas: { value: '1', label: 'Produto SaaS' },
-        trilingual: { label: 'Tril\u00edngue' }
+        services: { label: 'Serviços' },
+        aiAgents: { label: 'Agentes IA' },
+        trilingual: { label: 'Trilíngue' }
       },
-      servicesTitle1: 'O que n\u00f3s ',
-      servicesTitle2: 'constru\u00edmos',
-      servicesSubtitle: 'Automa\u00e7\u00e3o com IA e desenvolvimento web de ponta a ponta, com engenharia de n\u00edvel enterprise e IA moderna.',
+      servicesTitle1: 'O que nós ',
+      servicesTitle2: 'construímos',
+      servicesSubtitle: 'Soluções digitais de ponta a ponta com IA de última geração e tecnologias web modernas.',
       services: {
-        ai: { title: 'Agentes de IA e Automa\u00e7\u00e3o', description: 'Assistentes de IA personalizados que gerenciam seu neg\u00f3cio 24/7. Chatbots, automa\u00e7\u00e3o de fluxos com n8n e sistemas inteligentes.' },
-        web: { title: 'Desenvolvimento Web', description: 'Sites e aplicativos web profissionais que convertem visitantes em clientes. Constru\u00eddos com Next.js, React e ferramentas modernas.' },
-        marketing: { title: 'Marketing Digital e Redes Sociais', description: 'Gest\u00e3o de redes sociais, estrat\u00e9gia de conte\u00fado e gera\u00e7\u00e3o de leads que trazem clientes reais.' },
-        lessons: { title: 'Aulas de Tecnologia e IA', description: 'Aulas particulares de programa\u00e7\u00e3o, ferramentas de IA e tecnologia. Aprenda no seu ritmo com um desenvolvedor s\u00eanior.' },
-        brazil: { title: 'Sistemas de IA para o Mercado Brasil-Israel', description: 'Produtos de IA bil\u00edngues, chatbots e automa\u00e7\u00e3o para empresas que operam entre Brasil e Israel. Expertise \u00fanica \u2014 poucos desenvolvedores no mundo cobrem os dois mercados.' }
+        mentoring: { title: 'Mentoria Tech', description: 'Aulas particulares 1:1 de programação, ferramentas de IA e tecnologia. Aprenda no seu ritmo com um desenvolvedor sênior como guia.' },
+        marketing: { title: 'Marketing Online', description: 'Gestão de redes sociais, estratégia de conteúdo e geração de leads com IA. Sua marca merece ser vista.' },
+        products: { title: 'Produtos Digitais', description: 'Sites, bots, agentes de IA e automações que fazem seu negócio funcionar 24/7. Construídos para transformar, não apenas impressionar.' }
       },
-      meetTitle: 'Conhe\u00e7a o ',
-      meetName: 'Yonatan',
-      meetP1: 'Sou Yonatan Perlin \u2014 engenheiro de software brasileiro-israelense, construtor de IA e fundador da Workitu Tech. Passei 4,5 anos no Banco do Brasil construindo software enterprise usado por milh\u00f5es de pessoas.',
-      meetP2: 'Hoje, construo sistemas de automa\u00e7\u00e3o com IA, aplicativos web e software personalizado para empresas em Israel, Brasil e globalmente. Falo portugu\u00eas, ingl\u00eas e hebraico \u2014 posso trabalhar com sua equipe sem a camada de tradu\u00e7\u00e3o que a maioria das ag\u00eancias precisa.',
-      meetP3: 'React \u00b7 Next.js \u00b7 Node.js \u00b7 Python \u00b7 FastAPI \u00b7 n8n \u00b7 Claude API \u00b7 OpenAI \u00b7 MBA Gest\u00e3o de Tecnologia, Universidade de Haifa',
-      whyTitle1: 'Por que ',
-      whyTitle2: 'trabalhar comigo',
-      why: {
-        fintech: { title: 'DNA Fintech', subtitle: 'Background enterprise, velocidade de startup.', text: 'Constru\u00ed e mantive software usado por milh\u00f5es de pessoas. Aplico essa disciplina a cada projeto.' },
-        trilingual: { title: 'Entrega Tril\u00edngue', subtitle: 'Portugu\u00eas, ingl\u00eas e hebraico.', text: 'Sem erros de tradu\u00e7\u00e3o, sem gaps culturais. Entendo o ambiente de neg\u00f3cios brasileiro-israelense por dentro.' },
-        live: { title: 'Produtos Reais, N\u00e3o Mockups', subtitle: 'Eu entrego coisas que v\u00e3o ao ar e ficam no ar.', text: 'Conex\u00e3o Israel Brasil \u00e9 um SaaS real com usu\u00e1rios e assinaturas pagas. Voc\u00ea contrata algu\u00e9m que constr\u00f3i coisas que funcionam.' },
-        strategy: { title: 'Estrat\u00e9gia + C\u00f3digo', subtitle: 'MBA em Gest\u00e3o de Tecnologia, Universidade de Haifa.', text: 'Posso programar seu produto e ajudar a pensar o modelo de neg\u00f3cio. Os dois importam.' }
-      },
+      missionTitle: 'Nossa Missão',
+      missionP1: 'Acreditamos que a tecnologia deve trabalhar para você, não o contrário. Por isso construímos soluções de IA simples de usar que entregam transformação real.',
+      missionP2: 'Com 4,5 anos de experiência em fintech enterprise e MBA em Gestão de Tecnologia, combinamos profundidade técnica com estratégia de negócios.',
+      missionP3: 'De Israel para o mundo — Eficiente. Simples. Transformador.',
       ctaTitle1: 'Pronto para ',
       ctaTitle2: 'transformar',
-      ctaTitle3: ' seu neg\u00f3cio?',
-      ctaText: 'Vamos discutir como automa\u00e7\u00e3o com IA e solu\u00e7\u00f5es web modernas podem acelerar seu crescimento.',
-      ctaButton: 'Agende uma Consulta Gratuita'
+      ctaTitle3: ' seu negócio?',
+      ctaText: 'Vamos discutir como automação com IA e soluções web modernas podem acelerar seu crescimento.',
+      ctaButton: 'Agendar Diagnóstico Gratuito'
     },
     portfolio: {
-      title: 'Nosso Portf\u00f3lio',
-      description: 'Descubra as experi\u00eancias digitais que criamos. Cada projeto representa nosso compromisso com inova\u00e7\u00e3o e excel\u00eancia.',
+      title: 'Nosso Portfólio',
+      description: 'Descubra as experiências digitais que criamos.',
       loading: 'Carregando projetos...',
-      noProjects: 'Nenhum projeto dispon\u00edvel ainda. Volte em breve!',
-      watchVideo: 'Assistir V\u00eddeo',
+      noProjects: 'Nenhum projeto disponível ainda.',
+      watchVideo: 'Assistir Vídeo',
       visitWebsite: 'Visitar Site',
       viewProject: 'Ver Projeto'
     },
     pricing: {
-      title: 'Pre\u00e7os',
-      subtitle: 'Na Workitu Tech, acreditamos que grande tecnologia deve ser acess\u00edvel a todos.',
-      description: 'Oferecemos pre\u00e7os transparentes e flex\u00edveis \u2014 constru\u00eddos em torno dos seus objetivos.',
-      loading: 'Carregando pre\u00e7os...',
-      promise: '\ud83d\udca1 Nossa promessa: pre\u00e7os justos, comunica\u00e7\u00e3o honesta e resultados duradouros.',
-      cta: 'Comece Hoje',
+      title: 'Preços',
+      subtitle: 'Eficiente. Simples. Transformador. — Tecnologia que trabalha para você.',
+      description: 'Oferecemos preços transparentes e flexíveis — construídos em torno dos seus objetivos.',
+      loading: 'Carregando preços...',
+      promise: '💡 Nossa promessa: preços justos, comunicação honesta e resultados duradouros.',
+      cta: 'Agendar Diagnóstico Gratuito',
       services: {
-        website: { title: '\ud83c\udf10 Cria\u00e7\u00e3o de Sites', price: 'A partir de $320', description: 'Sites elegantes, r\u00e1pidos e prontos para mobile.' },
-        ecommerce: { title: '\ud83d\uded2 Solu\u00e7\u00f5es de E-Commerce', price: 'A partir de $950', description: 'Lojas online poderosas e seguras.' },
-        ai: { title: '\ud83e\udd16 Aplica\u00e7\u00f5es com IA', price: 'A partir de $670', description: 'Transforme suas ideias em software inteligente.' },
-        marketing: { title: '\ud83d\udcc8 Marketing Digital', price: 'A partir de $270/m\u00eas', description: 'Cres\u00e7a sua presen\u00e7a online.' },
-        custom: { title: '\u2699\ufe0f Projetos Personalizados', price: 'Cada ideia \u00e9 \u00fanica.', description: 'Vamos discutir sua vis\u00e3o juntos.' }
+        techMentoring: { title: '🎓 Mentoria Tech', price: 'A partir de ₪150/hora', description: 'Aulas particulares de programação, IA e ferramentas digitais. Aprenda no seu ritmo com orientação prática.' },
+        onlineMarketing: { title: '📱 Marketing Online', price: 'A partir de ₪800/mês', description: 'Gestão completa de mídias sociais e estratégia de conteúdo. Ferramentas com IA que amplificam sua marca.' },
+        digitalProducts: { title: '⚡ Produtos Digitais', price: 'A partir de ₪1.500 setup', description: 'Sites, bots, agentes de IA e automações construídos para transformar seu negócio.' },
+        custom: { title: '⚙️ Projetos Personalizados', price: 'Cada ideia é única.', description: 'Cada negócio é único — e cada solução também. Vamos projetar a transformação digital perfeita juntos.' }
       }
     },
     contact: {
       title: 'Entre em Contato',
-      subtitle: 'Vamos Construir Algo Incr\u00edvel Juntos',
-      description: 'Pronto para transformar sua vis\u00e3o em realidade? Entre em contato.',
+      subtitle: 'Vamos Construir Algo Incrível Juntos',
+      description: 'Pronto para transformar sua visão em realidade? Entre em contato.',
       formTitle: 'Envie-nos uma mensagem',
       success: 'Obrigado! Sua mensagem foi enviada com sucesso.',
       error: 'Desculpe, houve um erro. Por favor, tente novamente.',
@@ -461,79 +449,79 @@ export const translations = {
       send: 'Enviar Mensagem', sending: 'Enviando...',
       infoTitle: 'Entre em contato', emailLabel: 'E-mail',
       linkedinLabel: 'LinkedIn', linkedinText: 'Conecte-se conosco no LinkedIn',
-      responseTitle: 'Tempo de Resposta', responseText: 'Normalmente respondemos em at\u00e9 24 horas.'
+      responseTitle: 'Tempo de Resposta', responseText: 'Normalmente respondemos em até 24 horas.'
     },
     about: {
-      pageTitle: 'O Engenheiro por tr\u00e1s da Workitu Tech',
-      pageSubtitle: '4,5 anos em fintech enterprise. Tril\u00edngue. Construindo sistemas de IA e apps web em Israel.',
-      storyTitle: 'Minha Hist\u00f3ria em 3 Frases',
-      storySummary: 'Passei 4,5 anos construindo software enterprise no Banco do Brasil \u2014 um dos maiores bancos da Am\u00e9rica Latina. Agora construo sistemas de automa\u00e7\u00e3o com IA e apps web para empresas em Israel e no mundo. Falo tr\u00eas idiomas e entrego produtos que pessoas reais usam.',
+      pageTitle: 'O Engenheiro por trás da Workitu Tech',
+      pageSubtitle: '4,5 anos em fintech enterprise. Trilíngue. Construindo sistemas de IA e apps web em Israel.',
+      storyTitle: 'Minha História em 3 Frases',
+      storySummary: 'Passei 4,5 anos construindo software enterprise no Banco do Brasil. Agora construo sistemas de IA e apps web para empresas em Israel e no mundo.',
       bioTitle: 'Sobre Mim',
-      bioP1: 'Sou Yonatan Sam Perlin \u2014 engenheiro de software brasileiro-israelense, construtor de IA e fundador da Workitu Tech.',
-      bioP2: 'Antes de fundar a Workitu, passei 4,5 anos no Banco do Brasil \u2014 uma das maiores institui\u00e7\u00f5es financeiras da Am\u00e9rica Latina \u2014 construindo e mantendo software de n\u00edvel enterprise. Essa experi\u00eancia me deu algo que a maioria dos freelancers n\u00e3o tem: entendimento profundo de como sistemas de produ\u00e7\u00e3o reais funcionam.',
-      bioP3: 'Hoje, construo sistemas de automa\u00e7\u00e3o com IA, aplicativos web e software personalizado para empresas em Israel, Brasil e globalmente. Falo portugu\u00eas, ingl\u00eas e hebraico \u2014 posso trabalhar com sua equipe sem a camada de tradu\u00e7\u00e3o.',
-      bioP4: 'Estou concluindo um MBA em Gest\u00e3o de Tecnologia na Universidade de Haifa, focado em liderar empresas de IA e tecnologia. N\u00e3o porque preciso de credencial \u2014 mas porque acredito que os melhores construtores tamb\u00e9m entendem neg\u00f3cios.',
+      bioP1: 'Sou Yonatan Sam Perlin — engenheiro de software brasileiro-israelense, construtor de IA e fundador da Workitu Tech.',
+      bioP2: 'Antes de fundar a Workitu, passei 4,5 anos no Banco do Brasil construindo software de nível enterprise.',
+      bioP3: 'Hoje, construo sistemas de automação com IA, aplicativos web e software personalizado. Falo português, inglês e hebraico.',
+      bioP4: 'Estou concluindo um MBA em Gestão de Tecnologia na Universidade de Haifa.',
       whyChooseUs: 'Por que escolher a Workitu',
       differentiators: {
-        fintech: { title: 'DNA Fintech', subtitle: 'Background enterprise, velocidade de startup.', text: 'Constru\u00ed e mantive software usado por milh\u00f5es de pessoas.' },
-        trilingual: { title: 'Entrega Tril\u00edngue', subtitle: 'Portugu\u00eas, ingl\u00eas e hebraico.', text: 'Sem erros de tradu\u00e7\u00e3o, sem gaps culturais.' },
-        live: { title: 'Produtos Reais \u2014 Eu Entrego', subtitle: 'N\u00e3o sou de mockups.', text: 'Conex\u00e3o Israel Brasil \u00e9 um SaaS real com usu\u00e1rios e assinaturas pagas.' },
-        strategy: { title: 'Estrat\u00e9gia + C\u00f3digo', subtitle: 'MBA em Gest\u00e3o de Tecnologia, Universidade de Haifa.', text: 'Posso programar seu produto e ajudar a pensar o modelo de neg\u00f3cio.' },
-        pricing: { title: 'Pre\u00e7os Transparentes', subtitle: 'Pre\u00e7os fixos. Sem surpresas.', text: 'Cada projeto come\u00e7a com um escopo escrito. Voc\u00ea sabe o que est\u00e1 pagando antes de come\u00e7ar.' }
+        fintech: { title: 'DNA Fintech', subtitle: 'Background enterprise, velocidade de startup.', text: 'Construí e mantive software usado por milhões de pessoas.' },
+        trilingual: { title: 'Entrega Trilíngue', subtitle: 'Português, inglês e hebraico.', text: 'Sem erros de tradução, sem gaps culturais.' },
+        live: { title: 'Produtos Reais — Eu Entrego', subtitle: 'Não sou de mockups.', text: 'Conexão Israel Brasil é um SaaS real com usuários e assinaturas pagas.' },
+        strategy: { title: 'Estratégia + Código', subtitle: 'MBA em Gestão de Tecnologia.', text: 'Posso programar seu produto e ajudar a pensar o modelo de negócio.' },
+        pricing: { title: 'Preços Transparentes', subtitle: 'Preços fixos. Sem surpresas.', text: 'Cada projeto começa com um escopo escrito.' }
       },
-      principlesTitle: 'Princ\u00edpios Fundamentais',
+      principlesTitle: 'Princípios Fundamentais',
       principles: {
-        enterprise: { title: 'Base Enterprise', text: 'N\u00e3o comecei como freelancer. Comecei em um banco. 4,5 anos construindo software que pessoas reais dependem.' },
-        ai: { title: 'IA \u00e9 Real, N\u00e3o Buzzword', text: 'Os sistemas de IA que construo est\u00e3o rodando ao vivo em produ\u00e7\u00e3o. Bee est\u00e1 em um servidor agora. CIB tem usu\u00e1rios pagantes.' },
-        trilingual: { title: 'Tril\u00edngue = Raro', text: 'Portugu\u00eas + ingl\u00eas + hebraico. Construo para o mercado israelense, vendo para empresas brasileiras e trabalho com clientes internacionais.' },
-        builder: { title: 'Construtor, N\u00e3o Revendedor', text: 'Cada linha de c\u00f3digo \u00e9 escrita por mim. Sem white-label, sem subcontratados.' }
+        enterprise: { title: 'Base Enterprise', text: 'Não comecei como freelancer. Comecei em um banco.' },
+        ai: { title: 'IA é Real, Não Buzzword', text: 'Os sistemas de IA que construo estão rodando ao vivo em produção.' },
+        trilingual: { title: 'Trilíngue = Raro', text: 'Português + inglês + hebraico.' },
+        builder: { title: 'Construtor, Não Revendedor', text: 'Cada linha de código é escrita por mim.' }
       },
       techStackTitle: 'Stack de Tecnologia',
       ctaTitle: 'Vamos Construir Algo Juntos',
-      ctaText: 'Se voc\u00ea precisa de automa\u00e7\u00e3o com IA, um aplicativo web ou um consultor t\u00e9cnico que fala sua l\u00edngua \u2014 estou aqui.',
-      ctaButton: 'Agende uma Consulta Gratuita'
+      ctaText: 'Se você precisa de automação com IA ou um aplicativo web — estou aqui.',
+      ctaButton: 'Agendar Diagnóstico Gratuito'
     },
     servicesPage: {
-      title: 'Servi\u00e7os de Automa\u00e7\u00e3o com IA e Desenvolvimento Web',
-      subtitle: 'Agentes de IA personalizados, workflows n8n, apps Next.js e chatbots de IA constru\u00eddos por um desenvolvedor com background enterprise em Israel.',
+      title: 'Nossos Serviços',
+      subtitle: 'Eficiente. Simples. Transformador. — Soluções digitais que trabalham para você.',
       services: {
-        webDev: { title: 'Desenvolvimento de Aplica\u00e7\u00f5es Web', description: 'Sites e apps profissionais com Next.js, React e Node.js. C\u00f3digo de qualidade enterprise.', features: ['Aplica\u00e7\u00f5es Next.js e React', 'Design responsivo, mobile-first', 'Arquitetura otimizada para SEO', 'Integra\u00e7\u00f5es API e backend', 'Plataformas de e-commerce', 'Manuten\u00e7\u00e3o e suporte cont\u00ednuo'] },
-        aiAgents: { title: 'Agentes de IA e Automa\u00e7\u00e3o', description: 'Agentes de IA personalizados com Claude API e OpenAI, com automa\u00e7\u00e3o n8n. Constru\u00eddos para rodar seu neg\u00f3cio 24/7.', features: ['Agentes de IA com mem\u00f3ria e ferramentas', 'Automa\u00e7\u00e3o n8n (self-hosted)', 'Integra\u00e7\u00f5es Claude API e OpenAI', 'Automa\u00e7\u00e3o de CRM e calend\u00e1rio', 'Processamento de documentos', 'Workflows aut\u00f4nomos multi-etapa'] },
-        chatbots: { title: 'Chatbots de IA para Empresas', description: 'Chatbots inteligentes que lidam com conversas reais. Integrados com suas ferramentas existentes.', features: ['Suporte ao cliente em linguagem natural', 'Chatbots para site e WhatsApp', 'Integra\u00e7\u00e3o com base de conhecimento', 'Qualifica\u00e7\u00e3o de leads e agendamento', 'Suporte multilingual (EN/PT/HE)', 'Analytics e insights de conversa\u00e7\u00e3o'] },
-        consulting: { title: 'Consultoria Tech em Ingl\u00eas e Portugu\u00eas', description: 'Consultoria estrat\u00e9gica para empresas entrando ou operando nos mercados israelense e brasileiro.', features: ['Avalia\u00e7\u00e3o de prontid\u00e3o para IA', 'Revis\u00e3o de arquitetura tecnol\u00f3gica', 'Estrat\u00e9gia de automa\u00e7\u00e3o e ROI', 'Sele\u00e7\u00e3o de fornecedores', 'Aulas de tech e IA', 'Gerenciamento bil\u00edngue de projetos'] },
-        brazil: { title: 'Sistemas de IA para o Mercado Brasil-Israel', description: 'Produtos de IA bil\u00edngues para empresas entre Brasil e Israel. Expertise \u00fanica.', features: ['Chatbots de IA em portugu\u00eas e hebraico', 'Plataformas da comunidade brasileira em Israel', 'Automa\u00e7\u00e3o cross-border', 'Ferramentas de imigra\u00e7\u00e3o e burocracia', 'Produtos SaaS bil\u00edngues', 'Consultoria de ponte cultural'] }
+        techMentoring: {
+          title: 'Mentoria Tech',
+          description: 'Domine tecnologia e IA com orientação personalizada. Seja aprendendo a programar, explorando ferramentas de IA ou aprimorando habilidades digitais — receba mentoria de um desenvolvedor com experiência em fintech.',
+          features: ['Sessões privadas 1:1', 'Treinamento em ferramentas de IA', 'Fundamentos de programação', 'Alfabetização digital', 'Caminho de aprendizado personalizado', 'Agendamento flexível']
+        },
+        onlineMarketing: {
+          title: 'Marketing Online',
+          description: 'Cresça sua presença online com gestão de mídias sociais com IA, estratégia de conteúdo e geração de leads. Cuidamos do seu marketing digital.',
+          features: ['Gestão de mídias sociais', 'Criação de conteúdo com IA', 'Estratégia de geração de leads', 'Posicionamento de marca', 'Análise e relatórios', 'Suporte multilíngue (EN/PT/HE)']
+        },
+        digitalProducts: {
+          title: 'Produtos Digitais',
+          description: 'Sites personalizados, chatbots de IA, automações e agentes inteligentes construídos para transformar como seu negócio opera. Qualidade enterprise a preços acessíveis.',
+          features: ['Sites profissionais (Next.js)', 'Chatbots de IA (WhatsApp & Web)', 'Automação de fluxo de trabalho (n8n)', 'Agentes de IA personalizados', 'Integrações de API', 'Manutenção contínua']
+        }
       },
       processTitle: 'Como Trabalhamos',
       process: {
         1: { title: 'Descoberta', description: 'Chamada gratuita para entender suas necessidades.' },
-        2: { title: 'Escopo', description: 'Proposta escrita com pre\u00e7o fixo e cronograma.' },
-        3: { title: 'Constru\u00e7\u00e3o', description: 'Desenvolvimento com atualiza\u00e7\u00f5es regulares.' },
-        4: { title: 'Revis\u00e3o', description: 'Seu feedback molda o produto final.' },
-        5: { title: 'Lan\u00e7amento', description: 'Deploy, testes e suporte ao go-live.' },
-        6: { title: 'Suporte', description: 'Manuten\u00e7\u00e3o e melhorias cont\u00ednuas.' }
+        2: { title: 'Escopo', description: 'Proposta escrita com preço fixo e cronograma.' },
+        3: { title: 'Construção', description: 'Desenvolvimento com atualizações regulares.' },
+        4: { title: 'Revisão', description: 'Seu feedback molda o produto final.' },
+        5: { title: 'Lançamento', description: 'Deploy, testes e suporte ao go-live.' },
+        6: { title: 'Suporte', description: 'Manutenção e melhorias contínuas.' }
       },
-      faqTitle: 'Perguntas Frequentes',
-      faq: {
-        0: { q: 'Quanto custa automa\u00e7\u00e3o com IA em Israel?', a: 'Projetos de automa\u00e7\u00e3o na Workitu come\u00e7am de poucos milhares de shekels para automa\u00e7\u00f5es simples e escalam por complexidade. Agende uma consulta gratuita para or\u00e7amento.' },
-        1: { q: 'O que \u00e9 automa\u00e7\u00e3o n8n?', a: 'n8n \u00e9 uma plataforma open-source que conecta apps, APIs e servi\u00e7os sem c\u00f3digo. A Workitu especializa em deploys self-hosted em VPS, sem vendor lock-in.' },
-        2: { q: 'Voc\u00ea pode construir um chatbot de IA para meu neg\u00f3cio?', a: 'Sim. A Workitu constr\u00f3i chatbots com Claude API e OpenAI integrados com seus sistemas \u2014 CRM, calend\u00e1rio, email, banco de dados.' },
-        3: { q: 'Voc\u00eas trabalham com clientes internacionais?', a: 'Sim! A Workitu atende clientes em Israel, Brasil e globalmente. Yonatan fala ingl\u00eas, portugu\u00eas e hebraico fluentemente.' },
-        4: { q: 'Qual a diferen\u00e7a entre automa\u00e7\u00e3o com IA e automa\u00e7\u00e3o tradicional?', a: 'Automa\u00e7\u00e3o tradicional segue regras fixas. Automa\u00e7\u00e3o com IA usa modelos de linguagem para tarefas amb\u00edguas. A Workitu constr\u00f3i as duas.' },
-        5: { q: 'Quanto tempo leva um projeto web t\u00edpico?', a: 'Site empresarial: 2\u20134 semanas. Aplica\u00e7\u00e3o web completa: 4\u20138 semanas. Todo projeto come\u00e7a com escopo escrito.' },
-        6: { q: 'Oferecem suporte ap\u00f3s entrega?', a: 'Sim. Pacotes de manuten\u00e7\u00e3o para hosting, updates, bug fixes e novas features.' }
-      },
-      ctaTitle: 'Pronto para Automatizar e Construir?',
-      ctaText: 'Vamos discutir seu projeto. Agende uma consulta gratuita ou veja pre\u00e7os.',
-      ctaPrimary: 'Agende uma Consulta Gratuita',
-      ctaSecondary: 'Ver Pre\u00e7os',
+      ctaTitle: 'Pronto para Começar?',
+      ctaText: 'Vamos discutir seu projeto. Agende um diagnóstico gratuito ou veja preços.',
+      ctaPrimary: 'Agendar Diagnóstico Gratuito',
+      ctaSecondary: 'Ver Preços',
       getInTouch: 'Entre em Contato',
       letsTalk: 'Vamos Conversar'
     },
     footer: {
-      tagline: 'Automa\u00e7\u00e3o com IA e desenvolvimento web constru\u00eddos por um engenheiro com background enterprise em Israel.',
-      quickLinks: 'Links R\u00e1pidos',
+      tagline: 'Eficiente. Simples. Transformador. Automação com IA e desenvolvimento web por um engenheiro com background enterprise em Israel.',
+      quickLinks: 'Links Rápidos',
       connect: 'Conecte-se',
-      copyright: '\u00a9 {year} Workitu Tech. Todos os direitos reservados.',
+      copyright: '© {year} Workitu Tech. Todos os direitos reservados.',
       legal: 'Legal e Privacidade'
     }
   }
