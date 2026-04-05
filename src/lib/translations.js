@@ -13,63 +13,16 @@ export const translations = {
 
     // Home page
     home: {
-      badge: 'Available for projects',
-      heroLine1a: 'AI ',
-      heroLine1b: 'Automation',
-      heroLine2a: 'Built by Someone Who Has ',
-      heroLine2b: 'Shipped Real Systems',
-      subtitle: '4.5 years in enterprise fintech. Trilingual. Living in Israel. Building AI systems that actually work \u2014 for businesses that need results, not demos.',
-      ctaPrimary: 'Book a Free Discovery Call',
-      ctaSecondary: 'See What I Build',
-      stats: {
-        fintech: { value: '4.5yr', label: 'Fintech (BdB)' },
-        projects: { value: '150+', label: 'Projects Built' },
-        saas: { value: '1', label: 'Live SaaS Product' },
-        trilingual: { label: 'Trilingual' }
-      },
-      servicesTitle1: 'What We ',
-      servicesTitle2: 'Build',
-      servicesSubtitle: 'End-to-end AI automation and web development powered by enterprise-grade engineering and modern AI.',
-      services: {
-        ai: {
-          title: 'AI Agents & Automation',
-          description: 'Custom AI assistants that run your business 24/7. Chatbots, workflow automation with n8n, and intelligent systems built with Claude API and OpenAI.'
-        },
-        web: {
-          title: 'Web Development',
-          description: 'Professional websites and web apps that convert visitors into clients. Built with Next.js, React, and modern tooling by a developer with enterprise fintech background.'
-        },
-        marketing: {
-          title: 'Digital Marketing & Social Media',
-          description: 'Social media management, content strategy, and lead generation that brings real clients to your business.'
-        },
-        lessons: {
-          title: 'Tech & AI Lessons',
-          description: 'Private lessons in programming, AI tools, and technology. Learn at your own pace with a senior developer as your teacher.'
-        },
-        brazil: {
-          title: 'AI Systems for Brazilian-Israeli Market',
-          description: 'Bilingual AI products, chatbots, and automation tools for businesses operating between Brazil and Israel. Unique expertise \u2014 few developers in the world cover both markets.'
-        }
-      },
-      meetTitle: 'Meet ',
-      meetName: 'Yonatan',
-      meetP1: 'I\'m Yonatan Perlin \u2014 a Brazilian-Israeli software engineer, AI builder, and founder of Workitu Tech. I spent 4.5 years at Banco do Brasil building enterprise-grade software used by millions of people.',
-      meetP2: 'Today, I build AI automation systems, web applications, and custom software for businesses in Israel, Brazil, and globally. I speak Portuguese, English, and Hebrew \u2014 which means I can work with your team without the translation layer most agencies need.',
-      meetP3: 'React \u00b7 Next.js \u00b7 Node.js \u00b7 Python \u00b7 FastAPI \u00b7 n8n \u00b7 Claude API \u00b7 OpenAI \u00b7 MBA Technology Management, University of Haifa',
-      whyTitle1: 'Why ',
-      whyTitle2: 'Work With Me',
-      why: {
-        fintech: { title: 'Fintech DNA', subtitle: 'Enterprise background, startup speed.', text: 'I have built and maintained software used by millions of people. I apply that discipline to every project, no matter the size.' },
-        trilingual: { title: 'Trilingual Delivery', subtitle: 'Portuguese, English, and Hebrew.', text: 'No translation errors, no cultural gaps. I understand the Brazilian-Israeli business environment from the inside.' },
-        live: { title: 'Live Products, Not Mockups', subtitle: 'I ship things that go online and stay online.', text: 'Conex\u00e3o Israel Brasil is a live SaaS with real users and a paid subscription model. You\u2019re hiring someone who builds things that work.' },
-        strategy: { title: 'Strategy Meets Code', subtitle: 'MBA in Technology Management, University of Haifa.', text: 'I can code your product and help you think through the business model. Both matter.' }
-      },
-      ctaTitle1: 'Ready to ',
-      ctaTitle2: 'Transform',
-      ctaTitle3: ' Your Business?',
-      ctaText: 'Let\u2019s discuss how AI automation and modern web solutions can accelerate your growth.',
-      ctaButton: 'Book a Free Discovery Call'
+      title: 'Workitu Tech',
+      tagline: 'Efficient. Simple. Transformative.',
+      description: 'AI automation for professionals who don\'t have time to waste. Simple to use. Impossible to ignore the results.',
+      subDescription: 'We build AI solutions that are simple to use and deliver real transformation for liberal professionals.',
+      mission1: 'We believe technology should work for you, not the other way around. That\'s why we build AI solutions that are simple to use and deliver real transformation.',
+      mission2: 'With 4.5 years of enterprise fintech experience and an MBA in Technology Management, we combine technical depth with business strategy.',
+      mission3: 'From Israel to the world \u2014 Efficient. Simple. Transformative.',
+      tagline1: 'Your clients come to you for your work.',
+      tagline2: 'AI takes care of everything else.',
+      cta: 'Schedule Free Diagnosis'
     },
 
     // Portfolio page
@@ -92,11 +45,26 @@ export const translations = {
       promise: '\ud83d\udca1 Our promise: fair pricing, honest communication, and results that last.',
       cta: 'Get Started Today',
       services: {
-        website: { title: '\ud83c\udf10 Website Creation', price: 'Starting from $320', description: 'Elegant, fast, and mobile-ready websites designed to impress and perform. Perfect for personal brands, startups, and small businesses ready to grow online.' },
-        ecommerce: { title: '\ud83d\uded2 E-Commerce Solutions', price: 'Starting from $950', description: 'Powerful, secure online stores that help you sell with confidence and style. Includes payment integration, inventory management, and digital marketing setup.' },
-        ai: { title: '\ud83e\udd16 AI-Powered Applications', price: 'Starting from $670', description: 'Transform your ideas into smart, scalable software powered by Generative AI. We automate workflows, personalize experiences, and make AI work for you and me.' },
-        marketing: { title: '\ud83d\udcc8 Digital Marketing & Growth', price: 'Starting from $270/month', description: 'We grow your online presence with SEO, automation, and social media strategy. From search to storytelling \u2014 your brand deserves to be seen and remembered.' },
-        custom: { title: '\u2699\ufe0f Custom Projects', price: 'Every idea is unique \u2014 and so is every price.', description: 'Let\u2019s discuss your vision, define your goals, and design the perfect solution together.' }
+        mentoring: {
+          title: '🎓 Tech Mentoring',
+          price: 'Starting from ₪150/hour',
+          description: 'Private lessons in programming, AI, and digital tools. Learn at your pace with hands-on guidance from an experienced developer.'
+        },
+        marketing: {
+          title: '📱 Online Marketing',
+          price: 'Starting from ₪800/month',
+          description: 'Complete social media management and content strategy. AI-powered tools that amplify your brand and bring real clients to your door.'
+        },
+        products: {
+          title: '⚡ Digital Products',
+          price: 'Starting from ₪1,500 setup',
+          description: 'Websites, bots, AI agents, and automations built to transform your business. Includes ongoing support and maintenance options.'
+        },
+        custom: {
+          title: '⚙️ Custom Solutions',
+          price: 'Every business is unique',
+          description: 'Let\'s discuss your vision and design the perfect digital transformation together. Book a free diagnosis call.'
+        }
       }
     },
 
@@ -160,31 +128,42 @@ export const translations = {
     servicesPage: {
       title: 'AI Automation & Web Development Services',
       subtitle: 'Custom AI agents, n8n workflows, Next.js web apps, and AI chatbots built by an enterprise-background developer in Israel.',
-      services: {
-        webDev: {
-          title: 'Custom Web Application Development',
-          description: 'Professional websites and web apps built with Next.js, React, and Node.js. Enterprise-quality code from a developer with 4.5 years in fintech.',
-          features: ['Next.js & React web applications', 'Responsive, mobile-first design', 'SEO-optimized architecture', 'API integrations & backend development', 'E-commerce platforms', 'Ongoing maintenance & support']
+      items: {
+        mentoring: {
+          title: 'Tech Mentoring',
+          description: 'Master technology and AI with personalized guidance. Whether you\'re learning to code, exploring AI tools, or leveling up your digital skills — get expert mentoring from a developer with enterprise fintech background.',
+          features: {
+            0: 'Private 1:1 sessions',
+            1: 'AI tools training',
+            2: 'Programming fundamentals',
+            3: 'Digital literacy',
+            4: 'Custom learning path',
+            5: 'Flexible scheduling'
+          }
         },
-        aiAgents: {
-          title: 'AI Agents & Workflow Automation',
-          description: 'Custom AI agents powered by Claude API and OpenAI, with n8n workflow automation. Built to run your business 24/7.',
-          features: ['Custom AI agents with memory & tools', 'n8n workflow automation (self-hosted)', 'Claude API & OpenAI integrations', 'CRM & calendar automation', 'Document processing & classification', 'Multi-step autonomous workflows']
+        marketing: {
+          title: 'Online Marketing',
+          description: 'Grow your online presence with AI-powered social media management, content strategy, and lead generation. We handle your digital marketing so you can focus on what you do best.',
+          features: {
+            0: 'Social media management',
+            1: 'AI-powered content creation',
+            2: 'Lead generation strategy',
+            3: 'Brand positioning',
+            4: 'Analytics & reporting',
+            5: 'Multi-language support (EN/PT/HE)'
+          }
         },
-        chatbots: {
-          title: 'AI Chatbots for Business',
-          description: 'Intelligent chatbots that handle real conversations, not scripted flows. Integrated with your existing tools and trained on your business data.',
-          features: ['Natural language customer support', 'Website & WhatsApp chatbots', 'Knowledge base integration', 'Lead qualification & booking', 'Multi-language support (EN/PT/HE)', 'Analytics & conversation insights']
-        },
-        consulting: {
-          title: 'Tech Consulting in English & Portuguese',
-          description: 'Strategic technology consulting for businesses entering or operating in the Israeli and Brazilian markets. From architecture to AI strategy.',
-          features: ['AI readiness assessment', 'Technology architecture review', 'Automation strategy & ROI analysis', 'Vendor selection & integration planning', 'Private tech & AI lessons', 'Bilingual project management']
-        },
-        brazil: {
-          title: 'AI Systems for the Brazilian-Israeli Market',
-          description: 'Bilingual AI products, chatbots, and automation tools for businesses operating between Brazil and Israel. Unique expertise \u2014 few developers in the world cover both markets natively.',
-          features: ['Portuguese & Hebrew AI chatbots', 'Brazilian community platforms in Israel', 'Cross-border business automation', 'Immigration & bureaucracy tools', 'Bilingual SaaS products', 'Cultural bridge consulting']
+        products: {
+          title: 'Digital Products',
+          description: 'Custom websites, AI chatbots, workflow automations, and intelligent agents built to transform how your business operates. Enterprise-quality solutions at accessible prices.',
+          features: {
+            0: 'Professional websites (Next.js)',
+            1: 'AI chatbots (WhatsApp & Web)',
+            2: 'Workflow automation (n8n)',
+            3: 'Custom AI agents',
+            4: 'API integrations',
+            5: 'Ongoing maintenance'
+          }
         }
       },
       processTitle: 'How We Work',

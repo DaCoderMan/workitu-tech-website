@@ -10,42 +10,29 @@ export default function Home() {
   const t = useSafeT();
 
   const stats = [
-    { value: t('home.stats.fintech.value'), label: t('home.stats.fintech.label') },
-    { value: t('home.stats.projects.value'), label: t('home.stats.projects.label') },
-    { value: t('home.stats.saas.value'), label: t('home.stats.saas.label') },
+    { value: '3', label: t('home.stats.services.label') },
+    { value: '24/7', label: t('home.stats.aiAgents.label') },
     { value: '\u{1F1E7}\u{1F1F7}\u{1F1EE}\u{1F1F1}\u{1F1EC}\u{1F1E7}', label: t('home.stats.trilingual.label') },
   ];
 
   const services = [
     {
-      emoji: '\u{1F916}',
-      title: t('home.services.ai.title'),
-      description: t('home.services.ai.description'),
+      emoji: '\u{1F393}',
+      title: t('home.services.mentoring.title'),
+      description: t('home.services.mentoring.description'),
       accent: 'from-amber-400 to-orange-500',
-    },
-    {
-      emoji: '\u{1F310}',
-      title: t('home.services.web.title'),
-      description: t('home.services.web.description'),
-      accent: 'from-yellow-400 to-amber-500',
     },
     {
       emoji: '\u{1F4F1}',
       title: t('home.services.marketing.title'),
       description: t('home.services.marketing.description'),
+      accent: 'from-yellow-400 to-amber-500',
+    },
+    {
+      emoji: '\u{26A1}',
+      title: t('home.services.products.title'),
+      description: t('home.services.products.description'),
       accent: 'from-orange-400 to-red-500',
-    },
-    {
-      emoji: '\u{1F393}',
-      title: t('home.services.lessons.title'),
-      description: t('home.services.lessons.description'),
-      accent: 'from-yellow-300 to-amber-400',
-    },
-    {
-      emoji: '\u{1F1E7}\u{1F1F7}',
-      title: t('home.services.brazil.title'),
-      description: t('home.services.brazil.description'),
-      accent: 'from-emerald-400 to-teal-500',
     },
   ];
 
@@ -63,7 +50,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen">
-      <VideoBackground imageSrc="/images/bg-home.svg" />
+      <VideoBackground imageSrc="/images/cyberbee-hero.png" />
 
       {/* Hero Section */}
       <section className="relative z-10 pt-24 pb-8 px-4 sm:px-6 lg:px-8 min-h-[80vh] flex items-center">
@@ -107,7 +94,7 @@ export default function Home() {
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="grid grid-cols-3 gap-6 fade-in" style={{ animationDelay: '0.6s' }}>
               {stats.map((stat, i) => (
                 <div key={i} className="text-left">
                   <div className="font-display text-3xl md:text-4xl font-extrabold gradient-text">{stat.value}</div>
@@ -132,11 +119,11 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               {services.map((service, i) => (
                 <div
                   key={i}
-                  className={`group relative rounded-2xl overflow-hidden border border-white/5 bg-[#1a1a1a]/60 backdrop-blur-sm p-8 md:p-10 transition-all duration-300 hover:border-gold-500/20 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(245,158,11,0.08)] ${i === services.length - 1 ? 'md:col-span-2' : ''}`}
+                  className="group relative rounded-2xl overflow-hidden border border-white/5 bg-[#1a1a1a]/60 backdrop-blur-sm p-8 md:p-10 transition-all duration-300 hover:border-gold-500/20 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(245,158,11,0.08)]"
                 >
                   {/* Top accent line */}
                   <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -151,64 +138,23 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
-      {/* Meet Yonatan Section */}
+      {/* Mission Section */}
       <ScrollReveal>
         <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="glass rounded-3xl p-10 md:p-16 relative overflow-hidden">
               <h2 className="font-display text-2xl md:text-4xl font-bold text-gold-200 mb-8 relative z-10">
-                {t('home.meetTitle')}<span className="gradient-text">{t('home.meetName')}</span>
+                {t('home.missionTitle')}
               </h2>
               <p className="text-lg md:text-xl text-gold-300 mb-6 relative z-10 leading-relaxed">
-                {t('home.meetP1')}
+                {t('home.missionP1')}
               </p>
               <p className="text-base md:text-lg text-gold-400/80 mb-6 relative z-10 leading-relaxed">
-                {t('home.meetP2')}
+                {t('home.missionP2')}
               </p>
               <p className="text-base md:text-lg text-gold-300/70 relative z-10 leading-relaxed">
-                {t('home.meetP3')}
+                {t('home.missionP3')}
               </p>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* Why Workitu Section */}
-      <ScrollReveal>
-        <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-gold-100/90 mb-12 text-center">
-              {t('home.whyTitle1')}<span className="gradient-text">{t('home.whyTitle2')}</span>
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: t('home.why.fintech.title'),
-                  subtitle: t('home.why.fintech.subtitle'),
-                  text: t('home.why.fintech.text'),
-                },
-                {
-                  title: t('home.why.trilingual.title'),
-                  subtitle: t('home.why.trilingual.subtitle'),
-                  text: t('home.why.trilingual.text'),
-                },
-                {
-                  title: t('home.why.live.title'),
-                  subtitle: t('home.why.live.subtitle'),
-                  text: t('home.why.live.text'),
-                },
-                {
-                  title: t('home.why.strategy.title'),
-                  subtitle: t('home.why.strategy.subtitle'),
-                  text: t('home.why.strategy.text'),
-                },
-              ].map((item, i) => (
-                <div key={i} className="glass rounded-2xl p-8 card-hover">
-                  <h3 className="font-display text-xl font-bold text-gold-200 mb-1">{item.title}</h3>
-                  <p className="text-gold-400 text-sm font-medium mb-3">{item.subtitle}</p>
-                  <p className="text-gold-300/70 leading-relaxed">{item.text}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>
