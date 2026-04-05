@@ -44,7 +44,7 @@ body {
     )
     rgb(var(--background-start-rgb));
   min-height: 100vh;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Improve readability everywhere */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.6); /* Improve readability everywhere */
   line-height: 1.7;
 }
 

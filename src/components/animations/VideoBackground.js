@@ -93,7 +93,7 @@ export default function VideoBackground({ videoSrc = '/videos/workitu-reloaded.m
           quality={100}
           onError={() => setImageError(true)}
         />
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/55"></div>
       </div>
     );
   }

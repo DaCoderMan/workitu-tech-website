@@ -24,28 +24,22 @@ export default function Pricing() {
 
   const services = [
     {
-      key: 'website',
-      title: t('pricing.services.website.title'),
-      price: t('pricing.services.website.price'),
-      description: t('pricing.services.website.description')
+      key: 'techMentoring',
+      title: t('pricing.services.techMentoring.title'),
+      price: t('pricing.services.techMentoring.price'),
+      description: t('pricing.services.techMentoring.description')
     },
     {
-      key: 'ecommerce',
-      title: t('pricing.services.ecommerce.title'),
-      price: t('pricing.services.ecommerce.price'),
-      description: t('pricing.services.ecommerce.description')
+      key: 'onlineMarketing',
+      title: t('pricing.services.onlineMarketing.title'),
+      price: t('pricing.services.onlineMarketing.price'),
+      description: t('pricing.services.onlineMarketing.description')
     },
     {
-      key: 'ai',
-      title: t('pricing.services.ai.title'),
-      price: t('pricing.services.ai.price'),
-      description: t('pricing.services.ai.description')
-    },
-    {
-      key: 'marketing',
-      title: t('pricing.services.marketing.title'),
-      price: t('pricing.services.marketing.price'),
-      description: t('pricing.services.marketing.description')
+      key: 'digitalProducts',
+      title: t('pricing.services.digitalProducts.title'),
+      price: t('pricing.services.digitalProducts.price'),
+      description: t('pricing.services.digitalProducts.description')
     },
     {
       key: 'custom',
@@ -77,7 +71,7 @@ export default function Pricing() {
       {/* Services Grid */}
       <section className="relative z-10 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <div
                 key={service.key || index}
