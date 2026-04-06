@@ -45,10 +45,10 @@ export default function Home() {
   ];
 
   const industryStats = [
-    { value: '67%', label: t('home.industryStats.chatbot') },
-    { value: '80%', label: t('home.industryStats.response') },
-    { value: '3x', label: t('home.industryStats.leads') },
-    { value: '40%', label: t('home.industryStats.costs') },
+    { value: '80%', label: t('home.industryStats.resolve') },
+    { value: '60–70%', label: t('home.industryStats.automate') },
+    { value: '$4.4T', label: t('home.industryStats.value') },
+    { value: '25%', label: t('home.industryStats.primary') },
   ];
 
   useEffect(() => {

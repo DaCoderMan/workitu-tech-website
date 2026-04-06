@@ -57,13 +57,13 @@ export const translations = {
         }
       },
       industryStats: {
-        chatbot: 'of businesses plan to use chatbots by 2025',
-        response: 'faster response time with AI agents',
-        leads: 'more leads captured with automation',
-        costs: 'reduction in operational costs'
+        resolve: 'of customer service issues will be resolved by AI by 2029 — Gartner',
+        automate: 'of employee tasks can be automated with current AI — McKinsey',
+        value: 'annual value from generative AI globally — McKinsey',
+        primary: 'of organizations will use chatbots as primary service channel by 2027 — Gartner'
       },
       statsTitle: 'The Numbers Speak for Themselves',
-      statsSource: 'Sources: Gartner, HubSpot, McKinsey, Salesforce — 2023/2024 reports',
+      statsSource: 'Sources: Gartner (March 2025, July 2022), McKinsey Global Institute (June 2023)',
       howTitle: 'How It Works',
       how1Title: 'Free Diagnosis',
       how1Text: 'We analyze your business and identify where AI can make the biggest impact — no commitment.',
@@ -265,13 +265,13 @@ export const translations = {
         products: { title: 'מוצרים דיגיטליים', description: 'אתרים, בוטים, סוכני AI ואוטומציות שמריצים את העסק שלך 24/7.', price: 'החל מ-₪1,500', includes: 'כולל: עיצוב, פיתוח, פריסה, 30 ימי תמיכה' }
       },
       industryStats: {
-        chatbot: 'מהעסקים מתכננים להשתמש בצ׳אטבוטים עד 2025',
-        response: 'זמן תגובה מהיר יותר עם סוכני AI',
-        leads: 'יותר לידים נאספים עם אוטומציה',
-        costs: 'הפחתה בעלויות תפעוליות'
+        resolve: 'מבעיות שירות הלקוחות ייפתרו על ידי AI עד 2029 — Gartner',
+        automate: 'מהמשימות של עובדים ניתנות לאוטומציה עם AI — McKinsey',
+        value: 'ערך שנתי מ-AI גנרטיבי בעולם — McKinsey',
+        primary: 'מהארגונים ישתמשו בצ׳אטבוטים כערוץ שירות ראשי עד 2027 — Gartner'
       },
       statsTitle: 'המספרים מדברים בעד עצמם',
-      statsSource: 'מקורות: Gartner, HubSpot, McKinsey, Salesforce — דוחות 2023/2024',
+      statsSource: 'מקורות: Gartner (מרץ 2025, יולי 2022), McKinsey Global Institute (יוני 2023)',
       howTitle: 'איך זה עובד',
       how1Title: 'אבחון חינם',
       how1Text: 'אנחנו מנתחים את העסק שלך ומזהים היכן AI יכול להשפיע הכי הרבה — ללא התחייבות.',
@@ -453,13 +453,13 @@ export const translations = {
         products: { title: 'Produtos Digitais', description: 'Sites, chatbots ou automação feitos para você. Seu negócio funciona 24/7.', price: 'A partir de ₪1.500', includes: 'Inclui: design, desenvolvimento, deploy, 30 dias de suporte' }
       },
       industryStats: {
-        chatbot: 'das empresas planejam usar chatbots até 2025',
-        response: 'mais rápido no tempo de resposta com agentes de IA',
-        leads: 'mais leads capturados com automação',
-        costs: 'de redução nos custos operacionais'
+        resolve: 'dos problemas de atendimento serão resolvidos por IA até 2029 — Gartner',
+        automate: 'das tarefas de funcionários podem ser automatizadas com IA — McKinsey',
+        value: 'valor anual da IA generativa globalmente — McKinsey',
+        primary: 'das organizações usarão chatbots como canal principal de atendimento até 2027 — Gartner'
       },
       statsTitle: 'Os Números Falam por Si',
-      statsSource: 'Fontes: Gartner, HubSpot, McKinsey, Salesforce — relatórios 2023/2024',
+      statsSource: 'Fontes: Gartner (março 2025, julho 2022), McKinsey Global Institute (junho 2023)',
       howTitle: 'Como Funciona',
       how1Title: 'Diagnóstico Gratuito',
       how1Text: 'Analisamos seu negócio e identificamos onde a IA pode gerar o maior impacto — sem compromisso.',
