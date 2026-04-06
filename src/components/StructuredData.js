@@ -35,7 +35,7 @@ export default function StructuredData() {
     name: 'Yonatan Sam Perlin',
     jobTitle: 'Founder & CEO, AI Automation Consultant',
     worksFor: { '@type': 'Organization', name: 'Workitu Tech' },
-    alumniOf: 'University of Haifa',
+    alumniOf: 'Banco do Brasil — Enterprise Fintech',
     knowsAbout: ['AI automation', 'n8n', 'React', 'Node.js', 'Fintech'],
     url: 'https://www.workitu.com/about',
     sameAs: ['https://www.linkedin.com/in/jonsamper'],

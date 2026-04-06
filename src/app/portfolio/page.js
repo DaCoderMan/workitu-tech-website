@@ -10,7 +10,7 @@ const FEATURED_PROJECTS = [
   {
     id: 'cib',
     title: 'Conex\u00e3o Israel Brasil',
-    description: 'AI assistant for the 15,000+ Brazilians living in Israel. Includes AI chat powered by Claude and GPT, financial simulators (income tax, Bituach Leumi), a rights calculator, 10 step-by-step guides, and a verified directory of Brazilian professionals in Israel. Freemium SaaS with $9.99/month premium plan.',
+    description: 'AI assistant for the ~25,000 Brazilians living in Israel (source: Times of Israel). Includes AI chat powered by Claude and GPT, financial simulators (income tax, Bituach Leumi), a rights calculator, step-by-step guides, and a directory of Brazilian professionals in Israel.',
     category: 'SaaS Product',
     image: '/images/portfolio/cib.jpg',
     link: 'https://conexaoisraelbrasil.org',
