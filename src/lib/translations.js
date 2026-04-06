@@ -22,8 +22,8 @@ export const translations = {
       ctaPrimary: 'Schedule Free Diagnosis',
       ctaSecondary: 'See Our Services',
       stats: {
-        services: { label: 'Services' },
-        aiAgents: { label: 'AI Agents' },
+        services: { label: 'AI Services' },
+        aiAgents: { label: 'AI Agents Active' },
         trilingual: { label: 'Trilingual' }
       },
       servicesTitle1: 'What We ',
@@ -74,6 +74,11 @@ export const translations = {
       promise: '💡 Our promise: fair pricing, honest communication, and results that last.',
       cta: 'Schedule Free Diagnosis',
       services: {
+        aiWhatsappBot: {
+          title: '🤖 AI WhatsApp Bot',
+          price: '₪800 setup + ₪150/month',
+          description: 'Your business answers clients 24/7 in Portuguese, Hebrew and English — automatically. Ready in 7 days. Cancel anytime.'
+        },
         techMentoring: {
           title: '🎓 Tech Mentoring',
           price: 'From $40/hour (₪150/hour)',
@@ -253,6 +258,11 @@ export const translations = {
       promise: '💡 ההבטחה שלנו: תמחור הוגן, תקשורת כנה ותוצאות שנשארות.',
       cta: 'לתאם אבחון חינם',
       services: {
+        aiWhatsappBot: {
+          title: '🤖 בוט WhatsApp עם AI',
+          price: '₪800 הקמה + ₪150/חודש',
+          description: 'העסק שלך עונה ללקוחות 24/7 בפורטוגזית, עברית ואנגלית — אוטומטית. מוכן תוך 7 ימים.'
+        },
         techMentoring: {
           title: '🎓 חונכות טכנולוגית',
           price: 'החל מ-$40/שעה (₪150/שעה)',
@@ -416,6 +426,7 @@ export const translations = {
       promise: '💡 Nossa promessa: preços justos, comunicação honesta e resultados duradouros.',
       cta: 'Agendar Diagnóstico Gratuito',
       services: {
+        aiWhatsappBot: { title: '🤖 Bot WhatsApp com IA', price: '₪800 setup + ₪150/mês', description: 'Seu negócio responde clientes 24/7 em português, hebraico e inglês — automaticamente. Pronto em 7 dias.' },
         techMentoring: { title: '🎓 Mentoria Tech', price: 'A partir de $40/hora (₪150/hora)', description: 'Aulas particulares de programação, IA e ferramentas digitais. Aprenda no seu ritmo com orientação prática.' },
         onlineMarketing: { title: '📱 Marketing Online', price: 'A partir de $220/mês (₪800/mês)', description: 'Gestão completa de mídias sociais e estratégia de conteúdo. Ferramentas com IA que amplificam sua marca.' },
         digitalProducts: { title: '⚡ Produtos Digitais', price: 'A partir de $400 setup (₪1.500 setup)', description: 'Sites, bots, agentes de IA e automações construídos para transformar seu negócio.' },

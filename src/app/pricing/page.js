@@ -22,6 +22,15 @@ export default function Pricing() {
 
   const services = [
     {
+      key: 'aiWhatsappBot',
+      emoji: '🤖',
+      title: t('pricing.services.aiWhatsappBot.title'),
+      price: t('pricing.services.aiWhatsappBot.price'),
+      description: t('pricing.services.aiWhatsappBot.description'),
+      badge: '🔥 Most Popular',
+      highlight: true
+    },
+    {
       key: 'techMentoring',
       emoji: '🎓',
       title: t('pricing.services.techMentoring.title'),
@@ -78,9 +87,12 @@ export default function Pricing() {
               {services.map((service, index) => (
                 <div
                   key={service.key || index}
-                  className="card-hover glass rounded-2xl p-10 fade-in flex flex-col"
+                  className={`card-hover glass rounded-2xl p-10 fade-in flex flex-col ${service.highlight ? "border border-green-500/20 shadow-[0_0_40px_rgba(34,197,94,0.07)]" : ""}`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
+                  {service.badge && (
+                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30 mb-4">{service.badge}</div>
+                  )}
                   <div className="text-4xl mb-4">{service.emoji}</div>
                   <h3 className="text-2xl font-bold text-gold-300 mb-4">
                     {service.title}

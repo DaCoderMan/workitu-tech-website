@@ -40,7 +40,26 @@ export default function Services() {
         {/* Services Grid */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* AI WhatsApp Bot - #1 Product */}
+              <div className="glass rounded-xl p-8 card-hover fade-in border border-green-500/15 shadow-[0_0_30px_rgba(34,197,94,0.06)]" style={{ animationDelay: '0s' }}>
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30 mb-4">🔥 Most Popular</div>
+                <div className="text-4xl mb-6">🤖</div>
+                <h2 className="text-2xl font-bold text-gold-300 mb-2">AI WhatsApp Bot</h2>
+                <div className="text-xl font-bold text-green-400 mb-4">₪800 setup + ₪150/month</div>
+                <p className="text-gold-400/70 mb-6">Your business answers clients 24/7 in Portuguese, Hebrew and English — automatically. Setup in 7 days.</p>
+                <ul className="space-y-2 mb-6">
+                  {['Answers FAQs automatically', 'Collects leads while you sleep', 'Portuguese, Hebrew & English', 'Custom personality & tone', 'Ready in 7 days', 'Cancel anytime'].map((f, i) => (
+                    <li key={i} className="flex items-start gap-2 text-gold-300/80">
+                      <span className="text-green-400 mt-1">&#8226;</span>{f}
+                    </li>
+                  ))}
+                </ul>
+                <a href="https://wa.me/972587897763?text=Hi!%20I%27m%20interested%20in%20the%20AI%20WhatsApp%20Bot" target="_blank" rel="noopener noreferrer" className="mt-auto inline-block btn-gold px-6 py-2 rounded-lg text-sm font-medium">
+                  Start on WhatsApp &rarr;
+                </a>
+              </div>
+
               {/* Tech Mentoring */}
               <div className="glass rounded-xl p-8 card-hover fade-in" style={{ animationDelay: '0.1s' }}>
                 <div className="text-4xl mb-6">🎓</div>
