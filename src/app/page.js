@@ -9,12 +9,21 @@ export default function Home() {
   const t = useSafeT();
 
   const stats = [
-    { value: '3', label: t('home.stats.services.label') },
+    { value: '4', label: 'AI-Powered Services' },
     { value: '24/7', label: t('home.stats.aiAgents.label') },
     { value: '\u{1F1E7}\u{1F1F7}\u{1F1EE}\u{1F1F1}\u{1F1EC}\u{1F1E7}', label: t('home.stats.trilingual.label') },
+    { value: '7d', label: 'Bot Setup Time' },
   ];
 
   const services = [
+    {
+      emoji: '\u{1F916}',
+      title: 'AI WhatsApp Bot',
+      description: 'Your business answers clients 24/7 in Portuguese, Hebrew, and English — automatically. Setup in 7 days.',
+      price: '₪800 setup + ₪150/month',
+      accent: 'from-green-400 to-emerald-500',
+      badge: '🔥 Most Popular',
+    },
     {
       emoji: '\u{1F393}',
       title: t('home.services.mentoring.title'),
@@ -52,7 +61,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #1a0e00 40%, #0a0a0a 100%)' }}>
-      <div className="fixed inset-0 z-0" style={{ backgroundImage: 'url(/images/cyberbee-hero.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15 }} />
+      <div className="fixed inset-0 z-0" style={{ backgroundImage: 'url(/images/bg-home-bee.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15 }} />
       <div className="relative z-10">
 
         {/* Hero Section */}
@@ -97,7 +106,7 @@ export default function Home() {
               </div>
 
               {/* Stats Row */}
-              <div className="grid grid-cols-3 gap-6 fade-in" style={{ animationDelay: '0.6s' }}>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 fade-in" style={{ animationDelay: '0.6s' }}>
                 {stats.map((stat, i) => (
                   <div key={i} className="text-left">
                     <div className="font-display text-3xl md:text-4xl font-extrabold gradient-text">{stat.value}</div>
@@ -122,7 +131,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {services.map((service, i) => (
                   <div
                     key={i}
@@ -131,6 +140,9 @@ export default function Home() {
                     {/* Top accent line */}
                     <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
+                    {service.badge && (
+                      <div className="inline-block px-2 py-0.5 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30 mb-3">{service.badge}</div>
+                    )}
                     <div className="text-4xl mb-5">{service.emoji}</div>
                     <h3 className="font-display text-xl font-bold text-gold-200 mb-3">{service.title}</h3>
                     <p className="text-gold-400/70 leading-relaxed mb-4">{service.description}</p>

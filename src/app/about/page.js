@@ -18,7 +18,7 @@ export default function About() {
 
   return (
     <div className="relative min-h-screen" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #1a0e00 40%, #0a0a0a 100%)' }}>
-      <div className="fixed inset-0 z-0" style={{ backgroundImage: 'url(/images/cyberbee-hero.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15 }} />
+      <div className="fixed inset-0 z-0" style={{ backgroundImage: 'url(/images/bg-home-bee.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15 }} />
       <div className="relative z-10">
 
         <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
