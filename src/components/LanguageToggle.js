@@ -16,7 +16,6 @@ export default function LanguageToggle() {
 
   const currentLang = languages.find(lang => lang.code === language);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -32,7 +31,7 @@ export default function LanguageToggle() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium text-gold-300 hover:text-gold-400 hover:bg-gold-400/10 transition-colors border border-gold-500/30"
+        className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-semibold text-stone-600 hover:text-amber-700 hover:bg-amber-50 transition-colors border border-stone-200"
         aria-label="Select language"
         aria-expanded={isOpen}
       >
@@ -49,7 +48,7 @@ export default function LanguageToggle() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 bg-black/95 border border-gold-500/30 rounded-md shadow-lg overflow-hidden z-50 min-w-[140px] backdrop-blur-sm">
+        <div className="absolute top-full right-0 mt-2 bg-white border border-stone-200 rounded-lg shadow-lg overflow-hidden z-50 min-w-[140px]">
           {languages.map((lang) => (
             <button
               key={lang.code}
@@ -57,10 +56,10 @@ export default function LanguageToggle() {
                 setLanguage(lang.code);
                 setIsOpen(false);
               }}
-              className={`w-full flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors ${
+              className={`w-full flex items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-colors ${
                 language === lang.code
-                  ? 'bg-gold-500/20 text-gold-400'
-                  : 'text-gold-300 hover:bg-gold-500/10 hover:text-gold-400'
+                  ? 'bg-amber-50 text-amber-700'
+                  : 'text-stone-600 hover:bg-amber-50/50 hover:text-amber-700'
               }`}
             >
               <span className="text-base">{lang.flag}</span>

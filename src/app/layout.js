@@ -15,10 +15,10 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.tech';
 export const metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Workitu Tech — AI Automation for Professionals',
+    default: 'Workitu Tech — AI Automation & Custom Solutions for Professionals',
     template: '%s | Workitu Tech',
   },
-  description: 'AI WhatsApp Bot for Brazilian businesses in Israel — answers clients 24/7 in Portuguese, Hebrew & English. Setup in 7 days. AI automation, web development, and digital marketing.',
+  description: 'Workitu Tech helps professionals in Israel grow with AI automation, custom WhatsApp bots, tech mentoring, and digital marketing. Trilingual service in Portuguese, Hebrew & English. Get your AI agent running in 7 days.',
   keywords: [
     'AI WhatsApp bot Israel',
     'bot WhatsApp empresas brasileiras Israel',
@@ -29,6 +29,10 @@ export const metadata = {
     'desenvolvedor brasileiro Israel',
     'brasileiro em Israel tecnologia',
     'automação empresas brasileiras Israel',
+    'tech mentoring Israel',
+    'aulas de programação Israel',
+    'digital marketing professionals Israel',
+    'custom AI solutions Israel',
     'n8n automation Israel',
     'workflow automation small business Israel',
     'web developer Israel English Portuguese Hebrew',
@@ -36,14 +40,13 @@ export const metadata = {
     'full stack developer Israel',
     'AI agent development Israel',
     'Workitu Tech',
-    'AI solutions Israel',
   ],
   authors: [{ name: 'Yonatan Sam Perlin', url: BASE_URL }],
   creator: 'Workitu Tech',
   publisher: 'Workitu Tech',
   openGraph: {
-    title: 'Workitu Tech — AI Automation for Professionals',
-    description: 'AI WhatsApp Bot for Brazilian businesses in Israel — answers clients 24/7 in Portuguese, Hebrew & English. Setup in 7 days. AI automation, web development, and digital marketing.',
+    title: 'Workitu Tech — AI That Works While You Sleep',
+    description: 'Custom AI WhatsApp bots, tech mentoring, digital marketing, and automation for professionals in Israel. Trilingual (PT/EN/HE). Your AI agent ready in 7 days.',
     type: 'website',
     locale: 'en_US',
     url: BASE_URL,
@@ -53,14 +56,14 @@ export const metadata = {
         url: '/images/og-thumbnail.jpg',
         width: 1200,
         height: 630,
-        alt: 'Workitu Tech — AI Automation for Professionals',
+        alt: 'Workitu Tech — AI Automation for Professionals. A robotic golden bee representing intelligent automation.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Workitu Tech — AI Automation for Professionals',
-    description: 'AI WhatsApp Bot for Brazilian businesses in Israel — answers clients 24/7 in Portuguese, Hebrew & English. Setup in 7 days. AI automation, web development, and digital marketing.',
+    title: 'Workitu Tech — AI That Works While You Sleep',
+    description: 'Custom AI WhatsApp bots, tech mentoring, digital marketing & automation for professionals in Israel. Trilingual service. Ready in 7 days.',
     images: ['/images/og-thumbnail.jpg'],
   },
   robots: {
@@ -93,7 +96,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <StructuredData />
       </head>
-      <body className="bg-black text-gold-400 min-h-screen">
+      <body className="bg-[#fffcf5] text-stone-700 min-h-screen">
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>
