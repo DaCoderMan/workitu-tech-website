@@ -1,286 +1,250 @@
 # Workitu Tech Website
 
-A modern, responsive website for Workitu Tech built with Next.js 14, featuring a black and gold theme, portfolio management, analytics, and an admin panel.
+Workitu Tech Website - Modern Next.js portfolio with admin panel, analytics, and music player
 
-## Features
+## Overview
 
-### Public Pages
-- **Home**: Company introduction with mission and vision
-- **Portfolio**: Dynamic project showcase with external links
-- **Pricing**: Service tiers and pricing information
-- **Contact**: Contact form with email integration
-- **404**: Custom error page
+- Repository: `DaCoderMan/workitu-tech-website`
+- Primary language: `JavaScript`
+- Project type: Next.js application / Shell automation
+- Visibility: public
+- Default branch: `main`
 
-### Admin Panel
-- **Authentication**: Secure login with bcrypt password hashing
-- **Portfolio Management**: Add, edit, delete, and reorder projects
-- **Content Management**: Edit all site content
-- **Analytics Dashboard**: View site statistics and export data
-- **Contact Submissions**: View and manage form submissions
-- **Data Backup**: Download complete site backup
+This README was generated after a static review of the repository structure, package files, scripts, source files, and existing documentation.
 
-### Technical Features
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Background Animations**: Unique animations for each page section
-- **Music Player**: Floating audio player for the Workitu Song
-- **Analytics Tracking**: Custom analytics with page views, device types, and project clicks
-- **Rate Limiting**: Protection against brute force attacks
-- **Image Optimization**: Automatic image handling and optimization
-- **SEO Optimized**: Meta tags, sitemap, and structured data
+## What this project contains
 
-## Project Structure
+- Application routes/pages detected from the app/pages directory structure.
+- API/server endpoints or route handlers are present.
+- Package scripts are available for local development and project tasks.
+- Workitu/Bee/Life OS operational tooling or business workflow context.
 
+## Repository profile
+
+- Files scanned: 162
+- Estimated source/config lines reviewed: 9366
+- Top-level directories: `public`, `scripts`, `src`, `tests`
+- File-type mix: .js: 74, .png: 19, .ts: 17, .md: 13, .json: 7, .txt: 5, .svg: 4, .jpg: 3, .css: 3, .tsx: 3
+
+## Key files and folders
+
+- `Dockerfile`
+- `README.md`
+- `docker-compose.yml`
+- `netlify.toml`
+- `next.config.js`
+- `package.json`
+- `tailwind.config.js`
+- `tsconfig.json`
+- `vercel.json`
+
+## Available npm scripts
+
+- `dev`: `next dev --turbopack`
+- `build`: `next build`
+- `start`: `next start`
+- `lint`: `next lint`
+- `deploy:vercel`: `vercel --prod`
+- `deploy:netlify`: `netlify deploy --prod`
+- `preview`: `next build && next start`
+- `update-portfolio`: `node .agent/scripts/portfolio-manager.js`
+- `business-agent`: `node .agent/scripts/business-agent.js`
+- `qa-check`: `node .agent/scripts/qa-agent.js`
+
+## Main dependencies detected
+
+- `@playwright/test`
+- `@types/bcryptjs`
+- `@types/jsonwebtoken`
+- `@types/node`
+- `@types/nodemailer`
+- `@types/papaparse`
+- `@types/react`
+- `@types/react-dom`
+- `@vercel/analytics`
+- `@vercel/speed-insights`
+- `autoprefixer`
+- `bcryptjs`
+- `eslint`
+- `eslint-config-next`
+- `firebase-admin`
+- `framer-motion`
+- `jose`
+- `jsonwebtoken`
+- `mongodb`
+- `next`
+- `nodemailer`
+- `papaparse`
+- `playwright`
+- `postcss`
+- `puppeteer`
+- `react`
+- `react-dnd`
+- `react-dnd-html5-backend`
+- `react-dom`
+- `react-hook-form`
+- `react-hot-toast`
+- `selenium-webdriver`
+- `sharp`
+- `tailwindcss`
+- `twilio`
+
+## Web application map
+
+Routes/pages:
+
+- `/`
+- `/about`
+- `/about/layout`
+- `/admin`
+- `/api/admin/backup/route`
+- `/api/admin/content/route`
+- `/api/admin/projects/route`
+- `/api/admin/submissions/route`
+- `/api/admin/upload/route`
+- `/api/analytics/export/route`
+- `/api/analytics/track/route`
+- `/api/auth/forgot-password/route`
+- `/api/auth/login/route`
+- `/api/auth/logout/route`
+- `/api/auth/reset-password/route`
+- `/api/auth/session/route`
+- `/api/billing/checkout/route`
+- `/api/billing/webhook/route`
+- `/api/contact/route`
+- `/api/cron/daily-coaching/route`
+- `/api/projects/route`
+- `/api/telegram/route`
+- `/api/telegram/setup/route`
+- `/api/whatsroute`
+- `/billing/cancel`
+- `/billing/success`
+- `/contact`
+- `/contact/layout`
+- `/layout`
+- `/legal`
+- `/legal/layout`
+- `/loading`
+- `/not-found`
+- `/pay`
+- `/pay/layout`
+- `/portfolio`
+- `/portfolio/PortfolioClient`
+- `/portfolio/layout`
+- `/pricing`
+- `/pricing/layout`
+
+API/route files:
+
+- `src/app/api/admin/backup/route.js`
+- `src/app/api/admin/content/route.js`
+- `src/app/api/admin/projects/route.js`
+- `src/app/api/admin/submissions/route.js`
+- `src/app/api/admin/upload/route.js`
+- `src/app/api/analytics/export/route.js`
+- `src/app/api/analytics/track/route.js`
+- `src/app/api/auth/forgot-password/route.js`
+- `src/app/api/auth/login/route.js`
+- `src/app/api/auth/logout/route.js`
+- `src/app/api/auth/reset-password/route.js`
+- `src/app/api/auth/session/route.js`
+- `src/app/api/billing/checkout/route.ts`
+- `src/app/api/billing/webhook/route.ts`
+- `src/app/api/contact/route.js`
+- `src/app/api/cron/daily-coaching/route.ts`
+- `src/app/api/projects/route.js`
+- `src/app/api/telegram/route.ts`
+- `src/app/api/telegram/setup/route.ts`
+- `src/app/api/whatsapp/route.js`
+
+Components sampled:
+
+- `src/components/Analytics.js`
+- `src/components/LanguageProvider.js`
+- `src/components/LanguageToggle.js`
+- `src/components/StructuredData.js`
+- `src/components/animations/ContactAnimation.js`
+- `src/components/animations/HomeAnimation.js`
+- `src/components/animations/PortfolioAnimation.js`
+- `src/components/animations/PricingAnimation.js`
+- `src/components/animations/ScrollReveal.js`
+- `src/components/animations/VideoBackground.js`
+- `src/components/animations/WLogoBackground.js`
+- `src/components/layout/Footer.js`
+- `src/components/layout/Header.js`
+
+## Getting started
+
+```bash
+git clone https://github.com/DaCoderMan/workitu-tech-website
+cd workitu-tech-website
 ```
-/src
-  /app
-    /page.js (Home)
-    /portfolio/page.js
-    /pricing/page.js
-    /contact/page.js
-    /admin/page.js
-    /not-found.js (404 page)
-    /api
-      /auth (authentication routes)
-      /analytics (tracking and export)
-      /admin (CRUD operations)
-      /contact (form handling)
-  /components
-    /layout (Header, Footer, Navigation)
-    /animations (Background animations)
-    /portfolio (Project components)
-    /forms (Contact and admin forms)
-    /admin (Admin panel components)
-    /audio (Music player)
-    /ui (Toast notifications, loading states)
-  /data
-    /projects.json (portfolio data)
-    /analytics.json (site analytics)
-    /content.json (editable content)
-    /submissions.json (contact form data)
-  /styles
-    /globals.css (main styles)
-    /animations.css (animation styles)
-  /utils
-    /auth.js (authentication utilities)
-    /analytics.js (tracking utilities)
-    /rateLimit.js (rate limiting)
-    /validation.js (form validation)
-/public
-  /images/projects (portfolio images)
-  /images/company (company assets)
-  /audio (music files)
-```
 
-## Setup Instructions
+Common commands inferred from the repository:
 
-### 1. Install Dependencies
 ```bash
 npm install
-```
-
-### 2. Environment Configuration
-Copy the `env.example` file to `.env.local` in the root directory:
-
-```bash
-cp env.example .env.local
-```
-
-Then edit `.env.local` with your actual values:
-
-```env
-# Admin Credentials (REQUIRED)
-ADMIN_EMAIL=your_admin_email@example.com
-ADMIN_PASSWORD_HASH=your_bcrypt_hash_here
-
-# JWT Secret (REQUIRED - generate a secure random string)
-JWT_SECRET=your_secure_random_secret_here
-
-# Email Configuration (for contact form)
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your_email@example.com
-SMTP_PASS=your_email_password_here
-
-# Rate Limiting
-RATE_LIMIT_MAX=5
-RATE_LIMIT_WINDOW=900000
-
-# Site Configuration
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
-
-# Google AI API Key (optional)
-GOOGLE_AI_API_KEY=your_google_ai_api_key_here
-```
-
-### 3. Add Your Media Files
-- Place your "Workitu Song" audio file in `/public/audio/workitu-song.m4a`
-- Add your background video in `/public/videos/workitu-reloaded.mp4`
-- Add project images to `/public/images/projects/`
-- Add a favicon.ico to `/public/favicon.ico`
-
-### 4. Run Development Server
-```bash
 npm run dev
+npm start
+npm run build
+npm run lint
 ```
 
-The site will be available at `http://localhost:3000`
+## Configuration clues
 
-## Admin Access
+Environment/configuration names referenced in the codebase include:
 
-- **URL**: `/admin`
-- **Credentials**: Set via environment variables (ADMIN_EMAIL, ADMIN_PASSWORD_HASH)
+- `ADMIN_EMAIL`
+- `ADMIN_PASSWORD_HASH`
+- `API`
+- `APP_URL`
+- `AUTH`
+- `BASE_URL`
+- `CONTACT_EMAIL`
+- `CRON_SECRET`
+- `DEEPSEEK_API_KEY`
+- `EMAIL`
+- `FIREBASE_CLIENT_EMAIL`
+- `FIREBASE_PRIVATE_KEY`
+- `GOOGLE_AI_API_KEY`
+- `INVALID_URL`
+- `JWT_SECRET`
+- `LEMONSQUEEZY_API_KEY`
+- `LEMONSQUEEZY_VARIANT_ID_SUPPORT_MONTHLY`
+- `LEMONSQUEEZY_VARIANT_ID_SUPPORT_YEARLY`
+- `LEMONSQUEEZY_WEBHOOK_SECRET`
+- `MONGO_URI`
+- `NEXT_PUBLIC_FACEBOOK_URL`
+- `NEXT_PUBLIC_GITHUB_URL`
+- `NEXT_PUBLIC_INSTAGRAM_URL`
+- `NEXT_PUBLIC_LINKEDIN_URL`
+- `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_TIKTOK_URL`
+- `NEXT_PUBLIC_TWITTER_URL`
+- `NEXT_PUBLIC_YOUTUBE_URL`
+- `PASSWORD`
+- `SECURITY`
+- `SENTRY_AUTH_TOKEN`
+- `SETUP_SECRET`
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SUPPORT`
+- `TELEGRAM_API`
+- `TELEGRAM_BOT_TOKEN`
+- `TELEGRAM_SETUP_SECRET`
+- `TELEGRAM_TOKEN`
+- `TWILIO_AUTH_TOKEN`
 
-## Admin Features
+Create a local `.env` file only if the project expects one, and never commit real secrets.
 
-### Portfolio Management
-- Add new projects with title, description, image, and external link
-- Edit existing projects
-- Delete projects
-- Mark projects as featured
-- All external links open in new windows
+## Security and maintenance notes
 
-### Content Management
-- Edit Home page content (title, mission, services)
-- Edit Pricing page content (services, descriptions)
-- Edit Contact page information
+No obvious hardcoded secret patterns were detected during this lightweight static pass. This is not a full security audit.
 
-### Analytics
-- View total page views and unique visitors
-- Track device types (desktop, mobile, tablet)
-- Monitor project click rates
-- Export analytics data as CSV
+- Keep README setup instructions aligned with actual scripts and deployment steps.
+- Document required environment variables in `.env.example` rather than committing real values.
+- Run the project-specific test/build command before merging future code changes.
 
-### Media Management
-- Upload and replace the Workitu Song
-- Upload and replace background animations
-- Automatic image optimization
+## Generated documentation note
 
-### Data Management
-- View all contact form submissions
-- Download complete site backup
-- Export analytics data
-
-## Customization
-
-### Colors
-The site uses a black and gold color scheme defined in `tailwind.config.js`:
-- Primary: Gold (#f59e0b)
-- Background: Black (#000000)
-- Text: Gold variations
-
-### Animations
-Background animations are defined in `/src/styles/animations.css` and can be easily customized or replaced.
-
-### Content
-All site content can be edited through the admin panel or by modifying `/src/data/content.json`.
-
-## Security Features
-
-- Bcrypt password hashing
-- JWT-based session management
-- Rate limiting on login attempts
-- Input sanitization and validation
-- Secure cookie handling
-- CSRF protection
-
-## Performance Features
-
-- Next.js Image optimization
-- Static generation with ISR
-- Lazy loading
-- Optimized animations (GPU-accelerated)
-- Responsive images
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
-
-## 🚀 Deployment (No Localhost Needed!)
-
-Due to Windows 11 localhost issues, here are the best deployment options:
-
-### **Quick Deploy Options:**
-
-1. **Vercel (Recommended - Free)**
-   ```bash
-   npm install -g vercel
-   vercel --prod
-   ```
-
-2. **Netlify (Free)**
-   ```bash
-   npm install -g netlify-cli
-   netlify deploy --prod
-   ```
-
-3. **Railway (Free)**
-   - Go to [railway.app](https://railway.app)
-   - Connect GitHub repo
-   - Auto-deploys!
-
-4. **Render (Free)**
-   - Go to [render.com](https://render.com)
-   - Connect GitHub repo
-   - Auto-deploys!
-
-### **Alternative Development:**
-- **Docker**: `docker-compose up` (runs on different port)
-- **GitHub Codespaces**: Cloud development environment
-- **Gitpod**: Free cloud IDE
-- **Replit**: Online development
-
-### **Environment Variables:**
-Set these in your deployment platform:
-```env
-ADMIN_EMAIL=your_admin_email@example.com
-ADMIN_PASSWORD_HASH=your_bcrypt_password_hash
-JWT_SECRET=your_secure_random_secret
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your_email@example.com
-SMTP_PASS=your_email_password
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
-```
-
-📖 **See DEPLOYMENT.md for detailed instructions!**
-
-## Support
-
-For questions or issues, contact: contact@workitu.com
-
-## Current Status
-
-✅ **Completed Features:**
-- All public pages (Home, Portfolio, Pricing, Contact)
-- Admin panel with authentication
-- Portfolio management (CRUD operations)
-- Content management system
-- Analytics tracking and export
-- Contact form with email integration
-- Music player component
-- Video background with fallbacks
-- Responsive design with Tailwind CSS
-- Security features (rate limiting, input validation)
-- Data backup functionality
-
-✅ **Recently Fixed:**
-- Created missing public directory structure
-- Fixed authentication middleware for Next.js 14 App Router
-- Added missing API routes (admin/submissions)
-- Created required data files (analytics.json, submissions.json)
-- Added placeholder media files
-- Updated documentation
-
-🚧 **Next Steps:**
-- Add actual media files (video, audio, images)
-- Configure email settings for contact form
-- Test all functionality thoroughly
-- Deploy to production
-
-## License
-
-© 2024 Workitu Tech. All rights reserved.
+This README was prepared by Hermes Agent from repository analysis. Review the wording and project-specific assumptions before merging.
