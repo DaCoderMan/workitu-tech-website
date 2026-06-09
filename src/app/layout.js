@@ -10,7 +10,7 @@ import { GoogleAnalytics, GoogleTagManager } from '../components/Analytics';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.tech';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.com';
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),
@@ -53,7 +53,7 @@ export const metadata = {
     siteName: 'Workitu Tech',
     images: [
       {
-        url: '/images/og-thumbnail.jpg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Workitu Tech — AI Automation for Professionals. A robotic golden bee representing intelligent automation.',
@@ -64,7 +64,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Workitu Tech — AI That Works While You Sleep',
     description: 'Custom AI WhatsApp bots, tech mentoring, digital marketing & automation for professionals in Israel. Trilingual service. Ready in 7 days.',
-    images: ['/images/og-thumbnail.jpg'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -95,6 +95,12 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <StructuredData />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <link rel="me" href="mailto:contact@workitu.com" />
+        <link rel="me" href="https://www.linkedin.com/in/jonsamper" />
+        <link rel="me" href="https://github.com/DaCoderMan" />
+        <link rel="me" href="https://www.instagram.com/jonathanperlin2" />
+        <link rel="me" href="https://www.facebook.com/jonathan.s.perlin" />
       </head>
       <body className="bg-[#fffcf5] text-stone-700 min-h-screen">
         <Suspense fallback={null}>

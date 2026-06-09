@@ -1,9 +1,13 @@
 export const metadata = {
-  title: 'Pricing',
-  description: 'Transparent pricing for web development, AI solutions, e-commerce, and digital marketing services from Workitu Tech.',
+  title: 'Pricing — AI Automation & Web Development Services',
+  description: 'Transparent pricing for AI WhatsApp bots, web development, automation, and digital marketing services in Israel. Custom quotes for projects — no hidden fees.',
+  keywords: ['AI automation pricing Israel', 'WhatsApp bot cost', 'web development Israel price', 'digital marketing pricing', 'AI agent cost Israel', 'custom software price'],
   openGraph: {
-    title: 'Pricing - Workitu Tech',
-    description: 'Flexible pricing plans tailored to your project needs. Get a quote for web, AI, e-commerce, or marketing.',
+    title: 'Pricing — AI Automation & Web Development | Workitu Tech',
+    description: 'Transparent pricing: AI WhatsApp bots, web dev, automation & digital marketing in Israel. Custom quotes, no hidden fees.',
+  },
+  alternates: {
+    canonical: 'https://workitu.com/pricing',
   },
 };
 

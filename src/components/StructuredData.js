@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.tech';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.com';
 
 export default function StructuredData() {
   const organizationSchema = {
@@ -7,13 +7,18 @@ export default function StructuredData() {
     name: 'Workitu Tech',
     url: 'https://www.workitu.com',
     logo: 'https://www.workitu.com/images/logo.png',
-    description: 'AI automation and web development consultancy in Israel.',
+    description: 'AI automation and web development consultancy for professionals in Israel. Custom WhatsApp bots, AI agents, and web apps. Trilingual: Portuguese, Hebrew & English.',
     email: 'contact@workitu.com',
-    areaServed: ['IL', 'BR', 'US', 'GB'],
+    areaServed: [
+      { '@type': 'Country', name: 'Israel' },
+      { '@type': 'Country', name: 'Brazil' },
+    ],
     knowsLanguage: ['en', 'pt', 'he'],
     sameAs: [
       'https://www.linkedin.com/in/jonsamper',
       'https://github.com/DaCoderMan',
+      'https://www.instagram.com/jonathanperlin2',
+      'https://www.facebook.com/jonathan.s.perlin',
     ],
   };
 
@@ -46,13 +51,16 @@ export default function StructuredData() {
     '@type': 'ProfessionalService',
     name: 'Workitu Tech',
     url: BASE_URL,
+    email: 'contact@workitu.com',
     priceRange: '$$',
     serviceType: [
-      'AI Automation',
+      'AI WhatsApp Bot Development',
       'AI Agents & Workflow Automation',
       'Custom Web Application Development',
+      'n8n Automation',
+      'Tech Mentoring & Programming Classes',
+      'Digital Marketing',
       'AI Chatbots for Business',
-      'Tech Consulting',
     ],
     areaServed: {
       '@type': 'GeoCircle',
@@ -61,7 +69,37 @@ export default function StructuredData() {
         latitude: 32.0853,
         longitude: 34.7818,
       },
-      geoRadius: '50000',
+      geoRadius: '100000',
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Workitu Tech Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'AI WhatsApp Bot',
+            description: 'Custom AI WhatsApp bot ready in 7 days',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Tech Mentoring',
+            description: 'Personalized programming and tech mentoring',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Digital Marketing',
+            description: 'SEO, social media, and digital strategy',
+          },
+        },
+      ],
     },
   };
 
