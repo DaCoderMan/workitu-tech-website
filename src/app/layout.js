@@ -117,6 +117,16 @@ export default function RootLayout({ children }) {
         </LanguageProvider>
         <Analytics />
         <SpeedInsights />
+
+        {/* Server-rendered contact & social links for SEO crawlers */}
+        <div style={{ display: 'none' }} aria-hidden="true">
+          <a href="mailto:contact@workitu.com">contact@workitu.com</a>
+          <a href="https://www.linkedin.com/in/jonsamper">LinkedIn</a>
+          <a href="https://github.com/DaCoderMan">GitHub</a>
+          <a href="https://www.instagram.com/jonathanperlin2">Instagram</a>
+          <a href="https://www.facebook.com/jonathan.s.perlin">Facebook</a>
+          <a href="https://wa.me/972587897763">WhatsApp</a>
+        </div>
       </body>
     </html>
   );
