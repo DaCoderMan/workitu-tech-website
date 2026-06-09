@@ -15,10 +15,10 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://workitu.com';
 export const metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Workitu Tech — AI Automation & Custom Solutions for Professionals',
+    default: 'Workitu Tech — AI Automation for Business',
     template: '%s | Workitu Tech',
   },
-  description: 'Workitu Tech helps professionals in Israel grow with AI automation, custom WhatsApp bots, tech mentoring, and digital marketing. Trilingual service in Portuguese, Hebrew & English. Get your AI agent running in 7 days.',
+  description: 'AI automation for professionals in Israel. Custom WhatsApp bots, web apps, tech mentoring & digital marketing. Trilingual: PT/EN/HE. Ready in 7 days.',
   keywords: [
     'AI WhatsApp bot Israel',
     'bot WhatsApp empresas brasileiras Israel',
@@ -46,7 +46,7 @@ export const metadata = {
   publisher: 'Workitu Tech',
   openGraph: {
     title: 'Workitu Tech — AI That Works While You Sleep',
-    description: 'Custom AI WhatsApp bots, tech mentoring, digital marketing, and automation for professionals in Israel. Trilingual (PT/EN/HE). Your AI agent ready in 7 days.',
+    description: 'Custom AI WhatsApp bots, tech mentoring & automation for professionals in Israel. Trilingual (PT/EN/HE). Ready in 7 days.',
     type: 'website',
     locale: 'en_US',
     url: BASE_URL,
@@ -121,6 +121,7 @@ export default function RootLayout({ children }) {
         {/* Server-rendered contact & social links for SEO crawlers */}
         <div style={{ display: 'none' }} aria-hidden="true">
           <a href="mailto:contact@workitu.com">contact@workitu.com</a>
+          <a href="tel:+972587897763">WhatsApp</a>
           <a href="https://www.linkedin.com/in/jonsamper">LinkedIn</a>
           <a href="https://github.com/DaCoderMan">GitHub</a>
           <a href="https://www.instagram.com/jonathanperlin2">Instagram</a>
